@@ -1,0 +1,26 @@
+{
+  "name": "frontend-acceptance-tests",
+  "version": "0.0.0",
+  "description": "Acceptance tests for the Get a Fishing Licence frontend",
+  "engines": {
+    "node": ">=12"
+  },
+  "keywords": [
+    "rod",
+    "fishing",
+    "licence",
+    "service",
+    "qa",
+    "tests"
+  ],
+  "author": "DEFRA",
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/DEFRA/rod-licencing-tests.git",
+    "directory": "packages/frontend-acceptance-tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "name": "rod-licencing-tests",
+  "version": "0.0.1",
+  "description": "QA testing for the rod-licencing digital services",
+  "private": true,
+  "engines": {
+    "node": ">=12"
+  },
+  "keywords": [
+    "rod",
+    "fishing",
+    "licence",
+    "service",
+    "qa",
+    "tests"
+  ],
+  "author": "DEFRA",
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/DEFRA/rod-licencing-tests.git"
+  },
+  "scripts": {
+    "postinstall": "npm run lerna:bootstrap"
+  },
+  "devDependencies": {
+    "husky": "^4.2.3",
+    "lerna": "^3.20.2",
+    "lerna-update-wizard": "^0.17.7",
+    "prettier-standard": "^16.2.1",
+    "standard": "^14.3.3"
+  },
+  "prettier": {
+    "printWidth": 140
+  },
+  "standard": {
+    "env": {
+      "node": true,
+      "jest": true
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": [
+      "prettier-standard --lint"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "frontend-performance-tests",
+  "version": "0.0.0",
+  "description": "Performance tests for the Get a Fishing Licence frontend",
+  "engines": {
+    "node": ">=12"
+  },
+  "keywords": [
+    "rod",
+    "fishing",
+    "licence",
+    "service",
+    "performance",
+    "tests"
+  ],
+  "author": "DEFRA",
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/DEFRA/rod-licencing-tests.git",
+    "directory": "packages/frontend-performance-tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}
