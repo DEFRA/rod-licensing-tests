@@ -21,7 +21,9 @@
     "url": "git://github.com/DEFRA/rod-licencing-tests.git"
   },
   "scripts": {
-    "postinstall": "npm run lerna:bootstrap"
+    "postinstall": "npm run lerna:bootstrap",
+    "format": "prettier-standard",
+    "lerna:clean": "lerna clean --yes"
   },
   "devDependencies": {
     "husky": "^4.2.3",
