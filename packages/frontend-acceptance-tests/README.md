@@ -1,3 +1,3 @@
-# Rod Licencing - Frontend Acceptance Tests
+# Rod Licensing - Frontend Acceptance Tests
 
 TODO: HD to complete

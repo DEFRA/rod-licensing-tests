@@ -1,3 +1,3 @@
-# Rod Licencing - Frontend Performance Tests
+# Rod Licensing - Frontend Performance Tests
 
 TODO: HD to complete

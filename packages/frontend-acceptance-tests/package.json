@@ -17,7 +17,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
     "type": "git",
-    "url": "git://github.com/DEFRA/rod-licencing-tests.git",
+    "url": "git://github.com/DEFRA/rod-licensing-tests.git",
     "directory": "packages/frontend-acceptance-tests"
   },
   "scripts": {

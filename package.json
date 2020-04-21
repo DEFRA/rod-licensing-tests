@@ -1,7 +1,7 @@
 {
-  "name": "rod-licencing-tests",
+  "name": "rod-licensing-tests",
   "version": "0.0.1",
-  "description": "QA testing for the rod-licencing digital services",
+  "description": "QA testing for the rod-licensing digital services",
   "private": true,
   "engines": {
     "node": ">=12"
@@ -18,7 +18,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
     "type": "git",
-    "url": "git://github.com/DEFRA/rod-licencing-tests.git"
+    "url": "git://github.com/DEFRA/rod-licensing-tests.git"
   },
   "scripts": {
     "postinstall": "npm run lerna:bootstrap",
