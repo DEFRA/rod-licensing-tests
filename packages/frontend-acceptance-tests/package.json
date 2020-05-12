@@ -22,5 +22,14 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "axe-core": "^3.5.3",
+    "chai": "^4.2.0",
+    "defra-logging-facade": "git+https://github.com/DEFRA/defra-logging-facade.git#02459ac",
+    "defra-wdio-core": "git+https://github.com/DEFRA/defra-wdio-core.git",
+    "json-to-csv": "^1.0.0",
+    "moment": "^2.24.0",
+    "simple-oauth2": "^3.1.0"
   }
 }
