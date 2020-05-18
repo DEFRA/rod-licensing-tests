@@ -8,7 +8,7 @@ class BlueBadgePage extends Page {
   setBlueBadge(blueBadge) {
     switch (blueBadge) {
       case 'yes':
-        return this.click('blue-badge-check)
+        return this.click('blue-badge-check')
         logger.info(`Blue Badge holder: ${blueBadge}`)
         break
       case 'no':

@@ -23,7 +23,7 @@ const custom = {
   //   tagExpression: '@pension and not @tool'
   // }),
 
-  baseUrl: 'https://www.gov.uk/'
+  baseUrl: 'localhost:3000'
 
 }
 

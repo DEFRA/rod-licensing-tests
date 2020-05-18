@@ -1,7 +1,7 @@
 'use strict'
 
 const { defineStep } = require('cucumber')
-const contactDetails = require('../../pages/contact')
+const contactDetails = require('../../pages/contact-summary')
 
 
 /**
