@@ -5,10 +5,6 @@ const Page = require('./page')
 const {logger} = require('defra-logging-facade')
 
   class SummmaryPage extends Page {
-    onSummaryPage () {
-      $('#change-holder-name').waitForDisplayed(1000)
-      logger.info(`On the Summary Page`)
-    }
     typeChange () {
       $('#change-licence-type').waitForDisplayed(1000)
       this.click('#change-licence-type')
@@ -18,11 +14,15 @@ const {logger} = require('defra-logging-facade')
       this.click('#change-licence-length')
     }
     concessionChange () {
-      $('#change-disabled-concession').waitForDisplayed(1000)
+      $('#change-benefit-').waitForDisplayed(1000)
       this.click('#change-disabled-concession')
     }
+    concessionChange () {
+      $('#add-benefit-check').waitForDisplayed(1000)
+      this.click('#add-benefit-check')
+    }
     startChange () {
-      $('#change-start-date').waitForDisplayed(1000)
+      $('#change-to-start').waitForDisplayed(1000)
       this.click('#change-start-date')
     }
     rodsChange () {
@@ -30,4 +30,4 @@ const {logger} = require('defra-logging-facade')
       this.click('#change-number-of-rods')
     }
 }
-module.exports = new SummmaryPage('/buy/summary')
+module.exports = new SummmaryPage('/buy/licence-summary')

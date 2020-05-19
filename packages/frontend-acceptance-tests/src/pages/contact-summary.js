@@ -18,7 +18,7 @@ const {logger} = require('defra-logging-facade')
       this.click('#change-holder-dob')
     }
     emailChange () {
-     $('#change-holder-email', 1000)
+     $('#change-holder-email').waitForDisplayed(1000)
      this.click('#change-holder-email')
     }
     mobileChange () {
