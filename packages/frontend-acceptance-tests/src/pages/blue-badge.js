@@ -2,10 +2,10 @@
 
 const assert = require('assert')
 const Page = require('./page')
-const {logger} = require('defra-logging-facade')
+const { logger } = require('defra-logging-facade')
 
 class BlueBadgePage extends Page {
-  setBlueBadge(blueBadge) {
+  setBlueBadge (blueBadge) {
     switch (blueBadge) {
       case 'yes':
         return this.click('blue-badge-check')

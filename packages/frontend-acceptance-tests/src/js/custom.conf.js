@@ -4,7 +4,6 @@
 // const cucumber = require('../../node_modules/defra-wdio-core/src/conf/frameworks/cucumber.conf').config
 
 const custom = {
-
   browserstackProject: `change this in 'custom.conf.js'`,
 
   framework: 'cucumber',
@@ -23,8 +22,7 @@ const custom = {
   //   tagExpression: '@pension and not @tool'
   // }),
 
-  baseUrl: 'localhost:3000'
-
+  baseUrl: 'http://0.0.0.0:3000'
 }
 
 exports.config = custom

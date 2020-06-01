@@ -1,12 +1,12 @@
 'use strict'
 
 const assert = require('assert')
-const {logger} = require('defra-logging-facade')
+const { logger } = require('defra-logging-facade')
 const Page = require('./page')
 
 class ContactPage extends Page {
-  setContact(setEmailAddress, setMobileNumber) {
-    const hasContact = (setEmailAddress !== null);
+  setContact (setEmailAddress, setMobileNumber) {
+    const hasContact = setEmailAddress !== null
 
     if (hasContact) {
       $('#how-contacted').click()
@@ -17,9 +17,8 @@ class ContactPage extends Page {
       $('#mobile').setValue(setMobileNumber)
       logger.info(`set contact details to: ${setMobileNumber}`)
     }
-
   }
-  setNoContact(){
+  setNoContact () {
     $('#how-contacted-3').click()
     logger.info(`No contact details available`)
   }

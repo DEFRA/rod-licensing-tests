@@ -3,7 +3,6 @@
 const { defineStep } = require('cucumber')
 const name = require('../../pages/name')
 
-
 /**
  1. Step definition access the table defined in the NEG Feature file
  2. Rows relate to rows in table in feature file
@@ -19,12 +18,8 @@ defineStep('I expect the name page to show the following errors', function (erro
   }
 })
 
-
 defineStep('I am on the name page and I click continue', function () {
   name.checkUrl()
   //Set expectUrlChange to true if you expect the URL to change.
   name.continue()
 })
-
-
-

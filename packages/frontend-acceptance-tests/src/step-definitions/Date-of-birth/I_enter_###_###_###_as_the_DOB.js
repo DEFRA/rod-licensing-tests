@@ -1,10 +1,9 @@
-
 const { defineStep } = require('cucumber')
 const DobPage = require('../../pages/set-dob')
 
 defineStep(/^I enter "(.*)" "(.*)" "(.*)" as an invalid date of birth$/, function (setdobDay, setdobMonth, setdobYear) {
   DobPage.checkUrl()
-  DobPage.setdobDate(setdobDay,setdobMonth,setdobYear)
+  DobPage.setdobDate(setdobDay, setdobMonth, setdobYear)
   //Set expectUrlChange to true if you expect the URL to change.
   DobPage.continue()
 })

@@ -1,7 +1,7 @@
 'use strict'
 
 const { defineStep } = require('cucumber')
-const blueBadge = require('../../pages/blue-badge')
+const termsCon = require('../../pages/terms-and-conditions')
 
 /**
  1. Step definition access the table defined in the NEG Feature file
@@ -11,15 +11,15 @@ const blueBadge = require('../../pages/blue-badge')
  *
  */
 
-defineStep('I expect the blue badge page to show the following errors', function (errorTable) {
+defineStep('I expect the terms and conditions page to show the following errors', function (errorTable) {
   const rows = errorTable.hashes()
   for (const row of rows) {
-    blueBadge.checkErrorsOnPage(row.ErrorMessage)
+    termsCon.checkErrorsOnPage(row.ErrorMessage)
   }
 })
 
-defineStep('I am on the blue badge page and I click continue', function () {
-  blueBadge.checkUrl()
+defineStep('I am on the terms and conditions page and I click continue', function () {
+  termsCon.checkUrl()
   //Set expectUrlChange to true if you expect the URL to change.
-  blueBadge.continue()
+  termsCon.continue()
 })

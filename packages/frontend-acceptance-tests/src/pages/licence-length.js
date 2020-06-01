@@ -1,9 +1,7 @@
 'use strict'
 
 const expect = require('chai').expect
-const {logger} = require('defra-logging-facade')
-
-
+const { logger } = require('defra-logging-facade')
 
 const Page = require('./page')
 
@@ -14,17 +12,15 @@ class LicenceLengthPage extends Page {
     switch (licenceDuration) {
       case '1dayLicence':
         return this.click('#licence-length')
-          break
+        break
       case '8dayLicence':
         return this.click('#licence-length-2')
-          break
+        break
       case '12MonthLicence':
         return this.click('#licence-length-3')
-          break
+        break
     }
-
   }
-
 }
 
 module.exports = new LicenceLengthPage('/buy/licence-length')

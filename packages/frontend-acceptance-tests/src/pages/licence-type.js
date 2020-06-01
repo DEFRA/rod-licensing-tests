@@ -1,10 +1,10 @@
 'use strict'
 const assert = require('assert')
 const Page = require('./page')
-const {logger} = require('defra-logging-facade')
+const { logger } = require('defra-logging-facade')
 
 class FishTypePage extends Page {
-  setFishType(fishType) {
+  setFishType (fishType) {
     logger.info(`Licence Type selected as: ${fishType}`)
     switch (fishType) {
       case 'coarse':

@@ -1,14 +1,13 @@
 'use strict'
 
 const { Core } = require('defra-wdio-core')
-const {logger} = require('defra-logging-facade')
+const { logger } = require('defra-logging-facade')
 const expect = require('chai').expect
 
-
-const CONTINUE_SELECTOR = '.button'
+const CONTINUE_SELECTOR = '#continue'
 
 class Page extends Core {
-  constructor(url) {
+  constructor (url) {
     super(url)
     this.url = url
   }
@@ -17,7 +16,6 @@ class Page extends Core {
     browser.url(this.url)
     this.checkUrl()
   }
-
 
   checkUrl () {
     const waitforTimeout = browser.options.waitforTimeout
@@ -31,33 +29,33 @@ class Page extends Core {
     }
     let currentUrl = getPageUrl()
     try {
-      browser.waitUntil(() => {
-        currentUrl = getPageUrl()
-        return currentUrl.endsWith(this.url)
-      }, waitforTimeout, `Expected Url ${currentUrl} to end with ${this.url}`)
+      browser.waitUntil(
+        () => {
+          currentUrl = getPageUrl()
+          return currentUrl.endsWith(this.url)
+        },
+        waitforTimeout,
+        `Expected Url ${currentUrl} to end with ${this.url}`
+      )
     } catch (error) {
       this.screenshot()
       throw error
     }
   }
 
-
-  checkErrorsOnPage (errorMessage)  {
+  checkErrorsOnPage (errorMessage) {
     const errorElement = $(`span=${errorMessage}`)
     expect(errorElement.isExisting()).to.equal(true)
   }
 
-  clickContinue () {
-    this.clickButton(CONTINUE_SELECTOR)
-  }
   continue () {
-   // this.checkOpen()
+    this.checkUrl()
     this.clickNavigationLink(CONTINUE_SELECTOR)
     logger.info(` Click continue and navigate to the next page`)
   }
 
   clickNavigationLink (selector) {
-      $(selector).click()
+    $(selector).click()
   }
 }
 

@@ -3,7 +3,6 @@
 const { defineStep } = require('cucumber')
 const startKind = require('../../pages/start-kind')
 
-
 /**
  1. Step definition access the table defined in the NEG Feature file
  2. Rows relate to rows in table in feature file
@@ -19,12 +18,8 @@ defineStep('I expect the start kind page to show the following errors', function
   }
 })
 
-
 defineStep('I am on the start kind page and I click continue', function () {
   startKind.checkUrl()
   //Set expectUrlChange to true if you expect the URL to change.
   startKind.continue()
 })
-
-
-

@@ -1,8 +1,7 @@
 'use strict'
 
 const { defineStep } = require('cucumber')
-const DOB= require('../../pages/set-dob')
-
+const DOB = require('../../pages/set-dob')
 
 /**
  1. Step definition access the table defined in the NEG Feature file
@@ -19,12 +18,8 @@ defineStep('I expect the dob page to show the following errors', function (error
   }
 })
 
-
 defineStep('I am on the dob page and I click continue', function () {
   DOB.checkUrl()
   //Set expectUrlChange to true if you expect the URL to change.
   DOB.continue()
 })
-
-
-

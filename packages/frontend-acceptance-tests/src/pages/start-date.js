@@ -3,11 +3,11 @@
 const assert = require('assert')
 const moment = require('moment')
 const Page = require('./page')
-const {logger} = require('defra-logging-facade')
+const { logger } = require('defra-logging-facade')
 
 class StartWhenPage extends Page {
   // Set the start date to 2 days from today's date
-  twoDaysFromToday() {
+  twoDaysFromToday () {
     const now = moment()
     const twoDaysFromToday = now.add(2, 'days')
     const day = moment(twoDaysFromToday).date()
