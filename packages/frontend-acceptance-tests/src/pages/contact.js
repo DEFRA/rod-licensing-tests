@@ -6,21 +6,21 @@ const Page = require('./page')
 
 class ContactPage extends Page {
   setContact(setEmailAddress, setMobileNumber) {
-    const hasContact = (setEmailAddress !== null && setMobileNumber !== null);
+    const hasContact = (setEmailAddress !== null);
 
     if (hasContact) {
-      $('label[for=contactMe]').click()
+      $('#how-contacted').click()
       $('#email').setValue(setEmailAddress)
-      $('#mobile').setValue(setMobileNumber)
-      logger.info(`set contact details to: ${setEmailAddress} & ${setMobileNumber}`)
+      logger.info(`set contact details to: ${setEmailAddress}`)
     } else {
-      $('label[for=doNotContactMe]').click()
-      logger.info(`No contact details available`)
+      $('#how-contacted-2').click()
+      $('#mobile').setValue(setMobileNumber)
+      logger.info(`set contact details to: ${setMobileNumber}`)
     }
 
   }
   setNoContact(){
-    $('label[for=doNotContactMe]').click()
+    $('#how-contacted-3').click()
     logger.info(`No contact details available`)
   }
 }

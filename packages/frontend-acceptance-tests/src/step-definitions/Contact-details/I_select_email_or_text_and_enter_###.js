@@ -2,7 +2,7 @@
 
 const { defineStep } = require('cucumber')
 const { core } = require('defra-wdio-core')
-const ContactPage = require('../../pages/contact-summary')
+const ContactPage = require('../../pages/contact')
 
 defineStep(/^I enter email as "(.*)" and number as "(.*)"$/, function(setEmailAddress, setMobileNumber){
   ContactPage.checkUrl()
