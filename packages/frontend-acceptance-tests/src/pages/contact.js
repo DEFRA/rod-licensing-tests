@@ -6,7 +6,7 @@ const Page = require('./page')
 
 class ContactPage extends Page {
   setContact (setEmailAddress, setMobileNumber) {
-    const hasContact = setEmailAddress !== null
+    const hasContact = (setEmailAddress !== null)
 
     if (hasContact) {
       $('#how-contacted').click()

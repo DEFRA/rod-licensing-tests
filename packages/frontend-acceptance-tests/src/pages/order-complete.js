@@ -10,4 +10,4 @@ class OrderConfirmPage extends Page {
     logger.info(`On the Permission Confirmation page - Order Complete`)
   }
 }
-module.exports = new OrderConfirmPage('/buy/number-of-rods')
+module.exports = new OrderConfirmPage('/buy/order-complete')

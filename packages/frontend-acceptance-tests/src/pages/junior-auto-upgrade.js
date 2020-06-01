@@ -8,4 +8,4 @@ class JuniorUpgradePage extends Page {
     logger.info('Junior licence page displayed')
   }
 }
-module.exports = new JuniorUpgradePage('/buy/upgrade-licence')
+module.exports = new JuniorUpgradePage('/buy/junior-licence')

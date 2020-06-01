@@ -5,9 +5,8 @@ const { logger } = require('defra-logging-facade')
 
 class AddressResults extends Page {
   // Set the radio button depending on data file value, and click continue
-  selectAddress (uprn) {
-    const toClick = "label[for='" + uprn + "']"
-    this.click(toClick)
+  selectAddress () {
+    this.click('#address')
     logger.info(`Address selected successfully`)
   }
 }

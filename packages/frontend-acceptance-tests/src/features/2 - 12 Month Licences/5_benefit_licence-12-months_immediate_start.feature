@@ -10,7 +10,6 @@ Feature: I want to buy a annual fishing
     *   I am 7 days over my 17th birthday
     *   I select yes for the benefits
     And I enter "NP382030C" as a NI number
-    And I enter "BB123456789" as a blue badge number
     And I am on the summary page and and I click continue
     And I enter "Adult" "Test" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
@@ -30,7 +29,6 @@ Feature: I want to buy a annual fishing
     *   I am 7 days over my 17th birthday
     *   I select yes for the benefits
     And I enter "NP382030C" as a NI number
-    And I enter "BB123456789" as a blue badge number
     And I am on the summary page and and I click continue
     And I enter "Adult" "Test" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
@@ -50,13 +48,11 @@ Feature: I want to buy a annual fishing
     *   I am 7 days over my 17th birthday
     *   I select yes for the benefits
     And I enter "NP382030C" as a NI number
-    And I enter "BB123456789" as a blue badge number
     And I am on the summary page and and I click continue
     And I enter "Adult" "Test" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I do not have either of these
-    And I do not want a newsletter
     And I am on the contact summary page and and I click continue
     And I select I agree and and I click continue
     And I enter payment details

@@ -7,11 +7,11 @@ class ConcessionPage extends Page {
   setConcession (concession) {
     switch (concession) {
       case 'yes':
-        return this.click('benefit-check')
+        return this.click('#benefit-check')
         logger.info(`Receiving Benefits: ${concession}`)
         break
       case 'no':
-        return this.click('benefit-check-2')
+        return this.click('#benefit-check-2')
         logger.info(`Receiving Benefits: ${concession}`)
         break
     }

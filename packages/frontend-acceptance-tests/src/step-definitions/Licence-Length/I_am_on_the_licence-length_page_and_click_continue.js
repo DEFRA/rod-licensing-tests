@@ -20,7 +20,6 @@ defineStep('I expect the licence length page to show the following errors', func
 
 defineStep('I am on the licence length page and I click continue', function () {
   licenceLength.open() // only add when opening the service.
-  licenceLength.checkUrl()
   //Set expectUrlChange to true if you expect the URL to change.
   licenceLength.continue()
 })

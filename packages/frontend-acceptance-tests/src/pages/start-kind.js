@@ -8,10 +8,10 @@ class StartWhenPage extends Page {
   setStartKind (startKind) {
     switch (startKind) {
       case 'Now':
-        return $('licence-to-start').click()
+        return $('#licence-to-start').click()
         break
       case 'AnotherTime':
-        return $('licence-to-start-2').click()
+        return $('#licence-to-start-2').click()
         break
     }
     çç

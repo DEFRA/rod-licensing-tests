@@ -8,13 +8,13 @@ class NumberOfRodsPage extends Page {
   setNumberOfRods (numberOfRods) {
     switch (numberOfRods) {
       case 2:
-        return $('number-of-rods').click()
+        return $('#number-of-rods').click()
         logger.info(`Number of rods selected: ${numberOfRods}`)
       case 3:
-        return $('number-of-rods-2').click()
+        return $('#number-of-rods-2').click()
         logger.info(`Number of rods selected: ${numberOfRods}`)
       default:
-        return $('number-of-rods').click()
+        return $('#number-of-rods').click()
         logger.info(`Number of rods selected: ${numberOfRods}`)
     }
   }

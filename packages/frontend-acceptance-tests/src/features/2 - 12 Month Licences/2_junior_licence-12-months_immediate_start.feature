@@ -47,7 +47,6 @@ Feature: I want to buy a junior annual fishing
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I do not have either of these
-    And I do not want a newsletter
     And I am on the contact summary page and and I click continue
     And I select I agree and and I click continue
     Then I am on the order confirmation page and exit the service

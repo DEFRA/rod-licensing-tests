@@ -11,13 +11,13 @@ class LicenceLengthPage extends Page {
     logger.info(`Licence requested: ${licenceDuration}`)
     switch (licenceDuration) {
       case '1dayLicence':
-        return this.click('#licence-length')
+        return this.click('#licence-length-3')
         break
       case '8dayLicence':
         return this.click('#licence-length-2')
         break
       case '12MonthLicence':
-        return this.click('#licence-length-3')
+        return this.click('#licence-length')
         break
     }
   }

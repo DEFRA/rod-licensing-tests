@@ -13,5 +13,5 @@ defineStep(/^I enter "(\d{2}\/\d{2}\/\d{4})" as the date of birth$/, function (d
   DobPage.checkUrl()
   DobPage.setdobDate(dobParts[0], dobParts[1], dobParts[2])
   //Set expectUrlChange to true if you expect the URL to change.
-  DobPage.click('button', 'Continue', true)
+  DobPage.continue()
 })
