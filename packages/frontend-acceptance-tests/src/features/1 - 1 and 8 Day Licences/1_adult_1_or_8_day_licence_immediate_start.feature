@@ -6,14 +6,14 @@ Feature: I want to buy a 1 or 8 day licence adult fishing licence
     And I select a <licenceType> fishing licence
     And I select <startTime> as a start time
     *   I am 1 day over my 17th birthday
-    And I am on the summary page and and I click continue
+    And I am on the licencne summary page and I click continue
     And I enter "<firstName>" "<lastName>" as the name
     And I enter "<houseNo>" and "<postCode>" as my house number and postcode
     And I select "<selectAddress>" as an address
     And I enter email as "<email>" and number as "<number>"
     And I receive a newsletter and enter "<newsEmail>"
-    And I am on the contact summary page and and I click continue
-    And I select I agree and and I click continue
+    And I am on the contact summary page and I click continue
+    And I select I agree and I click continue
     And I enter payment details
     And I confirm payment details
     Then I am on the order confirmation page and exit the service
@@ -31,14 +31,14 @@ Feature: I want to buy a 1 or 8 day licence adult fishing licence
     And I enter date two days from today and click continue
     And I enter a start time of "<startTime>"
     *   I am 1 day over my 17th birthday
-    And I am on the summary page and and I click continue
+    And I am on the licence summary page and I click continue
     And I enter "<firstName>" "<lastName>" as the name
     And I enter "<houseNo>" and "<postCode>" as my house number and postcode
     And I select "<selectAddress>" as an address
     And I enter email as "<email>" and number as "<number>"
     And I do not want a newsletter
-    And I am on the contact summary page and and I click continue
-    And I select I agree and and I click continue
+    And I am on the contact summary page and I click continue
+    And I select I agree and I click continue
     And I enter payment details
     And I confirm payment details
     Then I am on the order confirmation page and exit the service

@@ -11,14 +11,14 @@ Feature: I want to buy a annual fishing
     *   I select no for the benefits
     *   I select yes for the blue badge
     And I enter "BB123456789" as a blue badge number
-    And I am on the summary page and and I click continue
+    And I am on the licence summary page and I click continue
     And I enter "Adult" "Test" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I enter email as "howard@gmail.com" and number as "07885066406"
     And I do not want a newsletter
-    And I am on the contact summary page and and I click continue
-    And I select I agree and and I click continue
+    And I am on the contact summary page and I click continue
+    And I select I agree and I click continue
     And I enter payment details
     And I confirm payment details
     Then I am on the order confirmation page and exit the service
@@ -32,14 +32,14 @@ Feature: I want to buy a annual fishing
     *   I select no for the benefits
     *   I select yes for the blue badge
     And I enter "BB123456789" as a blue badge number
-    And I am on the summary page and and I click continue
+    And I am on the licence summary page and I click continue
     And I enter "Adult" "Test" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I enter email as "howard@gmail.com" and number as "07885066406"
     And I do not want a newsletter
-    And I am on the contact summary page and and I click continue
-    And I select I agree and and I click continue
+    And I am on the contact summary page and I click continue
+    And I select I agree and I click continue
     And I enter payment details
     And I confirm payment details
     Then I am on the order confirmation page and exit the service
@@ -52,13 +52,13 @@ Feature: I want to buy a annual fishing
     *   I select no for the benefits
     *   I select yes for the blue badge
     And I enter "BB123456789" as a blue badge number
-    And I am on the summary page and and I click continue
+    And I am on the licence summary page and I click continue
     And I enter "Adult" "Test" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I do not have either of these
     And I am on the contact summary page and and I click continue
-    And I select I agree and and I click continue
+    And I select I agree and I click continue
     And I enter payment details
     And I confirm payment details
     Then I am on the order confirmation page and exit the service
