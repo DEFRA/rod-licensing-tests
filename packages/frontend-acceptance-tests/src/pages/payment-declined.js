@@ -6,7 +6,7 @@ const Page = require('./page')
 
 class paymentCancelled extends Page {
   exitService () {
-    $("//*[@class='grey-button govuk-button-adjacent']").click()
+    $('=Buy another licence').click()
   }
 
   retryPayment () {

@@ -10,57 +10,53 @@ class StartTimePage extends Page {
     logger.info(`Time is set: ${time}`)
     switch (time) {
       case 'midnight':
-        return $('label[for=_0]').click()
-      case '12am':
-        return $('label[for=_0]').click()
+        return $('#licence-start-time-am').click()
       case '1am':
-        return $('label[for=_1]').click()
+        return $('#licence-start-time-am-2').click()
       case '2am':
-        return $('label[for=_2]').click()
+        return $('#licence-start-time-am-3').click()
       case '3am':
-        return $('label[for=_3]').click()
+        return $('#licence-start-time-am-4').click()
       case '4am':
-        return $('label[for=_4]').click()
+        return $('#licence-start-time-am-5').click()
       case '5am':
-        return $('label[for=_5]').click()
+        return $('#licence-start-time-am-6').click()
       case '6am':
-        return $('label[for=_6]').click()
+        return $('#licence-start-time-am-7').click()
       case '7am':
-        return $('label[for=_7]').click()
+        return $('#licence-start-time-am-8').click()
       case '8am':
-        return $('label[for=_8]').click()
+        return $('#licence-start-time-am-9').click()
       case '9am':
-        return $('label[for=_9]').click()
+        return $('#licence-start-time-am-10').click()
       case '10am':
-        return $('label[for=_10]').click()
+        return $('#licence-start-time-am-11').click()
       case '11am':
-        return $('label[for=_11]').click()
+        return $('#licence-start-time-am-12').click()
       case 'midday':
-        return $('label[for=_12]').click()
-      case '12pm':
-        return $('label[for=_12').click()
+        return $('#licence-start-time-pm').click()
       case '1pm':
-        return $('label[for=_13]').click()
+        return $('#licence-start-time-pm-2').click()
       case '2pm':
-        return $('label[for=_14]').click()
+        return $('#licence-start-time-pm-3').click()
       case '3pm':
-        return $('label[for=_15]').click()
+        return $('#licence-start-time-pm-4').click()
       case '4pm':
-        return $('label[for=_16]').click()
+        return $('#licence-start-time-pm-5').click()
       case '5pm':
-        return $('label[for=_17]').click()
+        return $('#licence-start-time-pm-6').click()
       case '6pm':
-        return $('label[for=_18]').click()
+        return $('#licence-start-time-pm-7').click()
       case '7pm':
-        return $('label[for=_19]').click()
+        return $('#licence-start-time-pm-8').click()
       case '8pm':
-        return $('label[for=_20]').click()
+        return $('#licence-start-time-pm-9').click()
       case '9pm':
-        return $('label[for=_21]').click()
+        return $('#licence-start-time-pm-10').click()
       case '10pm':
-        return $('label[for=_22]').click()
+        return $('#licence-start-time-pm-11').click()
       case '11pm':
-        return $('label[for=_23]').click()
+        return $('#licence-start-time-pm-12').click()
     }
   }
 }
