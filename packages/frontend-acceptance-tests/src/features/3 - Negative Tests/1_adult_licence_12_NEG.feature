@@ -8,8 +8,8 @@ Feature: Buy a Fishing Licence - Error messages
 #  Scenario 1.1: Test Errors on Licence Length page -  Error messages relate to not selecting a licence length
     Given I am on the licence length page and I click continue
     Then I expect the licence length page to show the following errors
-      | ErrorMessage                                      |
-      | You did not tell us which licence you want        |
+      | ErrorMessage                              |
+      | You did not tell us which licence you want |
     And I select a 12MonthLicence licence
 
   Scenario: Scenario 2 - Type of Fish Errors
@@ -17,7 +17,7 @@ Feature: Buy a Fishing Licence - Error messages
     When I am on the type of fish page and I click continue
     Then I expect the type of fish page to show the following errors
       | ErrorMessage                                        |
-      | Tell us which type of fishing licence you want      |
+      | You did not tell us which type of licence you want      |
     *   I select a coarse fishing licence
 
   Scenario: Scenario 3 - Number of Rods Errors
@@ -25,7 +25,7 @@ Feature: Buy a Fishing Licence - Error messages
     When I am on the number of rods page and I click continue
     Then I expect the number of rods page to show the following errors
       | ErrorMessage                |
-      | Choose the number of rods   |
+      | You did not tell us how many rods would you like to licence?   |
     *   I select up to 2 trout rod licence
 
   Scenario: Scenario 4 - Start Kind Errors
@@ -33,15 +33,22 @@ Feature: Buy a Fishing Licence - Error messages
     When I am on the start kind page and I click continue
     Then I expect the start kind page to show the following errors
       | ErrorMessage                                        |
-      | Select when you'd like your licence to start        |
+      | Tell us when would you like your licence to start?        |
     And I select AnotherTime as a start time
 
   Scenario: Scenario 5 - Start Date Errors
 # Scenario 5.1: Test Errors on Start Date page -  Error messages - No date entered
     When I am on the start date page and I click continue
     Then I expect the start date page to show the following errors
-      | ErrorMessage                                    |
-      | Enter a valid date that is within 60 days       |
+      | ErrorMessage                                                                                             |
+      | Not a valid date. Enter the date you want the licence to start on and include a day, month and year      |
+
+  Scenario: Scenario 5 - Start Date Errors
+# Scenario 5.1: Test Errors on Start Date page -  Error messages - No date entered
+    When I enter date two days in the past and click continueu
+    Then I expect the start date page to show the following errors
+      | ErrorMessage                                |
+      | The licence must not start in the past      |
     And I enter date two days from today and click continue
 
   Scenario: Scenario 6 - DOB Name Errors

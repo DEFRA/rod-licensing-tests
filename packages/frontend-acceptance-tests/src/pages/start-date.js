@@ -17,5 +17,16 @@ class StartWhenPage extends Page {
     $('#licence-start-date-month').setValue(month)
     $('#licence-start-date-year').setValue(year)
   }
+
+  subtractTwoDaysFromToday () {
+    const now = moment()
+    const subtractTwoDaysFromToday = now.subtract(2, 'days')
+    const day = moment(subtractTwoDaysFromToday).date()
+    const month = moment(subtractTwoDaysFromToday).month()
+    const year = moment(subtractTwoDaysFromToday).year()
+    $('#licence-start-date-day').setValue(day)
+    $('#licence-start-date-month').setValue(month)
+    $('#licence-start-date-year').setValue(year)
+  }
 }
 module.exports = new StartWhenPage('/buy/start-date')

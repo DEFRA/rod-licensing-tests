@@ -44,7 +44,9 @@ class Page extends Core {
   }
 
   checkErrorsOnPage (errorMessage) {
-    const errorElement = $(`span=${errorMessage}`)
+    console.log(errorMessage)
+    const errorElement = $(`a=${errorMessage}`)
+    console.log(errorElement)
     expect(errorElement.isExisting()).to.equal(true)
   }
 
