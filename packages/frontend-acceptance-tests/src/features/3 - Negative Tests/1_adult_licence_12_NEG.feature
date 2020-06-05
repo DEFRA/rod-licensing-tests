@@ -9,7 +9,7 @@ Feature: Buy a Fishing Licence - Error messages
     Given I am on the licence length page and I click continue
     Then I expect the licence length page to show the following errors
       | ErrorMessage                              |
-      | You did not tell us which licence you want |
+      | You did not tell us which licence you want     |
     And I select a 12MonthLicence licence
 
   Scenario: Scenario 2 - Type of Fish Errors
@@ -17,7 +17,7 @@ Feature: Buy a Fishing Licence - Error messages
     When I am on the type of fish page and I click continue
     Then I expect the type of fish page to show the following errors
       | ErrorMessage                                        |
-      | You did not tell us which type of licence you want      |
+      | You did not tell us which type of licence you want  |
     *   I select a coarse fishing licence
 
   Scenario: Scenario 3 - Number of Rods Errors
@@ -45,7 +45,7 @@ Feature: Buy a Fishing Licence - Error messages
 
   Scenario: Scenario 5 - Start Date Errors
 # Scenario 5.1: Test Errors on Start Date page -  Error messages - No date entered
-    When I enter date two days in the past and click continueu
+    When I enter date two days in the past and click continue
     Then I expect the start date page to show the following errors
       | ErrorMessage                                |
       | The licence must not start in the past      |
@@ -56,7 +56,7 @@ Feature: Buy a Fishing Licence - Error messages
     When I am on the dob page and I click continue
     Then I expect the dob page to show the following errors
       | ErrorMessage              |
-      | Enter your date of birth  |
+      | Enter your date of birth and include a day, month and year  |
 
 #  Scenario 6.2: Test Errors on DOB page -  Error messages - Invalid date
     When I enter "2" "" "" as an invalid date of birth
@@ -68,15 +68,15 @@ Feature: Buy a Fishing Licence - Error messages
     When I enter "2" "2" "2022" as an invalid date of birth
     Then I expect the dob page to show the following errors
       | ErrorMessage                       |
-      | Date of birth must be in the past  |
+      | Your date of birth must be in the past  |
     *   I am 7 days over my 17th birthday
 
   Scenario: Scenario 7 - Benefits Errors
 # Scenario 7.1: Test Errors on Benefits page -  Error messages - No date entered
     When I am on the benefits page and I click continue
     Then I expect the benefits page to show the following errors
-      | ErrorMessage                                                                            |
-      | Tell us if you claim Disability Living Allowance or Personal Independence Payment       |
+      | ErrorMessage         |
+      | You have not told us if you claim Disability Living Allowance or Personal Independence Payment?   |
     *   I select no for the benefits
 
   Scenario:  Scenario 8 - Blue Badge Errors
@@ -84,7 +84,7 @@ Feature: Buy a Fishing Licence - Error messages
     When I am on the blue badge page and I click continue
     Then I expect the blue badge page to show the following errors
       | ErrorMessage                           |
-      | Tell us if you hold a Blue Badge       |
+      | You have not told us if you hold a blue badge?       |
     *   I select no for the blue badge
     And I am on the licence summary page and I click continue
 
@@ -93,15 +93,15 @@ Feature: Buy a Fishing Licence - Error messages
     When I am on the name page and I click continue
     Then I expect the name page to show the following errors
       | ErrorMessage           |
-      | Enter your first name  |
-      | Enter your last name   |
+      | You did not enter your first name  |
+      | You did not enter your last name  |
 
 #  Scenario 9.2: Test Errors on Contact Name page -  Error messages - 1 character entered
     When I enter "H" "D" as an invalid name
     Then I expect the name page to show the following errors
       | ErrorMessage                                      |
-      | First name must be between 2 and 100 characters   |
-      | Last name must be between 2 and 100 characters    |
+      | Your first name must be between 2 and 100 characters  |
+      | Your last name must be between 2 and 100 characters    |
 
 #  Scenario 9.3: Test Errors on Contact Name page -  Error messages - Invalid characters entered
     When I enter "$$" "$$" as invalid characters
@@ -117,8 +117,8 @@ Feature: Buy a Fishing Licence - Error messages
     When I am on the find address page and I click continue
     Then I expect the find address page to show the following errors
       | ErrorMessage                            |
-      | Enter your house number or name         |
-      | Enter your postcode                      |
+      | You did not enter your building number or name         |
+      | You did not enter your postcode                      |
 #  Scenario 10.2: Test Errors on Find Address page -  Error messages - No date entered
     When I enter "3" and "6767676767" as an invalid house number and postcode
     Then I expect the find address page to show the following errors
@@ -139,12 +139,15 @@ Feature: Buy a Fishing Licence - Error messages
     When I am on the contact details page and I click continue
     Then I expect the contact details page to show the following errors
       | ErrorMessage                                                |
-      | Select how you would like to receive your licence details   |
-    And I enter email as "" and number as ""
+      | You have not told us how you would like to receive your licence details and expiry reminders   |
+    And I click email radio button and click continue
     Then I expect the contact details page to show the following errors
       | ErrorMessage                                                                           |
-      | Enter a valid email address                                                            |
-      | Enter a mobile number, for overseas numbers include '+' followed by your country code  |
+      | You did not enter your email address                                                           |
+    And I click mobile radio button and click continue
+    Then I expect the contact details page to show the following errors
+      | ErrorMessage                                                                           |
+      | You did not enter your mobile phone number  |
     And I enter email as "" and number as "07885066467"
 
   Scenario: Scenario 13 - Newsletter Errors

@@ -17,6 +17,14 @@ class ContactPage extends Page {
       logger.info(`set contact details to: ${setMobileNumber}`)
     }
   }
+  selectContactEmail(){
+    $('#how-contacted').click()
+    logger.info(`Email selected, no value added`)
+  }
+  selectContactMobile(){
+    $('#how-contacted-2').click()
+    logger.info(`Mobile selected, no value added`)
+  }
   setNoContact () {
     $('#how-contacted-3').click()
     logger.info(`No contact details available`)
