@@ -1,6 +1,5 @@
 'use strict'
 
-const assert = require('assert')
 const moment = require('moment')
 const Page = require('./page')
 const { logger } = require('defra-logging-facade')
@@ -16,6 +15,7 @@ class StartWhenPage extends Page {
     $('#licence-start-date-day').setValue(day)
     $('#licence-start-date-month').setValue(month)
     $('#licence-start-date-year').setValue(year)
+    logger.info(`Date of Birth set as: ${day}/${month}/${year}`)
   }
 
   subtractTwoDaysFromToday () {
@@ -27,6 +27,7 @@ class StartWhenPage extends Page {
     $('#licence-start-date-day').setValue(day)
     $('#licence-start-date-month').setValue(month)
     $('#licence-start-date-year').setValue(year)
+    logger.info(`Date of Birth set as: ${day}/${month}/${year}`)
   }
 }
 module.exports = new StartWhenPage('/buy/start-date')

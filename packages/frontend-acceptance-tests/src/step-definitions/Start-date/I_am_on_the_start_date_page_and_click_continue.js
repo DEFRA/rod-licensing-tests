@@ -20,6 +20,5 @@ defineStep('I expect the start date page to show the following errors', function
 
 defineStep('I am on the start date page and I click continue', function () {
   startDate.checkUrl()
-  //Set expectUrlChange to true if you expect the URL to change.
   startDate.continue()
 })

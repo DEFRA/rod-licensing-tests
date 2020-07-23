@@ -20,6 +20,5 @@ defineStep('I expect the terms and conditions page to show the following errors'
 
 defineStep('I am on the terms and conditions page and I click continue', function () {
   termsCon.checkUrl()
-  //Set expectUrlChange to true if you expect the URL to change.
   termsCon.continue()
 })

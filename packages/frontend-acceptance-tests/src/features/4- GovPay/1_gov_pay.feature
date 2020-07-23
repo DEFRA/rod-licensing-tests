@@ -17,7 +17,7 @@ Feature: I want to buy a 1 or 8 day licence adult fishing licence
     And I enter payment details as "<cardNo>"
     And I am on the payment declined and exit the service
     Examples:
-      | LicenceLength  | firstName | lastName |  houseNo | postCode| selectAddress| startFrom|licenceType| email                  | number      | newsEmail               | cardNo          |
-      | 8dayLicence    | Adult     | Licence  | 3       | SN153PG  | 100121002711 | Now      | coarse    |howardjdavis@yahoo.co.uk| 07845066407 | howardjdavis@yahoo.co.uk|4000000000000002 |
-      | 8dayLicence    | Adult     | Licence  | 3       | SN153PG  | 100121002711 | Now      | salmon    |                        | 07845066407 |howardjdavis@yahoo.co.uk |4000000000000119 |
+      | LicenceLength  | firstName | lastName |  houseNo | postCode| selectAddress| startFrom|licenceType| email                  | number      | cardNo          |
+      | 8dayLicence    | Adult     | Licence  | 3       | SN153PG  | 100121002711 | Now      | coarse    |howardjdavis@yahoo.co.uk| 07845066407 |4000000000000002 |
+      | 8dayLicence    | Adult     | Licence  | 3       | SN153PG  | 100121002711 | Now      | salmon    |                        | 07845066407 |4000000000000119 |
 

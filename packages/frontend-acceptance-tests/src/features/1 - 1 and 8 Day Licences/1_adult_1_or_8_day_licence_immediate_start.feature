@@ -6,7 +6,7 @@ Feature: I want to buy a 1 or 8 day licence adult fishing licence
     And I select a <licenceType> fishing licence
     And I select <startTime> as a start time
     *   I am 1 day over my 17th birthday
-    And I am on the licencne summary page and I click continue
+    And I am on the licence summary page and I click continue
     And I enter "<firstName>" "<lastName>" as the name
     And I enter "<houseNo>" and "<postCode>" as my house number and postcode
     And I select "<selectAddress>" as an address

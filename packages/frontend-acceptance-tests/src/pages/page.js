@@ -1,5 +1,4 @@
 'use strict'
-
 const { Core } = require('defra-wdio-core')
 const { logger } = require('defra-logging-facade')
 const expect = require('chai').expect

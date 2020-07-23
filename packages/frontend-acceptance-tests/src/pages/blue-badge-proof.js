@@ -1,6 +1,5 @@
 'use strict'
 
-const assert = require('assert')
 const Page = require('./page')
 const { logger } = require('defra-logging-facade')
 

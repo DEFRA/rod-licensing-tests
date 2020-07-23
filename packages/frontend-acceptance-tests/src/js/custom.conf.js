@@ -22,7 +22,7 @@ const custom = {
   //   tagExpression: '@pension and not @tool'
   // }),
 
-  baseUrl: 'http://0.0.0.0:3000'
+  baseUrl: 'https://fsh-dev.aws.defra.cloud'
 }
 
 exports.config = custom

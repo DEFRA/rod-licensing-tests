@@ -1,29 +1,47 @@
 'use strict'
 
-const assert = require('assert')
 const Page = require('./page')
 const { logger } = require('defra-logging-facade')
 
 class ContactSummmaryPage extends Page {
-  onSummaryPage () {
-    $('#change-name').waitForDisplayed(1000)
-    logger.info(`On the Summary Page`)
-  }
   nameChange () {
-    $('#change-name').waitForDisplayed(1000)
-    $.click('#change-holder-name')
+    const nameChanges = $('#change-name')
+    nameChanges.waitForDisplayed(1000)
+    logger.info(`On the contact summary page`)
+    nameChanges.click()
+    logger.info(`On the Name page`)
   }
-  dobChange () {
-    $('#change-birth-date').waitForDisplayed(1000)
-    this.click('#change-birth-date')
-  }
+
   emailChange () {
-    $('#change-how-contacted').waitForDisplayed(1000)
-    this.click('#change-holder-email')
+    const changeEmailContact = $('#add-contact').isExisting()
+    if (!changeEmailContact) {
+      const emailChanges = $('#change-how-contacted')
+      emailChanges.waitForDisplayed(1000)
+      logger.info(`On the contact summary page`)
+      emailChanges.click()
+      logger.info(`On the Contact page`)
+    } else {
+      changeEmailContact.waitForDisplayed(1000)
+      logger.info(`On the contact summary page`)
+      changeEmailContact.click()
+      logger.info(`On the Contact page`)
+    }
   }
+
   addressChange () {
-    $('#change-address').waitForDisplayed(1000)
-    this.click('#change-holder-address')
+    const addressChanges = $('#change-address')
+    addressChanges.waitForDisplayed(1000)
+    logger.info(`On the contact summary page`)
+    addressChanges.click()
+    logger.info(`On the Address page`)
+  }
+
+  newsletterChange () {
+    const newsChanges = $('#change-newsletter')
+    newsChanges.waitForDisplayed(1000)
+    logger.info(`On the contact summary page`)
+    newsChanges.click()
+    logger.info(`On the Address page`)
   }
 }
 module.exports = new ContactSummmaryPage('/buy/contact-summary')

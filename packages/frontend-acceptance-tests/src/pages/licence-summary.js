@@ -1,33 +1,35 @@
 'use strict'
 
-const assert = require('assert')
 const Page = require('./page')
 const { logger } = require('defra-logging-facade')
 
 class SummmaryPage extends Page {
   typeChange () {
     $('#change-licence-type').waitForDisplayed(1000)
-    this.click('#change-licence-type')
+    logger.info(`On the licence summary page`)
+    $('#change-licence-type').click()
+    logger.info(`On the licence type page`)
   }
-  lengthChange () {
-    $('#change-licence-length').waitForDisplayed(1000)
-    this.click('#change-licence-length')
-  }
+
   concessionChange () {
-    $('#change-benefit-').waitForDisplayed(1000)
-    this.click('#change-disabled-concession')
+    $('#change-benefit-check').waitForDisplayed(1000)
+    logger.info(`On the licence Summary page`)
+    $('#change-benefit-check').click()
+    logger.info(`On the Benefit Check page`)
   }
-  concessionChange () {
-    $('#add-benefit-check').waitForDisplayed(1000)
-    this.click('#add-benefit-check')
-  }
+
   startChange () {
     $('#change-to-start').waitForDisplayed(1000)
-    this.click('#change-start-date')
+    logger.info(`On the licence Summary page`)
+    $('#change-to-start').click()
+    logger.info(`On the Start From page`)
   }
+
   rodsChange () {
     $('#change-number-of-rods').waitForDisplayed(1000)
-    this.click('#change-number-of-rods')
+    logger.info(`On the licence Summary page`)
+    $('#change-number-of-rods').click()
+    logger.info(`On the Number of Rods page`)
   }
 }
 module.exports = new SummmaryPage('/buy/licence-summary')

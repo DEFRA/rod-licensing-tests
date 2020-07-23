@@ -1,5 +1,4 @@
 'use strict'
-const assert = require('assert')
 const Page = require('./page')
 const { logger } = require('defra-logging-facade')
 
@@ -11,6 +10,7 @@ class AddressPage extends Page {
     $('#postcode').setValue(setPostcode)
     logger.info(`Postcode set as: ${setPostcode}`)
   }
+
   manuallyInputAddressLink () {
     this.waitForElementVisible('.column-two-thirds>form>p>a', 1000)
     this.click('.column-two-thirds>form>p>a')

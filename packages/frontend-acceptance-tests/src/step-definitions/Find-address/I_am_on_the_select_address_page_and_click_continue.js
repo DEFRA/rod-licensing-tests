@@ -20,6 +20,5 @@ defineStep('I expect the select address page to show the following errors', func
 
 defineStep('I am on the select address page and I click continue', function () {
   selectAddress.checkUrl()
-  //Set expectUrlChange to true if you expect the URL to change.
   selectAddress.continue()
 })

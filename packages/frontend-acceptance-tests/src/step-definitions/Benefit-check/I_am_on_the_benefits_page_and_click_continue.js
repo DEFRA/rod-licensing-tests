@@ -20,6 +20,5 @@ defineStep('I expect the benefits page to show the following errors', function (
 
 defineStep('I am on the benefits page and I click continue', function () {
   benefits.checkUrl()
-  //Set expectUrlChange to true if you expect the URL to change.
   benefits.continue()
 })

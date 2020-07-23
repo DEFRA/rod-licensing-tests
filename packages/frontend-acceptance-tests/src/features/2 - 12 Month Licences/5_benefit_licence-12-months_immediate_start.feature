@@ -1,20 +1,20 @@
 @browser
-Feature: I want to buy a annual fishing
+Feature: I want to buy an adult disabled annual fishing
 
-  Background: Buy an adult fishing licence
+  Background: Buy an adult disabled fishing licence
     Given I select a 12MonthLicence licence
 
-  Scenario: Scenario 1 - 12 Month Adult licence selecting 2 rod sea trout licence - Immediate start - Enter contact details
+  Scenario: Scenario 1 - 12 Month Adult disabled licence selecting 2 rod sea trout licence - Immediate start - Enter contact details
     Given I select a salmon fishing licence
     And  I select Now as a start time
     *   I am 7 days over my 17th birthday
     *   I select yes for the benefits
     And I enter "NP382030C" as a NI number
     And I am on the licence summary page and I click continue
-    And I enter "Adult" "Test" as the name
+    And I enter "Benefit" "Test" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
-    And I enter email as "howard@gmail.com" and number as "07885066406"
+    And I enter email as "howard@gmail.com" and number as ""
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I select I agree and I click continue
@@ -30,12 +30,12 @@ Feature: I want to buy a annual fishing
     *   I select yes for the benefits
     And I enter "NP382030C" as a NI number
     And I am on the licence summary page and I click continue
-    And I enter "Adult" "Test" as the name
+    And I enter "Benefit" "Test" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
-    And I enter email as "howard@gmail.com" and number as "07885066406"
+    And I enter email as "" and number as "07885066406"
     And I do not want a newsletter
-    And I am on the contact summary page I click continue
+    And I am on the contact summary page and I click continue
     And I select I agree and I click continue
     And I enter payment details
     And I confirm payment details
@@ -49,7 +49,7 @@ Feature: I want to buy a annual fishing
     *   I select yes for the benefits
     And I enter "NP382030C" as a NI number
     And I am on the licence summary page and I click continue
-    And I enter "Adult" "Test" as the name
+    And I enter "Benefit" "Test" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I do not have either of these

@@ -1,17 +1,18 @@
 'use strict'
 
-const assert = require('assert')
 const { logger } = require('defra-logging-facade')
 const Page = require('./page')
 
-class paymentCancelled extends Page {
+class PaymentCancelled extends Page {
   exitService () {
     $('=Buy another licence').click()
+    logger.info(`Exit Service`)
   }
 
   retryPayment () {
     $('.button').click()
+    logger.info(`Retrying payment`)
   }
 }
 
-module.exports = new paymentCancelled('/govpay/failure')
+module.exports = new PaymentCancelled('/govpay/failure')

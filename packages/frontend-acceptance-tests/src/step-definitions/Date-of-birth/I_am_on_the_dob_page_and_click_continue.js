@@ -20,6 +20,5 @@ defineStep('I expect the dob page to show the following errors', function (error
 
 defineStep('I am on the dob page and I click continue', function () {
   DOB.checkUrl()
-  //Set expectUrlChange to true if you expect the URL to change.
   DOB.continue()
 })

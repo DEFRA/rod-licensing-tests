@@ -3,7 +3,6 @@
 const { defineStep } = require('cucumber')
 const licenceLength = require('../../pages/licence-length')
 
-
 /**
  1. Step definition access the table defined in the NEG Feature file
  2. Rows relate to rows in table in feature file
@@ -19,13 +18,8 @@ defineStep('I expect the licence length page to show the following errors', func
   }
 })
 
-
 defineStep('I am on the licence length page and I click continue', function () {
   licenceLength.open() // only add when opening the service.
   licenceLength.checkUrl()
-  //Set expectUrlChange to true if you expect the URL to change.
   licenceLength.continue()
 })
-
-
-

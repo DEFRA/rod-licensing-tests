@@ -1,7 +1,6 @@
 'use strict'
 
 const { defineStep } = require('cucumber')
-const { core } = require('defra-wdio-core')
 const NewsletterPage = require('../../pages/newsletter')
 
 defineStep(/^I receive a newsletter and enter "(.*)"$/, function (setEmailAddress) {

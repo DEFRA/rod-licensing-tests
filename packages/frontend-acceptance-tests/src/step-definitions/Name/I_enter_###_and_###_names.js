@@ -6,7 +6,6 @@ const NamePage = require('../../pages/name')
 defineStep(/^I enter "(.*)" "(.*)" as the name$/, function (setFirstName, setSurName) {
   NamePage.checkUrl()
   NamePage.setName(setFirstName, setSurName)
-  //Set expectUrlChange to true if you expect the URL to change.
   NamePage.continue()
 })
 

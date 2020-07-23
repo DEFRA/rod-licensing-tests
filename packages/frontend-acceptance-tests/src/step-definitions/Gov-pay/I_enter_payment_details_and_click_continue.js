@@ -1,7 +1,6 @@
 'use strict'
 
 const { defineStep } = require('cucumber')
-const { core } = require('defra-wdio-core')
 const GovPayPage = require('../../pages/gov-pay')
 const moment = require('moment')
 

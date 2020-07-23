@@ -11,15 +11,6 @@ const licenceType = require('../../pages/licence-type')
  *
  */
 
-defineStep('I expect the type of fish page to show the following errors', function (errorTable) {
-  const rows = errorTable.hashes()
-  for (const row of rows) {
-    licenceType.checkErrorsOnPage(row.ErrorMessage)
-  }
-})
-
 defineStep('I am on the type of fish page and I click continue', function () {
-  licenceType.checkUrl()
-  //Set expectUrlChange to true if you expect the URL to change.
   licenceType.continue()
 })

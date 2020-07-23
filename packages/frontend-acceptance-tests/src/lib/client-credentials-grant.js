@@ -5,17 +5,17 @@ class TokenManager {
   constructor () {
     this._authenticator = oauth2.create({
       client: {
-        id: process.env['OAUTH_CLIENT_ID'],
-        secret: process.env['OAUTH_CLIENT_SECRET']
+        id: process.env.OAUTH_CLIENT_ID,
+        secret: process.env.OAUTH_CLIENT_SECRET
       },
       auth: {
-        tokenHost: process.env['OAUTH_TOKEN_ISSUER'],
+        tokenHost: process.env.OAUTH_TOKEN_ISSUER,
         tokenPath: '/oauth2/v2.0/token',
         authorizePath: '/oauth2/v2.0/authorize'
       }
     })
     this._tokenRequestCfg = {
-      scope: process.env['oauth_scope']
+      scope: process.env.oauth_scope
     }
     this._cachedToken = null
   }
@@ -40,7 +40,7 @@ class TokenManager {
 
   async getAuthHeaderValue () {
     const token = await this.getToken()
-    return `Bearer ${token['access_token']}`
+    return `Bearer ${token.access_token}`
   }
 }
 module.exports = new TokenManager()

@@ -19,7 +19,5 @@ defineStep('I expect the newsletter page to show the following errors', function
 })
 
 defineStep('I am on the newsletter page and I click continue', function () {
-  newsletter.checkUrl()
-  //Set expectUrlChange to true if you expect the URL to change.
   newsletter.continue()
 })

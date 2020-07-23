@@ -1,7 +1,7 @@
 'use strict'
 
 const { defineStep } = require('cucumber')
-const contactDetails = require('../../pages/contact-summary')
+const contactDetails = require('../../pages/contact')
 
 /**
  1. Step definition access the table defined in the NEG Feature file
@@ -19,7 +19,5 @@ defineStep('I expect the contact details page to show the following errors', fun
 })
 
 defineStep('I am on the contact details page and I click continue', function () {
-  contactDetails.checkUrl()
-  //Set expectUrlChange to true if you expect the URL to change.
   contactDetails.continue()
 })

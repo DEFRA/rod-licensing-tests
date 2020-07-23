@@ -1,5 +1,5 @@
 'use strict'
-const assert = require('assert')
+
 const Page = require('./page')
 const { logger } = require('defra-logging-facade')
 
@@ -9,10 +9,8 @@ class FishTypePage extends Page {
     switch (fishType) {
       case 'coarse':
         return $('#licence-type').click()
-        break
       case 'salmon':
         return $('#licence-type-2').click()
-        break
     }
   }
 }

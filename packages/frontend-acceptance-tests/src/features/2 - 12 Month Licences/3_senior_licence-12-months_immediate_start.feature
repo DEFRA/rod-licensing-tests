@@ -1,14 +1,16 @@
 @browser
-Feature: I want to buy an adult annual fishing
+Feature: I want to buy an senior annual fishing
 
-  Background: Buy an adult fishing licence
+  Background: Buy an senior fishing licence
     Given I select a 12MonthLicence licence
 
-  Scenario: Scenario 1 - 12 Month Adult licence selecting 2 rod sea trout licence - Immediate start - Enter contact details
+  Scenario: Scenario 1 - 12 Month senior licence selecting 2 rod sea trout licence - Immediate start - Enter contact details
     Given I select a coarse fishing licence
     *   I select up to 2 trout rod licence
     And I select Now as a start time
     *   I am 7 days over my 65th birthday
+    *   I select no for the benefits
+    *   I select no for the blue badge
     And I am on the licence summary page and I click continue
     And I enter "Adult" "Test" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
@@ -26,6 +28,8 @@ Feature: I want to buy an adult annual fishing
     Given I select a salmon fishing licence
     And  I select Now as a start time
     *   I am 7 days over my 65th birthday
+    *   I select no for the benefits
+    *   I select no for the blue badge
     And I am on the licence summary page and I click continue
     And I enter "Adult" "Test" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
@@ -44,6 +48,8 @@ Feature: I want to buy an adult annual fishing
     Given I select a salmon fishing licence
     And  I select Now as a start time
     *   I am 7 days over my 65th birthday
+    *   I select no for the benefits
+    *   I select no for the blue badge
     And I am on the licence summary page and I click continue
     And I enter "Adult" "Test" as the name
     And I enter "3" and "SN153PG" as my house number and postcode

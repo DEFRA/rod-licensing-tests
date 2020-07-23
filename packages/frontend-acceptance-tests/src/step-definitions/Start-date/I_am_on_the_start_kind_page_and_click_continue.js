@@ -20,6 +20,5 @@ defineStep('I expect the start kind page to show the following errors', function
 
 defineStep('I am on the start kind page and I click continue', function () {
   startKind.checkUrl()
-  //Set expectUrlChange to true if you expect the URL to change.
   startKind.continue()
 })

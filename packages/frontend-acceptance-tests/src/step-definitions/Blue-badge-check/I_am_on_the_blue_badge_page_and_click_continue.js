@@ -20,6 +20,5 @@ defineStep('I expect the blue badge page to show the following errors', function
 
 defineStep('I am on the blue badge page and I click continue', function () {
   blueBadge.checkUrl()
-  //Set expectUrlChange to true if you expect the URL to change.
   blueBadge.continue()
 })
