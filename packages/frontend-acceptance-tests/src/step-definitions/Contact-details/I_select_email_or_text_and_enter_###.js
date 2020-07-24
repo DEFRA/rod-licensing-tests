@@ -8,15 +8,3 @@ defineStep(/^I enter email as "(.*)" and number as "(.*)"$/, function (setEmailA
   ContactPage.setContact(setEmailAddress, setMobileNumber)
   ContactPage.continue()
 })
-
-defineStep('I click email radio button and click continue', function () {
-  ContactPage.checkUrl()
-  ContactPage.selectContactEmail()
-  ContactPage.continue()
-})
-
-defineStep('I click mobile radio button and click continue', function () {
-  ContactPage.checkUrl()
-  ContactPage.selectContactMobile()
-  ContactPage.continue()
-})
