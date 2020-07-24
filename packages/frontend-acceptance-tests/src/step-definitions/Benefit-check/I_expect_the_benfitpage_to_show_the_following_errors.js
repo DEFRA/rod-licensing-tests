@@ -17,4 +17,3 @@ defineStep('I expect the benefits page to show the following errors', function (
     benefits.checkErrorsOnPage(row.ErrorMessage)
   }
 })
-

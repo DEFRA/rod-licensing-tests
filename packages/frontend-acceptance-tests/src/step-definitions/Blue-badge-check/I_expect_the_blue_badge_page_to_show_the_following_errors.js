@@ -17,4 +17,3 @@ defineStep('I expect the blue badge page to show the following errors', function
     blueBadge.checkErrorsOnPage(row.ErrorMessage)
   }
 })
-

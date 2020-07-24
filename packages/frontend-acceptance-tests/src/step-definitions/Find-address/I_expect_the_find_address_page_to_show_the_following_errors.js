@@ -17,4 +17,3 @@ defineStep('I expect the find address page to show the following errors', functi
     findAddress.checkErrorsOnPage(row.ErrorMessage)
   }
 })
-

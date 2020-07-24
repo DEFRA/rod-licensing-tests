@@ -8,4 +8,3 @@ defineStep('I click email radio button and click continue', function () {
   ContactPage.selectContactEmail()
   ContactPage.continue()
 })
-

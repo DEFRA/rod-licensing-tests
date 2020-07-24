@@ -17,4 +17,3 @@ defineStep('I expect the start kind page to show the following errors', function
     startKind.checkErrorsOnPage(row.ErrorMessage)
   }
 })
-
