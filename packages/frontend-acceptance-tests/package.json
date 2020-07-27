@@ -21,6 +21,37 @@
     "directory": "packages/frontend-acceptance-tests"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "axe": "./node_modules/.bin/wdio ./custom.conf.js --spec ./features/axe.feature"
+  },
+  "prettier": {
+    "printWidth": 140
+  },
+  "eslintConfig": {
+    "globals": {
+      "$": "readonly",
+      "browser": "readonly"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*": [
+      "prettier-standard --lint"
+    ]
+  },
+  "dependencies": {
+    "@wdio/sync": "^6.1.14",
+    "axe-core": "^3.5.3",
+    "chai": "^4.2.0",
+    "defra-logging-facade": "git+https://github.com/DEFRA/defra-logging-facade.git#02459ac",
+    "defra-wdio-core": "git+https://github.com/DEFRA/defra-wdio-core.git",
+    "json-to-csv": "^1.0.0",
+    "moment": "^2.24.0",
+    "node-fetch": "^2.6.0",
+    "simple-oauth2": "^3.1.0"
   }
 }
