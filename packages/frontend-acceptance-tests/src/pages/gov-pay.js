@@ -33,5 +33,9 @@ class GovPayPage extends Page {
     $('#cvc').setValue(setCvc)
     logger.info(`Set cvc as: ${setCvc}`)
   }
+
+  continue () {
+    $('#submit-card-details').click()
+  }
 }
 module.exports = new GovPayPage()

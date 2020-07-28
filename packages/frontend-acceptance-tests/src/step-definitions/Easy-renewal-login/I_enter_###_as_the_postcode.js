@@ -1,7 +1,8 @@
 const { defineStep } = require('cucumber')
+const RenewalsPage = require('../../pages/renew-login')
 
 defineStep(/^I enter "(.*)" as the postcode and click continue$/, function (setRenewPostcode) {
-  $.renewal.checkUrl()
-  $.renewal.setRenewalPostcode(setRenewPostcode)
-  $.renewal.continue()
+  RenewalsPage.checkUrl()
+  RenewalsPage.setRenewalPostcode(setRenewPostcode)
+  RenewalsPage.continue()
 })

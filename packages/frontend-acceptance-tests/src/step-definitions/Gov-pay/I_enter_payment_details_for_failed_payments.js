@@ -13,5 +13,5 @@ defineStep(/^I enter payment details as "(.*)"$/, function (cardNo) {
   GovPayPage.setCardExpiryMonth('01')
   GovPayPage.setCardExpiryYear(futureYear)
   GovPayPage.setCvc('555')
-  GovPayPage.click('button', 'Continue', true)
+  GovPayPage.continue()
 })
