@@ -27,7 +27,7 @@
     "axe": "./node_modules/.bin/wdio ./custom.conf.js --spec ./features/axe.feature"
   },
   "devDependencies": {
-    "axe-core": "^3.5.4",
+    "axe-core": "^4.0.0",
     "husky": "^4.2.3",
     "lerna": "^3.20.2",
     "lerna-update-wizard": "^0.17.7",

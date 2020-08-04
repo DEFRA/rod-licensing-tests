@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@wdio/sync": "^6.1.14",
-    "axe-core": "^3.5.3",
+    "axe-core": "^4.0.0",
     "chai": "^4.2.0",
     "defra-logging-facade": "git+https://github.com/DEFRA/defra-logging-facade.git#02459ac",
     "defra-wdio-core": "git+https://github.com/DEFRA/defra-wdio-core.git",
