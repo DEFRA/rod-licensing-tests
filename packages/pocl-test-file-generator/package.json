@@ -4,14 +4,17 @@
   "description": "Command line utility to generate test file for POCL processor",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "mocha -r chai/register-expect",
+    "test:watch": "mocha -r chai/register-expect  --watch",
     "get-address-example": "node rrag.js && node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.2.0",
     "commander": "^6.0.0",
     "jest": "^26.2.1",
+    "mocha": "^8.1.1",
     "xmlbuilder": "^15.1.1"
   },
   "type": "module"

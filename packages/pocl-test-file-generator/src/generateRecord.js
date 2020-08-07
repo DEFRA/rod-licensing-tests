@@ -4,14 +4,14 @@ const getRandomElementFromArray = arr => arr[Math.floor(Math.random() * arr.leng
 export default function generateRecord(addresses, names) {
   const name = getRandomElementFromArray(names)
   const a = getRandomElementFromArray(addresses)
-console.log('a',a)
+
   return {
     REC: {
-      DD_REFERENCE: Math.random * 10^6,
+      DD_REFERENCE: Math.round(Math.random() * 10**6),
       LICENSEE_FORNAME: name.forename,
       LICENSEE_SURNAME: name.surname,
       LICENSEE_ADDRESS: {
-        PREMISES: `${a.address1 != '' ? `${a.address1}, `: ''}${a.address2 != '' ? `${a.address2}, `: ''}${a.address3 != '' ? `${a.address3}, `: ''}`,
+        PREMISES: [1,2,3].map(x => !!a[`address${x}`] ? `${a[`address${x}`]}, ` : '').join(''),
         STREET: a.address4,
         LOCALITY: a.address5,
         TOWN: a.address6,
