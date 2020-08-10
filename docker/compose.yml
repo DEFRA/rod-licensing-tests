@@ -1,0 +1,23 @@
+version: '3.8'
+#######################################################
+# Common project docker build options
+#######################################################
+x-common-build-options: &common-build-options
+  context: ${BUILD_CONTEXT:-../}
+
+services:
+  ##############################################################################################################
+  # rod_licensing frontend_acceptance_tests
+  ##############################################################################################################
+  frontend_acceptance_tests:
+    image: rod_licensing/frontend_acceptance_tests:${TAG:-latest}
+    build:
+      <<: *common-build-options
+      dockerfile: packages/frontend-acceptance-tests/${PROJECT_DOCKERFILE:-Dockerfile}
+    volumes:
+      - ./volumes/frontend_acceptance_tests/logs:/app/logs
+    env_file:
+      - ./env/frontend_acceptance_tests.env
+    deploy:
+      mode: replicated
+      replicas: 1

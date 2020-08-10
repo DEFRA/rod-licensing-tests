@@ -1,5 +1,4 @@
-@browser
-@axe
+@Ignore
 Feature: I want to renew my licence
 
   Scenario Outline: Scenario 1 - renew licence
@@ -27,7 +26,7 @@ Feature: I want to renew my licence
   And I am on the contact summary page and I click change newsletter
   And I do not want a newsletter
   And I am on the contact summary page and I click continue
-  And I select I agree and I click continue
+  And I agree to the terms and conditions and click continue
   And I enter payment details
   And I confirm payment details
   Then I am on the order confirmation page and exit the service

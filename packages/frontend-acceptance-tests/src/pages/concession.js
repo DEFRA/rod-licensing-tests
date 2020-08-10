@@ -8,10 +8,10 @@ class ConcessionPage extends Page {
     switch (concession) {
       case 'yes':
         logger.info(`Receiving Benefits: ${concession}`)
-        return this.click('#benefit-check')
+        return $('#benefit-check').click()
       case 'no':
         logger.info(`Receiving Benefits: ${concession}`)
-        return this.click('#benefit-check-2')
+        return $('#benefit-check-2').click()
     }
   }
 }

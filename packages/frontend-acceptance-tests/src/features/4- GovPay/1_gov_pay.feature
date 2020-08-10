@@ -2,7 +2,8 @@
 Feature: I want to buy a 1 or 8 day licence adult fishing licence
 
   Scenario Outline: Scenario Govpay - Declined, Cancelled and Error payments
-    Given  I select a <LicenceLength> licence
+    Given  I am at the start of the purchase journey
+    And I select a <LicenceLength> licence
     And I select a <licenceType> fishing licence
     And I select <startFrom> as a start time
     *   I am 1 day over my 17th birthday
@@ -13,7 +14,7 @@ Feature: I want to buy a 1 or 8 day licence adult fishing licence
     And I enter email as "<email>" and number as "<number>"
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
-    And I select I agree and I click continue
+    And I agree to the terms and conditions and click continue
     And I enter payment details as "<cardNo>"
     And I am on the payment declined and exit the service
     Examples:
