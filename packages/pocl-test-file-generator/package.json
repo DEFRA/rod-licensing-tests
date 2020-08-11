@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha -r chai/register-expect",
     "test:watch": "mocha -r chai/register-expect  --watch",
-    "get-address-example": "node rrag.js && node index.js"
+    "get-address-example": "node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +15,11 @@
     "commander": "^6.0.0",
     "jest": "^26.2.1",
     "mocha": "^8.1.1",
+    "moment": "^2.27.0",
     "xmlbuilder": "^15.1.1"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "sinon": "^9.0.3"
+  }
 }
