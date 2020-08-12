@@ -1,4 +1,4 @@
-import generateRecord from '../src/generateRecord.js'
+import generateRecord, { AGE_RANGE } from '../src/generateRecord.js'
 import moment from 'moment'
 import sinon from 'sinon'
 
@@ -35,21 +35,32 @@ describe('generate record tests', () => {
     expect(/^[0-9]{6}$/.test(DD_REFERENCE)).to.be.true
   });
 
-// minor max age: 12
-// junior max age: 16
-// senior min age: 65
-
   ([
     { random: 0.999, expectedAge: 64 },
     { random: 0.001, expectedAge: 17 },
     { random: 0.438, expectedAge: 38 },
     { random: 0.644, expectedAge: 47 },
-    { random: 0.925, expectedAge: 61 }
+    { random: 0.925, expectedAge: 61 },
+    { random: 0.001, expectedAge: 13, ageRange: AGE_RANGE.JUNIOR },
+    { random: 0.25, expectedAge: 14, ageRange: AGE_RANGE.JUNIOR },
+    { random: 0.49, expectedAge: 14, ageRange: AGE_RANGE.JUNIOR },
+    { random: 0.5, expectedAge: 15, ageRange: AGE_RANGE.JUNIOR },
+    { random: 0.749, expectedAge: 15, ageRange: AGE_RANGE.JUNIOR },
+    { random: 0.75, expectedAge: 16, ageRange: AGE_RANGE.JUNIOR },
+    { random: 0.999, expectedAge: 16, ageRange: AGE_RANGE.JUNIOR },
+    { random: 0.001, expectedAge: 65, ageRange: AGE_RANGE.SENIOR },
+    { random: 0.567, expectedAge: 85, ageRange: AGE_RANGE.SENIOR },
+    { random: 0.8, expectedAge: 93, ageRange: AGE_RANGE.SENIOR },
+    { random: 0.252, expectedAge: 74, ageRange: AGE_RANGE.SENIOR },
+    { random: 0.999, expectedAge: 100, ageRange: AGE_RANGE.SENIOR },
   ]).forEach(test => {
-    it('generates a date of birth between 16 and 65 years old', () => {
+    const getExpectedRangeName = rangeId => 
+      Object.entries(AGE_RANGE).find(ar => ar[1] == rangeId)[0]
+
+    it(`generates a date of birth in ${getExpectedRangeName(test.ageRange || AGE_RANGE.ADULT)} range (expected age ${test.expectedAge})`, () => {
       try {
         sinon.stub(Math, 'random').callsFake(() => test.random)
-        const { REC: { DOB } } = generateRecord(getNames(), getAddresses())
+        const { REC: { DOB } } = generateRecord(getNames(), getAddresses(), test.ageRange)
         const age = moment().diff(moment(DOB, 'YYYY-MM-DD'), 'years')
         expect(age).to.equal(test.expectedAge)
       } finally {
@@ -62,7 +73,7 @@ describe('generate record tests', () => {
     { date: moment('2020-04-15') },
     { date: moment('2020-01-01') }
   ]).forEach(test => {
-    it('birthday is always yesterday', () => {
+    it(`birthday is always yesterday (Date.now() set to ${test.date.format('DD-MM-YYYY')})`, () => {
       const clock = sinon.useFakeTimers({
         now: test.date.valueOf()
       })
@@ -76,8 +87,7 @@ describe('generate record tests', () => {
         clock.restore()
       }
     })    
-  })
-
+  });
 })
 
 const getNames = () => [
