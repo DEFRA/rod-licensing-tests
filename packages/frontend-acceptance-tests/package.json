@@ -32,7 +32,7 @@
     "@wdio/selenium-standalone-service": "^6.4.0",
     "@wdio/spec-reporter": "^6.4.0",
     "@wdio/sync": "^6.4.0",
-    "axe-core": "^3.5.5",
+    "axe-core": "^4.0.1",
     "chai": "^4.2.0",
     "defra-logging-facade": "git+https://github.com/DEFRA/defra-logging-facade.git#02459ac",
     "dynamics-web-api": "^1.6.10",
