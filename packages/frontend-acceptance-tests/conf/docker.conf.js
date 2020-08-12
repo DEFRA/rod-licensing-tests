@@ -51,7 +51,14 @@ exports.config = {
       'junit',
       {
         outputDir: './logs/junit',
-        outputFileFormat: options => `wdio.${options.capabilities.browserName.toLowerCase()}.xml`
+        errorOptions: {
+          error: 'message',
+          failure: 'message',
+          stacktrace: 'stack'
+        },
+        outputFileFormat: function (options) {
+          return `wdio.${options.capabilities.browserName.toLowerCase()}-${options.cid}.xml`
+        }
       }
     ]
   ],

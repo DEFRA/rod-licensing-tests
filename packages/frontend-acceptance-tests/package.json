@@ -25,19 +25,19 @@
     "axe": "./node_modules/.bin/wdio ./conf/local.conf.js --spec ./features/axe.feature"
   },
   "dependencies": {
-    "@wdio/cli": "^6.3.6",
-    "@wdio/cucumber-framework": "^6.3.6",
-    "@wdio/junit-reporter": "^6.3.6",
-    "@wdio/local-runner": "^6.3.6",
-    "@wdio/selenium-standalone-service": "^6.1.14",
-    "@wdio/spec-reporter": "^6.3.6",
-    "@wdio/sync": "^6.3.6",
-    "axe-core": "^3.5.3",
+    "@wdio/cli": "^6.4.0",
+    "@wdio/cucumber-framework": "^6.4.0",
+    "@wdio/junit-reporter": "^6.4.0",
+    "@wdio/local-runner": "^6.4.0",
+    "@wdio/selenium-standalone-service": "^6.4.0",
+    "@wdio/spec-reporter": "^6.4.0",
+    "@wdio/sync": "^6.4.0",
+    "axe-core": "^3.5.5",
     "chai": "^4.2.0",
     "defra-logging-facade": "git+https://github.com/DEFRA/defra-logging-facade.git#02459ac",
-    "dynamics-web-api": "^1.6.8",
+    "dynamics-web-api": "^1.6.10",
     "json-to-csv": "^1.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.27.0",
     "simple-oauth2": "^4.1.0"
   }
 }
