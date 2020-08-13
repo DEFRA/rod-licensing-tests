@@ -1,4 +1,5 @@
 import generateTestFile from '../src/generateTestFile.js'
+import generator from '../src/generateRecord.js'
 import sinon from 'sinon'
 import fs from 'fs'
 import builder from 'xmlbuilder2'
@@ -142,6 +143,52 @@ describe('generateTestFile', () => {
       expect(getFooterChild('TTXNS')).not.to.be.undefined
     })
   })
+
+  describe('record nodes', () => {
+    const fakeRecord = {
+      REC: {
+        LICENSEE_FORNAME: 'Michael',
+        LICENSEE_SURNAME: 'Brown',
+        LICENSEE_ADDRESS: {
+          PREMISES: '65',
+          STREET: 'Groveside Close',
+          LOCALITY: 'Carshalton',
+          TOWN: 'Barnet',
+          POSTCODE: 'PL5 2AA'
+        },
+        PERMIT_TYPE: 'Salmon 12 month 1 Rod Licence (Full)',
+        SEASON: 2020,
+        DOB: '1968-07-22',
+        AMOUNT: 82,
+        MARKETING_FLAG: false
+      }
+    }
+    beforeEach(() => {
+      sinon.stub(generator, 'generateRecord').callsFake(() => fakeRecord)
+    })
+
+    afterEach(() => {
+      generator.generateRecord.restore()
+    })
+
+    it('generates a single record by default', () => {
+      expect(getRecordNodes().length).to.equal(1)
+    })
+
+    it('uses generateRecord to generate REC nodes', () => {
+      sinon.stub(builder, 'create').callsFake(() => ({
+        end: () => {}
+      }))
+      try {
+        generateTestFile()
+        const { NewLicence: { REC } } = builder.create.firstCall.args[0]
+        expect(generator.generateRecord.calledOnce).to.be.true
+        expect(REC).to.deep.equal(fakeRecord)  
+      } finally {
+        builder.create.restore()
+      }
+    })
+  })
 })
 
 const getXmlDoc = () => {
@@ -158,4 +205,8 @@ const getHeaderChild = nodeTagName => {
 const getFooterChild = nodeTagName => {
   const TRL = getXmlDoc().root().last()
   return TRL.find(n => n.node.tagName === nodeTagName)
+}
+
+const getRecordNodes = () => {
+  return getXmlDoc().root().filter(n => n.node.tagName === 'REC')
 }

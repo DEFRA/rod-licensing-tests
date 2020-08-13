@@ -1,6 +1,7 @@
-import generateRecord, { AGE_RANGE } from '../src/generateRecord.js'
+import generator, { AGE_RANGE } from '../src/generateRecord.js'
 import moment from 'moment'
 import sinon from 'sinon'
+const { generateRecord } = generator
 
 describe('generate record tests', () => {
   it('gets a random name from provided name array', () => {

@@ -1,6 +1,8 @@
 import fs from 'fs'
 import builder from 'xmlbuilder2'
 import moment from 'moment'
+import generator from './generateRecord.js'
+const { generateRecord } = generator
 
 const generateHeader = () => ({
   HDR: {
@@ -18,10 +20,19 @@ const generateFooter = () => ({
   }
 })
 
+
+const readJSONFile = path => {
+  return JSON.parse(fs.readFileSync(path, {encoding: 'utf-8'}))
+}
+const addresses = readJSONFile('./addresses.json')
+const names = readJSONFile('./names.json')
+
+
 export default () => {
   const xml = {
     NewLicence: {
       ...generateHeader(),
+      ...generateRecord(names, addresses),
       ...generateFooter()
     }
   }

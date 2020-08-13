@@ -28,26 +28,29 @@ const minAndMaxAgesForRange = Object.freeze({
   [AGE_RANGE.SENIOR]: Object.freeze({ min: SENIOR_MIN_AGE, max: 100 })
 })
 
-export default function generateRecord(names, addresses, ageRange = AGE_RANGE.ADULT) {
-  const name = getRandomElementFromArray(names)
-  const a = getRandomElementFromArray(addresses)
+const generator = {
+  generateRecord: (names, addresses, ageRange = AGE_RANGE.ADULT) => {
+    const name = getRandomElementFromArray(names)
+    const a = getRandomElementFromArray(addresses)
 
-  return {
-    REC: {
-      LICENSEE_FORNAME: name.forename,
-      LICENSEE_SURNAME: name.surname,
-      LICENSEE_ADDRESS: {
-        PREMISES: [1,2,3].map(x => !!a[`address${x}`] ? `${a[`address${x}`]}, ` : '').join(''),
-        STREET: a.address4,
-        LOCALITY: a.address5,
-        TOWN: a.address6,
-        POSTCODE:  a.postCode
-      },
-      PERMIT_TYPE: 'Salmon 12 month 1 Rod Licence (Full)',
-      SEASON: 2020,
-      DOB: getRandomDateOfBirth(ageRange).format('YYYY-MM-DD'),
-      AMOUNT: 82,
-      MARKETING_FLAG: false
+    return {
+      REC: {
+        LICENSEE_FORNAME: name.forename,
+        LICENSEE_SURNAME: name.surname,
+        LICENSEE_ADDRESS: {
+          PREMISES: [1,2,3].map(x => !!a[`address${x}`] ? `${a[`address${x}`]}, ` : '').join(''),
+          STREET: a.address4,
+          LOCALITY: a.address5,
+          TOWN: a.address6,
+          POSTCODE:  a.postCode
+        },
+        PERMIT_TYPE: 'Salmon 12 month 1 Rod Licence (Full)',
+        SEASON: 2020,
+        DOB: getRandomDateOfBirth(ageRange).format('YYYY-MM-DD'),
+        AMOUNT: 82,
+        MARKETING_FLAG: false
+      }
     }
   }
 }
+export default generator
