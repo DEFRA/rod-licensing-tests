@@ -34,7 +34,6 @@ export default function generateRecord(names, addresses, ageRange = AGE_RANGE.AD
 
   return {
     REC: {
-      DD_REFERENCE: Math.round(Math.random() * 10**6),
       LICENSEE_FORNAME: name.forename,
       LICENSEE_SURNAME: name.surname,
       LICENSEE_ADDRESS: {

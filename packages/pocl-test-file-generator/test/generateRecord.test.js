@@ -28,11 +28,6 @@ describe('generate record tests', () => {
       la.TOWN === a.address6 &&
       la.POSTCODE === a.postCode
     )).to.be.ok
-  })
-
-  it('sets DD_REFERENCE as a six-digit random number', () => {
-    const { REC: { DD_REFERENCE }} = generateRecord(getNames(), getAddresses())
-    expect(/^[0-9]{6}$/.test(DD_REFERENCE)).to.be.true
   });
 
   ([
