@@ -47,6 +47,8 @@ const generator = {
           PostcodeZip:  a.postCode,
           Country: 'England'
         },
+        NOTIFY_EMAIL: 'Y',
+        NOTIFY_EMAIL_ADDRESS: `${name.forename}.${name.surname}@mailinator.com`,
         PERMIT_TYPE: 'Salmon 12 month 1 Rod Licence (Full)',
         SEASON: 2020,
         DOB: getRandomDateOfBirth(ageRange).format('YYYY-MM-DD'),

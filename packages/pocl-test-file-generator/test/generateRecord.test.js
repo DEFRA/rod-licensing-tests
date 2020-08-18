@@ -107,6 +107,22 @@ describe('generate record tests', () => {
       }
     })    
   });
+
+  it('Notify email is enabled', () => {
+    const { REC: { NOTIFY_EMAIL } } = generateRecord(getNames(), getAddresses())
+    expect(NOTIFY_EMAIL).is.equal('Y')
+  });
+
+  ([
+    { forename: 'Gengis', surname: 'Khan' },
+    { forename: 'Julius', surname: 'Caesar' },
+    { forename: 'Napoleon', surname: 'Bonapart' }
+  ]).forEach(name => {
+    it(`Email address is set to firstname.surname@mailinator.com (${name.forename} ${name.surname})`, () => {
+      const { REC: { NOTIFY_EMAIL_ADDRESS } } = generateRecord([name], getAddresses())
+      expect(NOTIFY_EMAIL_ADDRESS).to.equal(`${name.forename}.${name.surname}@mailinator.com`)  
+    })
+  });
 })
 
 const getNames = () => [
