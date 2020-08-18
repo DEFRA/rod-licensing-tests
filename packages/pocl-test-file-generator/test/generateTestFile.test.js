@@ -141,7 +141,13 @@ describe('generateTestFile', () => {
 
     it('creates TTXNS node in TRL', () => {
       expect(getFooterChild('TTXNS')).not.to.be.undefined
-    })
+    });
+
+    ([ 5, 92, 486 ]).forEach(quantity => {
+      it(`adds number of records to TTXNS node (${quantity})`, () => {
+        expect(getFooterChild('TTXNS', {quantity}).node.textContent).to.equal(quantity.toString())
+      })  
+    });
   })
 
   describe('record nodes', () => {
@@ -181,18 +187,25 @@ describe('generateTestFile', () => {
       }))
       try {
         generateTestFile()
-        const { NewLicence: { REC } } = builder.create.firstCall.args[0]
+        const { NewLicence: { REC: [REC] } } = builder.create.firstCall.args[0]
         expect(generator.generateRecord.calledOnce).to.be.true
-        expect(REC).to.deep.equal(fakeRecord)  
+        expect(REC).to.deep.equal(fakeRecord.REC)
       } finally {
         builder.create.restore()
       }
+    });
+
+    ([ 8, 39, 461 ]).forEach(quantity => {
+      it(`generates specified number of records (${quantity})`, () => {
+        const records = getRecordNodes({ quantity })
+        expect(records.length).to.equal(quantity)
+      })
     })
   })
 })
 
-const getXmlDoc = () => {
-  generateTestFile()
+const getXmlDoc = (config) => {
+  generateTestFile(config)
   const xml = fs.writeFileSync.firstCall.args[1]
   return builder.create(xml)
 }
@@ -202,11 +215,11 @@ const getHeaderChild = nodeTagName => {
   return HDR.find(n => n.node.tagName === nodeTagName)
 }
 
-const getFooterChild = nodeTagName => {
-  const TRL = getXmlDoc().root().last()
+const getFooterChild = (nodeTagName, config) => {
+  const TRL = getXmlDoc(config).root().last()
   return TRL.find(n => n.node.tagName === nodeTagName)
 }
 
-const getRecordNodes = () => {
-  return getXmlDoc().root().filter(n => n.node.tagName === 'REC')
+const getRecordNodes = (config) => {
+  return getXmlDoc(config).root().filter(n => n.node.tagName === 'REC')
 }

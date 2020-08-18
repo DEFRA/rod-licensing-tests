@@ -2,7 +2,6 @@ import fs from 'fs'
 import builder from 'xmlbuilder2'
 import moment from 'moment'
 import generator from './generateRecord.js'
-const { generateRecord } = generator
 
 const generateHeader = () => ({
   HDR: {
@@ -13,10 +12,10 @@ const generateHeader = () => ({
   }
 })
 
-const generateFooter = () => ({
+const generateFooter = (numberOfRecords) => ({
   TRL: {
     VER: '1.1',
-    TTXNS: ''
+    TTXNS: numberOfRecords.toString()
   }
 })
 
@@ -28,12 +27,13 @@ const addresses = readJSONFile('./addresses.json')
 const names = readJSONFile('./names.json')
 
 
-export default () => {
+export default ({ quantity = 1 } = {}) => {
+  const records = [...Array(quantity)].map(() => generator.generateRecord(names, addresses).REC)
   const xml = {
     NewLicence: {
       ...generateHeader(),
-      ...generateRecord(names, addresses),
-      ...generateFooter()
+      REC: records,
+      ...generateFooter(quantity)
     }
   }
   const doc = builder.create(xml)
