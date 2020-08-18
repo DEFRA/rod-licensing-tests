@@ -37,5 +37,5 @@ export default ({ quantity = 1 } = {}) => {
     }
   }
   const doc = builder.create(xml)
-  fs.writeFileSync('pocl-test-file', doc.end({ prettyPrint: true }))
+  fs.writeFileSync('pocl-test-file.xml', doc.end({ prettyPrint: true }))
 }

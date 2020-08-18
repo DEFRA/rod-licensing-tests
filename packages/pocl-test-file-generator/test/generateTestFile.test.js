@@ -16,7 +16,7 @@ describe('generateTestFile', () => {
 
   it('writes a pocl-test-file by default', () => {
     generateTestFile()
-    expect(fs.writeFileSync.firstCall.calledWith('pocl-test-file')).to.be.true
+    expect(fs.writeFileSync.firstCall.calledWith('pocl-test-file.xml')).to.be.true
   })
 
   it('writes NewLicence as xml root', () => {
