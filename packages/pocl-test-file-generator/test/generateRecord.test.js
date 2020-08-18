@@ -105,7 +105,7 @@ describe('generate record tests', () => {
       } finally {
         clock.restore()
       }
-    })    
+    })
   });
 
   it('Static fields are as expected', () => {
@@ -151,6 +151,30 @@ describe('generate record tests', () => {
     const { REC: { START_DATE, START_TIME }} = generateRecord(getNames(), getAddresses())
     const startDate = moment(`${START_DATE} ${START_TIME}`, 'DD/MM/YYYY HH:mm')
     expect(moment().isBefore(startDate)).is.true
+  });
+
+  ([0.01234, 0.00123, 0.98765, 0.45, 0.1234567]).forEach(rand => {
+    it(`CHANNEL_ID is five numeric characters followed by character 'X', where Math.random returns ${rand}`, () => {
+      sinon.stub(Math, 'random').callsFake(() => rand)
+      try {
+        const { REC: { CHANNEL_ID }} = generateRecord(getNames(), getAddresses())
+        expect(/[0-9]{5}X/.test(CHANNEL_ID)).is.true
+      } finally {
+        Math.random.restore()
+      }
+    })  
+  });
+
+  ([0.01234, 0.00123, 0.98765, 0.45, 0.123456789]).forEach(rand => {
+    it(`SERIAL_NO is CHANNEL_ID followed by two numeric sequences, where Math.random returns ${rand}`, () => {
+      sinon.stub(Math, 'random').callsFake(() => rand)
+      try {
+        const { REC: { CHANNEL_ID, SERIAL_NO }} = generateRecord(getNames(), getAddresses())
+        expect((new RegExp(`${CHANNEL_ID}\\-[1-9][0-9]?\\-[0-9]{8}`)).test(SERIAL_NO)).is.true
+      } finally {
+        Math.random.restore()
+      }
+    })
   })
 })
 

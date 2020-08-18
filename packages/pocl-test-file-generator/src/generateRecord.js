@@ -33,6 +33,7 @@ const generator = {
     const name = getRandomElementFromArray(names)
     const a = getRandomElementFromArray(addresses)
     const startDate = moment().add(30, 'minutes')
+    const CHANNEL_ID = `${(Math.floor(Math.random() * 10**5)).toString().padStart(5, '0')}X`
 
     return {
       REC: {
@@ -53,8 +54,8 @@ const generator = {
         NOTIFY_EMAIL_ADDRESS: `${name.forename}.${name.surname}@mailinator.com`,
         START_DATE: startDate.format('DD/MM/YYYY'),
         START_TIME: startDate.format('HH:MM'),
-        CHANNEL_ID: '',
-        SERIAL_NO: '',
+        CHANNEL_ID,
+        SERIAL_NO: `${CHANNEL_ID}-${Math.ceil(Math.random() * 9)}${Math.floor(Math.random() * 10)}-${(Math.floor(Math.random() * 10**8)).toString().padEnd(8, '0')}`,
         AMOUNT: 82,
         SYSTEM_DATE: '',
         SYSTEM_TIME: '',
