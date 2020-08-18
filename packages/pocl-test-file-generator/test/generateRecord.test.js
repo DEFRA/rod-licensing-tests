@@ -10,24 +10,47 @@ describe('generate record tests', () => {
     expect(names.some(n => n.forename === r.LICENSEE_FORNAME && n.surname === r.LICENSEE_SURNAME)).to.be.true
   });
 
+  it('adds result node', () => {
+    const { REC: { LICENSEE_ADDRESS: { Result: result }}} = generateRecord(getNames(), getAddresses())
+    expect(result).to.equal('10')
+  });
+
   ([
     { addresses: [{ address1: 'Flat 1a', address2: 'Montague House', address3: '15' }], output: 'Flat 1a, Montague House, 15, ' },
     { addresses: [{ address1: '12', address2: 'Montague Terrace' }], output: '12, Montague Terrace, ' },
     { addresses: [{ address1: "Hannah's Cottage", address3: '3' }], output: "Hannah's Cottage, 3, " }
   ]).forEach(test => {
     it('concatenates address1, address2 and address3 to make premises', () => {
-      const { REC: { LICENSEE_ADDRESS: { PREMISES: premises } }} = generateRecord(getNames(), test.addresses)
+      const { REC: { LICENSEE_ADDRESS: { Premises: premises } }} = generateRecord(getNames(), test.addresses)
       expect(premises).to.equal(test.output)
     })    
   });
 
+  ([
+    { address1: "HALFWAY COTTAGE", address2: "15", address3: "ELLOUGH ROAD", address4: "ELLOUGH", address5: "BECCLES", address6: "EAST SUFFOLK", address7: "SUFFOLK", postCode: "NR34 7TG" },
+    { address1: "HANNAH'S COTTAGE", address2: "3", address3: "HIGH STREET", address4: "STILLINGTON", address5: "NR. EASINGWOLD", address6: "YORK", address7: "NORTH YORKSHIRE", postCode: "YO61 1LG" }
+  ]).forEach(addr => {
+    it('transforms address to match expected format', () => {
+      const { REC: { LICENSEE_ADDRESS }} = generateRecord(getNames(), [addr])
+      expect(LICENSEE_ADDRESS).to.deep.equal({
+        Result: '10',
+        Premises: `${addr.address1}, ${addr.address2}, ${addr.address3}, `,
+        Address: addr.address4,
+        ContAddress: addr.address5,
+        TownCity: addr.address6,
+        CountyReg: addr.address7,
+        PostcodeZip: addr.postCode,
+        Country: 'England'
+      })
+    })  
+  });
+
   it('gets a random address from provided address array', () => {
     const addresses = getAddresses()
-    const { REC: { LICENSEE_ADDRESS: la } } = generateRecord(getNames(), addresses)
+    const { REC: { LICENSEE_ADDRESS: addr } } = generateRecord(getNames(), addresses)
     expect(addresses.some(a => 
-      la.PREMISES === [1,2,3].map(x => !!a[`address${x}`] ? `${a[`address${x}`]}, ` : '').join('') &&
-      la.TOWN === a.address6 &&
-      la.POSTCODE === a.postCode
+      addr.Premises === [1,2,3].map(x => !!a[`address${x}`] ? `${a[`address${x}`]}, ` : '').join('') &&
+      addr.PostcodeZip === a.postCode
     )).to.be.ok
   });
 
@@ -95,7 +118,7 @@ const getNames = () => [
 ]
 
 const getAddresses = () => [
-  { address1: '8', address2: 'Scott Street', address6: 'York', postCode: 'YO23 1NS', },
-  { address1: '67', address2: 'The Mount', address6: 'York', postCode: 'YO24 1AX' },
-  { address1: '3', address2: 'Vinery Road', address3: 'Burley', address6: 'Leeds', postCode: 'LS4 2LB' }
+  { address1:"3", address2:"", address3:"CAMBRIDGE COURT", address4:"WRINGTON", address5:"BRISTOL", address6:"NORTH SOMERSET", address7:"NORTH SOMERSET", postCode:"BS40 5JL" },
+  { address1:"4", address2:"", address3:"MEADOW END COTTAGES", address4:"SANDFORD", address5:"CREDITON", address6:"MID DEVON", address7:"DEVON", postCode:"EX17 4PH" },
+  { address1:"HALFWAY COTTAGE", address2:"15", address3:"ELLOUGH ROAD", address4:"ELLOUGH", address5:"BECCLES", address6:"EAST SUFFOLK", address7:"SUFFOLK", postCode:"NR34 7TG" }
 ]

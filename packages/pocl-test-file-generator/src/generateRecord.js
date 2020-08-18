@@ -38,11 +38,14 @@ const generator = {
         LICENSEE_FORNAME: name.forename,
         LICENSEE_SURNAME: name.surname,
         LICENSEE_ADDRESS: {
-          PREMISES: [1,2,3].map(x => !!a[`address${x}`] ? `${a[`address${x}`]}, ` : '').join(''),
-          STREET: a.address4,
-          LOCALITY: a.address5,
-          TOWN: a.address6,
-          POSTCODE:  a.postCode
+          Result: '10',
+          Premises: [1,2,3].map(x => !!a[`address${x}`] ? `${a[`address${x}`]}, ` : '').join(''),
+          Address: a.address4,
+          ContAddress: a.address5,
+          TownCity: a.address6,
+          CountyReg: a.address7,
+          PostcodeZip:  a.postCode,
+          Country: 'England'
         },
         PERMIT_TYPE: 'Salmon 12 month 1 Rod Licence (Full)',
         SEASON: 2020,
