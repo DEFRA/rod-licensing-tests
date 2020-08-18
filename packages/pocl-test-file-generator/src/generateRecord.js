@@ -32,6 +32,7 @@ const generator = {
   generateRecord: (names, addresses, ageRange = AGE_RANGE.ADULT) => {
     const name = getRandomElementFromArray(names)
     const a = getRandomElementFromArray(addresses)
+    const startDate = moment().add(30, 'minutes')
 
     return {
       REC: {
@@ -47,13 +48,21 @@ const generator = {
           PostcodeZip:  a.postCode,
           Country: 'England'
         },
+        DOB: getRandomDateOfBirth(ageRange).format('YYYY-MM-DD'),
         NOTIFY_EMAIL: 'Y',
         NOTIFY_EMAIL_ADDRESS: `${name.forename}.${name.surname}@mailinator.com`,
-        PERMIT_TYPE: 'Salmon 12 month 1 Rod Licence (Full)',
-        SEASON: 2020,
-        DOB: getRandomDateOfBirth(ageRange).format('YYYY-MM-DD'),
+        START_DATE: startDate.format('DD/MM/YYYY'),
+        START_TIME: startDate.format('HH:MM'),
+        CHANNEL_ID: '',
+        SERIAL_NO: '',
         AMOUNT: 82,
-        MARKETING_FLAG: false
+        SYSTEM_DATE: '',
+        SYSTEM_TIME: '',
+        ITEM_ID: '',
+        COMMS_OPTION: 'N',
+        LICENCE_CATEGORY: 'Salmon 12 month 1 Rod Licence (Full)',
+        LICENCE_TYPE: ' ',
+        MOPEX: 1,
       }
     }
   }

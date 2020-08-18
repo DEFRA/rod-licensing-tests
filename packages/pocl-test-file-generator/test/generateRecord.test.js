@@ -108,9 +108,32 @@ describe('generate record tests', () => {
     })    
   });
 
-  it('Notify email is enabled', () => {
-    const { REC: { NOTIFY_EMAIL } } = generateRecord(getNames(), getAddresses())
-    expect(NOTIFY_EMAIL).is.equal('Y')
+  it('Static fields are as expected', () => {
+    const { 
+      REC: { 
+        NOTIFY_EMAIL,
+        AMOUNT,
+        COMMS_OPTION,
+        LICENCE_CATEGORY,
+        LICENCE_TYPE,
+        MOPEX
+      } 
+    } = generateRecord(getNames(), getAddresses())
+    expect({
+      NOTIFY_EMAIL,
+      AMOUNT,
+      COMMS_OPTION,
+      LICENCE_CATEGORY,
+      LICENCE_TYPE,
+      MOPEX
+    }).to.deep.equal({
+      NOTIFY_EMAIL: 'Y',
+      AMOUNT: 82,
+      COMMS_OPTION: 'N',
+      LICENCE_CATEGORY: 'Salmon 12 month 1 Rod Licence (Full)',
+      LICENCE_TYPE: ' ',
+      MOPEX: 1
+    })
   });
 
   ([
@@ -123,6 +146,12 @@ describe('generate record tests', () => {
       expect(NOTIFY_EMAIL_ADDRESS).to.equal(`${name.forename}.${name.surname}@mailinator.com`)  
     })
   });
+
+  it('start date / time is in the future', () => {
+    const { REC: { START_DATE, START_TIME }} = generateRecord(getNames(), getAddresses())
+    const startDate = moment(`${START_DATE} ${START_TIME}`, 'DD/MM/YYYY HH:mm')
+    expect(moment().isBefore(startDate)).is.true
+  })
 })
 
 const getNames = () => [
