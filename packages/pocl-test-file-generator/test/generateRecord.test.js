@@ -111,28 +111,31 @@ describe('generate record tests', () => {
   it('Static fields are as expected', () => {
     const { 
       REC: { 
-        NOTIFY_EMAIL,
         AMOUNT,
         COMMS_OPTION,
+        ITEM_ID,
         LICENCE_CATEGORY,
         LICENCE_TYPE,
-        MOPEX
+        MOPEX,
+        NOTIFY_EMAIL
       } 
     } = generateRecord(getNames(), getAddresses())
     expect({
-      NOTIFY_EMAIL,
       AMOUNT,
       COMMS_OPTION,
+      ITEM_ID,
       LICENCE_CATEGORY,
       LICENCE_TYPE,
-      MOPEX
+      MOPEX,
+      NOTIFY_EMAIL
     }).to.deep.equal({
-      NOTIFY_EMAIL: 'Y',
       AMOUNT: 82,
       COMMS_OPTION: 'N',
+      ITEM_ID: '42372',
       LICENCE_CATEGORY: 'Salmon 12 month 1 Rod Licence (Full)',
       LICENCE_TYPE: ' ',
-      MOPEX: 1
+      MOPEX: 1,
+      NOTIFY_EMAIL: 'Y'
     })
   });
 
@@ -148,9 +151,18 @@ describe('generate record tests', () => {
   });
 
   it('start date / time is in the future', () => {
-    const { REC: { START_DATE, START_TIME }} = generateRecord(getNames(), getAddresses())
-    const startDate = moment(`${START_DATE} ${START_TIME}`, 'DD/MM/YYYY HH:mm')
-    expect(moment().isBefore(startDate)).is.true
+    const clock = sinon.useFakeTimers({
+      now: moment('2020-08-19T09:29:00.000').valueOf()
+    })
+    try {
+      const { REC: { START_DATE, START_TIME }} = generateRecord(getNames(), getAddresses())
+      console.log('start date and time', START_DATE, START_TIME)
+      const startDate = moment(`${START_DATE} ${START_TIME}`, 'DD/MM/YYYY HH:mm')
+      expect(moment().isBefore(startDate)).is.true
+    } finally {
+      clock.restore()
+    }
+
   });
 
   ([0.01234, 0.00123, 0.98765, 0.45, 0.1234567]).forEach(rand => {
@@ -175,7 +187,26 @@ describe('generate record tests', () => {
         Math.random.restore()
       }
     })
-  })
+  });
+
+
+  ([
+    moment('2020-06-01T09:37:21.877Z'),
+    moment('2019-12-31T11:59:59.000Z')
+  ]).forEach(date => {
+    it(`SYSTEM_DATE / SYSTEM_TIME are set to the current date / time (${date.format('YYYY-MM-DDTHH:mm:ss.SSS')})`, () => {
+      const clock = sinon.useFakeTimers({
+        now: date.valueOf()
+      })
+      try {
+        const { REC: { SYSTEM_DATE, SYSTEM_TIME } } = generateRecord(getNames(), getAddresses())
+        const systemDateTime = moment(`${SYSTEM_DATE} ${SYSTEM_TIME}`, 'DD/MM/YYYY HH:mm:ss')
+        expect(date.diff(systemDateTime, 'seconds')).to.equal(0)
+      } finally {
+        clock.restore()
+      }
+    })
+  });
 })
 
 const getNames = () => [
