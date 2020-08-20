@@ -1,0 +1,23 @@
+{
+  "name": "pocl-test-file-generator",
+  "version": "0.0.1",
+  "description": "Command line utility to generate test file for POCL processor",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -r chai/register-expect",
+    "get-address-example": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^6.0.0",
+    "moment": "^2.27.0",
+    "xmlbuilder2": "^2.3.1"
+  },
+  "type": "module",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.1.1",
+    "sinon": "^9.0.3"
+  }
+}
