@@ -156,7 +156,6 @@ describe('generate record tests', () => {
     })
     try {
       const { REC: { START_DATE, START_TIME }} = generateRecord(getNames(), getAddresses())
-      console.log('start date and time', START_DATE, START_TIME)
       const startDate = moment(`${START_DATE} ${START_TIME}`, 'DD/MM/YYYY HH:mm')
       expect(moment().isBefore(startDate)).is.true
     } finally {
