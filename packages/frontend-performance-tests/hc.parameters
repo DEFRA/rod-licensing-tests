@@ -1,0 +1,6 @@
+#
+# HTTP Client 4 Parameters
+#
+
+# Avoid connection reset issues by checking for stale connections
+http.connection.stalecheck$Boolean=true
