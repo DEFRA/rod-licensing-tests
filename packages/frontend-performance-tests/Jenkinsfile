@@ -1,0 +1,101 @@
+pipeline {
+    agent {label env.AGENT}
+    parameters {
+        string(name: 'TIMER_FACTOR', defaultValue: '1.0f', description: 'Factor to apply to test timers.  Set to 0.0f to run without think times.', trim: true)
+
+        string(name: 'JUNIOR_SALMON_LICENCE_CONCURRENT_USERS', defaultValue: '1', description: 'Number of concurrent users purchasing a junior salmon licence', trim: true)
+        string(name: 'JUNIOR_SALMON_LICENCE_RAMPUP_SECONDS', defaultValue: '0', description: 'Ramp-up time for the thread group (in seconds)', trim: true)
+        string(name: 'JUNIOR_SALMON_LICENCE_LOOPS_PER_CONCURRENT_USER', defaultValue: '1', description: 'Number of loops to perform per concurrent user in the thread group', trim: true)
+
+        string(name: 'ADULT_SALMON_LICENCE_CONCURRENT_USERS', defaultValue: '0', description: 'Number of concurrent users purchasing an adult salmon licence. WARNING: DO NOT RUN LARGE TESTS WITHOUT USING PAYMENT PERFORMANCE PLATFORM!', trim: true)
+        string(name: 'ADULT_SALMON_LICENCE_RAMPUP_SECONDS', defaultValue: '0', description: 'Ramp-up time for the thread group (in seconds)', trim: true)
+        string(name: 'ADULT_SALMON_LICENCE_LOOPS_PER_CONCURRENT_USER', defaultValue: '1', description: 'Number of loops to perform per concurrent user in the thread group', trim: true)
+
+        string(name: 'ADULT_COARSE_LICENCE_CONCURRENT_USERS', defaultValue: '0', description: 'Number of concurrent users purchasing a junior salmon licence. WARNING: DO NOT RUN LARGE TESTS WITHOUT USING PAYMENT PERFORMANCE PLATFORM!', trim: true)
+        string(name: 'ADULT_COARSE_LICENCE_RAMPUP_SECONDS', defaultValue: '0', description: 'Ramp-up time for the thread group (in seconds)', trim: true)
+        string(name: 'ADULT_COARSE_LICENCE_LOOPS_PER_CONCURRENT_USER', defaultValue: '1', description: 'Number of loops to perform per concurrent user in the thread group', trim: true)
+    }
+    stages {
+        stage('Preparing') {
+            steps {
+                git 'https://github.com/DEFRA/rod-licensing-tests.git'
+                withFolderProperties {
+                    script {
+                        SETTINGS = [:]
+                        SETTINGS.ENVIRONMENT_NAME = env.ENVIRONMENT_NAME
+                        SETTINGS.PROXY_HOST = env.PROXY_HOST
+                        SETTINGS.PROXY_PORT = env.PROXY_PORT
+                        echo "Running with settings: ${SETTINGS}"
+                    }
+                }
+            }
+        }
+        stage('Executing tests') {
+            steps {
+                script {
+                    ansiColor('xterm') {
+                        dir('packages/frontend-performance-tests') {
+                            sh """
+                                jmeter -n -t "Rod Licencing Frontend Tests.jmx" \
+                                    -l results/results.jtl \
+                                    -H ${SETTINGS.PROXY_HOST} \
+                                    -P ${SETTINGS.PROXY_PORT} \
+                                    -J TargetHost=${SETTINGS.ENVIRONMENT_NAME}.aws.defra.cloud \
+                                    -J timer.factor=${params.TIMER_FACTOR} \
+                                    -J JuniorSalmonLicenceConcurrentUsers=${params.JUNIOR_SALMON_LICENCE_CONCURRENT_USERS} \
+                                    -J JuniorSalmonLicenceRampupSeconds=${params.JUNIOR_SALMON_LICENCE_RAMPUP_SECONDS} \
+                                    -J JuniorSalmonLicenceLoopsPerConcurrentUser=${params.JUNIOR_SALMON_LICENCE_CONCURRENT_USERS} \
+                                    -J AdultSalmonLicenceConcurrentUsers=${params.ADULT_SALMON_LICENCE_CONCURRENT_USERS} \
+                                    -J AdultSalmonLicenceRampupSeconds=${params.ADULT_SALMON_LICENCE_RAMPUP_SECONDS} \
+                                    -J AdultSalmonLicenceLoopsPerConcurrentUser=${params.ADULT_SALMON_LICENCE_LOOPS_PER_CONCURRENT_USER} \
+                                    -J AdultCoarseLicenceConcurrentUsers=${params.ADULT_COARSE_LICENCE_CONCURRENT_USERS} \
+                                    -J AdultCoarseLicenceRampupSeconds=${params.ADULT_COARSE_LICENCE_RAMPUP_SECONDS} \
+                                    -J AdultCoarseLicenceLoopsPerConcurrentUser=${params.ADULT_COARSE_LICENCE_LOOPS_PER_CONCURRENT_USER}
+                            """
+                        }
+                    }
+                }
+            }
+        }
+        stage('Generating reports') {
+            steps {
+                script {
+                    ansiColor('xterm') {
+                        dir('packages/frontend-performance-tests') {
+                            sh """
+                                jmeter -g results/results.jtl -o results/transactions-report -q transaction.reportgenerator.properties
+                                jmeter -g results/results.jtl -o results/requests-report -q request.reportgenerator.properties
+                            """
+                        }
+                    }
+                }
+            }
+        }
+    }
+    post {
+        always {
+            archiveArtifacts allowEmptyArchive: true, artifacts: 'packages/frontend-performance-tests/results/**, packages/frontend-performance-tests/jmeter.log'
+            publishHTML([
+                reportName: 'Rod Licensing Service - Transaction Performance Report',
+                reportDir: 'packages/frontend-performance-tests/results/transactions-report/',
+                reportFiles: 'index.html',
+                reportTitles: '',
+                allowMissing: false,
+                alwaysLinkToLastBuild: false,
+                keepAll: true
+            ])
+            publishHTML([
+                reportName: 'Rod Licensing Service - Request Performance Report',
+                reportDir: 'packages/frontend-performance-tests/results/requests-report/',
+                reportFiles: 'index.html',
+                reportTitles: '',
+                allowMissing: false,
+                alwaysLinkToLastBuild: false,
+                keepAll: true
+            ])
+        }
+        cleanup {
+            cleanWs cleanWhenFailure: true
+        }
+    }
+}
