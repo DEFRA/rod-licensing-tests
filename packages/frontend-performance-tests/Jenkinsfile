@@ -18,7 +18,6 @@ pipeline {
     stages {
         stage('Preparing') {
             steps {
-                git 'https://github.com/DEFRA/rod-licensing-tests.git'
                 withFolderProperties {
                     script {
                         SETTINGS = [:]
@@ -44,7 +43,7 @@ pipeline {
                                     -J timer.factor=${params.TIMER_FACTOR} \
                                     -J JuniorSalmonLicenceConcurrentUsers=${params.JUNIOR_SALMON_LICENCE_CONCURRENT_USERS} \
                                     -J JuniorSalmonLicenceRampupSeconds=${params.JUNIOR_SALMON_LICENCE_RAMPUP_SECONDS} \
-                                    -J JuniorSalmonLicenceLoopsPerConcurrentUser=${params.JUNIOR_SALMON_LICENCE_CONCURRENT_USERS} \
+                                    -J JuniorSalmonLicenceLoopsPerConcurrentUser=${params.JUNIOR_SALMON_LICENCE_LOOPS_PER_CONCURRENT_USER} \
                                     -J AdultSalmonLicenceConcurrentUsers=${params.ADULT_SALMON_LICENCE_CONCURRENT_USERS} \
                                     -J AdultSalmonLicenceRampupSeconds=${params.ADULT_SALMON_LICENCE_RAMPUP_SECONDS} \
                                     -J AdultSalmonLicenceLoopsPerConcurrentUser=${params.ADULT_SALMON_LICENCE_LOOPS_PER_CONCURRENT_USER} \
