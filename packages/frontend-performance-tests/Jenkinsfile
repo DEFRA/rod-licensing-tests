@@ -35,7 +35,7 @@ pipeline {
                     ansiColor('xterm') {
                         dir('packages/frontend-performance-tests') {
                             sh """
-                                jmeter -n -t "Rod Licencing Frontend Tests.jmx" \
+                                JVM_ARGS="-Xms6144m -Xmx12288m" jmeter -n -t "Rod Licencing Frontend Tests.jmx" \
                                     -l results/results.jtl \
                                     -H ${SETTINGS.PROXY_HOST} \
                                     -P ${SETTINGS.PROXY_PORT} \
