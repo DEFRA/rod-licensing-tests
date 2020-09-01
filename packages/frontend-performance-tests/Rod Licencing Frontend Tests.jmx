@@ -21,7 +21,7 @@
           </elementProp>
           <elementProp name="TargetHost" elementType="Argument">
             <stringProp name="Argument.name">TargetHost</stringProp>
-            <stringProp name="Argument.value">${__P(TargetHost,fsh-dev.aws.defra.cloud)}</stringProp>
+            <stringProp name="Argument.value">${__P(TargetHost,fsh-pre.aws.defra.cloud)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="TargetProtocol" elementType="Argument">
@@ -33,12 +33,6 @@
             <stringProp name="Argument.name">CsrfTokenName</stringProp>
             <stringProp name="Argument.value">${__P(CsrfTokenName,__Host-CsrfToken)}</stringProp>
             <stringProp name="Argument.desc">CSRF Token Cookie Name and hidden page element name</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="PaymentServiceHost" elementType="Argument">
-            <stringProp name="Argument.name">PaymentServiceHost</stringProp>
-            <stringProp name="Argument.value">${__P(PaymentServiceHost,www.payments.service.gov.uk)}</stringProp>
-            <stringProp name="Argument.desc">Payment service hostname</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="JuniorSalmonLicenceConcurrentUsers" elementType="Argument">
@@ -2210,11 +2204,11 @@
               <intProp name="Assertion.test_type">8</intProp>
             </ResponseAssertion>
             <hashTree/>
-            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract Agree Transaction Redirect" enabled="true">
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Extract Payment Service Endpoint" enabled="true">
               <stringProp name="RegexExtractor.useHeaders">true</stringProp>
-              <stringProp name="RegexExtractor.refname">AgreeTransactionRedirect</stringProp>
-              <stringProp name="RegexExtractor.regex">[Ll]ocation:\s*https://${PaymentServiceHost}(.+)</stringProp>
-              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.refname">PaymentServiceEndpoint</stringProp>
+              <stringProp name="RegexExtractor.regex">[Ll]ocation:\s*https://([^/]+)(.+)</stringProp>
+              <stringProp name="RegexExtractor.template">$1$$2$</stringProp>
               <stringProp name="RegexExtractor.default">NOT_EXTRACTED</stringProp>
               <stringProp name="RegexExtractor.match_number"></stringProp>
             </RegexExtractor>
@@ -2224,20 +2218,20 @@
       </hashTree>
       <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Enter Payment Information" enabled="true"/>
       <hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="VIEW https://www.payments.service.gov.uk/card_details/###" enabled="true">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="VIEW https://${PaymentServiceEndpoint_g1}/card_details/###" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
           <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET https://www.payments.service.gov.uk/secure/###" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET https://${PaymentServiceEndpoint_g1}/secure/###" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${PaymentServiceHost}</stringProp>
+            <stringProp name="HTTPSampler.domain">${PaymentServiceEndpoint_g1}</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-            <stringProp name="HTTPSampler.path">${AgreeTransactionRedirect}</stringProp>
+            <stringProp name="HTTPSampler.path">${PaymentServiceEndpoint_g2}</stringProp>
             <stringProp name="HTTPSampler.method">GET</stringProp>
             <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
             <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
@@ -2259,19 +2253,12 @@
               <stringProp name="RegexExtractor.match_number"></stringProp>
             </RegexExtractor>
             <hashTree/>
-            <DebugPostProcessor guiclass="TestBeanGUI" testclass="DebugPostProcessor" testname="Debug PostProcessor" enabled="true">
-              <boolProp name="displayJMeterProperties">false</boolProp>
-              <boolProp name="displayJMeterVariables">true</boolProp>
-              <boolProp name="displaySamplerProperties">true</boolProp>
-              <boolProp name="displaySystemProperties">false</boolProp>
-            </DebugPostProcessor>
-            <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET https://www.payments.service.gov.uk/card_details/###" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET https://${PaymentServiceEndpoint_g1}/card_details/###" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${PaymentServiceHost}</stringProp>
+            <stringProp name="HTTPSampler.domain">${PaymentServiceEndpoint_g1}</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -2319,12 +2306,12 @@
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="PROCESS https://www.payments.service.gov.uk/card_details/###" enabled="true">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="PROCESS https://${PaymentServiceEndpoint_g1}/card_details/###" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
           <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST https://www.payments.service.gov.uk/card_details/###" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST https://${PaymentServiceEndpoint_g1}/card_details/###" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="cardNo" elementType="HTTPArgument">
@@ -2413,7 +2400,7 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${PaymentServiceHost}</stringProp>
+            <stringProp name="HTTPSampler.domain">${PaymentServiceEndpoint_g1}</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -2440,16 +2427,16 @@
             <hashTree/>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="VIEW https://www.payments.service.gov.uk/card_details/###/confirm" enabled="true">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="VIEW https://${PaymentServiceEndpoint_g1}/card_details/###/confirm" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
           <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET https://www.payments.service.gov.uk/card_details/###/confirm" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET https://${PaymentServiceEndpoint_g1}/card_details/###/confirm" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${PaymentServiceHost}</stringProp>
+            <stringProp name="HTTPSampler.domain">${PaymentServiceEndpoint_g1}</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -2497,12 +2484,12 @@
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="PROCESS https://www.payments.service.gov.uk/card_details/###/confirm" enabled="true">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="PROCESS https://${PaymentServiceEndpoint_g1}/card_details/###/confirm" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
           <boolProp name="TransactionController.parent">true</boolProp>
         </TransactionController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST https://www.payments.service.gov.uk/card_details/###/confirm" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST https://${PaymentServiceEndpoint_g1}/card_details/###/confirm" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="chargeId" elementType="HTTPArgument">
@@ -2521,7 +2508,7 @@
                 </elementProp>
               </collectionProp>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${PaymentServiceHost}</stringProp>
+            <stringProp name="HTTPSampler.domain">${PaymentServiceEndpoint_g1}</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -2547,11 +2534,11 @@
             </RegexExtractor>
             <hashTree/>
           </hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET https://www.payments.service.gov.uk/return/###" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET https://${PaymentServiceEndpoint_g1}/return/###" enabled="true">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments"/>
             </elementProp>
-            <stringProp name="HTTPSampler.domain">${PaymentServiceHost}</stringProp>
+            <stringProp name="HTTPSampler.domain">${PaymentServiceEndpoint_g1}</stringProp>
             <stringProp name="HTTPSampler.port">443</stringProp>
             <stringProp name="HTTPSampler.protocol">https</stringProp>
             <stringProp name="HTTPSampler.contentEncoding"></stringProp>
