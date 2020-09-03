@@ -21,7 +21,7 @@
           </elementProp>
           <elementProp name="TargetHost" elementType="Argument">
             <stringProp name="Argument.name">TargetHost</stringProp>
-            <stringProp name="Argument.value">${__P(TargetHost,fsh-pre.aws.defra.cloud)}</stringProp>
+            <stringProp name="Argument.value">${__P(TargetHost,fsh-dev.aws.defra.cloud)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="TargetProtocol" elementType="Argument">
@@ -210,49 +210,58 @@
           </elementProp>
           <elementProp name="ThinkTimeTermsAndConditions" elementType="Argument">
             <stringProp name="Argument.name">ThinkTimeTermsAndConditions</stringProp>
-            <stringProp name="Argument.value">154000</stringProp>
+            <stringProp name="Argument.value">25000</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">* GA reports 154s, however this is time taking between viewing t&amp;c&apos;s and order complete (it doesn&apos;t see pageviews of payment pages), estimating 25 seconds</stringProp>
           </elementProp>
           <elementProp name="DeviationTermsAndConditions" elementType="Argument">
             <stringProp name="Argument.name">DeviationTermsAndConditions</stringProp>
-            <stringProp name="Argument.value">77000</stringProp>
+            <stringProp name="Argument.value">12500</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="ThinkTimePaymentCardDetails" elementType="Argument">
             <stringProp name="Argument.name">ThinkTimePaymentCardDetails</stringProp>
-            <stringProp name="Argument.value">90000</stringProp>
+            <stringProp name="Argument.value">109000</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">*estimated</stringProp>
+            <stringProp name="Argument.desc">*estimated based on 154s minus 25s (t/c&apos;s page) minus 20s (payment confirmation page) = </stringProp>
           </elementProp>
           <elementProp name="DeviationPaymentCardDetails" elementType="Argument">
             <stringProp name="Argument.name">DeviationPaymentCardDetails</stringProp>
-            <stringProp name="Argument.value">45000</stringProp>
+            <stringProp name="Argument.value">54500</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">*estimated</stringProp>
           </elementProp>
           <elementProp name="ThinkTimePaymentConfirmation" elementType="Argument">
             <stringProp name="Argument.name">ThinkTimePaymentConfirmation</stringProp>
-            <stringProp name="Argument.value">45000</stringProp>
+            <stringProp name="Argument.value">20000</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">*estimated</stringProp>
+            <stringProp name="Argument.desc">*estimated based on other &apos;summary&apos; screens</stringProp>
           </elementProp>
           <elementProp name="DeviationPaymentConfirmation" elementType="Argument">
             <stringProp name="Argument.name">DeviationPaymentConfirmation</stringProp>
-            <stringProp name="Argument.value">22500</stringProp>
+            <stringProp name="Argument.value">10000</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
-            <stringProp name="Argument.desc">*estimated</stringProp>
           </elementProp>
           <elementProp name="ThinkTimeOrderConfirmation" elementType="Argument">
             <stringProp name="Argument.name">ThinkTimeOrderConfirmation</stringProp>
-            <stringProp name="Argument.value">60000</stringProp>
+            <stringProp name="Argument.value">25000</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
             <stringProp name="Argument.desc">*estimated</stringProp>
           </elementProp>
           <elementProp name="DeviationOrderConfirmation" elementType="Argument">
             <stringProp name="Argument.name">DeviationOrderConfirmation</stringProp>
-            <stringProp name="Argument.value">30000</stringProp>
+            <stringProp name="Argument.value">12500</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="ThinkTimeOrderConfirmationPDF" elementType="Argument">
+            <stringProp name="Argument.name">ThinkTimeOrderConfirmationPDF</stringProp>
+            <stringProp name="Argument.value">25000</stringProp>
             <stringProp name="Argument.desc">*estimated</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DeviationOrderConfirmationPDF" elementType="Argument">
+            <stringProp name="Argument.name">DeviationOrderConfirmationPDF</stringProp>
+            <stringProp name="Argument.value">12500</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
         <stringProp name="TestPlan.comments">These values are based on real world analytics data.  ThinkTimeXXXX is the average time from Google Analytics, Deviations have been set to allow ranges from 50% to 150% of the ThinkTime</stringProp>
@@ -441,6 +450,14 @@
           </collectionProp>
         </ModuleController>
         <hashTree/>
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="[13] - Order Complete PDF Download" enabled="true">
+          <collectionProp name="ModuleController.node_path">
+            <stringProp name="764597751">Test Plan</stringProp>
+            <stringProp name="-789506402">Rod Licencing Frontend Tests</stringProp>
+            <stringProp name="2073875773">Order Complete PDF</stringProp>
+          </collectionProp>
+        </ModuleController>
+        <hashTree/>
       </hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Adult/Salmon" enabled="true">
         <stringProp name="TestPlan.comments">Users applying for an adult salmon licence</stringProp>
@@ -598,6 +615,14 @@
           </collectionProp>
         </ModuleController>
         <hashTree/>
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="[15] - Order Complete PDF Download" enabled="true">
+          <collectionProp name="ModuleController.node_path">
+            <stringProp name="764597751">Test Plan</stringProp>
+            <stringProp name="-789506402">Rod Licencing Frontend Tests</stringProp>
+            <stringProp name="2073875773">Order Complete PDF</stringProp>
+          </collectionProp>
+        </ModuleController>
+        <hashTree/>
       </hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Adult/Coarse" enabled="true">
         <stringProp name="TestPlan.comments">Users applying for an adult coarse licence</stringProp>
@@ -752,6 +777,14 @@
             <stringProp name="764597751">Test Plan</stringProp>
             <stringProp name="-789506402">Rod Licencing Frontend Tests</stringProp>
             <stringProp name="-624225781">Order Complete</stringProp>
+          </collectionProp>
+        </ModuleController>
+        <hashTree/>
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="[15] - Order Complete PDF Download" enabled="true">
+          <collectionProp name="ModuleController.node_path">
+            <stringProp name="764597751">Test Plan</stringProp>
+            <stringProp name="-789506402">Rod Licencing Frontend Tests</stringProp>
+            <stringProp name="2073875773">Order Complete PDF</stringProp>
           </collectionProp>
         </ModuleController>
         <hashTree/>
@@ -2620,6 +2653,41 @@
           <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Think Time (Gaussian)" enabled="true">
             <stringProp name="ConstantTimer.delay">${ThinkTimeOrderConfirmation}</stringProp>
             <stringProp name="RandomTimer.range">${DeviationOrderConfirmation}</stringProp>
+          </GaussianRandomTimer>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <TestFragmentController guiclass="TestFragmentControllerGui" testclass="TestFragmentController" testname="Order Complete PDF" enabled="true"/>
+      <hashTree>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="VIEW /buy/order-complete-pdf" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="GET /buy/order-complete-pdf" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/buy/order-complete-pdf</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.BROWSER_COMPATIBLE_MULTIPART">true</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="TestPlan.comments">Fetch order complete PDF download</stringProp>
+          </HTTPSamplerProxy>
+          <hashTree/>
+          <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Think Time (Gaussian)" enabled="true">
+            <stringProp name="ConstantTimer.delay">${ThinkTimeOrderConfirmationPDF}</stringProp>
+            <stringProp name="RandomTimer.range">${DeviationOrderConfirmationPDF}</stringProp>
           </GaussianRandomTimer>
           <hashTree/>
         </hashTree>
