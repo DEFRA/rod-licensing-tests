@@ -21,7 +21,7 @@ pipeline {
                 withFolderProperties {
                     script {
                         SETTINGS = [:]
-                        SETTINGS.ENVIRONMENT_NAME = env.ENVIRONMENT_NAME
+                        SETTINGS.PUBLIC_WEBAPP_URL = env.PUBLIC_WEBAPP_URL
                         SETTINGS.PROXY_HOST = env.PROXY_HOST
                         SETTINGS.PROXY_PORT = env.PROXY_PORT
                         echo "Running with settings: ${SETTINGS}"
@@ -39,7 +39,7 @@ pipeline {
                                     -l results/results.jtl \
                                     -H ${SETTINGS.PROXY_HOST} \
                                     -P ${SETTINGS.PROXY_PORT} \
-                                    -J TargetHost=${SETTINGS.ENVIRONMENT_NAME}.aws.defra.cloud \
+                                    -J TargetHost=${SETTINGS.PUBLIC_WEBAPP_URL} \
                                     -J timer.factor=${params.TIMER_FACTOR} \
                                     -J JuniorSalmonLicenceConcurrentUsers=${params.JUNIOR_SALMON_LICENCE_CONCURRENT_USERS} \
                                     -J JuniorSalmonLicenceRampupSeconds=${params.JUNIOR_SALMON_LICENCE_RAMPUP_SECONDS} \
