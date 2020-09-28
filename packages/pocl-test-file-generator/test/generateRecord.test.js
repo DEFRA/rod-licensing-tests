@@ -18,7 +18,6 @@ describe('generate record tests', () => {
   it('freezes value of AGE_RANGE', () => {
     expect(() => {
       AGE_RANGE.ADULT = 4
-      AGE_RANGE.ADULT = 2
     }).to.throw()
   });
 
