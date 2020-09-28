@@ -15,6 +15,13 @@ describe('generate record tests', () => {
     expect(result).to.equal('10')
   });
 
+  it('freezes value of AGE_RANGE', () => {
+    expect(() => {
+      AGE_RANGE.ADULT = 4
+      AGE_RANGE.ADULT = 2
+    }).to.throw()
+  });
+
   ([
     { addresses: [{ address1: 'Flat 1a', address2: 'Montague House', address3: '15' }], output: 'Flat 1a, Montague House, 15, ' },
     { addresses: [{ address1: '12', address2: 'Montague Terrace' }], output: '12, Montague Terrace, ' },
