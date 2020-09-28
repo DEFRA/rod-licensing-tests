@@ -6,7 +6,8 @@ Feature: Buy a Fishing Licence - Error messages
 
   Scenario: Scenario 1 - Licence Length Errors
 #  Scenario 1.1: Test Errors on Licence Length page -  Error messages relate to not selecting a licence length
-    Given I am on the licence length page and I click continue
+    Given  I am at the start of the purchase journey
+    And I am on the licence length page and I click continue
  #   And I perform accessibility testing for the current page
  #   Example:
  #     |pages|
@@ -222,7 +223,7 @@ Feature: Buy a Fishing Licence - Error messages
 
   Scenario: Scenario 14 - Licence Conditions Errors
 # Scenario 10.1: Test Errors on Terms and Conditions page -  Error messages - No date entered
-    When I am on the terms and conditions page and I click continue
+    When I dont agree to the terms and conditions and I click continue
    # And I perform accessibility testing for the current page
    # Example:
     #  |pages|
@@ -230,7 +231,7 @@ Feature: Buy a Fishing Licence - Error messages
     Then I expect the terms and conditions page to show the following errors
       | ErrorMessage                |
       | You have not agreed to the terms and conditions     |
-    And I select I agree and I click continue
+    And I agree to the terms and conditions and click continue
     And I enter payment details
     And I confirm payment details
     Then I am on the order confirmation page and exit the service

@@ -1,0 +1,48 @@
+#!/usr/bin/env groovy
+pipeline {
+    agent any
+    parameters {
+        booleanParam(name: 'REBUILD_IMAGE', defaultValue: false, description: 'Force the acceptance test image to be rebuilt?')
+    }
+    stages {
+        stage('Building test image') {
+            steps {
+                script {
+                    ansiColor('xterm') {
+                        def buildArgs = "-f packages/frontend-acceptance-tests/Dockerfile"
+                        if (params.REBUILD_IMAGE) {
+                            buildArgs += ' --no-cache'
+                        }
+                        sh """
+                            docker build ${buildArgs} -t rod_licensing/frontend_acceptance_tests:latest .
+                        """
+                    }
+                }
+            }
+        }
+        stage('Executing tests') {
+            steps {
+                script {
+                    ansiColor('xterm') {
+                        def envString = env.getEnvironment().collect { k, v -> "-e ${k}=\"${v}\"" }.join(' ')
+                        sh """
+                            echo "Testing connectivity"
+                            curl -sSf "${SERVICE_URL}" || exit 1
+                            mkdir -p ${WORKSPACE}/logs
+                            docker run ${envString} --mount type=bind,source=${WORKSPACE}/logs,target=/app/logs rod_licensing/frontend_acceptance_tests:latest --logLevel ${WDIO_LOG_LEVEL}
+                        """
+                    }
+                }
+            }
+        }
+    }
+    post {
+        always {
+            archiveArtifacts allowEmptyArchive: true, artifacts: 'logs/**'
+            junit 'logs/junit/**'
+        }
+        cleanup {
+            cleanWs cleanWhenFailure: true
+        }
+    }
+}

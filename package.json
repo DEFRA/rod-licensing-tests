@@ -24,23 +24,24 @@
     "postinstall": "npm run lerna:bootstrap",
     "format": "prettier-standard",
     "lerna:clean": "lerna clean --yes",
-    "axe": "./node_modules/.bin/wdio ./custom.conf.js --spec ./features/axe.feature"
+    "lerna:bootstrap": "lerna bootstrap",
+    "docker:build": "docker-compose -f docker/compose.yml build",
+    "docker:run-acceptance-tests": "docker run --env-file docker/env/frontend_acceptance_tests.env rod_licensing/frontend_acceptance_tests:latest"
   },
   "devDependencies": {
-    "axe-core": "^3.5.4",
-    "husky": "^4.2.3",
-    "lerna": "^3.20.2",
-    "lerna-update-wizard": "^0.17.7",
-    "prettier-standard": "^16.3.0",
-    "standard": "^14.3.3"
+    "husky": "^4.2.5",
+    "lerna": "^3.22.1",
+    "lerna-update-wizard": "^0.17.8",
+    "prettier-standard": "^16.4.1",
+    "standard": "^14.3.4"
   },
   "prettier": {
     "printWidth": 140
   },
-  "standard": {
-    "env": {
-      "node": true,
-      "jest": true
+  "eslintConfig": {
+    "globals": {
+      "$": "readonly",
+      "browser": "readonly"
     }
   },
   "husky": {
@@ -52,8 +53,5 @@
     "*": [
       "prettier-standard --lint"
     ]
-  },
-  "dependencies": {
-    "json-to-csv": "^1.0.0"
   }
 }

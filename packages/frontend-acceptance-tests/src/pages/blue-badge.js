@@ -8,10 +8,10 @@ class BlueBadgePage extends Page {
     switch (blueBadge) {
       case 'yes':
         logger.info(`Blue Badge holder: ${blueBadge}`)
-        return this.click('#blue-badge-check')
+        return $('#blue-badge-check').click()
       case 'no':
         logger.info(`Blue Badge holder: ${blueBadge}`)
-        return this.click('#blue-badge-check-2')
+        return $('#blue-badge-check-2').click()
     }
   }
 }

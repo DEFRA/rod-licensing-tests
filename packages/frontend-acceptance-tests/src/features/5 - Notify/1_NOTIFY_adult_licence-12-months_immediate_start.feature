@@ -2,7 +2,8 @@
 Feature: I want to buy an adult annual fishing
 
   Background: Buy an adult fishing licence
-    Given I select a 12MonthLicence licence
+    Given I am at the start of the purchase journey
+    And I select a 12MonthLicence licence
 
   Scenario: Scenario 1 - 12 Month Adult licence selecting 2 rod sea trout licence - Immediate start - Enter contact details
     Given I select a coarse fishing licence
@@ -18,7 +19,7 @@ Feature: I want to buy an adult annual fishing
     And I enter email as "howard@gmail.com" and number as ""
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
-    And I select I agree and I click continue
+    And I agree to the terms and conditions and click continue
     And I enter payment details
     And I confirm payment details
     Then I am on the order confirmation page and exit the service
@@ -36,7 +37,7 @@ Feature: I want to buy an adult annual fishing
     And I select "100121002711" as an address
     And I do not have either of these
     And I am on the contact summary page and I click continue
-    And I select I agree and I click continue
+    And I agree to the terms and conditions and click continue
     And I enter payment details
     And I confirm payment details
     Then I am on the order confirmation page and exit the service
