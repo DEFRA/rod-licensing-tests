@@ -18,4 +18,4 @@ class RenewLoginPage extends Page {
   }
 }
 
-module.exports = RenewLoginPage
+module.exports = new RenewLoginPage('/buy/renew/identify')

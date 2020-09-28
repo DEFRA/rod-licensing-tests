@@ -1,13 +1,9 @@
 'use strict'
-const { Core } = require('defra-wdio-core')
 const { logger } = require('defra-logging-facade')
 const expect = require('chai').expect
 
-const CONTINUE_SELECTOR = '#continue'
-
-class Page extends Core {
+class Page {
   constructor (url) {
-    super(url)
     this.url = url
   }
 
@@ -31,32 +27,29 @@ class Page extends Core {
       browser.waitUntil(
         () => {
           currentUrl = getPageUrl()
+          logger.debug(`Waiting for ${currentUrl} to end with ${this.url}`)
           return currentUrl.endsWith(this.url)
         },
-        waitforTimeout,
-        `Expected Url ${currentUrl} to end with ${this.url}`
+        {
+          timeout: waitforTimeout,
+          timeoutMsg: `Expected Url ${currentUrl} to end with ${this.url}`
+        }
       )
     } catch (error) {
-      this.screenshot()
+      logger.error(error)
       throw error
     }
   }
 
   checkErrorsOnPage (errorMessage) {
-    console.log(errorMessage)
     const errorElement = $(`*=${errorMessage}`)
-    console.log(errorElement)
     expect(errorElement.isExisting()).to.equal(true)
   }
 
-  continue () {
+  continue (selector = '#continue') {
     this.checkUrl()
-    this.clickNavigationLink(CONTINUE_SELECTOR)
-    logger.info(` Click continue and navigate to the next page`)
-  }
-
-  clickNavigationLink (selector) {
     $(selector).click()
+    logger.info(`Click continue and navigate to the next page`)
   }
 }
 

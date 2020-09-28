@@ -13,7 +13,7 @@ class AddressPage extends Page {
 
   manuallyInputAddressLink () {
     this.waitForElementVisible('.column-two-thirds>form>p>a', 1000)
-    this.click('.column-two-thirds>form>p>a')
+    $('.column-two-thirds>form>p>a').click()
   }
 }
 module.exports = new AddressPage('/buy/find-address')
