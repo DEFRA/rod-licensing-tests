@@ -29,7 +29,7 @@
     "docker:run-acceptance-tests": "docker run --env-file docker/env/frontend_acceptance_tests.env rod_licensing/frontend_acceptance_tests:latest"
   },
   "devDependencies": {
-    "husky": "^4.2.5",
+    "husky": "^4.3.0",
     "lerna": "^3.22.1",
     "lerna-update-wizard": "^0.17.8",
     "prettier-standard": "^16.4.1",
