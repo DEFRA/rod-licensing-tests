@@ -112,17 +112,16 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
     When I enter "H" "D" as an invalid name
     Then I expect the name page to show the following errors
       | ErrorMessage |
-      | Your first name must be between 2 and 100 characters  |
-      | Your last name must be between 2 and 100 characters  |
+      | Your first name must contain at least 2 letters  |
+      | Your last name must contain at least 2 letters  |
 
 #  Scenario 6.3: Test Errors on Contact Name page -  Error messages - Invalid characters entered
     When I enter "$$" "$$" as invalid characters
     Then I expect the name page to show the following errors
       | ErrorMessage  |
-      | Your first name must be between 2 and 100 characters  |
-      | Your last name must be between 2 and 100 characters |
+      | Your first name must contain at least 2 letters |
+      | Your last name must contain at least 2 letters |
     And I enter "NegativeTwelve" "Test" as the name
-
 
   Scenario: Scenario 7 - Find Address Errors
 #  Scenario 7.1: Test Errors on Find Address page -  Error messages - No date entered
