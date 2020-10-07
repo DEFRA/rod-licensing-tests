@@ -11,7 +11,7 @@ class NewsletterPage extends Page {
     logger.info(`newsletter email is enabled: ${emailInput}`)
 
     $('#newsletter').click()
-    $('#email').waitForDisplayed(10000)
+    //  $('#email').waitForDisplayed(10000)
     if (!emailInput) {
       logger.info(`email address already supplied`)
     } else $('#email').setValue(setEmailAddress)

@@ -7,10 +7,12 @@ class FishTypePage extends Page {
   setFishType (fishType) {
     logger.info(`Licence Type selected as: ${fishType}`)
     switch (fishType) {
-      case 'coarse':
-        return $('#licence-type').click()
+      case 'coarse2':
+        return $('#selector-trout-and-coarse-2-rod').click()
+      case 'coarse3':
+        return $('#selector-trout-and-coarse-3-rod').click()
       case 'salmon':
-        return $('#licence-type-2').click()
+        return $('#selector-salmon-and-sea-trout').click()
     }
   }
 }
