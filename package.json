@@ -30,6 +30,7 @@
     "lint": "lint-staged"
   },
   "devDependencies": {
+    "eslint-plugin-chai-friendly": "^0.6.0",
     "husky": "^4.3.0",
     "lerna": "^3.22.1",
     "lerna-update-wizard": "^0.17.8",
@@ -46,6 +47,13 @@
     },
     "env": {
       "mocha": true
+    },
+    "plugins": [
+      "chai-friendly"
+    ],
+    "rules": {
+      "no-unused-expressions": 0,
+      "chai-friendly/no-unused-expressions": 2
     }
   },
   "husky": {

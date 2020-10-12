@@ -47,7 +47,7 @@ export const createPermission = (expiryDateSpec = PERMISSION_EXPIRY.TODAY) => {
       preferredMethodOfConfirmation: 'Text',
       preferredMethodOfNewsletter: 'Email',
       preferredMethodOfReminder: 'Letter'
-    }
+    },
     /* concessions: [
       {
         id: 'd0ece997-ef65-e611-80dc-c4346bad4004',
@@ -57,6 +57,6 @@ export const createPermission = (expiryDateSpec = PERMISSION_EXPIRY.TODAY) => {
         }
       }
     ], */
-    /* referenceNumber: '11100420-2WT1SFT-KPMW2C' */
+    referenceNumber: '11100420-2WT1SFT-KPMW2C'
   }
 }

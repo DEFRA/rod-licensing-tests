@@ -111,10 +111,13 @@ describe('createPermissions tests', () => {
   ].forEach(([fieldName, matcher]) => {
     it(`licensee has ${fieldName} matching expected format`, () => {
       const permission = createPermission()
-      console.log(fieldName, permission[fieldName])
       const matches = matcher.test(permission.licensee[fieldName])
-      // eslint-disable-next-line no-unused-expressions
       expect(matches).to.be.true
     })
+  })
+
+  it('sets reference number in the expected format', () => {
+    const permission = createPermission()
+    expect(/[0-9]{8}-[A-Z0-9]{7}-[A-Z0-9]{6}/.test(permission.referenceNumber)).to.be.true
   })
 })
