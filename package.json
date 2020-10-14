@@ -65,5 +65,8 @@
     "*": [
       "prettier-standard --lint"
     ]
+  },
+  "dependencies": {
+    "@defra-fish/dynamics-lib": "^0.3.0-rc.80"
   }
 }

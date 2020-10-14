@@ -1,4 +1,5 @@
 import uuid from './stubbableUuid.js'
+import { Permission, Contact } from '@defra-fish/dynamics-lib'
 
 export const PERMISSION_EXPIRY = {
   YESTERDAY: -1,
@@ -27,7 +28,33 @@ export const createPermission = (expiryDateSpec = PERMISSION_EXPIRY.TODAY) => {
   const birthDate = new Date()
   birthDate.setDate(birthDate.getDate() - 1)
   birthDate.setFullYear(birthDate.getFullYear() - 25)
-  return {
+
+  const permission = new Permission()
+  permission.issueDate = startDate.toISOString()
+  permission.startDate = startDate.toISOString()
+  permission.endDate = getEndDate(expiryDateSpec).toISOString()
+  permission.permitId = uuid.v4()
+  permission.referenceNumber = '11100420-2WT1SFT-KPMW2C'
+  const licensee = new Contact()
+  licensee.birthDate = birthDate.toISOString()
+  licensee.firstName = 'Fester'
+  licensee.lastName = 'Tester'
+  licensee.email = 'person@example.com'
+  licensee.mobilePhone = '+44 7700 900088'
+  licensee.premises = 'Example House'
+  licensee.street = 'Example Street'
+  licensee.locality = 'Near Sample'
+  licensee.town = 'Exampleton'
+  licensee.postcode = 'AB12 3CD'
+  // licensee.country = 'GB'
+  // licensee.preferredMethodOfConfirmation = 'Text'
+  // licensee.preferredMethodOfNewsletter = 'Email'
+  // licensee.preferredMethodOfReminder = 'Letter'
+  permission.licensee = licensee
+
+  return permission
+
+  /* return {
     issueDate: startDate.toISOString(),
     startDate: startDate.toISOString(),
     endDate: getEndDate(expiryDateSpec).toISOString(),
@@ -48,15 +75,15 @@ export const createPermission = (expiryDateSpec = PERMISSION_EXPIRY.TODAY) => {
       preferredMethodOfNewsletter: 'Email',
       preferredMethodOfReminder: 'Letter'
     },
-    /* concessions: [
-      {
-        id: 'd0ece997-ef65-e611-80dc-c4346bad4004',
-        proof: {
-          type: 'National Insurance Number',
-          referenceNumber: 'AB 01 02 03 CD'
-        }
-      }
-    ], */
+    // concessions: [
+    //   {
+    //     id: 'd0ece997-ef65-e611-80dc-c4346bad4004',
+    //     proof: {
+    //       type: 'National Insurance Number',
+    //       referenceNumber: 'AB 01 02 03 CD'
+    //     }
+    //   }
+    // ],
     referenceNumber: '11100420-2WT1SFT-KPMW2C'
-  }
+  } */
 }
