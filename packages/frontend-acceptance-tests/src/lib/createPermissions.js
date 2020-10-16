@@ -1,10 +1,18 @@
 import uuid from './stubbableUuid.js'
-import { Permission, Contact } from '@defra-fish/dynamics-lib'
+import { Permission, Contact, retrieveGlobalOptionSets } from '@defra-fish/dynamics-lib'
 
 export const PERMISSION_EXPIRY = {
   YESTERDAY: -1,
   TODAY: 0,
   TOMORROW: 1
+}
+
+const getGlobalOptionSetValue = async (name, lookup) => {
+  const llookup = lookup && lookup.toLowerCase()
+  const definition = await retrieveGlobalOptionSets().cached()
+  return definition[name] && lookup
+    ? Object.values(definition[name].options).find(o => o.label.toLowerCase() === llookup || o.description.toLowerCase() === llookup)
+    : undefined
 }
 
 const getEndDate = expiryDateSpec => {
@@ -21,7 +29,7 @@ const getEndDate = expiryDateSpec => {
   return today
 }
 
-export const createPermission = (expiryDateSpec = PERMISSION_EXPIRY.TODAY) => {
+export const createPermission = async (expiryDateSpec = PERMISSION_EXPIRY.TODAY) => {
   const endDate = getEndDate(expiryDateSpec)
   const startDate = new Date(endDate)
   startDate.setFullYear(startDate.getFullYear() - 1)
@@ -46,10 +54,13 @@ export const createPermission = (expiryDateSpec = PERMISSION_EXPIRY.TODAY) => {
   licensee.locality = 'Near Sample'
   licensee.town = 'Exampleton'
   licensee.postcode = 'AB12 3CD'
-  // licensee.country = 'GB'
-  // licensee.preferredMethodOfConfirmation = 'Text'
-  // licensee.preferredMethodOfNewsletter = 'Email'
-  // licensee.preferredMethodOfReminder = 'Letter'
+  licensee.country = await getGlobalOptionSetValue(Contact.definition.mappings.country.ref, 'GB')
+  licensee.preferredMethodOfConfirmation = await getGlobalOptionSetValue(
+    Contact.definition.mappings.preferredMethodOfConfirmation.ref,
+    'Text'
+  )
+  licensee.preferredMethodOfNewsletter = await getGlobalOptionSetValue(Contact.definition.mappings.preferredMethodOfNewsletter.ref, 'Email')
+  licensee.preferredMethodOfReminder = await getGlobalOptionSetValue(Contact.definition.mappings.preferredMethodOfReminder.ref, 'Letter')
   permission.licensee = licensee
 
   return permission
