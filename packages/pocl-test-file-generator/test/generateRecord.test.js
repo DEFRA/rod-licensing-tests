@@ -24,7 +24,6 @@ describe('generate record tests', () => {
       AGE_RANGE.ADULT = 4
     }).to.throw()
   })
-
   ;[
     { addresses: [{ address1: 'Flat 1a', address2: 'Montague House', address3: '15' }], output: 'Flat 1a, Montague House, 15, ' },
     { addresses: [{ address1: '12', address2: 'Montague Terrace' }], output: '12, Montague Terrace, ' },
@@ -39,7 +38,6 @@ describe('generate record tests', () => {
       expect(premises).to.equal(test.output)
     })
   })
-
   ;[
     {
       address1: 'HALFWAY COTTAGE',
@@ -92,7 +90,6 @@ describe('generate record tests', () => {
       )
     ).to.be.ok
   })
-
   ;[
     { random: 0.999, expectedAge: 64 },
     { random: 0.001, expectedAge: 17 },
@@ -129,7 +126,6 @@ describe('generate record tests', () => {
       }
     })
   })
-
   ;[{ date: moment('2020-04-15') }, { date: moment('2020-01-01') }].forEach(test => {
     it(`birthday is always yesterday (Date.now() set to ${test.date.format('DD-MM-YYYY')})`, () => {
       const clock = sinon.useFakeTimers({
@@ -171,7 +167,6 @@ describe('generate record tests', () => {
       NOTIFY_EMAIL: 'Y'
     })
   })
-
   ;[
     { forename: 'Gengis', surname: 'Khan' },
     { forename: 'Julius', surname: 'Caesar' },
@@ -199,7 +194,6 @@ describe('generate record tests', () => {
       clock.restore()
     }
   })
-
   ;[0.01234, 0.00123, 0.98765, 0.45, 0.1234567].forEach(rand => {
     it(`CHANNEL_ID is five numeric characters followed by character 'X', where Math.random returns ${rand}`, () => {
       sinon.stub(Math, 'random').callsFake(() => rand)
@@ -213,7 +207,6 @@ describe('generate record tests', () => {
       }
     })
   })
-
   ;[0.01234, 0.00123, 0.98765, 0.45, 0.123456789].forEach(rand => {
     it(`SERIAL_NO is CHANNEL_ID followed by two numeric sequences, where Math.random returns ${rand}`, () => {
       sinon.stub(Math, 'random').callsFake(() => rand)
@@ -227,7 +220,6 @@ describe('generate record tests', () => {
       }
     })
   })
-
   ;[moment('2020-06-01T09:37:21.877Z'), moment('2019-12-31T11:59:59.000Z')].forEach(date => {
     it(`SYSTEM_DATE / SYSTEM_TIME are set to the current date / time (${date.format('YYYY-MM-DDTHH:mm:ss.SSS')})`, () => {
       const clock = sinon.useFakeTimers({
