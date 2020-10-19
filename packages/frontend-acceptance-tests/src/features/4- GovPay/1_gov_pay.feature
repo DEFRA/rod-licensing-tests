@@ -20,6 +20,6 @@ Feature: I want to buy a 1 or 8 day licence adult fishing licence
     And I am on the payment declined and exit the service
     Examples:
       | LicenceLength  |concession| firstName | lastName |  houseNo | postCode| selectAddress| startFrom|licenceType| email                  | number      | cardNo   | newsEmail   |
-      | 8dayLicence    | No         | Adult     | Licence  | 3       | SN153PG  | 100121002711 | Now      | coarse2  |howardjdavis@yahoo.co.uk|           |4000000000000002 |     |
-      | 8dayLicence    | No         |Adult     | Licence  | 3       | SN153PG  | 100121002711 | Now      | salmon    |                        | 07845066407 |4000000000000119 | howardjdavis@yahoo.co.uk|
+      | 8dayLicence    | No         | Adult     | Licence  | 3       | SN153PG  | 100121002711 | Now      | coarse2  |howardj@yahoo.co.uk|           |4000000000000002 |     |
+      | 8dayLicence    | No         |Adult     | Licence  | 3       | SN153PG  | 100121002711 | Now      | salmon    |                        | 07845066408 |4000000000000119 | howardj@yahoo.co.uk|
 
