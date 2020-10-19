@@ -1,7 +1,7 @@
 'use strict'
 
 const { defineStep } = require('cucumber')
-const noRods = require('../../pages/number-of-rods')
+const benefits = require('../../pages/concession')
 
 /**
  1. Step definition access the table defined in the NEG Feature file
@@ -11,13 +11,9 @@ const noRods = require('../../pages/number-of-rods')
  *
  */
 
-defineStep('I expect the number of rods page to show the following errors', function (errorTable) {
+defineStep('I expect the concession page to show the following errors', function (errorTable) {
   const rows = errorTable.hashes()
   for (const row of rows) {
-    noRods.checkErrorsOnPage(row.ErrorMessage)
+    benefits.checkErrorsOnPage(row.ErrorMessage)
   }
-})
-
-defineStep('I am on the number of rods page and I click continue', function () {
-  noRods.continue()
 })
