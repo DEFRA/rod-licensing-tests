@@ -164,7 +164,7 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
     Then I expect the contact details page to show the following errors
       | ErrorMessage |
       | Enter your UK mobile number like '07700 900 900'  |
-    And I enter email as "howard@gmail.com" and number as ""
+    And I enter email as "email@gmail.com" and number as ""
     And I am on the newsletter page and I click continue
     And I am on the contact summary page and I click continue
 

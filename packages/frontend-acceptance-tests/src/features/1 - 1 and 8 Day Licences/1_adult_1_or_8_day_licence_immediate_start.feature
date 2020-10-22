@@ -23,7 +23,7 @@ Feature: I want to buy a 1 or 8 day licence adult fishing licence
     Examples:
       | LicenceLength  |concession| firstName | lastName |  houseNo | postCode| selectAddress| startTime|licenceType| email                   | number      | newsEmail     |
       | 8dayLicence    | No       | Adult     | Licence  | 3       | SN153PG  | 100121002711 | Now      | coarse2    |email@gmail.com         |             |               |
-      | 8dayLicence    | No       | Adult     | Licence  | 3       | SN153PG  | 100121002711 | Now      | salmon    |                         | 07845066407 |email@gmail.com|
+      | 8dayLicence    | No       | Adult     | Licence  | 3       | SN153PG  | 100121002711 | Now      | salmon    |                         | 07000900900 |email@gmail.com|
       | 1dayLicence    | No       | Adult     | Licence  | 3       | SN153PG  | 100121002711 | Now      | salmon    |email@gmail.com          |             |               |
 
 
@@ -49,6 +49,6 @@ Feature: I want to buy a 1 or 8 day licence adult fishing licence
     Then I am on the order confirmation page and exit the service
     Examples:
       | LicenceLength  | concession | firstName | lastName |  houseNo | postCode| selectAddress| startFrom       | startTime    |licenceType| email                  | number     | newsEmail     |
-      | 8dayLicence    | No           |Adult     | Licence  | 3       | SN153PG  | 100121002711 | AnotherTime     | midnight     | coarse2    |email@gmail.com        | 07845066407 |             |
-      | 1dayLicence    | No           |Adult     | Licence  | 3       | SN153PG  | 100121002711 | AnotherTime     | midday       | salmon    |                        | 07845066407 | email@gmail.com            |
-      | 1dayLicence    | No           |Adult     | Licence  | 3       | SN153PG  | 100121002711 | AnotherTime     | midday       | salmon     |email@gmail.com         | 07845066407 |            |
+      | 8dayLicence    | No           |Adult     | Licence  | 3       | SN153PG  | 100121002711 | AnotherTime     | midnight     | coarse2    |email@gmail.com        |            |             |
+      | 1dayLicence    | No           |Adult     | Licence  | 3       | SN153PG  | 100121002711 | AnotherTime     | midday       | salmon    |                        | 07000900900| email@gmail.com            |
+      | 1dayLicence    | No           |Adult     | Licence  | 3       | SN153PG  | 100121002711 | AnotherTime     | midday       | salmon     |email@gmail.com         |           |            |
