@@ -29,6 +29,7 @@
     "docker:run-acceptance-tests": "docker run --env-file docker/env/frontend_acceptance_tests.env rod_licensing/frontend_acceptance_tests:latest"
   },
   "devDependencies": {
+    "eslint-plugin-chai-friendly": "^0.6.0",
     "husky": "^4.3.0",
     "lerna": "^3.22.1",
     "lerna-update-wizard": "^0.17.8",
@@ -42,6 +43,16 @@
     "globals": {
       "$": "readonly",
       "browser": "readonly"
+    },
+    "env": {
+      "mocha": true
+    },
+    "plugins": [
+      "chai-friendly"
+    ],
+    "rules": {
+      "no-unused-expressions": 0,
+      "chai-friendly/no-unused-expressions": 2
     }
   },
   "husky": {
@@ -53,5 +64,6 @@
     "*": [
       "prettier-standard --lint"
     ]
-  }
+  },
+  "dependencies": {}
 }

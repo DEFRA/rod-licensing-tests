@@ -52,14 +52,13 @@ describe('generateTestFile', () => {
 
     it('creates a FN node in HDR', () => {
       expect(getHeaderChild('FN')).not.to.be.undefined
-    });
-
-    ([
+    })
+    ;[
       { date: moment('2019-05-12T13:22:11'), rand: 0.123456, uniq: '12345' },
       { date: moment('2018-10-30T18:21:59'), rand: 0.012345, uniq: '01234' },
       { date: moment('2020-02-28T20:20:20'), rand: 0.987654, uniq: '98765' },
       { date: moment('2020-06-28T11:28:46'), rand: 0.98, uniq: '98000' }
-    ]).forEach(({ date, rand, uniq }) => {
+    ].forEach(({ date, rand, uniq }) => {
       describe('creates FN in expected format', () => {
         let clock
         beforeEach(() => {
@@ -91,24 +90,21 @@ describe('generateTestFile', () => {
           expect(fileUnique).to.equal(uniq)
         })
       })
-    });
+    })
 
     it('creates a DATE node in HDR', () => {
       expect(getHeaderChild('DATE')).not.to.be.undefined
-    });
-
-    ([
-      moment('2020-01-01T15:47:00'),
-      moment('2020-03-15T08:31:29'),
-      moment('2010-12-01T23:59:59')
-    ]).forEach(date => {
+    })
+    ;[moment('2020-01-01T15:47:00'), moment('2020-03-15T08:31:29'), moment('2010-12-01T23:59:59')].forEach(date => {
       it(`adds today's date in DATE node, when today is ${date.format('DD/MM/YYYY HH:mm:ss')}`, () => {
         const clock = sinon.useFakeTimers({
           now: date.valueOf()
         })
         try {
-          const HDR = getXmlDoc().root().first()
-          const DATE = HDR.find(n => n.node.tagName == 'DATE')
+          const HDR = getXmlDoc()
+            .root()
+            .first()
+          const DATE = HDR.find(n => n.node.tagName === 'DATE')
           expect(moment(DATE.node.textContent, 'YYYYMMDD HH:mm:ss').diff(date)).to.equal(0)
         } finally {
           clock.restore()
@@ -141,13 +137,12 @@ describe('generateTestFile', () => {
 
     it('creates TTXNS node in TRL', () => {
       expect(getFooterChild('TTXNS')).not.to.be.undefined
-    });
-
-    ([ 5, 92, 486 ]).forEach(quantity => {
+    })
+    ;[5, 92, 486].forEach(quantity => {
       it(`adds number of records to TTXNS node (${quantity})`, () => {
-        expect(getFooterChild('TTXNS', {quantity}).node.textContent).to.equal(quantity.toString())
-      })  
-    });
+        expect(getFooterChild('TTXNS', { quantity }).node.textContent).to.equal(quantity.toString())
+      })
+    })
   })
 
   describe('record nodes', () => {
@@ -187,15 +182,18 @@ describe('generateTestFile', () => {
       }))
       try {
         generateTestFile()
-        const { NewLicence: { REC: [REC] } } = builder.create.firstCall.args[0]
+        const {
+          NewLicence: {
+            REC: [REC]
+          }
+        } = builder.create.firstCall.args[0]
         expect(generator.generateRecord.calledOnce).to.be.true
         expect(REC).to.deep.equal(fakeRecord.REC)
       } finally {
         builder.create.restore()
       }
-    });
-
-    ([ 8, 39, 461 ]).forEach(quantity => {
+    })
+    ;[8, 39, 461].forEach(quantity => {
       it(`generates specified number of records (${quantity})`, () => {
         const records = getRecordNodes({ quantity })
         expect(records.length).to.equal(quantity)
@@ -204,22 +202,28 @@ describe('generateTestFile', () => {
   })
 })
 
-const getXmlDoc = (config) => {
+const getXmlDoc = config => {
   generateTestFile(config)
   const xml = fs.writeFileSync.firstCall.args[1]
   return builder.create(xml)
 }
 
 const getHeaderChild = nodeTagName => {
-  const HDR = getXmlDoc().root().first()
+  const HDR = getXmlDoc()
+    .root()
+    .first()
   return HDR.find(n => n.node.tagName === nodeTagName)
 }
 
 const getFooterChild = (nodeTagName, config) => {
-  const TRL = getXmlDoc(config).root().last()
+  const TRL = getXmlDoc(config)
+    .root()
+    .last()
   return TRL.find(n => n.node.tagName === nodeTagName)
 }
 
-const getRecordNodes = (config) => {
-  return getXmlDoc(config).root().filter(n => n.node.tagName === 'REC')
+const getRecordNodes = config => {
+  return getXmlDoc(config)
+    .root()
+    .filter(n => n.node.tagName === 'REC')
 }
