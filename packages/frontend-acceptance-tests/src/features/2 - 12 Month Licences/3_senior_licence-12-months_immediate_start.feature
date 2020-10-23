@@ -16,7 +16,7 @@ Feature: I want to buy an senior annual fishing
     And I enter "Senior" "Salmon" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
-    And I enter email as "howard@gmail.com" and number as ""
+    And I enter email as "email@gmail.com" and number as ""
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
@@ -36,7 +36,7 @@ Feature: I want to buy an senior annual fishing
     And I enter "Senior" "CoarseTwo" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
-    And I enter email as "howard@gmail.com" and number as ""
+    And I enter email as "email@gmail.com" and number as ""
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
