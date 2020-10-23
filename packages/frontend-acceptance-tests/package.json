@@ -21,7 +21,7 @@
     "directory": "packages/frontend-acceptance-tests"
   },
   "scripts": {
-    "test": "echo \"Running unit tests - for acceptance tests, run from root\" && export $(cat ../../docker/env/frontend_acceptance_tests.env | sed 's/#.*//g' | xargs) && mocha -r chai/register-expect",
+    "test": "echo \"Run acceptance tests from root\"",
     "axe": "./node_modules/.bin/wdio ./conf/local.conf.js --spec ./features/axe.feature"
   },
   "type": "module",

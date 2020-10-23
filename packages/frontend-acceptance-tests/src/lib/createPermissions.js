@@ -1,11 +1,28 @@
-import uuid from './stubbableUuid.js'
-import { Permission, Contact, retrieveGlobalOptionSets } from '@defra-fish/dynamics-lib'
+import {
+  Permission,
+  Contact,
+  Permit,
+  retrieveGlobalOptionSets,
+  findByExample,
+  retrieveMultipleAsMap,
+  persist
+} from '@defra-fish/dynamics-lib'
 
 export const PERMISSION_EXPIRY = {
   YESTERDAY: -1,
   TODAY: 0,
   TOMORROW: 1
 }
+
+const dictionaries = [
+  'ABCDEFGHJKLMNPQRSTUVWXYZ1234567890',
+  'BCDFGHJKLM256789',
+  'NPQRSTVWXZ256789',
+  'BCDFGHJKLM256789',
+  'ABCDEFGHJKLMNPQRSTUVWXYZ1234567890'
+]
+
+const PERMIT = 'Coarse 12 month 2 Rod Licence (Full)'
 
 const getGlobalOptionSetValue = async (name, lookup) => {
   const llookup = lookup && lookup.toLowerCase()
@@ -29,31 +46,25 @@ const getEndDate = expiryDateSpec => {
   return today
 }
 
-export const createPermission = async (expiryDateSpec = PERMISSION_EXPIRY.TODAY) => {
-  const endDate = getEndDate(expiryDateSpec)
-  const startDate = new Date(endDate)
-  startDate.setFullYear(startDate.getFullYear() - 1)
+const getContact = async () => {
   const birthDate = new Date()
   birthDate.setDate(birthDate.getDate() - 1)
-  birthDate.setFullYear(birthDate.getFullYear() - 25)
-
-  const permission = new Permission()
-  permission.issueDate = startDate.toISOString()
-  permission.startDate = startDate.toISOString()
-  permission.endDate = getEndDate(expiryDateSpec).toISOString()
-  permission.permitId = uuid.v4()
-  permission.referenceNumber = '11100420-2WT1SFT-KPMW2C'
+  birthDate.setFullYear(birthDate.getFullYear() - 35)
   const licensee = new Contact()
-  licensee.birthDate = birthDate.toISOString()
-  licensee.firstName = 'Fester'
-  licensee.lastName = 'Tester'
-  licensee.email = 'person@example.com'
-  licensee.mobilePhone = '+44 7700 900088'
-  licensee.premises = 'Example House'
-  licensee.street = 'Example Street'
-  licensee.locality = 'Near Sample'
-  licensee.town = 'Exampleton'
-  licensee.postcode = 'AB12 3CD'
+  licensee.firstName = 'Homer'
+  licensee.lastName = 'Simpson'
+  licensee.birthDate = '1985-03-11T00:00:00.000Z'
+  licensee.premises = '742'
+  licensee.postcode = 'SF30 3SF'
+
+  const candidates = await findByExample(licensee)
+  if (candidates.length) {
+    console.log('Resolved %d candidate contacts for contact %o', candidates.length, licensee)
+    return candidates[0]
+  }
+
+  licensee.street = 'Evergreen Terrace'
+  licensee.town = 'Springfield'
   licensee.country = await getGlobalOptionSetValue(Contact.definition.mappings.country.ref, 'GB')
   licensee.preferredMethodOfConfirmation = await getGlobalOptionSetValue(
     Contact.definition.mappings.preferredMethodOfConfirmation.ref,
@@ -61,40 +72,73 @@ export const createPermission = async (expiryDateSpec = PERMISSION_EXPIRY.TODAY)
   )
   licensee.preferredMethodOfNewsletter = await getGlobalOptionSetValue(Contact.definition.mappings.preferredMethodOfNewsletter.ref, 'Email')
   licensee.preferredMethodOfReminder = await getGlobalOptionSetValue(Contact.definition.mappings.preferredMethodOfReminder.ref, 'Letter')
+
+  return licensee
+}
+
+const getPermit = async () => {
+  const permits = await retrieveMultipleAsMap(Permit).cached()
+  const permit = permits[Permit.definition.localCollection].filter(p => p.description === PERMIT)
+  return permit.length ? permit[0] : undefined
+}
+
+const calculateLuhn = value => {
+  let factor = 2
+  let sum = 0
+  for (let i = value.length - 1; i >= 0; i--) {
+    const addend = factor * (value[i].charCodeAt(0) - 48)
+    factor = factor === 2 ? 1 : 2
+    sum += Math.floor(addend / 10) + (addend % 10)
+  }
+  return (10 - (sum % 10)) % 10
+}
+
+const generateSequenceNumber = () => {
+  let sequence = ''
+  for (let x = 0; x < 5; x++) {
+    const dict = dictionaries[x]
+    sequence += dict[Math.floor(Math.random() * dict.length)]
+  }
+  return sequence
+}
+
+const generateReferenceNumber = endDate => {
+  const block1 =
+    endDate
+      .getUTCHours()
+      .toString()
+      .padStart(2, '0') +
+    endDate
+      .getDate()
+      .toString()
+      .padStart(2, '0') +
+    (endDate.getMonth() + 1).toString().padStart(2, '0') +
+    endDate.getYear().toString()
+  const block2 = `2WT3FHS` // to remain accurate, this depends on the permission details (number of rods, licence type, licensee name, etc) staying the same
+  const block3 = generateSequenceNumber()
+  const cs = calculateLuhn(`${block1}${block2}${block3}`)
+  return `${block1}-${block2}-${block3}${cs}`
+}
+
+export const createPermission = async (expiryDateSpec = PERMISSION_EXPIRY.TODAY) => {
+  const endDate = getEndDate(expiryDateSpec)
+  const startDate = new Date(endDate)
+  startDate.setFullYear(startDate.getFullYear() - 1)
+
+  const permission = new Permission()
+  permission.issueDate = startDate.toISOString()
+  permission.startDate = startDate.toISOString()
+  permission.endDate = getEndDate(expiryDateSpec).toISOString()
+  permission.referenceNumber = generateReferenceNumber(new Date(permission.endDate))
+  const licensee = await getContact()
   permission.licensee = licensee
+  const permit = await getPermit()
+  permission.permitId = permit.id
+  permission.bindToEntity(Permission.definition.relationships.licensee, licensee)
+  permission.bindToEntity(Permission.definition.relationships.permit, permit)
+
+  // persist
+  persist(...[licensee, permission])
 
   return permission
-
-  /* return {
-    issueDate: startDate.toISOString(),
-    startDate: startDate.toISOString(),
-    endDate: getEndDate(expiryDateSpec).toISOString(),
-    permitId: uuid.v4(),
-    licensee: {
-      birthDate: `${birthDate.getFullYear()}-${birthDate.getMonth() + 1}-${birthDate.getDate()}`,
-      firstName: 'Fester',
-      lastName: 'Tester',
-      email: 'person@example.com',
-      mobilePhone: '+44 7700 900088',
-      premises: 'Example House',
-      street: 'Example Street',
-      locality: 'Near Sample',
-      town: 'Exampleton',
-      postcode: 'AB12 3CD',
-      country: 'GB',
-      preferredMethodOfConfirmation: 'Text',
-      preferredMethodOfNewsletter: 'Email',
-      preferredMethodOfReminder: 'Letter'
-    },
-    // concessions: [
-    //   {
-    //     id: 'd0ece997-ef65-e611-80dc-c4346bad4004',
-    //     proof: {
-    //       type: 'National Insurance Number',
-    //       referenceNumber: 'AB 01 02 03 CD'
-    //     }
-    //   }
-    // ],
-    referenceNumber: '11100420-2WT1SFT-KPMW2C'
-  } */
 }
