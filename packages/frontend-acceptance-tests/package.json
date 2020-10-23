@@ -21,10 +21,9 @@
     "directory": "packages/frontend-acceptance-tests"
   },
   "scripts": {
-    "test": "echo \"Run acceptance tests from root\"",
+    "test": "echo \"Error: run tests from root\" && exit 1",
     "axe": "./node_modules/.bin/wdio ./conf/local.conf.js --spec ./features/axe.feature"
   },
-  "type": "module",
   "dependencies": {
     "@wdio/cli": "^6.5.2",
     "@wdio/cucumber-framework": "^6.5.0",
@@ -38,10 +37,7 @@
     "defra-logging-facade": "git+https://github.com/DEFRA/defra-logging-facade.git#02459ac",
     "dynamics-web-api": "^1.6.12",
     "json-to-csv": "^1.0.0",
-    "mocha": "^8.1.3",
     "moment": "^2.29.0",
-    "simple-oauth2": "^4.1.0",
-    "sinon": "^9.2.0",
-    "uuid": "^8.3.1"
+    "simple-oauth2": "^4.1.0"
   }
 }
