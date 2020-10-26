@@ -65,6 +65,5 @@
     "*": [
       "prettier-standard --lint"
     ]
-  },
-  "dependencies": {}
+  }
 }
