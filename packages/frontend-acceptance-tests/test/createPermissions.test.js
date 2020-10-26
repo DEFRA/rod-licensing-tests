@@ -33,7 +33,7 @@ describe('createPermissions tests', () => {
     { today: new Date(2020, 9, 15, 13, 28, 59), tomorrow: '2020-10-16T12:28:59.000Z', yesterday: '2020-10-14T12:28:59.000Z' },
     { today: new Date(2020, 1, 29, 6, 59, 28), tomorrow: '2020-03-01T06:59:28.000Z', yesterday: '2020-02-28T06:59:28.000Z' },
     { today: new Date(2020, 2, 1, 22, 1, 5), tomorrow: '2020-03-02T22:01:05.000Z', yesterday: '2020-02-29T22:01:05.000Z' },
-    { today: new Date(2020, 2, 31, 17, 10, 5), tomorrow: '2020-04-01T17:10:05.000Z', yesterday: '2020-03-30T17:10:05.000Z' }
+    { today: new Date(2020, 2, 31, 17, 10, 5), tomorrow: '2020-04-01T16:10:05.000Z', yesterday: '2020-03-30T16:10:05.000Z' } // BST
   ].forEach(({ today, tomorrow, yesterday }) => {
     describe(`tests when today is ${today.toLocaleDateString()}`, () => {
       let mockClock

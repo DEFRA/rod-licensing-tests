@@ -24,18 +24,28 @@ const getGlobalOptionSetValue = async (name, lookup) => {
     : undefined
 }
 
+// const getEndDate = expiryDateSpec => {
+//   const today = new Date()
+//   if (expiryDateSpec === PERMISSION_EXPIRY.YESTERDAY) {
+//     const yesterday = new Date(today)
+//     yesterday.setDate(yesterday.getDate() - 1)
+//     return yesterday
+//   } else if (expiryDateSpec === PERMISSION_EXPIRY.TOMORROW) {
+//     const tomorrow = new Date(today)
+//     tomorrow.setDate(tomorrow.getDate() + 1)
+//     return tomorrow
+//   }
+//   return today
+// }
+
 const getEndDate = expiryDateSpec => {
-  const today = new Date()
+  const endDate = new Date()
   if (expiryDateSpec === PERMISSION_EXPIRY.YESTERDAY) {
-    const yesterday = new Date(today)
-    yesterday.setDate(yesterday.getDate() - 1)
-    return yesterday
+    endDate.setDate(endDate.getDate() - 1)
   } else if (expiryDateSpec === PERMISSION_EXPIRY.TOMORROW) {
-    const tomorrow = new Date(today)
-    tomorrow.setDate(tomorrow.getDate() + 1)
-    return tomorrow
+    endDate.setDate(endDate.getDate() + 1)
   }
-  return today
+  return endDate
 }
 
 const getContact = async () => {
