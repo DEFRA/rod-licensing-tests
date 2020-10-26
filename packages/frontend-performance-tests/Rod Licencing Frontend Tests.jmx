@@ -85,6 +85,26 @@
             <stringProp name="Argument.value">${__P(AdultCoarseLicenceLoopsPerConcurrentUser,1)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="OAuthClientId" elementType="Argument">
+            <stringProp name="Argument.name">OAuthClientId</stringProp>
+            <stringProp name="Argument.value">${__P(OAuthClientId,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="OAuthClientSecret" elementType="Argument">
+            <stringProp name="Argument.name">OAuthClientSecret</stringProp>
+            <stringProp name="Argument.value">${__P(OAuthClientSecret,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="OAuthTenant" elementType="Argument">
+            <stringProp name="Argument.name">OAuthTenant</stringProp>
+            <stringProp name="Argument.value">${__P(OAuthTenant,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DynamicsHost" elementType="Argument">
+            <stringProp name="Argument.name">DynamicsHost</stringProp>
+            <stringProp name="Argument.value">${__P(DynamicsHost,)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -278,6 +298,31 @@
         <boolProp name="DNSCacheManager.isCustomResolver">false</boolProp>
       </DNSCacheManager>
       <hashTree/>
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
+        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="${CsrfTokenName}" elementType="HTTPArgument">
+              <boolProp name="HTTPArgument.always_encode">true</boolProp>
+              <stringProp name="Argument.value">${CsrfTokenValue}</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              <stringProp name="Argument.name">${CsrfTokenName}</stringProp>
+            </elementProp>
+          </collectionProp>
+        </elementProp>
+        <stringProp name="HTTPSampler.domain">${TargetHost}</stringProp>
+        <stringProp name="HTTPSampler.port">${TargetPort}</stringProp>
+        <stringProp name="HTTPSampler.protocol">${TargetProtocol}</stringProp>
+        <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+        <stringProp name="HTTPSampler.path"></stringProp>
+        <boolProp name="HTTPSampler.image_parser">true</boolProp>
+        <boolProp name="HTTPSampler.concurrentDwn">true</boolProp>
+        <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
+        <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+        <stringProp name="HTTPSampler.connect_timeout">120000</stringProp>
+        <stringProp name="HTTPSampler.response_timeout">120000</stringProp>
+      </ConfigTestElement>
+      <hashTree/>
       <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="Csrf Token Extractor" enabled="true">
         <stringProp name="HtmlExtractor.refname">CsrfTokenValue</stringProp>
         <stringProp name="HtmlExtractor.expr">input[name=&quot;${CsrfTokenName}&quot;]</stringProp>
@@ -290,7 +335,7 @@
         <stringProp name="Scope.variable"></stringProp>
       </HtmlExtractor>
       <hashTree/>
-      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="setUp Thread Group" enabled="true">
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="Setup: Easy Renewals Licences" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -470,7 +515,7 @@ Content-Type:application/json;type=entry&#xd;
           <hashTree>
             <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
               <collectionProp name="Asserion.test_strings">
-                <stringProp name="49590">204</stringProp>
+                <stringProp name="49586">200</stringProp>
               </collectionProp>
               <stringProp name="Assertion.custom_message"></stringProp>
               <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
@@ -481,43 +526,6 @@ Content-Type:application/json;type=entry&#xd;
           </hashTree>
         </hashTree>
       </hashTree>
-      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults" enabled="true">
-        <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-          <collectionProp name="Arguments.arguments">
-            <elementProp name="${CsrfTokenName}" elementType="HTTPArgument">
-              <boolProp name="HTTPArgument.always_encode">true</boolProp>
-              <stringProp name="Argument.value">${CsrfTokenValue}</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-              <boolProp name="HTTPArgument.use_equals">true</boolProp>
-              <stringProp name="Argument.name">${CsrfTokenName}</stringProp>
-            </elementProp>
-          </collectionProp>
-        </elementProp>
-        <stringProp name="HTTPSampler.domain">${TargetHost}</stringProp>
-        <stringProp name="HTTPSampler.port">${TargetPort}</stringProp>
-        <stringProp name="HTTPSampler.protocol">${TargetProtocol}</stringProp>
-        <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-        <stringProp name="HTTPSampler.path"></stringProp>
-        <boolProp name="HTTPSampler.image_parser">true</boolProp>
-        <boolProp name="HTTPSampler.concurrentDwn">true</boolProp>
-        <stringProp name="HTTPSampler.concurrentPool">6</stringProp>
-        <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
-        <stringProp name="HTTPSampler.connect_timeout">120000</stringProp>
-        <stringProp name="HTTPSampler.response_timeout">120000</stringProp>
-      </ConfigTestElement>
-      <hashTree/>
-      <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="Csrf Token Extractor" enabled="true">
-        <stringProp name="HtmlExtractor.refname">CsrfTokenValue</stringProp>
-        <stringProp name="HtmlExtractor.expr">input[name=&quot;${CsrfTokenName}&quot;]</stringProp>
-        <stringProp name="HtmlExtractor.attribute">value</stringProp>
-        <stringProp name="HtmlExtractor.default"></stringProp>
-        <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
-        <stringProp name="HtmlExtractor.match_number"></stringProp>
-        <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
-        <stringProp name="Sample.scope">all</stringProp>
-        <stringProp name="Scope.variable"></stringProp>
-      </HtmlExtractor>
-      <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Junior/Salmon" enabled="true">
         <stringProp name="TestPlan.comments">Users applying for a junior licence</stringProp>
         <stringProp name="ThreadGroup.on_sample_error">startnextloop</stringProp>
