@@ -26,6 +26,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@defra-fish/dynamics-lib": "^1.2.0",
     "@wdio/cli": "^6.5.2",
     "@wdio/cucumber-framework": "^6.5.0",
     "@wdio/junit-reporter": "^6.5.1",
