@@ -21,9 +21,10 @@
     "directory": "packages/frontend-acceptance-tests"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1",
+    "test": "echo \"Running unit tests - for acceptance tests, run from root\" && export $(cat ../../docker/env/frontend_acceptance_tests.env | sed 's/#.*//g' | xargs) && mocha -r chai/register-expect",
     "axe": "./node_modules/.bin/wdio ./conf/local.conf.js --spec ./features/axe.feature"
   },
+  "type": "module",
   "dependencies": {
     "@wdio/cli": "^6.5.2",
     "@wdio/cucumber-framework": "^6.5.0",
@@ -33,11 +34,15 @@
     "@wdio/spec-reporter": "^6.4.7",
     "@wdio/sync": "^6.5.0",
     "axe-core": "^3.5.5",
-    "chai": "^4.2.0",
     "defra-logging-facade": "git+https://github.com/DEFRA/defra-logging-facade.git#02459ac",
     "dynamics-web-api": "^1.6.12",
     "json-to-csv": "^1.0.0",
     "moment": "^2.29.0",
     "simple-oauth2": "^4.1.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.0",
+    "sinon": "^9.2.0"
   }
 }

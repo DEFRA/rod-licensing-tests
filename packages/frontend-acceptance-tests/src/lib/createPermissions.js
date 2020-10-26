@@ -1,12 +1,4 @@
-import {
-  Permission,
-  Contact,
-  Permit,
-  retrieveGlobalOptionSets,
-  findByExample,
-  retrieveMultipleAsMap,
-  persist
-} from '@defra-fish/dynamics-lib'
+import Dynamics from './dynamics-lib-import.js'
 
 export const PERMISSION_EXPIRY = {
   YESTERDAY: -1,
@@ -26,7 +18,7 @@ const PERMIT = 'Coarse 12 month 2 Rod Licence (Full)'
 
 const getGlobalOptionSetValue = async (name, lookup) => {
   const llookup = lookup && lookup.toLowerCase()
-  const definition = await retrieveGlobalOptionSets().cached()
+  const definition = await Dynamics.retrieveGlobalOptionSets().cached()
   return definition[name] && lookup
     ? Object.values(definition[name].options).find(o => o.label.toLowerCase() === llookup || o.description.toLowerCase() === llookup)
     : undefined
@@ -47,10 +39,11 @@ const getEndDate = expiryDateSpec => {
 }
 
 const getContact = async () => {
+  const { Contact, findByExample } = Dynamics
   const birthDate = new Date()
   birthDate.setDate(birthDate.getDate() - 1)
   birthDate.setFullYear(birthDate.getFullYear() - 35)
-  const licensee = new Contact()
+  const licensee = new Dynamics.Contact()
   licensee.firstName = 'Homer'
   licensee.lastName = 'Simpson'
   licensee.birthDate = '1985-03-11T00:00:00.000Z'
@@ -59,7 +52,6 @@ const getContact = async () => {
 
   const candidates = await findByExample(licensee)
   if (candidates.length) {
-    console.log('Resolved %d candidate contacts for contact %o', candidates.length, licensee)
     return candidates[0]
   }
 
@@ -72,13 +64,12 @@ const getContact = async () => {
   )
   licensee.preferredMethodOfNewsletter = await getGlobalOptionSetValue(Contact.definition.mappings.preferredMethodOfNewsletter.ref, 'Email')
   licensee.preferredMethodOfReminder = await getGlobalOptionSetValue(Contact.definition.mappings.preferredMethodOfReminder.ref, 'Letter')
-
   return licensee
 }
 
 const getPermit = async () => {
-  const permits = await retrieveMultipleAsMap(Permit).cached()
-  const permit = permits[Permit.definition.localCollection].filter(p => p.description === PERMIT)
+  const permits = await Dynamics.retrieveMultipleAsMap(Dynamics.Permit).cached()
+  const permit = permits[Dynamics.Permit.definition.localCollection].filter(p => p.description === PERMIT)
   return permit.length ? permit[0] : undefined
 }
 
@@ -114,7 +105,7 @@ const generateReferenceNumber = endDate => {
       .padStart(2, '0') +
     (endDate.getMonth() + 1).toString().padStart(2, '0') +
     endDate.getYear().toString()
-  const block2 = `2WT3FHS` // to remain accurate, this depends on the permission details (number of rods, licence type, licensee name, etc) staying the same
+  const block2 = '2WT3FHS' // to remain accurate, this depends on the permission details (number of rods, licence type, licensee name, etc) staying the same
   const block3 = generateSequenceNumber()
   const cs = calculateLuhn(`${block1}${block2}${block3}`)
   return `${block1}-${block2}-${block3}${cs}`
@@ -125,7 +116,7 @@ export const createPermission = async (expiryDateSpec = PERMISSION_EXPIRY.TODAY)
   const startDate = new Date(endDate)
   startDate.setFullYear(startDate.getFullYear() - 1)
 
-  const permission = new Permission()
+  const permission = new Dynamics.Permission()
   permission.issueDate = startDate.toISOString()
   permission.startDate = startDate.toISOString()
   permission.endDate = getEndDate(expiryDateSpec).toISOString()
@@ -134,11 +125,11 @@ export const createPermission = async (expiryDateSpec = PERMISSION_EXPIRY.TODAY)
   permission.licensee = licensee
   const permit = await getPermit()
   permission.permitId = permit.id
-  permission.bindToEntity(Permission.definition.relationships.licensee, licensee)
-  permission.bindToEntity(Permission.definition.relationships.permit, permit)
+  permission.bindToEntity(Dynamics.Permission.definition.relationships.licensee, licensee)
+  permission.bindToEntity(Dynamics.Permission.definition.relationships.permit, permit)
 
   // persist
-  persist(...[licensee, permission])
+  Dynamics.persist(licensee, permission)
 
   return permission
 }
