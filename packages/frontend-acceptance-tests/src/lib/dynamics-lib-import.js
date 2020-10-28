@@ -1,4 +1,4 @@
-import * as Dynamics from '@defra-fish/dynamics-lib'
+import Dynamics from '@defra-fish/dynamics-lib'
 
 export default {
   ...Dynamics

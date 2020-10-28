@@ -1,6 +1,5 @@
-'use strict'
-const { logger } = require('defra-logging-facade')
-const expect = require('chai').expect
+import { logger } from 'defra-logging-facade'
+import { expect } from 'chai'
 
 class Page {
   constructor (url) {
@@ -49,8 +48,8 @@ class Page {
   continue (selector = '#continue') {
     this.checkUrl()
     $(selector).click()
-    logger.info(`Click continue and navigate to the next page`)
+    logger.info('Click continue and navigate to the next page')
   }
 }
 
-module.exports = Page
+export default Page

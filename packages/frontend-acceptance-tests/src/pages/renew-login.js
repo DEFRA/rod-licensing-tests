@@ -1,7 +1,5 @@
-'use strict'
-
-const Page = require('./page')
-const { logger } = require('defra-logging-facade')
+import Page from './page'
+import { logger } from 'defra-logging-facade'
 
 class RenewLoginPage extends Page {
   setRenewalReference (setReference) {
@@ -22,4 +20,4 @@ class RenewLoginPage extends Page {
   }
 }
 
-module.exports = new RenewLoginPage('/buy/renew/identify')
+export default new RenewLoginPage('/buy/renew/identify')

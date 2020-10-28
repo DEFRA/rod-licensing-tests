@@ -1,5 +1,5 @@
-const DynamicsWebApi = require('dynamics-web-api')
-const SimpleOAuth2 = require('simple-oauth2')
+import DynamicsWebApi from 'dynamics-web-api'
+import SimpleOAuth2 from 'simple-oauth2'
 const PREEMPTIVE_TOKEN_EXPIRY_SECONDS = 60
 const oauthClient = new SimpleOAuth2.ClientCredentials({
   client: {
@@ -17,7 +17,7 @@ const oauthClient = new SimpleOAuth2.ClientCredentials({
   }
 })
 let accessToken = null
-module.exports = new DynamicsWebApi({
+export default new DynamicsWebApi({
   webApiUrl: process.env.DYNAMICS_API_PATH,
   webApiVersion: process.env.DYNAMICS_API_VERSION,
   timeout: process.env.DYNAMICS_API_TIMEOUT || 90000,

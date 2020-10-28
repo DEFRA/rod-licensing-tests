@@ -1,7 +1,5 @@
-'use strict'
-
-const Page = require('./page')
-const { logger } = require('defra-logging-facade')
+import Page from './page'
+import { logger } from 'defra-logging-facade'
 
 class DobPage extends Page {
   // Set the value of the radio button to 'yes' or 'no' depending on the data file value
@@ -13,4 +11,4 @@ class DobPage extends Page {
   }
 }
 
-module.exports = new DobPage('buy/date-of-birth')
+export default new DobPage('buy/date-of-birth')

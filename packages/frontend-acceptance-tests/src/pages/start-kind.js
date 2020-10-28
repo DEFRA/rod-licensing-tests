@@ -1,16 +1,15 @@
-'use strict'
-const Page = require('./page')
-const { logger } = require('defra-logging-facade')
-const moment = require('moment')
+import Page from './page'
+import { logger } from 'defra-logging-facade'
+import moment from 'moment'
 
 class StartWhenPage extends Page {
   setStartKind (startKind) {
     switch (startKind) {
       case 'Now':
-        logger.info(`Now selected`)
+        logger.info('Now selected')
         return $('#licence-to-start').click()
       case 'AnotherTime':
-        logger.info(`Another time selected`)
+        logger.info('Another time selected')
         return $('#licence-to-start-2').click()
     }
   }
@@ -39,4 +38,5 @@ class StartWhenPage extends Page {
     logger.info(`Date of Birth set as: ${day}/${month}/${year}`)
   }
 }
-module.exports = new StartWhenPage('/buy/start-kind')
+
+export default new StartWhenPage('/buy/start-kind')

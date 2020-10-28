@@ -1,13 +1,11 @@
-'use strict'
-
-const { logger } = require('defra-logging-facade')
-const Page = require('./page')
+import { logger } from 'defra-logging-facade'
+import Page from './page'
 
 class OrderConfirmPage extends Page {
   checkOrderConfirmationPage () {
     // TODO: Howard - talk to Graham and get him to add an ID with the permission number
     $('#permissionNumber').waitForDisplayed(1000)
-    logger.info(`On the Permission Confirmation page - Order Complete`)
+    logger.info('On the Permission Confirmation page - Order Complete')
   }
 
   getPermissionNumber () {
@@ -15,4 +13,5 @@ class OrderConfirmPage extends Page {
     return $('div.govuk-panel--confirmation > div > strong').getText()
   }
 }
-module.exports = new OrderConfirmPage('/buy/order-complete')
+
+export default new OrderConfirmPage('/buy/order-complete')

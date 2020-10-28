@@ -1,7 +1,5 @@
-'use strict'
-
-const Page = require('./page')
-const { logger } = require('defra-logging-facade')
+import Page from './page'
+import { logger } from 'defra-logging-facade'
 
 class FishTypePage extends Page {
   setFishType (fishType) {
@@ -16,4 +14,5 @@ class FishTypePage extends Page {
     }
   }
 }
-module.exports = new FishTypePage('/buy/licence-type')
+
+export default new FishTypePage('/buy/licence-type')
