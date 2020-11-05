@@ -2,7 +2,7 @@ import moment from 'moment'
 
 const getRandomElementFromArray = arr => arr[Math.floor(Math.random() * arr.length)]
 
-const randomInteger = (min, max) => {
+const getRandomInteger = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
@@ -20,7 +20,7 @@ const getRandomDateOfBirth = ageRange => {
   const minAge = minAndMaxAgesForRange[ageRange].min
   const maxAge = minAndMaxAgesForRange[ageRange].max
   return moment()
-    .subtract(randomInteger(minAge, maxAge), 'years')
+    .subtract(getRandomInteger(minAge, maxAge), 'years')
     .subtract(1, 'day')
 }
 
@@ -30,10 +30,69 @@ const minAndMaxAgesForRange = Object.freeze({
   [AGE_RANGE.SENIOR]: Object.freeze({ min: SENIOR_MIN_AGE, max: 100 })
 })
 
+const getRandomNotification = (email) => {
+  const weightedType = getRandomInteger(0, 9);
+  if (weightedType <= 4) {
+    // 40% email
+    return {
+      NOTIFY_EMAIL: 'Y',
+      NOTIFY_EMAIL_ADDRESS: email
+    }
+  } else if (weightedType <= 8) {
+    // 40% SMS
+    return {
+      NOTIFY_SMS: 'Y',
+      NOTIFY_SMS_NUMBER: `0${getRandomInteger(1000000000, 999999999)}`,
+    }
+  } else {
+    // 20% post
+    return {
+      NOTIFY_POST: 'Y',
+    }
+  }
+}
+
+const getRandomContactMethod = (email) => {
+  const weightedType = getRandomInteger(0, 9);
+  if (weightedType <= 4) {
+    // 40% email
+    return {
+      COMMS_EMAIL: 'Y',
+      COMMS_EMAIL_ADDRESS: email
+    }
+  } else if (weightedType <= 8) {
+    // 40% SMS
+    return {
+      COMMS_SMS: 'Y',
+      COMMS_SMS_NUMBER: `0${getRandomInteger(1000000000, 999999999)}`,
+    }
+  } else {
+    // 20% post
+    return {
+      COMMS_POST: 'Y',
+    }
+  }
+}
+
+const getRandomCommsOption = (email) => {
+  const commsOptions = getRandomInteger(0, 9);
+  if (commsOptions <= 2) {
+    return {
+      COMMS_OPTION: 'Y',
+      ...getRandomContactMethod(email)
+    }
+  } else {
+    return {
+      COMMS_OPTION: 'N'
+    }
+  }
+}
+
 const generator = {
-  generateRecord: (names, addresses, ageRange = AGE_RANGE.ADULT) => {
+  generateRecord: (names, addresses, licenceTypes, ageRange = AGE_RANGE.ADULT) => {
     const name = getRandomElementFromArray(names)
-    const a = getRandomElementFromArray(addresses)
+    const address = getRandomElementFromArray(addresses)
+    const email = `${name.forename}.${name.surname}@mailinator.com`;
     const startDate = moment().add(30, 'minutes')
     const CHANNEL_ID = `${Math.floor(Math.random() * 10 ** 5)
       .toString()
@@ -45,17 +104,15 @@ const generator = {
         LICENSEE_SURNAME: name.surname,
         LICENSEE_ADDRESS: {
           Result: '10',
-          Premises: [1, 2, 3].map(x => (a[`address${x}`] ? `${a[`address${x}`]}, ` : '')).join(''),
-          Address: a.address4,
-          ContAddress: a.address5,
-          TownCity: a.address6,
-          CountyReg: a.address7,
-          PostcodeZip: a.postCode,
+          Premises: [1, 2, 3].map(x => (address[`address${x}`] ? `${address[`address${x}`]}, ` : '')).join(''),
+          Address: address.address4,
+          ContAddress: address.address5,
+          TownCity: address.address6,
+          CountyReg: address.address7,
+          PostcodeZip: address.postCode,
           Country: 'England'
         },
         DOB: getRandomDateOfBirth(ageRange).format('YYYY-MM-DD'),
-        NOTIFY_EMAIL: 'Y',
-        NOTIFY_EMAIL_ADDRESS: `${name.forename}.${name.surname}@mailinator.com`,
         START_DATE: startDate.format('DD/MM/YYYY'),
         START_TIME: startDate.format('HH:mm'),
         CHANNEL_ID,
@@ -66,10 +123,11 @@ const generator = {
         SYSTEM_DATE: moment().format('DD/MM/YYYY'),
         SYSTEM_TIME: moment().format('HH:mm:ss'),
         ITEM_ID: '42372',
-        COMMS_OPTION: 'N',
         LICENCE_CATEGORY: 'Salmon 12 month 1 Rod Licence (Full)',
-        LICENCE_TYPE: ' ',
-        MOPEX: 1
+        LICENCE_TYPE: getRandomElementFromArray(licenceTypes),
+        MOPEX: getRandomInteger(1, 5),
+        ...getRandomNotification(email),
+        ...getRandomCommsOption(email)
       }
     }
   }

@@ -6,7 +6,7 @@ const { generateRecord } = generator
 describe('generate record tests', () => {
   it('gets a random name from provided name array', () => {
     const names = getNames()
-    const { REC: r } = generateRecord(names, getAddresses())
+    const { REC: r } = generateRecord(names, getAddresses(), getLicenceTypes())
     expect(names.some(n => n.forename === r.LICENSEE_FORNAME && n.surname === r.LICENSEE_SURNAME)).to.be.true
   })
 
@@ -15,7 +15,7 @@ describe('generate record tests', () => {
       REC: {
         LICENSEE_ADDRESS: { Result: result }
       }
-    } = generateRecord(getNames(), getAddresses())
+    } = generateRecord(getNames(), getAddresses(), getLicenceTypes())
     expect(result).to.equal('10')
   })
 
@@ -34,7 +34,7 @@ describe('generate record tests', () => {
         REC: {
           LICENSEE_ADDRESS: { Premises: premises }
         }
-      } = generateRecord(getNames(), test.addresses)
+      } = generateRecord(getNames(), test.addresses, getLicenceTypes())
       expect(premises).to.equal(test.output)
     })
   })
@@ -63,7 +63,7 @@ describe('generate record tests', () => {
     it('transforms address to match expected format', () => {
       const {
         REC: { LICENSEE_ADDRESS }
-      } = generateRecord(getNames(), [addr])
+      } = generateRecord(getNames(), [addr], getLicenceTypes())
       expect(LICENSEE_ADDRESS).to.deep.equal({
         Result: '10',
         Premises: `${addr.address1}, ${addr.address2}, ${addr.address3}, `,
@@ -81,7 +81,7 @@ describe('generate record tests', () => {
     const addresses = getAddresses()
     const {
       REC: { LICENSEE_ADDRESS: addr }
-    } = generateRecord(getNames(), addresses)
+    } = generateRecord(getNames(), addresses, getLicenceTypes())
     expect(
       addresses.some(
         a =>
@@ -118,7 +118,7 @@ describe('generate record tests', () => {
         sinon.stub(Math, 'random').callsFake(() => test.random)
         const {
           REC: { DOB }
-        } = generateRecord(getNames(), getAddresses(), test.ageRange)
+        } = generateRecord(getNames(), getAddresses(), getLicenceTypes(), test.ageRange)
         const age = moment().diff(moment(DOB, 'YYYY-MM-DD'), 'years')
         expect(age).to.equal(test.expectedAge)
       } finally {
@@ -134,7 +134,7 @@ describe('generate record tests', () => {
       try {
         const {
           REC: { DOB }
-        } = generateRecord(getNames(), getAddresses())
+        } = generateRecord(getNames(), getAddresses(), getLicenceTypes())
         const birthday = moment(DOB, 'YYYY-MM-DD')
         const yesterday = moment().subtract(1, 'day')
         expect(yesterday.month()).to.equal(birthday.month(), 'birthday month is wrong')
@@ -147,38 +147,18 @@ describe('generate record tests', () => {
 
   it('Static fields are as expected', () => {
     const {
-      REC: { AMOUNT, COMMS_OPTION, ITEM_ID, LICENCE_CATEGORY, LICENCE_TYPE, MOPEX, NOTIFY_EMAIL }
-    } = generateRecord(getNames(), getAddresses())
+      REC: { AMOUNT, ITEM_ID, LICENCE_CATEGORY }
+    } = generateRecord(getNames(), getAddresses(), getLicenceTypes())
     expect({
       AMOUNT,
-      COMMS_OPTION,
       ITEM_ID,
       LICENCE_CATEGORY,
-      LICENCE_TYPE,
-      MOPEX,
-      NOTIFY_EMAIL
     }).to.deep.equal({
       AMOUNT: 82,
-      COMMS_OPTION: 'N',
       ITEM_ID: '42372',
       LICENCE_CATEGORY: 'Salmon 12 month 1 Rod Licence (Full)',
-      LICENCE_TYPE: ' ',
-      MOPEX: 1,
-      NOTIFY_EMAIL: 'Y'
     })
-  })
-  ;[
-    { forename: 'Gengis', surname: 'Khan' },
-    { forename: 'Julius', surname: 'Caesar' },
-    { forename: 'Napoleon', surname: 'Bonapart' }
-  ].forEach(name => {
-    it(`Email address is set to firstname.surname@mailinator.com (${name.forename} ${name.surname})`, () => {
-      const {
-        REC: { NOTIFY_EMAIL_ADDRESS }
-      } = generateRecord([name], getAddresses())
-      expect(NOTIFY_EMAIL_ADDRESS).to.equal(`${name.forename}.${name.surname}@mailinator.com`)
-    })
-  })
+  });
 
   it('start date / time is in the future', () => {
     const clock = sinon.useFakeTimers({
@@ -187,7 +167,7 @@ describe('generate record tests', () => {
     try {
       const {
         REC: { START_DATE, START_TIME }
-      } = generateRecord(getNames(), getAddresses())
+      } = generateRecord(getNames(), getAddresses(), getLicenceTypes())
       const startDate = moment(`${START_DATE} ${START_TIME}`, 'DD/MM/YYYY HH:mm')
       expect(moment().isBefore(startDate)).is.true
     } finally {
@@ -200,7 +180,7 @@ describe('generate record tests', () => {
       try {
         const {
           REC: { CHANNEL_ID }
-        } = generateRecord(getNames(), getAddresses())
+        } = generateRecord(getNames(), getAddresses(), getLicenceTypes())
         expect(/[0-9]{5}X/.test(CHANNEL_ID)).is.true
       } finally {
         Math.random.restore()
@@ -213,7 +193,7 @@ describe('generate record tests', () => {
       try {
         const {
           REC: { CHANNEL_ID, SERIAL_NO }
-        } = generateRecord(getNames(), getAddresses())
+        } = generateRecord(getNames(), getAddresses(), getLicenceTypes())
         expect(new RegExp(`${CHANNEL_ID}\\-[1-9][0-9]?\\-[0-9]{8}`).test(SERIAL_NO)).is.true
       } finally {
         Math.random.restore()
@@ -228,7 +208,7 @@ describe('generate record tests', () => {
       try {
         const {
           REC: { SYSTEM_DATE, SYSTEM_TIME }
-        } = generateRecord(getNames(), getAddresses())
+        } = generateRecord(getNames(), getAddresses(), getLicenceTypes())
         const systemDateTime = moment(`${SYSTEM_DATE} ${SYSTEM_TIME}`, 'DD/MM/YYYY HH:mm:ss')
         expect(date.diff(systemDateTime, 'seconds')).to.equal(0)
       } finally {
@@ -277,4 +257,11 @@ const getAddresses = () => [
     address7: 'SUFFOLK',
     postCode: 'NR34 7TG'
   }
+]
+
+const getLicenceTypes = () => [
+  "Full Licence",
+  "Senior Concession",
+  "Disabled Concession",
+  "Junior Concession"
 ]
