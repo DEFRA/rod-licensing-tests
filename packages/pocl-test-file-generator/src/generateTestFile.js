@@ -24,9 +24,14 @@ const readJSONFile = path => {
 }
 const addresses = readJSONFile('./addresses.json')
 const names = readJSONFile('./names.json')
+const licenceTypes = readJSONFile('./licenceTypes.json')
 
 export default ({ quantity = 1 } = {}) => {
-  const records = [...Array(quantity)].map(() => generator.generateRecord(names, addresses).REC)
+  const records = [...Array(quantity)].map(() => generator.generateRecord(
+      names,
+      addresses,
+      licenceTypes
+  ).REC)
   const xml = {
     NewLicence: {
       ...generateHeader(),
