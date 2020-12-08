@@ -1,32 +1,67 @@
 import { createPermission, PERMISSION_EXPIRY } from '../src/lib/createPermissions.js'
 import sinon from 'sinon'
-import Dynamics from '../src/lib/dynamics-lib-import.js'
+import dynamicsClient from '../src/lib/dynamics-client.js'
+
+const getSampleContact = (
+  {
+    birthdate,
+    lastname,
+    firstname,
+    emailaddress1,
+    mobilephone,
+    defra_premises,
+    defra_street,
+    defra_locality,
+    defra_town,
+    defra_postcode,
+    defra_country,
+    defra_preferredmethodofconfirmation,
+    defra_preferredmethodofnewsletter,
+    defra_preferredmethodofreminder
+  } = {
+    birthdate: '1985-03-11',
+    lastname: 'Simpson',
+    firstname: 'Homer',
+    emailaddress1: 'example@example.com',
+    mobilephone: '07712345678',
+    defra_premises: '742',
+    defra_street: 'Evergreen Terrace',
+    defra_locality: null,
+    defra_town: 'Springfield',
+    defra_postcode: 'SF30 3SF',
+    defra_country: 910400184,
+    defra_preferredmethodofconfirmation: 910400000,
+    defra_preferredmethodofnewsletter: 910400000,
+    defra_preferredmethodofreminder: 910400001
+  }
+) => ({
+  '@odata.etag': 'W/"127238602"',
+  birthdate,
+  lastname,
+  firstname,
+  emailaddress1,
+  mobilephone,
+  defra_premises,
+  defra_street,
+  defra_locality,
+  defra_town,
+  defra_postcode,
+  defra_country,
+  defra_preferredmethodofconfirmation,
+  defra_preferredmethodofnewsletter,
+  defra_preferredmethodofreminder,
+  contactid: '07380038-0815-eb11-a813-000d3a649213'
+})
 
 describe('createPermissions tests', () => {
-  sinon.stub(Dynamics, 'persist')
-  const findByExampleStub = sinon.stub(Dynamics, 'findByExample').callsFake(() => [
-    {
-      id: '07380038-0815-eb11-a813-000d3a649213',
-      firstName: 'Homer',
-      lastName: 'Simpson',
-      birthDate: '1985-03-11',
-      email: null,
-      mobilePhone: null,
-      organisation: null,
-      premises: '742',
-      street: 'Evergreen Terrace',
-      locality: null,
-      town: 'Springfield',
-      postcode: 'SF30 3SF',
-      country: { id: 111, label: 'United Kingdom', description: 'GB' },
-      preferredMethodOfConfirmation: { id: 222, label: 'Text', description: 'Text' },
-      preferredMethodOfNewsletter: { id: 333, label: 'Email', description: 'Email' },
-      preferredMethodOfReminder: { id: 444, label: 'Letter', description: 'Letter' }
-    }
-  ])
+  // sinon.stub(Dynamics, 'persist')
+  const retrieveContactStub = sinon.stub(dynamicsClient, 'retrieveRequest').withArgs(sinon.match({ collection: 'contacts' }))
 
   beforeEach(() => {
-    findByExampleStub.resetHistory()
+    retrieveContactStub.returns({
+      value: [getSampleContact()]
+    })
+    retrieveContactStub.resetHistory()
   })
   ;[
     { today: new Date(2020, 0, 1, 9, 15, 22), tomorrow: '2020-01-02T09:15:22.000Z', yesterday: '2019-12-31T09:15:22.000Z' },
@@ -88,16 +123,93 @@ describe('createPermissions tests', () => {
       })
     })
   })
-
-  it('licence search provides fields in expected format', async () => {
-    await createPermission()
-    console.log('findByExampleStub.calls', findByExampleStub.firstCall.args[0])
-    expect(findByExampleStub.firstCall.firstArg.firstName).to.equal('Homer')
-    expect(findByExampleStub.firstCall.firstArg.lastName).to.equal('Simpson')
-    expect(findByExampleStub.firstCall.firstArg.birthDate).to.equal('1985-03-11T00:00:00.000Z')
-    expect(findByExampleStub.firstCall.firstArg.premises).to.equal('742')
-    expect(findByExampleStub.firstCall.firstArg.postcode).to.equal('SF30 3SF')
+  ;[
+    getSampleContact(),
+    getSampleContact({ firstname: 'Bart', birthdate: '2010-06-08' }),
+    getSampleContact({ firstname: 'Abraham', birthdate: '1960-12-01', defra_premises: '101' })
+  ].forEach(contact => {
+    it('creates licensee for permission', async () => {
+      retrieveContactStub.reset()
+      retrieveContactStub.returns({
+        value: [contact]
+      })
+      const { licensee } = await createPermission()
+      expect(licensee).to.deep.include({
+        firstName: contact.firstname,
+        lastName: contact.lastname,
+        birthDate: contact.birthdate,
+        email: contact.emailaddress1,
+        mobilePhone: contact.mobilephone,
+        premises: contact.defra_premises,
+        street: contact.defra_street,
+        locality: contact.defra_locality,
+        town: contact.defra_town,
+        postcode: contact.defra_postcode,
+        country: contact.defra_country,
+        preferredMethodOfConfirmation: contact.defra_preferredmethodofconfirmation,
+        preferredMethodOfNewsletter: contact.defra_preferredmethodofnewsletter,
+        preferredMethodOfReminder: contact.defra_preferredmethodofreminder
+      })
+    })
   })
+
+  describe('contact persistance', () => {
+    const stubs = []
+    const createStubs = () => {
+      retrieveContactStub.reset()
+      retrieveContactStub.returns({
+        value: []
+      })
+      const startBatchStub = sinon.stub(dynamicsClient, 'startBatch')
+      const createRequestStub = sinon.stub(dynamicsClient, 'createRequest')
+      const executeBatchStub = sinon.stub(dynamicsClient, 'executeBatch')
+      return {
+        startBatchStub,
+        createRequestStub,
+        executeBatchStub
+      }
+    }
+
+    const restoreStubs = stubs => stubs.forEach(stub => stub.reset())
+
+    it('persists contact if not found', async () => {
+      const { createRequestStub, ...otherStubs } = createStubs()
+      await createPermission()
+      const { '@odata.etag': odataetag, contactid, ...entity } = getSampleContact()
+      expect(createRequestStub.firstCall.firstArg).to.deep.include({
+        collection: 'contacts',
+        entity
+      })
+      const guidRegex = /[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}/
+      // sinon doesn't allow mocking of ES6 modules and I'll be damned if I'm wrapping the uuid import just for this
+      expect(guidRegex.test(createRequestStub.firstCall.firstArg.contentId)).to.be.true
+
+      restoreStubs([createRequestStub, ...Object.values(otherStubs)])
+    })
+
+    it('returns newly created contact in generated permission', async () => {
+      const { '@odata.etag': odataetag, contactid, ...entity } = getSampleContact()
+      const stubs = createStubs()
+
+      const { licensee } = await createPermission()
+
+      expect(licensee).to.deep.include({
+        entity
+      })
+
+      restoreStubs(Object.values(stubs))
+    })
+  })
+
+  // it('licence search provides fields in expected format', async () => {
+  //   await createPermission()
+  //   console.log('findByExampleStub.calls', findByExampleStub.firstCall.args[0])
+  //   expect(findByExampleStub.firstCall.firstArg.firstName).to.equal('Homer')
+  //   expect(findByExampleStub.firstCall.firstArg.lastName).to.equal('Simpson')
+  //   expect(findByExampleStub.firstCall.firstArg.birthDate).to.equal('1985-03-11T00:00:00.000Z')
+  //   expect(findByExampleStub.firstCall.firstArg.premises).to.equal('742')
+  //   expect(findByExampleStub.firstCall.firstArg.postcode).to.equal('SF30 3SF')
+  // })
 
   it('sets reference number in the expected format', async () => {
     const permission = await createPermission()
