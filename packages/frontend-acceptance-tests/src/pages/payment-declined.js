@@ -1,18 +1,16 @@
-'use strict'
-
-const { logger } = require('defra-logging-facade')
-const Page = require('./page')
+import { logger } from 'defra-logging-facade'
+import Page from './page'
 
 class PaymentCancelled extends Page {
   exitService () {
     $('=Buy another licence').click()
-    logger.info(`Exit Service`)
+    logger.info('Exit Service')
   }
 
   retryPayment () {
     $('.button').click()
-    logger.info(`Retrying payment`)
+    logger.info('Retrying payment')
   }
 }
 
-module.exports = new PaymentCancelled('/govpay/failure')
+export default new PaymentCancelled('/govpay/failure')

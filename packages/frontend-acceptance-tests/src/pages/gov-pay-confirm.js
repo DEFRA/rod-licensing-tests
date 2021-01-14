@@ -1,13 +1,12 @@
-'use strict'
-
-const { logger } = require('defra-logging-facade')
-const Page = require('./page')
+import { logger } from 'defra-logging-facade'
+import Page from './page'
 
 class GovPayConfirmPage extends Page {
   continue () {
     $('#confirm').waitForDisplayed(1000)
     $('#confirm').click()
-    logger.info(`On the Payment Confirmation page - Confirm clicked.......`)
+    logger.info('On the Payment Confirmation page - Confirm clicked.......')
   }
 }
-module.exports = new GovPayConfirmPage()
+
+export default new GovPayConfirmPage()

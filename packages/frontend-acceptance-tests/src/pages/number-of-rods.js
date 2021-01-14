@@ -1,7 +1,5 @@
-'use strict'
-
-const Page = require('./page')
-const { logger } = require('defra-logging-facade')
+import Page from './page'
+import { logger } from 'defra-logging-facade'
 
 class NumberOfRodsPage extends Page {
   setNumberOfRods (numberOfRods) {
@@ -18,4 +16,5 @@ class NumberOfRodsPage extends Page {
     }
   }
 }
-module.exports = new NumberOfRodsPage('/buy/number-of-rods')
+
+export default new NumberOfRodsPage('/buy/number-of-rods')

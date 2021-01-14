@@ -1,7 +1,5 @@
-'use strict'
-
-const { logger } = require('defra-logging-facade')
-const Page = require('./page')
+import { logger } from 'defra-logging-facade'
+import Page from './page'
 
 class ContactPage extends Page {
   setContact (setEmailAddress, setMobileNumber) {
@@ -23,17 +21,18 @@ class ContactPage extends Page {
 
   selectContactEmail () {
     $('#how-contacted').click()
-    logger.info(`Email selected, no value added`)
+    logger.info('Email selected, no value added')
   }
 
   selectContactMobile () {
     $('#how-contacted-2').click()
-    logger.info(`Mobile selected, no value added`)
+    logger.info('Mobile selected, no value added')
   }
 
   setNoContact () {
     $('#how-contacted-3').click()
-    logger.info(`No contact details available`)
+    logger.info('No contact details available')
   }
 }
-module.exports = new ContactPage('/buy/contact')
+
+export default new ContactPage('/buy/contact')

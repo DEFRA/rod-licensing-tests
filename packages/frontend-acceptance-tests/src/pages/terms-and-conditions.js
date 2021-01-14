@@ -1,7 +1,5 @@
-'use strict'
-
-const Page = require('./page')
-const { logger } = require('defra-logging-facade')
+import Page from './page'
+import { logger } from 'defra-logging-facade'
 
 class TermsAndConditionsPage extends Page {
   setAgreeCheckbox () {
@@ -10,4 +8,5 @@ class TermsAndConditionsPage extends Page {
     logger.info('Terms and Conditions checkbox selected')
   }
 }
-module.exports = new TermsAndConditionsPage('/buy/terms-conditions')
+
+export default new TermsAndConditionsPage('/buy/terms-conditions')

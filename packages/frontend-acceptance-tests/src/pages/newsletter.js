@@ -1,7 +1,5 @@
-'use strict'
-
-const { logger } = require('defra-logging-facade')
-const Page = require('./page')
+import { logger } from 'defra-logging-facade'
+import Page from './page'
 
 class NewsletterPage extends Page {
   setNewsletterYes (setEmailAddress) {
@@ -13,7 +11,7 @@ class NewsletterPage extends Page {
     $('#newsletter').click()
     //  $('#email').waitForDisplayed(10000)
     if (!emailInput) {
-      logger.info(`email address already supplied`)
+      logger.info('email address already supplied')
     } else $('#email').setValue(setEmailAddress)
     logger.info(`set newsletter email to: ${setEmailAddress}`)
   }
@@ -22,4 +20,5 @@ class NewsletterPage extends Page {
     $('#newsletter-2').click()
   }
 }
-module.exports = new NewsletterPage('/buy/newsletter')
+
+export default new NewsletterPage('/buy/newsletter')
