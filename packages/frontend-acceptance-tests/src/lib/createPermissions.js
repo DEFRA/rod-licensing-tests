@@ -1,5 +1,9 @@
-const dynamicsClient = require('./dynamics-client.js')
 const { v4 } = require('uuid')
+
+const dynamicsClient = require('./dynamics-client.js')
+const permitService = require('./permit-service.js')
+const contactService = require('./contact-service.js')
+
 
 const PERMISSION_EXPIRY = {
   YESTERDAY: -1,
@@ -16,14 +20,6 @@ const dictionaries = [
 ]
 
 const PERMIT = 'Coarse 12 month 2 Rod Licence (Full)'
-
-// const getGlobalOptionSetValue = async (name, lookup) => {
-//   const llookup = lookup && lookup.toLowerCase()
-//   const definition = await Dynamics.retrieveGlobalOptionSets().cached()
-//   return definition[name] && lookup
-//     ? Object.values(definition[name].options).find(o => o.label.toLowerCase() === llookup || o.description.toLowerCase() === llookup)
-//     : undefined
-// }
 
 const getEndDate = expiryDateSpec => {
   const endDate = new Date()
@@ -47,6 +43,21 @@ const contactTransformSpec = {
   defra_preferredmethodofreminder: 'preferredMethodOfReminder'
 }
 
+const permitTransformSpec = {
+  defra_permitid: 'permitId',
+  defra_name: 'description'
+}
+
+const permissionTransformSpec = {
+  defra_permissionid: 'permissionId',
+  referenceNumber: 'defra_name',
+  defra_issuedate: 'issueDate',
+  defra_startdate: 'issueDate',
+  defra_enddate: 'endDate',
+  defra_stagingid: 'stagingId',
+  defra_datasource: 'dataSource'
+}
+
 const mapFields = (data, transformSpec) => {
   const transformedData = {}
   for (const key in data) {
@@ -60,7 +71,7 @@ const mapFields = (data, transformSpec) => {
 }
 
 const createContact = () => {
-  dynamicsClient.createRequest({
+  return dynamicsClient.createRequest({
     collection: 'contacts',
     contentId: v4(),
     entity: {
@@ -78,11 +89,12 @@ const createContact = () => {
       defra_preferredmethodofconfirmation: 910400000,
       defra_preferredmethodofnewsletter: 910400000,
       defra_preferredmethodofreminder: 910400001
-    }
+    },
+    returnRepresentation: true
   })
 }
 
-const getContact = async () => {
+const getOrCreateContact = async () => {
   const { value: records } = await dynamicsClient.retrieveRequest({
     collection: 'contacts',
     filter:
@@ -106,76 +118,29 @@ const getContact = async () => {
 
   if (records.length) {
     const contact = mapFields(records[0], contactTransformSpec)
-    console.log(contact)
     return contact
   } else {
-    createContact()
+    const createdContact = await createContact()
+    const mappedContact = mapFields(createdContact, contactTransformSpec)
+    return mappedContact
   }
-
-  return null
-
-  // mappings
-  // id: { field: 'contactid', type: 'string' },
-  // firstName: { field: 'firstname', type: 'string' },
-  // lastName: { field: 'lastname', type: 'string' },
-  // birthDate: { field: 'birthdate', type: 'date' },
-  // email: { field: 'emailaddress1', type: 'string' },
-  // mobilePhone: { field: 'mobilephone', type: 'string' },
-  // organisation: { field: 'defra_organisation', type: 'string' },
-  // premises: { field: 'defra_premises', type: 'string' },
-  // street: { field: 'defra_street', type: 'string' },
-  // locality: { field: 'defra_locality', type: 'string' },
-  // town: { field: 'defra_town', type: 'string' },
-  // postcode: { field: 'defra_postcode', type: 'string' },
-  // country: { field: 'defra_country', type: 'optionset', ref: 'defra_country' },
-  // preferredMethodOfConfirmation: {
-  //   field: 'defra_preferredmethodofconfirmation',
-  //   type: 'optionset',
-  //   ref: 'defra_preferredcontactmethod'
-  // },
-  // preferredMethodOfNewsletter: { field: 'defra_preferredmethodofnewsletter', type: 'optionset', ref: 'defra_preferredcontactmethod' },
-  // preferredMethodOfReminder: { field: 'defra_preferredmethodofreminder', type: 'optionset', ref: 'defra_preferredcontactmethod' }
-
-  // return {
-  //   firstName: 'Homer',
-  //   lastName: 'Simpson',
-  //   birthDate: '1985-03-11T00:00:00.000Z',
-  //   premises: '742',
-  //   postcode: 'SF30 3SF'
-  // }
-
-  // const { Contact, findByExample } = Dynamics
-  // const birthDate = new Date()
-  // birthDate.setDate(birthDate.getDate() - 1)
-  // birthDate.setFullYear(birthDate.getFullYear() - 35)
-  // const licensee = new Dynamics.Contact()
-  // licensee.firstName = 'Homer'
-  // licensee.lastName = 'Simpson'
-  // licensee.birthDate = '1985-03-11T00:00:00.000Z'
-  // licensee.premises = '742'
-  // licensee.postcode = 'SF30 3SF'
-
-  // const candidates = await findByExample(licensee)
-  // if (candidates.length) {
-  //   return candidates[0]
-  // }
-
-  // licensee.street = 'Evergreen Terrace'
-  // licensee.town = 'Springfield'
-  // licensee.country = await getGlobalOptionSetValue(Contact.definition.mappings.country.ref, 'GB')
-  // licensee.preferredMethodOfConfirmation = await getGlobalOptionSetValue(
-  //   Contact.definition.mappings.preferredMethodOfConfirmation.ref,
-  //   'Text'
-  // )
-  // licensee.preferredMethodOfNewsletter = await getGlobalOptionSetValue(Contact.definition.mappings.preferredMethodOfNewsletter.ref, 'Email')
-  // licensee.preferredMethodOfReminder = await getGlobalOptionSetValue(Contact.definition.mappings.preferredMethodOfReminder.ref, 'Letter')
-  // return licensee
 }
 
-const getPermit = async () => {
-  //const permits = await Dynamics.retrieveMultipleAsMap(Dynamics.Permit).cached()
-  //const permit = permits[Dynamics.Permit.definition.localCollection].filter(p => p.description === PERMIT)
-  //return permit.length ? permit[0] : undefined
+const getPermit = async (fullPermitName) => {
+  const { value: records } = await dynamicsClient.retrieveRequest({
+    collection: 'defra_permits',
+    filter:
+      `statecode eq 0 and defra_name eq '${fullPermitName}'`,
+    select: [
+      'defra_permitid',
+      'defra_name'
+    ]
+  })
+  if (records.length) {
+    const permit = mapFields(records[0], permitTransformSpec)
+    return permit
+  }
+  return null
 }
 
 const calculateLuhn = value => {
@@ -216,10 +181,8 @@ const generateReferenceNumber = endDate => {
   return `${block1}-${block2}-${block3}${cs}`
 }
 
-const createPermissionWithContactId = (contactId, endDate, startDate, issueDate) => {
-  console.log(contactId)
-  console.log(endDate)
-  return dynamicsClient.createRequest({
+const createPermissionWithContactId = async (contactId, permitId, endDate, startDate, issueDate) => {
+  const returnedPermission = await dynamicsClient.createRequest({
     collection: 'defra_permissions',
     contentId: v4(),
     entity: {
@@ -229,12 +192,14 @@ const createPermissionWithContactId = (contactId, endDate, startDate, issueDate)
       defra_startdate: startDate.toISOString(),
       defra_issuedate: issueDate.toISOString(),
       "defra_ContactId@odata.bind": `/contacts(${contactId})`,
-      "defra_PermitId@odata.bind": "/defra_permits(b51b34a0-0c66-e611-80dc-c4346bad0190)",
+      "defra_PermitId@odata.bind": `/defra_permits(${permitId})`,
       defra_name: generateReferenceNumber(endDate),
       statuscode: 1,
       statecode: 0
-    }
+    },
+    returnRepresentation: true
   })
+  return mapFields(returnedPermission, permissionTransformSpec)
 }
 
 const createPermission = async (expiryDateSpec = PERMISSION_EXPIRY.TODAY) => {
@@ -242,21 +207,15 @@ const createPermission = async (expiryDateSpec = PERMISSION_EXPIRY.TODAY) => {
   const startDate = new Date(endDate)
   startDate.setFullYear(startDate.getFullYear() - 1)
 
-  const contact = await getContact()
-  const permission = {
-    issueDate: startDate.toISOString(),
-    startDate: startDate.toISOString(),
-    endDate: endDate.toISOString(),
-    referenceNumber: generateReferenceNumber(new Date(endDate)),
-    licensee: contact
+  const contact = await contactService.getOrCreateContact()
+  const permit = await permitService.getPermit(PERMIT)  
+  const permission = await createPermissionWithContactId(contact.contactId, permit.permitId, endDate, startDate, startDate)
+
+  return {
+    contact,
+    permit,
+    licence: permission
   }
-
-  const permit = await getPermit()
-  //permission.permitId = permit.id
-  
-  const perm = await createPermissionWithContactId(contact.contactId, endDate, startDate, startDate)
-
-  return permission
 }
 
 module.exports = {
