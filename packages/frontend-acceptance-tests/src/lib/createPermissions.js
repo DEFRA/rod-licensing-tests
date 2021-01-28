@@ -5,7 +5,6 @@ const permitService = require('./permit-service.js')
 const contactService = require('./contact-service.js')
 const { mapFields } = require('./dynamics-utils.js')
 
-
 const PERMISSION_EXPIRY = {
   YESTERDAY: -1,
   TODAY: 0,
@@ -32,7 +31,7 @@ const getEndDate = expiryDateSpec => {
 
 const permissionTransformSpec = {
   defra_permissionid: 'permissionId',
-  referenceNumber: 'defra_name',
+  defra_name: 'referenceNumber',
   defra_issuedate: 'issueDate',
   defra_startdate: 'issueDate',
   defra_enddate: 'endDate',
@@ -84,12 +83,12 @@ const createPermissionWithContactId = async (contactId, permitId, endDate, start
     contentId: v4(),
     entity: {
       defra_stagingid: v4(),
-      defra_datasource:  910400003,
+      defra_datasource: 910400003,
       defra_enddate: endDate.toISOString(),
       defra_startdate: startDate.toISOString(),
       defra_issuedate: issueDate.toISOString(),
-      "defra_ContactId@odata.bind": `/contacts(${contactId})`,
-      "defra_PermitId@odata.bind": `/defra_permits(${permitId})`,
+      'defra_ContactId@odata.bind': `/contacts(${contactId})`,
+      'defra_PermitId@odata.bind': `/defra_permits(${permitId})`,
       defra_name: generateReferenceNumber(endDate),
       statuscode: 1,
       statecode: 0
@@ -105,7 +104,7 @@ const createPermission = async (expiryDateSpec = PERMISSION_EXPIRY.TODAY) => {
   startDate.setFullYear(startDate.getFullYear() - 1)
 
   const contact = await contactService.getOrCreateContact()
-  const permit = await permitService.getPermit(permitService.PERMIT.COARSE_12M_2_ROD_FULL)  
+  const permit = await permitService.getPermit(permitService.PERMIT.COARSE_12M_2_ROD_FULL)
   const permission = await createPermissionWithContactId(contact.contactId, permit.permitId, endDate, startDate, startDate)
 
   return {

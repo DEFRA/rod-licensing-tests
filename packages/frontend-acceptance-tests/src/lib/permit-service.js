@@ -11,7 +11,7 @@ const PERMIT = {
   SALMON_12M_1_ROD_SENIOR: 'Salmon 12 month 1 Rod Licence (Senior)',
   SALMON_8D_1_ROD_FULL: 'Salmon 8 day 1 Rod Licence (Full)',
   SALMON_1D_1_ROD_FULL: 'Salmon 1 day 1 Rod Licence (Full)',
-  SALMON_1D_1_ROD_SENIOR: 'Salmon 1 day 1 Rod Licence (Senior)',
+  SALMON_1D_1_ROD_SENIOR: 'Salmon 1 day 1 Rod Licence (Senior)'
 }
 
 const permitTransformSpec = {
@@ -19,15 +19,11 @@ const permitTransformSpec = {
   defra_name: 'description'
 }
 
-const getPermit = async (fullPermitName) => {
+const getPermit = async fullPermitName => {
   const { value: records } = await dynamicsClient.retrieveRequest({
     collection: 'defra_permits',
-    filter:
-      `statecode eq 0 and defra_name eq '${fullPermitName}'`,
-    select: [
-      'defra_permitid',
-      'defra_name'
-    ]
+    filter: `statecode eq 0 and defra_name eq '${fullPermitName}'`,
+    select: ['defra_permitid', 'defra_name']
   })
   if (records.length) {
     const permit = mapFields(records[0], permitTransformSpec)
