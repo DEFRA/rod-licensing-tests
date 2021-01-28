@@ -1,6 +1,7 @@
+const { v4 } = require('uuid')
+
 const dynamicsClient = require('./dynamics-client.js')
 const { mapFields } = require('./dynamics-utils.js')
-const { v4 } = require('uuid')
 
 const contactTransformSpec = {
   contactid: 'contactId',

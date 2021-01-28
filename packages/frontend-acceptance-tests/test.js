@@ -1,4 +1,4 @@
-const p = require('./src/lib/createPermissions');
+const p = require('./src/lib/create-permissions');
 
 (async () => {
     try {
