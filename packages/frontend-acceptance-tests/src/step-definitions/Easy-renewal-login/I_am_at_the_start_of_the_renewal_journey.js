@@ -10,7 +10,7 @@ defineStep(/^I am at the start of the renewal journey with a licence that expire
     const referenceNumber = permission.licence.referenceNumber
     const lastSixDigits = referenceNumber.substr(referenceNumber.length - 6)
 
-    await browser.url('/') // TODO remove once IWTF-1877 has been completed
+    await browser.url('/')
     return await browser.url(`/renew/${lastSixDigits}`)
   })
 
