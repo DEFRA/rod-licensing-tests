@@ -17,13 +17,15 @@ Feature: I want to buy an adult annual fishing
     And I enter "Adult" "Salmon" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
+    And I select digital license
+    And I enter email as "email@gmail.com" and number as "" for confirmation method
     And I enter email as "email@gmail.com" and number as ""
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
     And I enter payment details
     And I confirm payment details
-      #    Then I expect to receive a confirmation via GOV.UK Notify
+    #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
 
@@ -37,6 +39,8 @@ Feature: I want to buy an adult annual fishing
     And I enter "Adult" "CoarseTwo" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
+    And I select digital license
+    And I enter email as "email@gmail.com" and number as "" for confirmation-method
     And I enter email as "email@gmail.com" and number as ""
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
@@ -54,6 +58,8 @@ Feature: I want to buy an adult annual fishing
     And I enter "Adult" "CoarseThree" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
+    And I select digital license
+    And I enter email as "email@gmail.com" and number as "" for confirmation-method
     And I do not have either of these
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
