@@ -142,30 +142,37 @@ Feature: Buy a Fishing Licence - Error messages - 12 month journey
       | Choose your address  |
     And I select "100121002711" as an address
 
+Scenario: Scenario 9 - Confirmation Method Errors - Digital license
+   # Scenario 9.1: Test Errors on Confirmation Method page -  Error messages - Nothing selected
+    And I select digital license
+    When I am on the confirmation method page and I click continue
+    Then I expect the confirmation method page to show the following errors
+      | ErrorMessage  |
+      | Choose how you would like to receive the licence |
+    # Scenario 9.2: Test Errors on Confirmation Method page -  Error messages - No email entered
+    And I click email radio button and click continue on confirmation method page
+    Then I expect the confirmation method page to show the following errors
+      | ErrorMessage   |
+      | Enter an email address in the correct format |
+    # Scenario 9.3: Test Errors on Confirmation Method page -  Error messages - No phone number entered
+    And I click mobile radio button and click continue on confirmation method page
+    Then I expect the confirmation method page to show the following errors
+      | ErrorMessage |
+      | Enter your UK mobile phone number |
+    And I enter email as "email@gmail.com" and number as "" for confirmation method
 
-  Scenario: Scenario 9 - Contact Details Errors
-   # Scenario 9.1: Test Errors on Contact Details page -  Error messages - Nothing selected
+Scenario: Scenario 10 - Contact Details Errors
+   # Scenario 10.1: Test Errors on Contact Details page -  Error messages - Nothing selected
     When I am on the contact details page and I click continue
     Then I expect the contact details page to show the following errors
       | ErrorMessage  |
       | Choose how you would like to be contacted  |
-    # Scenario 9.2: Test Errors on Contact Details page -  Error messages - No email entered
     And I click email radio button and click continue
-    Then I expect the contact details page to show the following errors
-      | ErrorMessage   |
-      | Enter your email address in the correct format, like name@example.com |
-    # Scenario 9.3: Test Errors on Contact Details page -  Error messages - No email entered
-    And I click mobile radio button and click continue
-    Then I expect the contact details page to show the following errors
-      | ErrorMessage |
-      | Enter your UK mobile number like '07700 900 900'  |
-    And I enter email as "email@gmail.com" and number as ""
     And I am on the newsletter page and I click continue
     And I am on the contact summary page and I click continue
 
-
-  Scenario: Scenario 10 - Licence Conditions Errors
-# Scenario 10.1: Test Errors on Terms and Conditions page -  Error messages - No date entered
+  Scenario: Scenario 11 - Licence Conditions Errors
+# Scenario 11.1: Test Errors on Terms and Conditions page -  Error messages - No date entered
     When I dont agree to the terms and conditions and I click continue
     Then I expect the terms and conditions page to show the following errors
       | ErrorMessage  |
