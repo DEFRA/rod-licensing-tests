@@ -26,9 +26,14 @@ class ConfirmationMethodPage extends Page {
     logger.info(`Email selected, no value added`)
   }
 
-  // selectConfirmationMethodMobile () {
-  //   $('#licence-confirmation-method-2').click()
-  //   logger.info(`Mobile selected, no value added`)
-  // }
+  selectConfirmationMethodMobile () {
+    $('#licence-confirmation-method-2').click()
+    logger.info(`Mobile selected, no value added`)
+  }
+
+  selectConfirmationMethodMakeNote () {
+    $('#licence-confirmation-method-3').click()
+    logger.info(`Make a note, no value added`)
+  }
 }
 module.exports = new ConfirmationMethodPage('/buy/confirmation-method')

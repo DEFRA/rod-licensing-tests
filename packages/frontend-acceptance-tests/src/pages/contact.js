@@ -35,5 +35,11 @@ class ContactPage extends Page {
     $('#how-contacted-3').click()
     logger.info(`No contact details available`)
   }
+
+  changeEmail () {
+    $('#change-email').click()
+    $('#email').setValue("")
+    logger.info(`Set email blank`)
+ }
 }
 module.exports = new ContactPage('/buy/contact')
