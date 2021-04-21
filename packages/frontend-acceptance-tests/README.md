@@ -24,11 +24,11 @@ npm init
 
 git clone https://github.com/DEFRA/rod-licensing-tests.git
 
-Ensure Node version 14.0.0 is installed and running:
+Ensure Node version 14.15.0 is installed and running:
 
-nvm install v14.0.0
+nvm install v14.15.0
 
-nvm use v14.0.0
+nvm use v14.15.0
 
 node -v
 
