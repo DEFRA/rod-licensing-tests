@@ -4,10 +4,9 @@ const Page = require('./page')
 const { logger } = require('defra-logging-facade')
 const { expect } = require('chai')
 
-
 class AddressEntry extends Page {
   // Input address data
-  setAddressFields(buildingNo, street, city, postcode, country) {
+  setAddressFields (buildingNo, street, city, postcode, country) {
     $('#premises').setValue(buildingNo)
     logger.info(`Building Number set as: ${buildingNo}`)
 
@@ -16,19 +15,18 @@ class AddressEntry extends Page {
 
     $('#town').setValue(city)
     logger.info(`City set as: ${city}`)
-    
+
     $('#postcode').setValue(postcode)
     logger.info(`Postcode set as: ${postcode}`)
 
-    $('#country-code').click();
-    $(`option[value="${country}"]`).click();
+    $('#country-code').click()
+    $(`option[value="${country}"]`).click()
     logger.info(`Country set as: ${country}`)
   }
 
-  checkCountryInDropDown(country) {
-    expect(
-      $(`#country-code option[value='${country}']`)
-      ).to.exist()
+  checkCountryInDropDown (country, shouldExist) {
+    const countryOption = $(`#country-code option[value="${country}"]`)
+    expect(countryOption.isExisting()).to.equal(shouldExist)
   }
 }
 
