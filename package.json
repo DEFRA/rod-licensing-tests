@@ -34,7 +34,7 @@
     "lerna": "^3.22.1",
     "lerna-update-wizard": "^0.17.8",
     "prettier-standard": "^16.4.1",
-    "standard": "^14.3.4"
+    "standard": "^16.0.3"
   },
   "prettier": {
     "printWidth": 140
