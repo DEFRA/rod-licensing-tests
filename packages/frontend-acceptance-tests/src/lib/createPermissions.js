@@ -98,7 +98,7 @@ const createPermissionWithContactId = async (contactId, permitId, endDate, start
   return mapFields(returnedPermission, permissionTransformSpec)
 }
 
-const createPermission = async (expiryDateSpec = PERMISSION_EXPIRY.TODAY) => {
+const createPermission = async (expiryDateSpec = PERMISSION_EXPIRY.YESTERDAY) => {
   const endDate = getEndDate(expiryDateSpec)
   const startDate = new Date(endDate)
   startDate.setFullYear(startDate.getFullYear() - 1)
