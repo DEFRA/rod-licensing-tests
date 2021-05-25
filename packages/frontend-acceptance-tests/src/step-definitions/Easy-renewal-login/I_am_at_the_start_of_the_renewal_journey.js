@@ -9,8 +9,7 @@ defineStep(/^I am at the start of the renewal journey with a licence that expire
     const permission = await createPermission()
     const referenceNumber = permission.licence.referenceNumber
     const lastSixDigits = referenceNumber.substr(referenceNumber.length - 6)
-
-    await browser.url('/')
+ 
     return await browser.url(`/renew/${lastSixDigits}`)
   })
 
