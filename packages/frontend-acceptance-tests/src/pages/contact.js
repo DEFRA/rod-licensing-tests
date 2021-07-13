@@ -35,5 +35,6 @@ class ContactPage extends Page {
     $('#how-contacted-3').click()
     logger.info(`No contact details available`)
   }
+
 }
 module.exports = new ContactPage('/buy/contact')
