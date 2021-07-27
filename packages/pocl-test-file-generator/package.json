@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "commander": "^6.0.0",
+    "commander": "^8.1.0",
     "moment": "^2.27.0",
     "xmlbuilder2": "^2.3.1"
   },
