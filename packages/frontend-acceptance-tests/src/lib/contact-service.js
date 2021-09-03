@@ -12,7 +12,8 @@ const contactTransformSpec = {
   mobilephone: 'mobilePhone',
   defra_preferredmethodofconfirmation: 'preferredMethodOfConfirmation',
   defra_preferredmethodofnewsletter: 'preferredMethodOfNewsletter',
-  defra_preferredmethodofreminder: 'preferredMethodOfReminder'
+  defra_preferredmethodofreminder: 'preferredMethodOfReminder',
+  defra_postalfulfilment: 'postalFulfilment'
 }
 
 const createContact = dateOfBirth => {
@@ -33,7 +34,8 @@ const createContact = dateOfBirth => {
       defra_country: 910400184,
       defra_preferredmethodofconfirmation: 910400000,
       defra_preferredmethodofnewsletter: 910400000,
-      defra_preferredmethodofreminder: 910400001
+      defra_preferredmethodofreminder: 910400001,
+      defra_postalfulfilment: false,
     },
     returnRepresentation: true
   })
