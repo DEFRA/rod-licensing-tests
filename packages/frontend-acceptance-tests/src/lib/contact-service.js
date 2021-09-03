@@ -35,7 +35,7 @@ const createContact = dateOfBirth => {
       defra_preferredmethodofconfirmation: 910400000,
       defra_preferredmethodofnewsletter: 910400000,
       defra_preferredmethodofreminder: 910400001,
-      defra_postalfulfilment: false,
+      defra_postalfulfilment: false
     },
     returnRepresentation: true
   })
