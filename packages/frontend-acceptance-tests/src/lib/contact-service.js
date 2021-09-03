@@ -12,15 +12,16 @@ const contactTransformSpec = {
   mobilephone: 'mobilePhone',
   defra_preferredmethodofconfirmation: 'preferredMethodOfConfirmation',
   defra_preferredmethodofnewsletter: 'preferredMethodOfNewsletter',
-  defra_preferredmethodofreminder: 'preferredMethodOfReminder'
+  defra_preferredmethodofreminder: 'preferredMethodOfReminder',
+  defra_postalfulfilment: 'postalFulfilment'
 }
 
-const createContact = () => {
+const createContact = dateOfBirth => {
   return dynamicsClient.createRequest({
     collection: 'contacts',
     contentId: v4(),
     entity: {
-      birthdate: '1985-03-11',
+      birthdate: dateOfBirth,
       lastname: 'Simpson',
       firstname: 'Homer',
       emailaddress1: 'example@example.com',
@@ -29,21 +30,21 @@ const createContact = () => {
       defra_street: 'Evergreen Terrace',
       defra_locality: null,
       defra_town: 'Springfield',
-      defra_postcode: 'SF30 3SF',
+      defra_postcode: 'SN15 3PG',
       defra_country: 910400184,
       defra_preferredmethodofconfirmation: 910400000,
       defra_preferredmethodofnewsletter: 910400000,
-      defra_preferredmethodofreminder: 910400001
+      defra_preferredmethodofreminder: 910400001,
+      defra_postalfulfilment: false
     },
     returnRepresentation: true
   })
 }
 
-const getContact = async () => {
+const getContact = async dateOfBirth => {
   return dynamicsClient.retrieveRequest({
     collection: 'contacts',
-    filter:
-      "statecode eq 0 and firstname eq 'Homer' and lastname eq 'Simpson' and birthdate eq 1985-03-11 and defra_premises eq '742' and defra_postcode eq 'SF30 3SF'",
+    filter: `statecode eq 0 and firstname eq 'Homer' and lastname eq 'Simpson' and birthdate eq ${dateOfBirth} and defra_premises eq '742' and defra_postcode eq 'SN153PG'`,
     select: [
       'contactid',
       'birthdate',
@@ -62,14 +63,15 @@ const getContact = async () => {
   })
 }
 
-const getOrCreateContact = async () => {
-  const { value: records } = await getContact()
+const getOrCreateContact = async dateOfBirth => {
+  const formatDate = dateOfBirth.format('YYYY-MM-DD')
+  const { value: records } = await getContact(formatDate)
 
   if (records.length) {
     const contact = mapFields(records[0], contactTransformSpec)
     return contact
   } else {
-    const createdContact = await createContact()
+    const createdContact = await createContact(formatDate)
     const mappedContact = mapFields(createdContact, contactTransformSpec)
     return mappedContact
   }

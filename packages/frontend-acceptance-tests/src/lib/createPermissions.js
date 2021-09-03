@@ -1,15 +1,9 @@
 const { v4 } = require('uuid')
 
 const dynamicsClient = require('./dynamics-client.js')
-const permitService = require('./permit-service.js')
+const { PERMIT, getPermit } = require('./permit-service.js')
 const contactService = require('./contact-service.js')
 const { mapFields } = require('./dynamics-utils.js')
-
-const PERMISSION_EXPIRY = {
-  YESTERDAY: -1,
-  TODAY: 0,
-  TOMORROW: 1
-}
 
 const dictionaries = [
   'ABCDEFGHJKLMNPQRSTUVWXYZ1234567890',
@@ -18,16 +12,6 @@ const dictionaries = [
   'BCDFGHJKLM256789',
   'ABCDEFGHJKLMNPQRSTUVWXYZ1234567890'
 ]
-
-const getEndDate = expiryDateSpec => {
-  const endDate = new Date()
-  if (expiryDateSpec === PERMISSION_EXPIRY.YESTERDAY) {
-    endDate.setDate(endDate.getDate() - 1)
-  } else if (expiryDateSpec === PERMISSION_EXPIRY.TOMORROW) {
-    endDate.setDate(endDate.getDate() + 1)
-  }
-  return endDate
-}
 
 const permissionTransformSpec = {
   defra_permissionid: 'permissionId',
@@ -98,13 +82,13 @@ const createPermissionWithContactId = async (contactId, permitId, endDate, start
   return mapFields(returnedPermission, permissionTransformSpec)
 }
 
-const createPermission = async (expiryDateSpec = PERMISSION_EXPIRY.YESTERDAY) => {
-  const endDate = getEndDate(expiryDateSpec)
-  const startDate = new Date(endDate)
+const createPermission = async (expiryDateInput, permitInput = PERMIT.COARSE_12M_2_ROD_FULL, dateOfBirth) => {
+  const endDate = new Date(expiryDateInput)
+  const startDate = new Date(expiryDateInput)
   startDate.setFullYear(startDate.getFullYear() - 1)
 
-  const contact = await contactService.getOrCreateContact()
-  const permit = await permitService.getPermit(permitService.PERMIT.COARSE_12M_2_ROD_FULL)
+  const contact = await contactService.getOrCreateContact(dateOfBirth)
+  const permit = await getPermit(permitInput)
   const permission = await createPermissionWithContactId(contact.contactId, permit.permitId, endDate, startDate, startDate)
 
   return {
