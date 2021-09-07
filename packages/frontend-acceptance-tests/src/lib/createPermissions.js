@@ -82,12 +82,12 @@ const createPermissionWithContactId = async (contactId, permitId, endDate, start
   return mapFields(returnedPermission, permissionTransformSpec)
 }
 
-const createPermission = async (expiryDateInput, permitInput = PERMIT.COARSE_12M_2_ROD_FULL, dateOfBirth) => {
+const createPermission = async (expiryDateInput, permitInput = PERMIT.COARSE_12M_2_ROD_FULL, dateOfBirth, firstName, lastName, postalFulfilment) => {
   const endDate = new Date(expiryDateInput)
   const startDate = new Date(expiryDateInput)
   startDate.setFullYear(startDate.getFullYear() - 1)
 
-  const contact = await contactService.getOrCreateContact(dateOfBirth)
+  const contact = await contactService.getOrCreateContact(dateOfBirth, firstName, lastName, postalFulfilment)
   const permit = await getPermit(permitInput)
   const permission = await createPermissionWithContactId(contact.contactId, permit.permitId, endDate, startDate, startDate)
 
