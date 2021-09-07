@@ -1,8 +1,8 @@
 'use strict'
 const { defineStep } = require('cucumber')
-const moment = require('moment')
 
 const { createPermission } = require('../../lib/createPermissions')
+const { adjustDate } = require('../../lib/date-utils')
 const RenewalsPage = require('../../pages/renew-login')
 
 defineStep(
@@ -28,16 +28,10 @@ function renew (
   lastName,
   postalFulfilmentInput
 ) {
-  const birthdayMod = birthdayUnderOver === 'over' ? -1 : 1
-  const birthdayAdjust = birthdayDays * birthdayMod
-  const dob = moment()
-    .subtract(age, 'years')
-    .add(birthdayAdjust, 'days')
+  const dob = adjustDate('over', birthdayUnderOver, birthdayDays, age)
 
   browser.call(async () => {
-    const expiredMod = expiryExpired === 'expired' ? -1 : 1
-    const adjustExpiry = expiryDays * expiredMod
-    const expiryDateInput = moment().add(adjustExpiry, 'days')
+    const expiryDateInput = adjustDate('expired', expiryExpired, expiryDays)
 
     const postalFulfilment = postalFulfilmentInput === 'true'
 
