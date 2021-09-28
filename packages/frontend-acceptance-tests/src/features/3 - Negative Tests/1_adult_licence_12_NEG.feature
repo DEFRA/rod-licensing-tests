@@ -160,6 +160,7 @@ Scenario: Scenario 9 - Confirmation Method Errors - Digital license
       | ErrorMessage |
       | Enter your UK mobile phone number |
     And I enter email as "email@gmail.com" and number as "" for confirmation method
+    And I am on the confirm contact details page and it asks me to confirm my email address and I click correct
 
 Scenario: Scenario 10 - Contact Details Errors
    # Scenario 10.1: Test Errors on Contact Details page -  Error messages - Nothing selected

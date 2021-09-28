@@ -17,6 +17,7 @@ Feature: I want to buy an adult blue badge annual fishing
     And I select "100121002711" as an address
     And I select digital license
     And I enter email as "email@gmail.com" and number as "" for confirmation method
+    And I am on the confirm contact details page and it asks me to confirm my email address and I click correct
     And I click email radio button and click continue
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
@@ -37,6 +38,7 @@ Feature: I want to buy an adult blue badge annual fishing
     And I select "100121002711" as an address
     And I select digital license
     And I enter email as "email@gmail.com" and number as "" for confirmation method
+    And I am on the confirm contact details page and it asks me to confirm my email address and I click correct
     And I click email radio button and click continue
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
@@ -56,6 +58,7 @@ Feature: I want to buy an adult blue badge annual fishing
     And I select "100121002711" as an address
     And I select digital license
     And I enter email as "email@gmail.com" and number as "" for confirmation method
+    And I am on the confirm contact details page and it asks me to confirm my email address and I click correct
     And I click email radio button and click continue
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
@@ -114,6 +117,7 @@ Feature: I want to buy an adult blue badge annual fishing
     And I select "100121002711" as an address
     And I select digital license
     And I enter email as "" and number as "07428776543" for confirmation method
+    And I am on the confirm contact details page and it asks me to confirm my phone number and I click correct
     And I click mobile radio button and click continue
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
