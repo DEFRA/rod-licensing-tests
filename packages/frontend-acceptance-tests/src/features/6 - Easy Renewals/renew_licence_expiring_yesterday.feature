@@ -16,6 +16,7 @@ Feature: I want to renew my fishing licence
     And I am on the licence summary page and I click continue
     And I select digital license
     And I click email radio button and click continue on confirmation method page
+    And I am on the confirm contact details page and it asks me to confirm my email address and I click correct
     And I click email radio button and click continue
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
