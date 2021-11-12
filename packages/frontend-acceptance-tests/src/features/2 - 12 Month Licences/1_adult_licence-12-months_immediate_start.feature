@@ -3,18 +3,18 @@ Feature: I want to buy an adult annual fishing
 
   Background: Buy an adult fishing licence
     Given  I am at the start of the purchase journey
-    *   I am 7 days over my 17th birthday
-    And  I select Now as a start time
-    *   I enter "No" concession
-
+    And I am buying a licence for myself
 
     Scenario: Scenario 1 - 12 Month Adult licence selecting 2 rod sea trout licence - Immediate start - Enter contact details
     # Licence details journey starts
+    And I enter "Adult" "Salmon" as the name
+    *   I am 7 days over my 17th birthday
+    *   I enter "No" concession
+    And  I select Now as a start time
     Given I select a "salmon" fishing licence
     And I select a 12MonthLicence licence
     Then I am on the licence summary page and I click continue
   # Contact Journey starts
-    And I enter "Adult" "Salmon" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select digital license
@@ -31,11 +31,14 @@ Feature: I want to buy an adult annual fishing
 
   Scenario: Scenario 2 - 12 Month Adult licence selecting salmon licence - Immediate start - Enter contact-Email
 # Licence details journey starts
+    And I enter "Adult" "CoarseTwo" as the name
+    *   I am 7 days over my 17th birthday
+    *   I enter "No" concession
+    And  I select Now as a start time
     Given I select a "coarse2" fishing licence
     And I select a 12MonthLicence licence
     Then I am on the licence summary page and I click continue
   # Contact Journey starts
-    And I enter "Adult" "CoarseTwo" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select digital license
@@ -52,10 +55,13 @@ Feature: I want to buy an adult annual fishing
 
   Scenario: Scenario 3 - 12 Month Adult licence selecting salmon licence - Immediate start - By Post - NO contact
  # Licence details journey starts
+    And I enter "Adult" "CoarseThree" as the name
+    *   I am 7 days over my 17th birthday
+    *   I enter "No" concession
+    And  I select Now as a start time
     Given I select a "coarse3" fishing licence
     Then I am on the licence summary page and I click continue
   # Contact Journey starts
-    And I enter "Adult" "CoarseThree" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select paper license
@@ -71,10 +77,13 @@ Feature: I want to buy an adult annual fishing
 
   Scenario: Scenario 4 - 12 Month Adult licence selecting salmon licence - Immediate start - By Post - Enter contact-Email
  # Licence details journey starts
+    And I enter "Adult" "CoarseThree" as the name
+    *   I am 7 days over my 17th birthday
+    *   I enter "No" concession
+    And  I select Now as a start time
     Given I select a "coarse3" fishing licence
     Then I am on the licence summary page and I click continue
   # Contact Journey starts
-    And I enter "Adult" "CoarseThree" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select paper license
@@ -90,11 +99,14 @@ Feature: I want to buy an adult annual fishing
 
   Scenario: Scenario 5 - 12 Month Adult licence selecting 2 rod sea trout licence - Immediate start - Enter contact-Text
     # Licence details journey starts
+    And I enter "Adult" "Salmon" as the name
+    *   I am 7 days over my 17th birthday
+    *   I enter "No" concession
+    And  I select Now as a start time
     Given I select a "salmon" fishing licence
     And I select a 12MonthLicence licence
     Then I am on the licence summary page and I click continue
   # Contact Journey starts
-    And I enter "Adult" "Salmon" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select digital license
@@ -111,10 +123,13 @@ Feature: I want to buy an adult annual fishing
 
   Scenario: Scenario 6 - 12 Month Adult licence selecting salmon licence - Immediate start - By Post - Enter contact-Text
  # Licence details journey starts
+    And I enter "Adult" "CoarseThree" as the name
+    *   I am 7 days over my 17th birthday
+    *   I enter "No" concession
+    And  I select Now as a start time
     Given I select a "coarse3" fishing licence
     Then I am on the licence summary page and I click continue
   # Contact Journey starts
-    And I enter "Adult" "CoarseThree" as the name
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select paper license
