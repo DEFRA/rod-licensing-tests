@@ -128,14 +128,14 @@ Scenario: Scenario 6 - Find Address Errors
     When I am on the find address page and I click continue
     Then I expect the find address page to show the following errors
       | ErrorMessage |
-      | Enter your building number or name      |
-      | Enter your postcode                     |
+      | Enter the building number or name      |
+      | Enter the postcode                     |
 #  Scenario 6.2: Test Errors on Find Address page -  Error messages - No date entered
     When I enter "" and "6767676767" as an invalid house number and postcode
     Then I expect the find address page to show the following errors
       | ErrorMessage   |
-      | Enter your building number or name                                                   |
-      | Enter a UK postcode. If your address is outside the UK, enter your address manually. |
+      | Enter the building number or name                                                   |
+      | Enter a UK postcode. If the address is outside the UK, enter the address manually. |
     And I enter "3" and "SN153PG" as my house number and postcode
 
 
@@ -144,7 +144,7 @@ Scenario: Scenario 7 - Select Address Errors
     When I am on the select address page and I click continue
     Then I expect the select address page to show the following errors
       | ErrorMessage  |
-      | Choose your address  |
+      | Choose an address  |
     And I select "100121002711" as an address
 
 
