@@ -19,22 +19,22 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
     When I am on the name page and I click continue
     Then I expect the name page to show the following errors
       | ErrorMessage           |
-      | Enter your first name  |
-      | Enter your last name  |
+      | Enter the licence holder’s first name  |
+      | Enter the licence holder’s last name |
 
 #  Scenario 1.3: Test Errors on Contact Name page -  Error messages - 1 character entered
     When I enter "H" "D" as an invalid name
     Then I expect the name page to show the following errors
       | ErrorMessage |
-      | Your first name must contain at least 2 letters  |
-      | Your last name must contain at least 2 letters  |
+      | The first name must contain at least 2 letters  |
+      | The last name must contain at least 2 letters  |
 
 #  Scenario 1.4: Test Errors on Contact Name page -  Error messages - Invalid characters entered
     When I enter "$$" "$$" as invalid characters
     Then I expect the name page to show the following errors
       | ErrorMessage  |
-      | Your first name must contain at least 2 letters |
-      | Your last name must contain at least 2 letters |
+      | The first name must contain at least 2 letters |
+      | The last name must contain at least 2 letters |
     And I enter "NegativeTwelve" "Test" as the name
 
 #  Scenario 1.5: Test Errors on DOB page -  Error messages - No date entered
@@ -45,19 +45,19 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
     #   |/date-of-birth|
     Then I expect the dob page to show the following errors
       | ErrorMessage              |
-      | Enter your date of birth and include a day, month and year  |
+      | Enter the licence holder's date of birth and include a day, month and year  |
 
 #  Scenario 1.6: Test Errors on DOB page -  Error messages - Invalid date
     When I enter "2" "" "" as an invalid date of birth
     Then I expect the dob page to show the following errors
       | ErrorMessage                                               |
-      | Enter your date of birth and include a day, month and year |
+      | Enter the licence holder's date of birth and include a day, month and year |
 
 #  Scenario 1.7: Test Errors on DOB page -  Error messages - Date in future
     When I enter "2" "2" "2022" as an invalid date of birth
     Then I expect the dob page to show the following errors
       | ErrorMessage                       |
-      | Your date of birth must be in the past  |
+      | The date of birth must be in the past  |
     *   I am 7 days over my 17th birthday
 
 
@@ -66,19 +66,19 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
     When I am on the concession page and I click continue
     Then I expect the concession page to show the following errors
       | ErrorMessage         |
-      | Choose Personal Independence Payment (PIP) or Disability Living Allowance (DLA), Blue Badge or No.  |
+      | Choose one of the options.  |
 
 # Scenario 2.2: Test Errors on Blue Badge page -  Error messages - No date entered
     When I enter "Benefit" as the ni concession and I enter "" as the concesssion id
     Then I expect the concession page to show the following errors
       | ErrorMessage                           |
-      | Enter your National Insurance number      |
+      | Enter the licence holder’s National Insurance number      |
 
 # Scenario 2.3: Test Errors on Blue Badge page -  Error messages - No date entered
     When I enter "BlueBadge" as the bb concession and I enter "" as the concesssion id
     Then I expect the concession page to show the following errors
       | ErrorMessage                           |
-      | Enter your Blue Badge Number     |
+      | Enter the licence holder’s Blue Badge number    |
     *   I enter "No" concession
 
   Scenario: Scenario 3 - Start Kind Errors
@@ -86,14 +86,14 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
     When I am on the start kind page and I click continue
     Then I expect the start kind page to show the following errors
       | ErrorMessage |
-      | Choose when you'd like your licence to start  |
+      | Choose when the licence should start  |
 
 # Scenario 3.2: Test Errors on Start Kind page -  Error messages - No date entered
     And I select AnotherTime as a start time
     And I am on the start kind page and I click continue
     Then I expect the start kind page to show the following errors
       | ErrorMessage                                                                                             |
-      | Enter the date you want your licence to start, include a day, month and year      |
+      | Enter the date the licence needs to start, include a day, month and year      |
 
 # Scenario 3.3: Test Errors on Start Date page -  Error messages - No date entered
     When I enter date two days in the past and click continue
@@ -108,7 +108,7 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
     When I am on the type of fish page and I click continue
     Then I expect the type of fish page to show the following errors
       | ErrorMessage                                        |
-      | Choose which type of fishing licence you want  |
+      | Choose one of the fishing licence types  |
     *   I select a "salmon" fishing licence
 
 
@@ -117,7 +117,7 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
     Given I am on the licence length page and I click continue
     Then I expect the licence length page to show the following errors
       | ErrorMessage |
-      | Choose how long you want your licence for |
+      | Choose the length of this licence |
     And I select a 8dayLicence licence
 
 
@@ -136,14 +136,14 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
     When I am on the find address page and I click continue
     Then I expect the find address page to show the following errors
       | ErrorMessage |
-      | Enter the building number or name      |
-      | Enter the postcode                     |
+      | Enter a building number or name      |
+      | Enter a postcode                     |
 
 #  Scenario 7.2: Test Errors on Find Address page -  Error messages - No date entered
     When I enter "" and "6767676767" as an invalid house number and postcode
     Then I expect the find address page to show the following errors
       | ErrorMessage   |
-      | Enter the building number or name                                                   |
+      | Enter a building number or name                                                   |
       | Enter a UK postcode. If the address is outside the UK, enter the address manually. |
     And I enter "3" and "SN153PG" as my house number and postcode
 
@@ -162,19 +162,19 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
     When I am on the contact details page and I click continue
     Then I expect the contact details page to show the following errors
       | ErrorMessage  |
-      | Choose how you would like to be contacted |
+      | Choose how we should contact the licence holder |
 
     # Scenario 9.2: Test Errors on Contact Details page -  Error messages - No email entered
     And I click email radio button and click continue
     Then I expect the contact details page to show the following errors
       | ErrorMessage   |
-      | Enter your email address in the correct format, like name@example.com |
+      | Enter an email address in the correct format |
 
     # Scenario 9.3: Test Errors on Contact Details page -  Error messages - No email entered
     And I click mobile radio button and click continue
     Then I expect the contact details page to show the following errors
       | ErrorMessage |
-      | Enter your UK mobile number like '07700 900 900'  |
+      | Enter a UK mobile phone number  |
     And I enter email as "email@gmail.com" and number as ""
     And I am on the newsletter page and I click continue
     And I am on the contact summary page and I click continue

@@ -10,4 +10,4 @@ class TermsAndConditionsPage extends Page {
     logger.info('Terms and Conditions checkbox selected')
   }
 }
-module.exports = new TermsAndConditionsPage('/buy/terms-conditions')
+module.exports = new TermsAndConditionsPage('/buy/conditions')

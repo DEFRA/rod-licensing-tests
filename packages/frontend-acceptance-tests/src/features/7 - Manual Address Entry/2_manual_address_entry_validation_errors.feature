@@ -17,9 +17,9 @@ Feature: Manual Address entry - validation errors
       And I am on the address entry page and I click continue
       Then I expect the address entry page to show the following errors
         | ErrorMessage                       |
-        | Enter the building number or name |
-        | Enter the town or city            |
-        | Enter the postcode                |
+        | Enter a building number or name |
+        | Enter a town or city            |
+        | Enter a postcode                |
 
     Scenario: Scenario 2 - Country Dropdown List
       Then I expect that I can see the following countries in the country dropdown
