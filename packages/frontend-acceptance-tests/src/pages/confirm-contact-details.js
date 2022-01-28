@@ -6,7 +6,7 @@ const { expect } = require('chai')
 class ConfirmContactDetails extends Page {
   confirmTitle (contactMethod) {
     const title = $('#contact-information-question').getText()
-    expect(title).to.equal(`Is your ${contactMethod} correct?`)
+    expect(title).to.equal(`Is the ${contactMethod} correct?`)
   }
 
   itsCorrect () {
