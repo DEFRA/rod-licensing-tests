@@ -54,7 +54,7 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
       | Enter the licence holder's date of birth and include a day, month and year |
 
 #  Scenario 1.7: Test Errors on DOB page -  Error messages - Date in future
-    When I enter "2" "2" "2022" as an invalid date of birth
+    When I enter "2" "2" "2055" as an invalid date of birth
     Then I expect the dob page to show the following errors
       | ErrorMessage                       |
       | The date of birth must be in the past  |
