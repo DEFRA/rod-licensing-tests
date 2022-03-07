@@ -10,7 +10,7 @@ class ConfirmContactDetails extends Page {
   }
 
   itsCorrect () {
-    $(`*=It's correct`).click()
+    $(`*=It’s correct`).click()
   }
 }
 module.exports = new ConfirmContactDetails('/buy/check-confirmation-contact')
