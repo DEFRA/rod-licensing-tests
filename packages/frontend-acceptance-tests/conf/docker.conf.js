@@ -8,12 +8,6 @@ exports.config = {
       'goog:chromeOptions': {
         args: ['--headless', '--no-sandbox']
       }
-    },
-    {
-      browserName: 'firefox',
-      'moz:firefoxOptions': {
-        args: ['--headless']
-      }
     }
   ],
   // set to info, debug or trace for more info
