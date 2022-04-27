@@ -1,6 +1,6 @@
 'use strict'
 
-const { defineStep } = require('cucumber')
+const { defineStep } = require("@cucumber/cucumber")
 const addressEntry = require('../../pages/address-entry')
 
 defineStep(/^I enter "(.*)" "(.*)" "(.*)" "(.*)" "(.*)" as the address$/, function (buildingNo, street, city, postcode, country) {

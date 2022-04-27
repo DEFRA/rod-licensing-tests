@@ -1,6 +1,6 @@
 'use strict'
 
-const { defineStep } = require('cucumber')
+const { defineStep } = require("@cucumber/cucumber")
 const licenceForPage = require('../../pages/licence-for')
 
 defineStep('I expect the licence for page to show the following errors', function (errorTable) {

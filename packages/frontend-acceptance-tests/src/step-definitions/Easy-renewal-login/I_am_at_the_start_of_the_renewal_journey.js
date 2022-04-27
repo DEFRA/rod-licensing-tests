@@ -1,5 +1,5 @@
 'use strict'
-const { defineStep } = require('cucumber')
+const { defineStep } = require("@cucumber/cucumber")
 
 const { createPermission } = require('../../lib/createPermissions')
 const { adjustDate } = require('../../lib/date-utils')

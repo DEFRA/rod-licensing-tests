@@ -4,6 +4,12 @@ exports.config = {
   maxInstances: 1,
   capabilities: [
     {
+      browserName: 'firefox',
+      'moz:firefoxOptions': {
+        args: ['--headless']
+      }
+    },
+    {
       browserName: 'chrome',
       'goog:chromeOptions': {
         args: ['--headless', '--no-sandbox']
