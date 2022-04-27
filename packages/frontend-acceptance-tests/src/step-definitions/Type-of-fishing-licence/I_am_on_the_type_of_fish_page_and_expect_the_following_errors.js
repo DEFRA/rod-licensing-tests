@@ -1,6 +1,6 @@
 'use strict'
 
-const { defineStep } = require("@cucumber/cucumber")
+const { defineStep } = require('@cucumber/cucumber')
 const licenceType = require('../../pages/licence-type')
 
 /**

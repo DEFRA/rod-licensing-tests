@@ -1,4 +1,4 @@
-const { defineStep } = require("@cucumber/cucumber")
+const { defineStep } = require('@cucumber/cucumber')
 const moment = require('moment')
 const RenewalsPage = require('../../pages/renew-login')
 

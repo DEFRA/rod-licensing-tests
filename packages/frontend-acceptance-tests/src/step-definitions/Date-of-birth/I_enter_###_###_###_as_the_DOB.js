@@ -1,4 +1,4 @@
-const { defineStep } = require("@cucumber/cucumber")
+const { defineStep } = require('@cucumber/cucumber')
 const DobPage = require('../../pages/set-dob')
 
 defineStep(/^I enter "(.*)" "(.*)" "(.*)" as an invalid date of birth$/, function (setdobDay, setdobMonth, setdobYear) {

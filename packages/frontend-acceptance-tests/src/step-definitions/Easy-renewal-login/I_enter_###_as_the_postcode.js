@@ -1,4 +1,4 @@
-const { defineStep } = require("@cucumber/cucumber")
+const { defineStep } = require('@cucumber/cucumber')
 const RenewalsPage = require('../../pages/renew-login')
 
 defineStep(/^I enter "(.*)" as the postcode and click continue$/, function (setRenewPostcode) {

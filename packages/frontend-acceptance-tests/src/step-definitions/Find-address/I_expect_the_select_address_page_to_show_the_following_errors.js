@@ -1,6 +1,6 @@
 'use strict'
 
-const { defineStep } = require("@cucumber/cucumber")
+const { defineStep } = require('@cucumber/cucumber')
 const selectAddress = require('../../pages/address-results')
 
 /**
