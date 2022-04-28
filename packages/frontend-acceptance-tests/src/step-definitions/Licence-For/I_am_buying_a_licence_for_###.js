@@ -1,4 +1,4 @@
-const { defineStep } = require('cucumber')
+const { defineStep } = require('@cucumber/cucumber')
 const LicenceForPage = require('../../pages/licence-for')
 
 defineStep(/^I am buying a licence for (myself|someone else)$/, function (licenceForInput) {

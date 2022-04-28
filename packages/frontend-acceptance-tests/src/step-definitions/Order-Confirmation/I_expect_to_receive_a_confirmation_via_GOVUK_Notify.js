@@ -1,5 +1,5 @@
 'use strict'
-const { defineStep } = require('cucumber')
+const { defineStep } = require('@cucumber/cucumber')
 const notificationCheck = require('../../lib/checkNotifications')
 const OrderConfirmPage = require('../../pages/order-complete')
 

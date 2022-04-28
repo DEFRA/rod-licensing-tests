@@ -1,6 +1,6 @@
 'use strict'
 
-const { defineStep } = require('cucumber')
+const { defineStep } = require('@cucumber/cucumber')
 const startKind = require('../../pages/start-kind')
 
 /**

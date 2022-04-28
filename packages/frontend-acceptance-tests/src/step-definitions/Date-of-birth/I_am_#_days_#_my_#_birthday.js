@@ -1,4 +1,4 @@
-const { defineStep } = require('cucumber')
+const { defineStep } = require('@cucumber/cucumber')
 const DobPage = require('../../pages/set-dob')
 const moment = require('moment')
 

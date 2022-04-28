@@ -1,6 +1,6 @@
 'use strict'
 
-const { defineStep } = require('cucumber')
+const { defineStep } = require('@cucumber/cucumber')
 const NewsletterPage = require('../../pages/newsletter')
 
 defineStep(/^I receive a newsletter and enter "(.*)"$/, function (setEmailAddress) {

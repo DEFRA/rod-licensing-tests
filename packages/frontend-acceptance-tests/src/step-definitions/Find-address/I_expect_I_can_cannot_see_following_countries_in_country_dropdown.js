@@ -1,6 +1,6 @@
 'use strict'
 
-const { defineStep } = require('cucumber')
+const { defineStep } = require('@cucumber/cucumber')
 const addressEntry = require('../../pages/address-entry')
 
 defineStep(/^I expect that I (can|cannot) see the following countries in the country dropdown$/, function (canSee, countriesTable) {

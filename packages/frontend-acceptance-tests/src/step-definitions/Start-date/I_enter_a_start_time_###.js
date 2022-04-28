@@ -1,6 +1,6 @@
 'use strict'
 
-const { defineStep } = require('cucumber')
+const { defineStep } = require('@cucumber/cucumber')
 const StartTimePage = require('../../pages/start-time')
 
 defineStep(/^I enter a start time of "(.*)"$/, function (time) {
