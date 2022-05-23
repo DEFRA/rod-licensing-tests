@@ -11,9 +11,9 @@ const ConfirmationMethod = require('../../pages/confirmation-method')
  *
  */
 
-defineStep('I expect the confirmation method page to show the following errors', function (errorTable) {
-  const rows = errorTable.hashes()
+defineStep('I expect the confirmation method page to show the following errors', async (errorTable) => {
+  const rows = await errorTable.hashes()
   for (const row of rows) {
-    ConfirmationMethod.checkErrorsOnPage(row.ErrorMessage)
+    await ConfirmationMethod.checkErrorsOnPage(row.ErrorMessage)
   }
 })

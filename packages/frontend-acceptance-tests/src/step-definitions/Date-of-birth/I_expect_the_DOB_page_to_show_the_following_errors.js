@@ -11,9 +11,9 @@ const DOB = require('../../pages/set-dob')
  *
  */
 
-defineStep('I expect the dob page to show the following errors', function (errorTable) {
-  const rows = errorTable.hashes()
+defineStep('I expect the dob page to show the following errors', async (errorTable) => {
+  const rows = await errorTable.hashes()
   for (const row of rows) {
-    DOB.checkErrorsOnPage(row.ErrorMessage)
+    await DOB.checkErrorsOnPage(row.ErrorMessage)
   }
 })

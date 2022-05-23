@@ -11,13 +11,13 @@ const newsletter = require('../../pages/newsletter')
  *
  */
 
-defineStep('I expect the newsletter page to show the following errors', function (errorTable) {
-  const rows = errorTable.hashes()
+defineStep('I expect the newsletter page to show the following errors', async (errorTable) => {
+  const rows = await errorTable.hashes()
   for (const row of rows) {
-    newsletter.checkErrorsOnPage(row.ErrorMessage)
+    await newsletter.checkErrorsOnPage(row.ErrorMessage)
   }
 })
 
-defineStep('I am on the newsletter page and I click continue', function () {
-  newsletter.continue()
+defineStep('I am on the newsletter page and I click continue', async () => {
+  await newsletter.continue()
 })

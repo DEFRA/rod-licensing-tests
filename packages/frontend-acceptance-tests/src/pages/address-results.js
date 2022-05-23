@@ -5,8 +5,8 @@ const { logger } = require('defra-logging-facade')
 
 class AddressResults extends Page {
   // Set the radio button depending on data file value, and click continue
-  selectAddress () {
-    $('#address').click()
+  async selectAddress() {
+    await $('#address').click()
     logger.info(`Address selected successfully`)
   }
 }

@@ -4,43 +4,43 @@ const Page = require('./page')
 const { logger } = require('defra-logging-facade')
 
 class ContactSummmaryPage extends Page {
-  nameChange () {
+  async nameChange() {
     const nameChanges = $('#change-name')
-    nameChanges.waitForDisplayed(1000)
+    await nameChanges.waitForDisplayed(1000)
     logger.info(`On the contact summary page`)
-    nameChanges.click()
+    await nameChanges.click()
     logger.info(`On the Name page`)
   }
 
-  emailChange () {
-    const changeEmailContact = $('#add-contact').isExisting()
+  async emailChange() {
+    const changeEmailContact = await $('#add-contact').isExisting()
     if (!changeEmailContact) {
       const emailChanges = $('#change-how-contacted')
-      emailChanges.waitForDisplayed(1000)
+      await emailChanges.waitForDisplayed(1000)
       logger.info(`On the contact summary page`)
-      emailChanges.click()
+      await emailChanges.click()
       logger.info(`On the Contact page`)
     } else {
-      changeEmailContact.waitForDisplayed(1000)
+      await changeEmailContact.waitForDisplayed(1000)
       logger.info(`On the contact summary page`)
-      changeEmailContact.click()
+      await changeEmailContact.click()
       logger.info(`On the Contact page`)
     }
   }
 
-  addressChange () {
+  async addressChange() {
     const addressChanges = $('#change-address')
-    addressChanges.waitForDisplayed(1000)
+    await addressChanges.waitForDisplayed(1000)
     logger.info(`On the contact summary page`)
-    addressChanges.click()
+    await addressChanges.click()
     logger.info(`On the Address page`)
   }
 
-  newsletterChange () {
+  async newsletterChange() {
     const newsChanges = $('#change-newsletter')
-    newsChanges.waitForDisplayed(1000)
+    await newsChanges.waitForDisplayed(1000)
     logger.info(`On the contact summary page`)
-    newsChanges.click()
+    await newsChanges.click()
     logger.info(`On the Address page`)
   }
 }

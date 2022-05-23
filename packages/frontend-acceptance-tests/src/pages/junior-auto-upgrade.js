@@ -4,7 +4,7 @@ const { logger } = require('defra-logging-facade')
 const Page = require('./page')
 
 class JuniorUpgradePage extends Page {
-  checkJuniorUpgrade () {
+  checkJuniorUpgrade() {
     logger.info('Junior licence page displayed')
   }
 }

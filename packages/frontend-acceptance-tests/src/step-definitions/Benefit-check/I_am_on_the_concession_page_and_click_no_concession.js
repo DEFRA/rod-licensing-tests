@@ -3,8 +3,8 @@
 const { defineStep } = require('@cucumber/cucumber')
 const noBenefits = require('../../pages/concession')
 
-defineStep(/^I enter "(.*)" concession$/, function (concession) {
-  noBenefits.checkUrl()
-  noBenefits.setConcession(concession)
-  noBenefits.continue()
+defineStep(/^I enter "(.*)" concession$/, async (concession) =>{
+  await noBenefits.checkUrl()
+  await noBenefits.setConcession(concession)
+  await noBenefits.continue()
 })

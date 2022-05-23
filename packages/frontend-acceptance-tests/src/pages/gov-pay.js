@@ -4,38 +4,38 @@ const { logger } = require('defra-logging-facade')
 const Page = require('./page')
 
 class GovPayPage extends Page {
-  setCardHolderName (setCardHolderName) {
-    $('#cardholder-name').waitForDisplayed(1000)
-    $('#cardholder-name').setValue(setCardHolderName)
+  async setCardHolderName(setCardHolderName) {
+    await $('#cardholder-name').waitForDisplayed(1000)
+    await $('#cardholder-name').setValue(setCardHolderName)
     logger.info(`Set cardholders name as: ${setCardHolderName}`)
   }
 
-  setCardExpiryMonth (setExpiryMonth) {
-    $('#expiry-month').waitForDisplayed(1000)
-    $('#expiry-month').setValue(setExpiryMonth)
+  async setCardExpiryMonth(setExpiryMonth) {
+    await $('#expiry-month').waitForDisplayed(1000)
+    await $('#expiry-month').setValue(setExpiryMonth)
     logger.info(`Set expiry date as: ${setExpiryMonth}`)
   }
 
-  setCardExpiryYear (year) {
-    $('#expiry-year').waitForDisplayed(1000)
-    $('#expiry-year').setValue(year)
+  async setCardExpiryYear(year) {
+    await $('#expiry-year').waitForDisplayed(1000)
+    await $('#expiry-year').setValue(year)
     logger.info(`Set expiry year as: ${year}`)
   }
 
-  setCardNumber (setCardNumber) {
-    $('#card-no').waitForDisplayed(1000)
-    $('#card-no').setValue(setCardNumber)
+  async setCardNumber(setCardNumber) {
+    await $('#card-no').waitForDisplayed(1000)
+    await $('#card-no').setValue(setCardNumber)
     logger.info(`Set card number as: ${setCardNumber}`)
   }
 
-  setCvc (setCvc) {
-    $('#cvc').waitForDisplayed(1000)
-    $('#cvc').setValue(setCvc)
+  async setCvc(setCvc) {
+    await $('#cvc').waitForDisplayed(1000)
+    await $('#cvc').setValue(setCvc)
     logger.info(`Set cvc as: ${setCvc}`)
   }
 
-  continue () {
-    $('#submit-card-details').click()
+  async continue() {
+    await $('#submit-card-details').click()
   }
 }
 module.exports = new GovPayPage()

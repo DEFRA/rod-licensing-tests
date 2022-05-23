@@ -3,7 +3,7 @@
 const { defineStep } = require('@cucumber/cucumber')
 const nothingSelected = require('../../pages/concession')
 
-defineStep('I am on the concession page and I click continue', function () {
-  nothingSelected.checkUrl()
-  nothingSelected.continue()
+defineStep('I am on the concession page and I click continue', async () => {
+  await nothingSelected.checkUrl()
+  await nothingSelected.continue()
 })

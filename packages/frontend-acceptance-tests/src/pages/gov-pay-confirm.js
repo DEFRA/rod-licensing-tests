@@ -4,9 +4,9 @@ const { logger } = require('defra-logging-facade')
 const Page = require('./page')
 
 class GovPayConfirmPage extends Page {
-  continue () {
-    $('#confirm').waitForDisplayed(1000)
-    $('#confirm').click()
+  async continue() {
+    await $('#confirm').waitForDisplayed(1000)
+    await $('#confirm').click()
     logger.info(`On the Payment Confirmation page - Confirm clicked.......`)
   }
 }

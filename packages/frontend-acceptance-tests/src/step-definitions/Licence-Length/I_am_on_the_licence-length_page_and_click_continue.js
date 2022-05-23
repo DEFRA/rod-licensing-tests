@@ -11,14 +11,14 @@ const licenceLength = require('../../pages/licence-length')
  *
  */
 
-defineStep('I expect the licence length page to show the following errors', function (errorTable) {
-  const rows = errorTable.hashes()
+defineStep('I expect the licence length page to show the following errors', async (errorTable) => {
+  const rows = await errorTable.hashes()
   for (const row of rows) {
-    licenceLength.checkErrorsOnPage(row.ErrorMessage)
+    await licenceLength.checkErrorsOnPage(row.ErrorMessage)
   }
 })
 
-defineStep('I am on the licence length page and I click continue', function () {
-  licenceLength.checkUrl()
-  licenceLength.continue()
+defineStep('I am on the licence length page and I click continue', async () => {
+  await licenceLength.checkUrl()
+  await licenceLength.continue()
 })

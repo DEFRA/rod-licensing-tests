@@ -11,13 +11,13 @@ const name = require('../../pages/name')
  *
  */
 
-defineStep('I expect the name page to show the following errors', function (errorTable) {
-  const rows = errorTable.hashes()
+defineStep('I expect the name page to show the following errors', async (errorTable) => {
+  const rows = await errorTable.hashes()
   for (const row of rows) {
-    name.checkErrorsOnPage(row.ErrorMessage)
+    await name.checkErrorsOnPage(row.ErrorMessage)
   }
 })
 
-defineStep('I am on the name page and I click continue', function () {
-  name.continue()
+defineStep('I am on the name page and I click continue', async () => {
+  await name.continue()
 })

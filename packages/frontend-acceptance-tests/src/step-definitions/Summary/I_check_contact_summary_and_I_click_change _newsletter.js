@@ -3,6 +3,6 @@
 const { defineStep } = require('@cucumber/cucumber')
 const SummaryPage = require('../../pages/contact-summary')
 
-defineStep('I am on the contact summary page and I click change newsletter', function () {
-  SummaryPage.newsletterChange()
+defineStep('I am on the contact summary page and I click change newsletter', async () => {
+  await SummaryPage.newsletterChange()
 })
