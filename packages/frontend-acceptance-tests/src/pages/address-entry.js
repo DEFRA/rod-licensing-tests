@@ -26,7 +26,8 @@ class AddressEntry extends Page {
 
   async checkCountryInDropDown (country, shouldExist) {
     const countryOption = $(`#country-code option[value="${country}"]`)
-    expect(await countryOption.isExisting()).to.equal(shouldExist)
+    const isExisting = await countryOption.isExisting()
+    expect(isExisting).to.equal(shouldExist)
   }
 }
 
