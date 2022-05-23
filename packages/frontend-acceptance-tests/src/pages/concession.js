@@ -4,7 +4,7 @@ const Page = require('./page')
 const { logger } = require('defra-logging-facade')
 
 class ConcessionPage extends Page {
-  async setConcession(concession) {
+  async setConcession (concession) {
     switch (concession) {
       case 'Benefit':
         logger.info(`Receiving Benefits: ${concession}`)
@@ -18,12 +18,12 @@ class ConcessionPage extends Page {
     }
   }
 
-  async setBBNumber(setBBNum) {
+  async setBBNumber (setBBNum) {
     await $('#blue-badge-number').setValue(setBBNum)
     logger.info(`Blue Badge holder: ${setBBNum}`)
   }
 
-  async setNiNumber(setNiNum) {
+  async setNiNumber (setNiNum) {
     logger.info(`National Insurance number added: ${setNiNum}`)
     await $('#ni-number').setValue(setNiNum)
   }

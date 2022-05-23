@@ -4,7 +4,7 @@ const Page = require('./page')
 const { logger } = require('defra-logging-facade')
 
 class NumberOfRodsPage extends Page {
-  async setNumberOfRods(numberOfRods) {
+  async setNumberOfRods (numberOfRods) {
     switch (numberOfRods) {
       case 2:
         logger.info(`Number of rods selected: ${numberOfRods}`)

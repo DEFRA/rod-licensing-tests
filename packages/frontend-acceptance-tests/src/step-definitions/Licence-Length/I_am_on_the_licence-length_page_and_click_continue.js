@@ -11,7 +11,7 @@ const licenceLength = require('../../pages/licence-length')
  *
  */
 
-defineStep('I expect the licence length page to show the following errors', async (errorTable) => {
+defineStep('I expect the licence length page to show the following errors', async errorTable => {
   const rows = await errorTable.hashes()
   for (const row of rows) {
     await licenceLength.checkErrorsOnPage(row.ErrorMessage)

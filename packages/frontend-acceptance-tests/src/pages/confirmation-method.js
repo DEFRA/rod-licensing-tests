@@ -4,7 +4,7 @@ const { logger } = require('defra-logging-facade')
 const Page = require('./page')
 
 class ConfirmationMethodPage extends Page {
-  async setConfirmationMethod(setEmailAddress, setMobileNumber) {
+  async setConfirmationMethod (setEmailAddress, setMobileNumber) {
     const emailInput = await $('#email').isExisting()
     if (setEmailAddress && emailInput) {
       await $('#licence-confirmation-method').click()
@@ -21,17 +21,17 @@ class ConfirmationMethodPage extends Page {
     }
   }
 
-  async selectConfirmationMethodEmail() {
+  async selectConfirmationMethodEmail () {
     await $('#licence-confirmation-method').click()
     logger.info(`Email selected, no value added`)
   }
 
-  async selectConfirmationMethodMobile() {
+  async selectConfirmationMethodMobile () {
     await $('#licence-confirmation-method-2').click()
     logger.info(`Mobile selected, no value added`)
   }
 
-  async selectConfirmationMethodMakeNote() {
+  async selectConfirmationMethodMakeNote () {
     await $('#licence-confirmation-method-3').click()
     logger.info(`Make a note, no value added`)
   }

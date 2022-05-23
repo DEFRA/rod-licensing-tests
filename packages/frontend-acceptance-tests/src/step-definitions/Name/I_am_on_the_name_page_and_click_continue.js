@@ -11,7 +11,7 @@ const name = require('../../pages/name')
  *
  */
 
-defineStep('I expect the name page to show the following errors', async (errorTable) => {
+defineStep('I expect the name page to show the following errors', async errorTable => {
   const rows = await errorTable.hashes()
   for (const row of rows) {
     await name.checkErrorsOnPage(row.ErrorMessage)

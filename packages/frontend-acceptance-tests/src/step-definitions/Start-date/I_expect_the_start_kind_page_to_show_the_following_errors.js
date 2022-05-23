@@ -11,7 +11,7 @@ const startKind = require('../../pages/start-kind')
  *
  */
 
-defineStep('I expect the start kind page to show the following errors', async (errorTable) => {
+defineStep('I expect the start kind page to show the following errors', async errorTable => {
   const rows = await errorTable.hashes()
   for (const row of rows) {
     await startKind.checkErrorsOnPage(row.ErrorMessage)

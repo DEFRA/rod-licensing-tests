@@ -4,7 +4,7 @@ const Page = require('./page')
 const { logger } = require('defra-logging-facade')
 
 class ContactSummmaryPage extends Page {
-  async nameChange() {
+  async nameChange () {
     const nameChanges = $('#change-name')
     await nameChanges.waitForDisplayed(1000)
     logger.info(`On the contact summary page`)
@@ -12,7 +12,7 @@ class ContactSummmaryPage extends Page {
     logger.info(`On the Name page`)
   }
 
-  async emailChange() {
+  async emailChange () {
     const changeEmailContact = await $('#add-contact').isExisting()
     if (!changeEmailContact) {
       const emailChanges = $('#change-how-contacted')
@@ -28,7 +28,7 @@ class ContactSummmaryPage extends Page {
     }
   }
 
-  async addressChange() {
+  async addressChange () {
     const addressChanges = $('#change-address')
     await addressChanges.waitForDisplayed(1000)
     logger.info(`On the contact summary page`)
@@ -36,7 +36,7 @@ class ContactSummmaryPage extends Page {
     logger.info(`On the Address page`)
   }
 
-  async newsletterChange() {
+  async newsletterChange () {
     const newsChanges = $('#change-newsletter')
     await newsChanges.waitForDisplayed(1000)
     logger.info(`On the contact summary page`)

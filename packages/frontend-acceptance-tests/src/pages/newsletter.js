@@ -4,7 +4,7 @@ const { logger } = require('defra-logging-facade')
 const Page = require('./page')
 
 class NewsletterPage extends Page {
-  async setNewsletterYes(setEmailAddress) {
+  async setNewsletterYes (setEmailAddress) {
     const emailInput = await $('#email').isExisting()
 
     // const emailEnabled = !emailField.hasAttribute('hidden')
@@ -18,7 +18,7 @@ class NewsletterPage extends Page {
     logger.info(`set newsletter email to: ${setEmailAddress}`)
   }
 
-  async setNewsletterNo() {
+  async setNewsletterNo () {
     await $('#newsletter-2').click()
   }
 }

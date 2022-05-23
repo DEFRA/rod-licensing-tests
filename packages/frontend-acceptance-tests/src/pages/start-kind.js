@@ -4,7 +4,7 @@ const { logger } = require('defra-logging-facade')
 const moment = require('moment')
 
 class StartWhenPage extends Page {
-  async setStartKind(startKind) {
+  async setStartKind (startKind) {
     switch (startKind) {
       case 'Now':
         logger.info(`Now selected`)
@@ -15,7 +15,7 @@ class StartWhenPage extends Page {
     }
   }
 
-  async twoDaysFromToday() {
+  async twoDaysFromToday () {
     const now = moment()
     const twoDaysFromToday = now.add(2, 'days')
     const day = moment(twoDaysFromToday).date()
@@ -27,7 +27,7 @@ class StartWhenPage extends Page {
     logger.info(`Date of Birth set as: ${day}/${month}/${year}`)
   }
 
-  async subtractTwoDaysFromToday() {
+  async subtractTwoDaysFromToday () {
     const now = moment()
     const subtractTwoDaysFromToday = await now.subtract(2, 'days')
     const day = moment(subtractTwoDaysFromToday).date()

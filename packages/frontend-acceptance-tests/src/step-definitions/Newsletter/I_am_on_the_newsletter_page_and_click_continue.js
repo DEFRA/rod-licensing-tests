@@ -11,7 +11,7 @@ const newsletter = require('../../pages/newsletter')
  *
  */
 
-defineStep('I expect the newsletter page to show the following errors', async (errorTable) => {
+defineStep('I expect the newsletter page to show the following errors', async errorTable => {
   const rows = await errorTable.hashes()
   for (const row of rows) {
     await newsletter.checkErrorsOnPage(row.ErrorMessage)

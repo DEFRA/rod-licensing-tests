@@ -6,7 +6,7 @@ const { expect } = require('chai')
 
 class AddressEntry extends Page {
   // Input address data
-  async setAddressFields(buildingNo, street, city, postcode, country) {
+  async setAddressFields (buildingNo, street, city, postcode, country) {
     await $('#premises').setValue(buildingNo)
     logger.info(`Building Number set as: ${buildingNo}`)
 
@@ -24,7 +24,7 @@ class AddressEntry extends Page {
     logger.info(`Country set as: ${country}`)
   }
 
-  async checkCountryInDropDown(country, shouldExist) {
+  async checkCountryInDropDown (country, shouldExist) {
     const countryOption = $(`#country-code option[value="${country}"]`)
     expect(await countryOption.isExisting()).to.equal(shouldExist)
   }

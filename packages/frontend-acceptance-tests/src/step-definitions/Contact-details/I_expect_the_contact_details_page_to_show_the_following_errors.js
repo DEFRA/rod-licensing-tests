@@ -11,7 +11,7 @@ const contactDetails = require('../../pages/contact')
  *
  */
 
-defineStep('I expect the contact details page to show the following errors', async (errorTable) => {
+defineStep('I expect the contact details page to show the following errors', async errorTable => {
   const rows = await errorTable.hashes()
   for (const row of rows) {
     await contactDetails.checkErrorsOnPage(row.ErrorMessage)

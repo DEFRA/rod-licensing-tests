@@ -3,7 +3,7 @@ const Page = require('./page')
 const { logger } = require('defra-logging-facade')
 
 class StartTimePage extends Page {
-  async startTimePicker(time) {
+  async startTimePicker (time) {
     logger.info(`Time is set: ${time}`)
     switch (time) {
       case 'midnight':

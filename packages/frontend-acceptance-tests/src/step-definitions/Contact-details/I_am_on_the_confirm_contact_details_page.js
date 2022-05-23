@@ -5,7 +5,7 @@ const ConfirmContactDetails = require('../../pages/confirm-contact-details')
 
 defineStep(
   /^I am on the confirm contact details page and it asks me to confirm my (email address|phone number) and I click correct$/,
-  async (contactMethod) => {
+  async contactMethod => {
     await ConfirmContactDetails.checkUrl()
     await ConfirmContactDetails.confirmTitle(contactMethod)
     await ConfirmContactDetails.itsCorrect()

@@ -4,7 +4,7 @@ const { defineStep } = require('@cucumber/cucumber')
 const GovPayPage = require('../../pages/gov-pay')
 const moment = require('moment')
 
-defineStep(/^I enter payment details as "(.*)"$/, async (cardNo) => {
+defineStep(/^I enter payment details as "(.*)"$/, async cardNo => {
   const futureYear = moment()
     .add(1, 'Y')
     .format('YYYY')

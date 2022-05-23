@@ -11,7 +11,7 @@ const findAddress = require('../../pages/address-lookup')
  *
  */
 
-defineStep('I expect the find address page to show the following errors', async (errorTable) => {
+defineStep('I expect the find address page to show the following errors', async errorTable => {
   const rows = await errorTable.hashes()
   for (const row of rows) {
     await findAddress.checkErrorsOnPage(row.ErrorMessage)

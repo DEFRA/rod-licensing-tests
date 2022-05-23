@@ -11,7 +11,7 @@ const licenceType = require('../../pages/licence-type')
  *
  */
 
-defineStep('I expect the type of fish page to show the following errors', async (errorTable) => {
+defineStep('I expect the type of fish page to show the following errors', async errorTable => {
   const rows = await errorTable.hashes()
   for (const row of rows) {
     await licenceType.checkErrorsOnPage(row.ErrorMessage)

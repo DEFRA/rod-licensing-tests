@@ -11,7 +11,7 @@ const selectAddress = require('../../pages/address-results')
  *
  */
 
-defineStep('I expect the select address page to show the following errors', async (errorTable) => {
+defineStep('I expect the select address page to show the following errors', async errorTable => {
   const rows = await errorTable.hashes()
   for (const row of rows) {
     await selectAddress.checkErrorsOnPage(row.ErrorMessage)

@@ -11,7 +11,7 @@ defineStep(/^I am (\d+) days? (under|over) my (\d+)[a-z]{2} birthday for renewal
     .add(adjust, 'days')
 
   await RenewalsPage.checkUrl()
-  await RenewalsPage.setRenewalDobDate(dob.date(), (dob.month()) + 1, dob.year())
+  await RenewalsPage.setRenewalDobDate(dob.date(), dob.month() + 1, dob.year())
 })
 
 defineStep(/^I enter "(.*)" "(.*)" "(.*)" as renewal date of birth$/, async (setDobDay, setDobMonth, setDobYear) => {

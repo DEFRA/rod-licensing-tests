@@ -4,12 +4,12 @@ const { logger } = require('defra-logging-facade')
 const Page = require('./page')
 
 class PaymentCancelled extends Page {
-  async exitService() {
+  async exitService () {
     await $('=Buy another licence').click()
     logger.info(`Exit Service`)
   }
 
-  async retryPayment() {
+  async retryPayment () {
     await $('.button').click()
     logger.info(`Retrying payment`)
   }

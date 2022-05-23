@@ -5,7 +5,6 @@ const { createPermission } = require('../../lib/createPermissions')
 const { adjustDate } = require('../../lib/date-utils')
 const RenewalsPage = require('../../pages/renew-login')
 
-
 const renew = async (
   licenceTypeInput,
   expiryExpired,
@@ -19,7 +18,6 @@ const renew = async (
 ) => {
   const dob = adjustDate('over', birthdayUnderOver, birthdayDays, age)
 
-  
   const expiryDateInput = adjustDate('expired', expiryExpired, expiryDays)
 
   const postalFulfilment = postalFulfilmentInput === 'true'
@@ -29,7 +27,6 @@ const renew = async (
   const lastSixDigits = referenceNumber.substr(referenceNumber.length - 6)
 
   await browser.url(`/renew/${lastSixDigits}`)
-  
 
   await RenewalsPage.checkUrl()
   await RenewalsPage.setRenewalDobDate(dob.date(), dob.month() + 1, dob.year())

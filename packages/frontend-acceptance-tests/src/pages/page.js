@@ -7,12 +7,12 @@ class Page {
     this.url = url
   }
 
-  async open() {
+  async open () {
     await browser.url(this.url)
     await this.checkUrl()
   }
 
-  async checkUrl() {
+  async checkUrl () {
     const waitforTimeout = browser.options.waitforTimeout
 
     const getPageUrl = async () => {
@@ -41,12 +41,12 @@ class Page {
     }
   }
 
-  async checkErrorsOnPage(errorMessage) {
+  async checkErrorsOnPage (errorMessage) {
     const errorElement = $(`*=${errorMessage}`)
     expect(await errorElement.isExisting()).to.equal(true)
   }
 
-  async continue(selector = '#continue') {
+  async continue (selector = '#continue') {
     await this.checkUrl()
     await $(selector).click()
     logger.info(`Click continue and navigate to the next page`)

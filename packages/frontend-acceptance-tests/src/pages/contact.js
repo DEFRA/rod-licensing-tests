@@ -4,7 +4,7 @@ const { logger } = require('defra-logging-facade')
 const Page = require('./page')
 
 class ContactPage extends Page {
-  async setContact(setEmailAddress, setMobileNumber) {
+  async setContact (setEmailAddress, setMobileNumber) {
     const emailInput = await $('#email').isExisting()
     if (setEmailAddress && emailInput) {
       await $('#how-contacted').click()
@@ -21,20 +21,19 @@ class ContactPage extends Page {
     }
   }
 
-  async selectContactEmail() {
+  async selectContactEmail () {
     await $('#how-contacted').click()
     logger.info(`Email selected, no value added`)
   }
 
-  async selectContactMobile() {
+  async selectContactMobile () {
     await $('#how-contacted-2').click()
     logger.info(`Mobile selected, no value added`)
   }
 
-  async setNoContact() {
+  async setNoContact () {
     await $('#how-contacted-3').click()
     logger.info(`No contact details available`)
   }
-
 }
 module.exports = new ContactPage('/buy/contact')
