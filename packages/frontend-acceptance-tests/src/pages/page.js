@@ -43,7 +43,8 @@ class Page {
 
   async checkErrorsOnPage (errorMessage) {
     const errorElement = $(`*=${errorMessage}`)
-    expect(await errorElement.isExisting()).to.equal(true)
+    const isExisting = await errorElement.isExisting()
+    expect(isExisting).to.equal(true)
   }
 
   async continue (selector = '#continue') {
