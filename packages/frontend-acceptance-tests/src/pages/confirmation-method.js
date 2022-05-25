@@ -4,35 +4,35 @@ const { logger } = require('defra-logging-facade')
 const Page = require('./page')
 
 class ConfirmationMethodPage extends Page {
-  setConfirmationMethod (setEmailAddress, setMobileNumber) {
-    const emailInput = $('#email').isExisting()
+  async setConfirmationMethod (setEmailAddress, setMobileNumber) {
+    const emailInput = await $('#email').isExisting()
     if (setEmailAddress && emailInput) {
-      $('#licence-confirmation-method').click()
-      $('#email').setValue(setEmailAddress)
+      await $('#licence-confirmation-method').click()
+      await $('#email').setValue(setEmailAddress)
       logger.info(`set confirmation method to: ${setEmailAddress}`)
     } else if (setEmailAddress && !emailInput) {
-      $('#change-email').click()
-      $('#email').setValue(setEmailAddress)
+      await $('#change-email').click()
+      await $('#email').setValue(setEmailAddress)
       logger.info(`change set confirmation method to: ${setEmailAddress}`)
     } else {
-      $('#licence-confirmation-method-2').click()
-      $('#text').setValue(setMobileNumber)
+      await $('#licence-confirmation-method-2').click()
+      await $('#text').setValue(setMobileNumber)
       logger.info(`set confirmation method to: ${setMobileNumber}`)
     }
   }
 
-  selectConfirmationMethodEmail () {
-    $('#licence-confirmation-method').click()
+  async selectConfirmationMethodEmail () {
+    await $('#licence-confirmation-method').click()
     logger.info(`Email selected, no value added`)
   }
 
-  selectConfirmationMethodMobile () {
-    $('#licence-confirmation-method-2').click()
+  async selectConfirmationMethodMobile () {
+    await $('#licence-confirmation-method-2').click()
     logger.info(`Mobile selected, no value added`)
   }
 
-  selectConfirmationMethodMakeNote () {
-    $('#licence-confirmation-method-3').click()
+  async selectConfirmationMethodMakeNote () {
+    await $('#licence-confirmation-method-3').click()
     logger.info(`Make a note, no value added`)
   }
 }

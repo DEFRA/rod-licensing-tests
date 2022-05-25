@@ -11,9 +11,9 @@ const startDate = require('../../pages/start-time')
  *
  */
 
-defineStep('I expect the start time page to show the following errors', function (errorTable) {
-  const rows = errorTable.hashes()
+defineStep('I expect the start time page to show the following errors', async errorTable => {
+  const rows = await errorTable.hashes()
   for (const row of rows) {
-    startDate.checkErrorsOnPage(row.ErrorMessage)
+    await startDate.checkErrorsOnPage(row.ErrorMessage)
   }
 })

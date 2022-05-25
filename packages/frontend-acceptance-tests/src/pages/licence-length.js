@@ -6,7 +6,7 @@ const Page = require('./page')
 
 class LicenceLengthPage extends Page {
   // Set the value of the radio button to 'yes' or 'no' depending on the data file value
-  setLicenceDuration (licenceDuration) {
+  async setLicenceDuration (licenceDuration) {
     logger.info(`Licence requested: ${licenceDuration}`)
     switch (licenceDuration) {
       case '1dayLicence':

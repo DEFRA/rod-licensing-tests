@@ -4,7 +4,7 @@ const { logger } = require('defra-logging-facade')
 const moment = require('moment')
 
 class StartWhenPage extends Page {
-  setStartKind (startKind) {
+  async setStartKind (startKind) {
     switch (startKind) {
       case 'Now':
         logger.info(`Now selected`)
@@ -15,27 +15,27 @@ class StartWhenPage extends Page {
     }
   }
 
-  twoDaysFromToday () {
+  async twoDaysFromToday () {
     const now = moment()
     const twoDaysFromToday = now.add(2, 'days')
     const day = moment(twoDaysFromToday).date()
     const month = moment(twoDaysFromToday).month() + 1 // months are zero indexed, so January is month 0.
     const year = moment(twoDaysFromToday).year()
-    $('#licence-start-date-day').setValue(day)
-    $('#licence-start-date-month').setValue(month)
-    $('#licence-start-date-year').setValue(year)
+    await $('#licence-start-date-day').setValue(day)
+    await $('#licence-start-date-month').setValue(month)
+    await $('#licence-start-date-year').setValue(year)
     logger.info(`Date of Birth set as: ${day}/${month}/${year}`)
   }
 
-  subtractTwoDaysFromToday () {
+  async subtractTwoDaysFromToday () {
     const now = moment()
-    const subtractTwoDaysFromToday = now.subtract(2, 'days')
+    const subtractTwoDaysFromToday = await now.subtract(2, 'days')
     const day = moment(subtractTwoDaysFromToday).date()
     const month = moment(subtractTwoDaysFromToday).month() + 1 // months are zero indexed, so January is month 0.
     const year = moment(subtractTwoDaysFromToday).year()
-    $('#licence-start-date-day').setValue(day)
-    $('#licence-start-date-month').setValue(month)
-    $('#licence-start-date-year').setValue(year)
+    await $('#licence-start-date-day').setValue(day)
+    await $('#licence-start-date-month').setValue(month)
+    await $('#licence-start-date-year').setValue(year)
     logger.info(`Date of Birth set as: ${day}/${month}/${year}`)
   }
 }

@@ -11,6 +11,6 @@ const licenceType = require('../../pages/licence-type')
  *
  */
 
-defineStep('I am on the type of fish page and I click continue', function () {
-  licenceType.continue()
+defineStep('I am on the type of fish page and I click continue', async () => {
+  await licenceType.continue()
 })

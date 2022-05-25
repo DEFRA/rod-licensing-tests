@@ -6,27 +6,28 @@ const { expect } = require('chai')
 
 class AddressEntry extends Page {
   // Input address data
-  setAddressFields (buildingNo, street, city, postcode, country) {
-    $('#premises').setValue(buildingNo)
+  async setAddressFields (buildingNo, street, city, postcode, country) {
+    await $('#premises').setValue(buildingNo)
     logger.info(`Building Number set as: ${buildingNo}`)
 
-    $('#street').setValue(street)
+    await $('#street').setValue(street)
     logger.info(`Address line 1 set as: ${street}`)
 
-    $('#town').setValue(city)
+    await $('#town').setValue(city)
     logger.info(`City set as: ${city}`)
 
-    $('#postcode').setValue(postcode)
+    await $('#postcode').setValue(postcode)
     logger.info(`Postcode set as: ${postcode}`)
 
-    $('#country-code').click()
-    $(`option[value="${country}"]`).click()
+    await $('#country-code').click()
+    await $(`option[value="${country}"]`).click()
     logger.info(`Country set as: ${country}`)
   }
 
-  checkCountryInDropDown (country, shouldExist) {
+  async checkCountryInDropDown (country, shouldExist) {
     const countryOption = $(`#country-code option[value="${country}"]`)
-    expect(countryOption.isExisting()).to.equal(shouldExist)
+    const isExisting = await countryOption.isExisting()
+    expect(isExisting).to.equal(shouldExist)
   }
 }
 

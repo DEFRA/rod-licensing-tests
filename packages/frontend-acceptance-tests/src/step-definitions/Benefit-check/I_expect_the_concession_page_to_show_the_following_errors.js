@@ -11,9 +11,9 @@ const benefits = require('../../pages/concession')
  *
  */
 
-defineStep('I expect the concession page to show the following errors', function (errorTable) {
-  const rows = errorTable.hashes()
+defineStep('I expect the concession page to show the following errors', async errorTable => {
+  const rows = await errorTable.hashes()
   for (const row of rows) {
-    benefits.checkErrorsOnPage(row.ErrorMessage)
+    await benefits.checkErrorsOnPage(row.ErrorMessage)
   }
 })

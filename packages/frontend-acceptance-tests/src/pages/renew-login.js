@@ -5,15 +5,15 @@ const { logger } = require('defra-logging-facade')
 
 class RenewLoginPage extends Page {
   // Set the value of the radio button to 'yes' or 'no' depending on the data file value
-  setRenewalDobDate (setDobDay, setDobMonth, setDobYear) {
-    $('#date-of-birth-day').setValue(setDobDay)
-    $('#date-of-birth-month').setValue(setDobMonth)
-    $('#date-of-birth-year').setValue(setDobYear)
+  async setRenewalDobDate (setDobDay, setDobMonth, setDobYear) {
+    await $('#date-of-birth-day').setValue(setDobDay)
+    await $('#date-of-birth-month').setValue(setDobMonth)
+    await $('#date-of-birth-year').setValue(setDobYear)
     logger.info(`Date of Birth set as: ${setDobDay}/${setDobMonth}/${setDobYear}`)
   }
 
-  setRenewalPostcode (setPostcode) {
-    $('#postcode').setValue(setPostcode)
+  async setRenewalPostcode (setPostcode) {
+    await $('#postcode').setValue(setPostcode)
     logger.info(`Postcode set as: ${setPostcode}`)
   }
 }
