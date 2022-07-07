@@ -36,7 +36,7 @@
     "defra-logging-facade": "git+https://github.com/DEFRA/defra-logging-facade.git#02459ac",
     "dynamics-web-api": "^1.7.3",
     "json-to-csv": "^1.0.0",
-    "moment": "^2.29.0",
+    "moment": "^2.29.4",
     "simple-oauth2": "^4.1.0",
     "wdio-chromedriver-service": "^7.3.2",
     "wdio-timeline-reporter": "^5.1.4",
