@@ -31,7 +31,7 @@
   "devDependencies": {
     "eslint-plugin-chai-friendly": "^0.6.0",
     "husky": "^4.3.0",
-    "lerna": "^3.22.1",
+    "lerna": "^6.4.1",
     "lerna-update-wizard": "^0.17.8",
     "prettier-standard": "^16.4.1",
     "standard": "^14.3.4"
