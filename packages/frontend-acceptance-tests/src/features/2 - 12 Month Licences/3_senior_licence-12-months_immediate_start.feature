@@ -7,7 +7,7 @@ Feature: I want to buy an senior annual fishing
   Scenario: Scenario 1 - 12 Month senior licence selecting 2 rod sea trout licence - Immediate start - Enter contact details
     And I am buying a licence for myself
     And I enter "Senior" "Salmon" as the name
-    And I am 7 days over my 65th birthday
+    And I am 7 days over my 66th birthday
     And I enter "No" concession
     And I select Now as a start time
     Given I select a "salmon" fishing licence
@@ -30,7 +30,7 @@ Feature: I want to buy an senior annual fishing
   Scenario: Scenario 2 - 12 Month Senior licence selecting salmon licence - Immediate start - Enter contact-Email
     And I am buying a licence for myself
     And I enter "Senior" "CoarseTwo" as the name
-    And I am 7 days over my 65th birthday
+    And I am 7 days over my 66th birthday
     And I enter "No" concession
     And I select Now as a start time
     Given I select a "coarse2" fishing licence
@@ -53,7 +53,7 @@ Feature: I want to buy an senior annual fishing
   Scenario: Scenario 3 - 12 Month Senior licence selecting salmon licence - Immediate start - By Post - NO contact
     And I am buying a licence for myself
     And I enter "Senior" "CoarseThree" as the name
-    And I am 7 days over my 65th birthday
+    And I am 7 days over my 66th birthday
     And I enter "No" concession
     And  I select Now as a start time
     Given I select a "coarse3" fishing licence
@@ -61,7 +61,7 @@ Feature: I want to buy an senior annual fishing
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select paper license
-    And I select make a note of the license 
+    And I select make a note of the license
     And I do not have either of these
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
@@ -74,7 +74,7 @@ Feature: I want to buy an senior annual fishing
   Scenario: Scenario 4 - 12 Month Senior licence selecting salmon licence - Immediate start - By Post - Enter contact-Email
     And I am buying a licence for myself
     And I enter "Senior" "CoarseThree" as the name
-    And I am 7 days over my 65th birthday
+    And I am 7 days over my 66th birthday
     And I enter "No" concession
     And  I select Now as a start time
     Given I select a "coarse3" fishing licence
@@ -82,7 +82,7 @@ Feature: I want to buy an senior annual fishing
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select paper license
-    And I select make a note of the license 
+    And I select make a note of the license
     And I enter email as "email@gmail.com" and number as ""
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
@@ -91,11 +91,11 @@ Feature: I want to buy an senior annual fishing
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
-  
+
   Scenario: Scenario 5 - 12 Month Adult licence selecting 2 rod sea trout licence - Immediate start - Enter contact-Text
     And I am buying a licence for myself
     And I enter "Adult" "Salmon" as the name
-    And I am 7 days over my 65th birthday
+    And I am 7 days over my 66th birthday
     And I enter "No" concession
     And  I select Now as a start time
     Given I select a "salmon" fishing licence
@@ -118,7 +118,7 @@ Feature: I want to buy an senior annual fishing
   Scenario: Scenario 6 - 12 Month Adult licence selecting salmon licence - Immediate start - By Post - Enter contact-Text
     And I am buying a licence for myself
     And I enter "Adult" "CoarseThree" as the name
-    And I am 7 days over my 65th birthday
+    And I am 7 days over my 66th birthday
     And I enter "No" concession
     And  I select Now as a start time
     Given I select a "coarse3" fishing licence
@@ -126,8 +126,8 @@ Feature: I want to buy an senior annual fishing
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select paper license
-    And I select make a note of the license 
-    And I enter email as "" and number as "07428776543" 
+    And I select make a note of the license
+    And I enter email as "" and number as "07428776543"
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
@@ -139,7 +139,7 @@ Feature: I want to buy an senior annual fishing
   Scenario: Scenario 7 - 12 Month senior licence - selecting 2 rod sea trout licence for someone else - Immediate start - Enter contact details
     And I am buying a licence for someone else
     And I enter "Senior" "Salmon" as the name
-    And I am 7 days over my 65th birthday
+    And I am 7 days over my 66th birthday
     And I enter "No" concession
     And I select Now as a start time
     Given I select a "salmon" fishing licence
