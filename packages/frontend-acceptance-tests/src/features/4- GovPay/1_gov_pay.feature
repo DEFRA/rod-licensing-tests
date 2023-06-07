@@ -16,7 +16,8 @@ Feature: I want to buy a 1 or 8 day licence adult fishing licence
     And I enter email as "<email>" and number as "<number>"
     And I receive a newsletter and enter no email "<newsEmail>"
     And I am on the contact summary page and I click continue
-    And I agree to the terms and conditions and click continue
+    And I am on the add licence page and I proceed with no
+    And I agree to the licence conditions and click continue
     Then I enter payment details as "<cardNo>"
     And I am on the payment declined and exit the service
     Examples:

@@ -1,7 +1,7 @@
 'use strict'
 
 const { defineStep } = require('@cucumber/cucumber')
-const termsCon = require('../../pages/terms-and-conditions')
+const termsCon = require('../../pages/licence-conditions')
 
 /**
  1. Step definition access the table defined in the NEG Feature file
