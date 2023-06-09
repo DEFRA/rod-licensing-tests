@@ -18,7 +18,8 @@ Feature: I want to buy a junior annual fishing
     And I enter email as "email@gmail.com" and number as ""
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
-    And I agree to the terms and conditions and click continue
+    And I am on the add licence page and I proceed with no
+    And I agree to the licence conditions and click continue
   #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
@@ -35,7 +36,8 @@ Feature: I want to buy a junior annual fishing
     And I enter email as "email@gmail.com" and number as ""
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
-    And I agree to the terms and conditions and click continue
+    And I am on the add licence page and I proceed with no
+    And I agree to the licence conditions and click continue
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
@@ -52,7 +54,8 @@ Feature: I want to buy a junior annual fishing
     And I do not have either of these
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
-    And I agree to the terms and conditions and click continue
+    And I am on the add licence page and I proceed with no
+    And I agree to the licence conditions and click continue
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
@@ -68,6 +71,7 @@ Feature: I want to buy a junior annual fishing
     And I select "100121002711" as an address
     And I enter email as "email@gmail.com" and number as ""
     And I am on the contact summary page and I click continue
-    And I agree to the terms and conditions and click continue
+    And I am on the add licence page and I proceed with no
+    And I agree to the licence conditions and click continue
     Then I am on the order confirmation page and exit the service
 

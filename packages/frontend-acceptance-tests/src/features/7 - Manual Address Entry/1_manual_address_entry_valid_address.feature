@@ -18,7 +18,8 @@ Feature: I want enter my address manually when buying a fishing licence
       And I do not have either of these
       And I do not want a newsletter
       And I am on the contact summary page and I click continue
-      And I agree to the terms and conditions and click continue
+      And I am on the add licence page and I proceed with no
+      And I agree to the licence conditions and click continue
       And I enter payment details
       And I confirm payment details
       Then I am on the order confirmation page and exit the service
@@ -39,7 +40,8 @@ Feature: I want enter my address manually when buying a fishing licence
       And I do not have either of these
       And I do not want a newsletter
       And I am on the contact summary page and I click continue
-      And I agree to the terms and conditions and click continue
+      And I am on the add licence page and I proceed with no
+      And I agree to the licence conditions and click continue
       And I enter payment details
       And I confirm payment details
       Then I am on the order confirmation page and exit the service

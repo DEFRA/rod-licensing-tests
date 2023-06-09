@@ -178,6 +178,7 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
     And I enter email as "email@gmail.com" and number as ""
     And I am on the newsletter page and I click continue
     And I am on the contact summary page and I click continue
+    And I am on the add licence page and I proceed with no
 
 
   Scenario: Scenario 10 - Licence Conditions Errors
@@ -186,7 +187,7 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
     Then I expect the terms and conditions page to show the following errors
       | ErrorMessage  |
       | You have not agreed to the licence conditions     |
-    And I agree to the terms and conditions and click continue
+    And I agree to the licence conditions and click continue
     And I enter payment details
     And I confirm payment details
     Then I am on the order confirmation page and exit the service

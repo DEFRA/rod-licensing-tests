@@ -22,7 +22,8 @@ Feature: I want to buy an adult annual fishing - NOTIFY
     And I click email radio button and click continue
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
-    And I agree to the terms and conditions and click continue
+    And I am on the add licence page and I proceed with no
+    And I agree to the licence conditions and click continue
     And I enter payment details
     And I confirm payment details
       #    Then I expect to receive a confirmation via GOV.UK Notify
@@ -46,7 +47,8 @@ Feature: I want to buy an adult annual fishing - NOTIFY
     And I click email radio button and click continue
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
-    And I agree to the terms and conditions and click continue
+    And I am on the add licence page and I proceed with no
+    And I agree to the licence conditions and click continue
     And I enter payment details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
@@ -68,7 +70,8 @@ Feature: I want to buy an adult annual fishing - NOTIFY
     And I do not have either of these
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
-    And I agree to the terms and conditions and click continue
+    And I am on the add licence page and I proceed with no
+    And I agree to the licence conditions and click continue
     And I enter payment details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
@@ -92,7 +95,8 @@ Feature: I want to buy an adult annual fishing - NOTIFY
     And I click mobile radio button and click continue
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
-    And I agree to the terms and conditions and click continue
+    And I am on the add licence page and I proceed with no
+    And I agree to the licence conditions and click continue
     And I enter payment details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify

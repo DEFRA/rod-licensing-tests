@@ -180,6 +180,7 @@ Scenario: Scenario 9 - Contact Details Errors
     And I click email radio button and click continue
     And I am on the newsletter page and I click continue
     And I am on the contact summary page and I click continue
+    And I am on the add licence page and I proceed with no
 
 
 Scenario: Scenario 10 - Licence Conditions Errors
@@ -188,7 +189,7 @@ Scenario: Scenario 10 - Licence Conditions Errors
     Then I expect the terms and conditions page to show the following errors
       | ErrorMessage  |
       | You have not agreed to the licence conditions     |
-    And I agree to the terms and conditions and click continue
+    And I agree to the licence conditions and click continue
     And I enter payment details
     And I confirm payment details
     Then I am on the order confirmation page and exit the service

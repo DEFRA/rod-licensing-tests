@@ -5,7 +5,8 @@ Feature: I want to renew my fishing licence
     And I enter "SN153PG" as the postcode and click continue
     And I am on the licence summary page and I click continue
     And I am on the contact summary page and I click continue
-    And I agree to the terms and conditions and click continue
+    And I am on the add licence page and I proceed with no
+    And I agree to the licence conditions and click continue
     And I enter payment details
     And I confirm payment details
     Then I am on the order confirmation page and exit the service
@@ -19,7 +20,8 @@ Feature: I want to renew my fishing licence
     And I am on the confirm contact details page and it asks me to confirm my email address and I click correct
     And I click email radio button and click continue
     And I am on the contact summary page and I click continue
-    And I agree to the terms and conditions and click continue
+    And I am on the add licence page and I proceed with no
+    And I agree to the licence conditions and click continue
     And I enter payment details
     And I confirm payment details
     Then I am on the order confirmation page and exit the service
@@ -29,7 +31,8 @@ Feature: I want to renew my fishing licence
     And I enter "SN153PG" as the postcode and click continue
     And I am on the licence summary page and I click continue
     And I am on the contact summary page and I click continue
-    And I agree to the terms and conditions and click continue
+    And I am on the add licence page and I proceed with no
+    And I agree to the licence conditions and click continue
     And I enter payment details
     And I confirm payment details
     Then I am on the order confirmation page and exit the service
@@ -39,7 +42,8 @@ Feature: I want to renew my fishing licence
     And I enter "SN153PG" as the postcode and click continue
     And I am on the licence summary page and I click continue
     And I am on the contact summary page and I click continue
-    And I agree to the terms and conditions and click continue
+    And I am on the add licence page and I proceed with no
+    And I agree to the licence conditions and click continue
     And I enter payment details
     And I confirm payment details
     Then I am on the order confirmation page and exit the service
