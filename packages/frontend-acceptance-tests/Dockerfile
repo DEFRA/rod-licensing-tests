@@ -29,7 +29,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # Install nvm with node and npm
 RUN mkdir -p /usr/local/nvm \
-    && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash \
+    && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash \
     && source $NVM_DIR/nvm.sh \
     && nvm install $NODE_VERSION \
     && nvm alias default $NODE_VERSION \
