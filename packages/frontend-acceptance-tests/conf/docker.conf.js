@@ -6,13 +6,13 @@ exports.config = {
     {
       browserName: 'chrome',
       'goog:chromeOptions': {
-        args: ['--headless', '--no-sandbox']
+        args: ['headless', 'disable-gpu']
       }
     },
     {
       browserName: 'firefox',
       'moz:firefoxOptions': {
-        args: ['--headless']
+        args: ['-headless']
       }
     }
   ],
@@ -33,9 +33,14 @@ exports.config = {
   // Default request retries count
   connectionRetryCount: 3,
 
-  services: ['selenium-standalone'],
-
-  seleniumLogs: './logs/selenium',
+  services: [
+    [
+      'selenium-standalone',
+      {
+        logPath: './logs/selenium'
+      }
+    ]
+  ],
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber

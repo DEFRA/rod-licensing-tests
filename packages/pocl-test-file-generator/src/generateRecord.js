@@ -30,8 +30,8 @@ const minAndMaxAgesForRange = Object.freeze({
   [AGE_RANGE.SENIOR]: Object.freeze({ min: SENIOR_MIN_AGE, max: 100 })
 })
 
-const getRandomNotification = (email) => {
-  const weightedType = getRandomInteger(0, 9);
+const getRandomNotification = email => {
+  const weightedType = getRandomInteger(0, 9)
   if (weightedType <= 4) {
     // 40% email
     return {
@@ -42,18 +42,18 @@ const getRandomNotification = (email) => {
     // 40% SMS
     return {
       NOTIFY_SMS: 'Y',
-      NOTIFY_SMS_NUMBER: `0${getRandomInteger(1000000000, 999999999)}`,
+      NOTIFY_SMS_NUMBER: `0${getRandomInteger(1000000000, 999999999)}`
     }
   } else {
     // 20% post
     return {
-      NOTIFY_POST: 'Y',
+      NOTIFY_POST: 'Y'
     }
   }
 }
 
-const getRandomContactMethod = (email) => {
-  const weightedType = getRandomInteger(0, 9);
+const getRandomContactMethod = email => {
+  const weightedType = getRandomInteger(0, 9)
   if (weightedType <= 4) {
     // 40% email
     return {
@@ -64,18 +64,18 @@ const getRandomContactMethod = (email) => {
     // 40% SMS
     return {
       COMMS_SMS: 'Y',
-      COMMS_SMS_NUMBER: `0${getRandomInteger(1000000000, 999999999)}`,
+      COMMS_SMS_NUMBER: `0${getRandomInteger(1000000000, 999999999)}`
     }
   } else {
     // 20% post
     return {
-      COMMS_POST: 'Y',
+      COMMS_POST: 'Y'
     }
   }
 }
 
-const getRandomCommsOption = (email) => {
-  const commsOptions = getRandomInteger(0, 9);
+const getRandomCommsOption = email => {
+  const commsOptions = getRandomInteger(0, 9)
   if (commsOptions <= 2) {
     return {
       COMMS_OPTION: 'Y',
@@ -92,7 +92,7 @@ const generator = {
   generateRecord: (names, addresses, licenceTypes, ageRange = AGE_RANGE.ADULT) => {
     const name = getRandomElementFromArray(names)
     const address = getRandomElementFromArray(addresses)
-    const email = `${name.forename}.${name.surname}@mailinator.com`;
+    const email = `${name.forename}.${name.surname}@mailinator.com`
     const startDate = moment().add(30, 'minutes')
     const CHANNEL_ID = `${Math.floor(Math.random() * 10 ** 5)
       .toString()
