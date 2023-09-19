@@ -5,12 +5,14 @@ exports.config = {
   capabilities: [
     {
       browserName: 'chrome',
+      browserVersion: 'stable',
       'goog:chromeOptions': {
         args: ['headless', 'disable-gpu']
       }
     },
     {
       browserName: 'firefox',
+      browserVersion: 'stable',
       'moz:firefoxOptions': {
         args: ['-headless']
       }
