@@ -4,7 +4,7 @@
   "description": "QA testing for the rod-licensing digital services",
   "private": true,
   "engines": {
-    "node": ">=12"
+    "node": ">=18"
   },
   "keywords": [
     "rod",

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Acceptance tests for the Get a Fishing Licence frontend",
   "engines": {
-    "node": ">=12"
+    "node": ">=18"
   },
   "keywords": [
     "rod",
