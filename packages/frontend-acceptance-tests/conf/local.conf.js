@@ -1,4 +1,4 @@
-exports.config = {
+export const config = {
   runner: 'local',
   specs: ['src/features/**/*.feature'],
   maxInstances: 1,
@@ -30,10 +30,6 @@ exports.config = {
 
   // Default request retries count
   connectionRetryCount: 3,
-
-  services: ['selenium-standalone'],
-
-  seleniumLogs: './logs/selenium',
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
