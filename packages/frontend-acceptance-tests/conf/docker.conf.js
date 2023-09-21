@@ -7,7 +7,7 @@ exports.config = {
       browserName: 'chrome',
       browserVersion: 'latest',
       'goog:chromeOptions': {
-        args: ['--headless', '--disable-gpu']
+        args: ['--headless', '--disable-gpu', '--no-sandbox']
       }
     },
     {
@@ -84,7 +84,7 @@ exports.config = {
     // <boolean> fail if there are any undefined or pending steps
     strict: true,
     // <string> (expression) only execute the features or scenarios with tags matching the expression
-    tagExpression: 'not @Ignore',
+    tags: 'not @Ignore',
     // <number> timeout for step definitions
     timeout: 60000,
     // <boolean> Enable this config to treat undefined definitions as warnings.
