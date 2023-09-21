@@ -1,6 +1,6 @@
 exports.config = {
   runner: 'local',
-  specs: ['./packages/frontend-acceptance-tests/src/features/**/*.feature'],
+  specs: ['../src/features/**/*.feature'],
   maxInstances: 1,
   capabilities: [
     {
