@@ -7,7 +7,7 @@ exports.config = {
       browserName: 'chrome',
       browserVersion: 'latest',
       'goog:chromeOptions': {
-        args: ['headless', 'disable-gpu']
+        args: ['--headless', '--disable-gpu']
       }
     },
     {
