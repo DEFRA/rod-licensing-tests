@@ -3,13 +3,13 @@ exports.config = {
   specs: ['../src/features/**/*.feature'],
   maxInstances: 1,
   capabilities: [
-    // {
-    //   browserName: 'chrome',
-    //   browserVersion: 'latest',
-    //   'goog:chromeOptions': {
-    //     args: ['--headless', '--disable-gpu', '--no-sandbox']
-    //   }
-    // },
+    {
+      browserName: 'chrome',
+      browserVersion: 'latest',
+      'goog:chromeOptions': {
+        args: ['--headless', '--disable-gpu', '--no-sandbox']
+      }
+    },
     {
       browserName: 'firefox',
       browserVersion: 'latest',
