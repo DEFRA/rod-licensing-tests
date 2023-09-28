@@ -14,7 +14,7 @@ exports.config = {
       browserName: 'firefox',
       browserVersion: 'latest',
       'moz:firefoxOptions': {
-        args: ['--headless']
+        args: ['-headless']
       }
     }
   ],
