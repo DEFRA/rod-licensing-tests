@@ -1,16 +1,16 @@
 exports.config = {
   runner: 'local',
-  specs: ['src/features/**/*.feature'],
+  specs: ['../src/features/**/*.feature'],
   maxInstances: 1,
   capabilities: [
     {
-      maxInstances: 1,
       browserName: 'chrome',
+      browserVersion: 'latest',
       acceptInsecureCerts: true
     },
     {
-      maxInstances: 1,
       browserName: 'firefox',
+      browserVersion: 'latest',
       acceptInsecureCerts: true
     }
   ],
@@ -80,7 +80,7 @@ exports.config = {
     // <boolean> fail if there are any undefined or pending steps
     strict: true,
     // <string> (expression) only execute the features or scenarios with tags matching the expression
-    tagExpression: 'not @Ignore',
+    tags: 'not @Ignore',
     // <number> timeout for step definitions
     timeout: 60000,
     // <boolean> Enable this config to treat undefined definitions as warnings.
