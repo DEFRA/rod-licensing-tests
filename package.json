@@ -29,7 +29,7 @@
     "pre-commit": "lint-staged"
   },
   "devDependencies": {
-    "@ksmithut/prettier-standard": "0.0.10",
+    "@ksmithut/prettier-standard": "0.1.7",
     "eslint-plugin-chai-friendly": "^0.7.2",
     "husky": "^8.0.3",
     "lerna": "^7.3.0",
