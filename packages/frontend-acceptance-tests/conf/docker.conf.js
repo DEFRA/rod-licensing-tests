@@ -1,18 +1,20 @@
 exports.config = {
   runner: 'local',
-  specs: ['src/features/**/*.feature'],
+  specs: ['../src/features/**/*.feature'],
   maxInstances: 1,
   capabilities: [
     {
       browserName: 'chrome',
+      browserVersion: 'latest',
       'goog:chromeOptions': {
-        args: ['--headless', '--no-sandbox']
+        args: ['--headless', '--disable-gpu', '--no-sandbox']
       }
     },
     {
       browserName: 'firefox',
+      browserVersion: 'latest',
       'moz:firefoxOptions': {
-        args: ['--headless']
+        args: ['-headless']
       }
     }
   ],
@@ -32,10 +34,6 @@ exports.config = {
 
   // Default request retries count
   connectionRetryCount: 3,
-
-  services: ['selenium-standalone'],
-
-  seleniumLogs: './logs/selenium',
 
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -86,7 +84,7 @@ exports.config = {
     // <boolean> fail if there are any undefined or pending steps
     strict: true,
     // <string> (expression) only execute the features or scenarios with tags matching the expression
-    tagExpression: 'not @Ignore',
+    tags: 'not @Ignore',
     // <number> timeout for step definitions
     timeout: 60000,
     // <boolean> Enable this config to treat undefined definitions as warnings.

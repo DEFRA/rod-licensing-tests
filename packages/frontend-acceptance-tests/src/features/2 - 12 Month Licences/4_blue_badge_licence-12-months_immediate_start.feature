@@ -82,7 +82,7 @@ Feature: I want to buy an adult blue badge annual fishing
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select paper license
-    And I select make a note of the license 
+    And I select make a note of the license
     And I do not have either of these
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
@@ -103,7 +103,7 @@ Feature: I want to buy an adult blue badge annual fishing
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select paper license
-    And I select make a note of the license 
+    And I select make a note of the license
     And I enter email as "email@gmail.com" and number as ""
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
@@ -147,8 +147,8 @@ Feature: I want to buy an adult blue badge annual fishing
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select paper license
-    And I select make a note of the license 
-    And I enter email as "" and number as "07428776543" 
+    And I select make a note of the license
+    And I enter email as "" and number as "07428776543"
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
@@ -156,7 +156,7 @@ Feature: I want to buy an adult blue badge annual fishing
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
-  
+
   Scenario: Scenario 8 - 12 Month Adult - blue badge licence selecting 2 rod sea trout licence for someone else - Immediate start - Enter contact details
     And I am buying a licence for someone else
     And I enter "Adult" "Salmon" as the name
@@ -174,7 +174,7 @@ Feature: I want to buy an adult blue badge annual fishing
     And I click email radio button and click continue
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
-    And I enter payment details
+    And I enter payment and address details
     And I confirm payment details
       #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service

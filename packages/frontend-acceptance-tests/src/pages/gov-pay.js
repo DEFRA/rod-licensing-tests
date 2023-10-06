@@ -34,6 +34,24 @@ class GovPayPage extends Page {
     logger.info(`Set cvc as: ${setCvc}`)
   }
 
+  async setAddressLine1 (setAddressLine1) {
+    await $('#address-line-1').waitForDisplayed(1000)
+    await $('#address-line-1').setValue(setAddressLine1)
+    logger.info(`Set Address Line 1 as: ${setAddressLine1}`)
+  }
+
+  async setAddressCity (setAddressCity) {
+    await $('#address-city').waitForDisplayed(1000)
+    await $('#address-city').setValue(setAddressCity)
+    logger.info(`Set Address City as: ${setAddressCity}`)
+  }
+
+  async setAddressPostcode (setAddressPostcode) {
+    await $('#address-postcode').waitForDisplayed(1000)
+    await $('#address-postcode').setValue(setAddressPostcode)
+    logger.info(`Set Address Postcode as: ${setAddressPostcode}`)
+  }
+
   async continue () {
     await $('#submit-card-details').click()
   }
