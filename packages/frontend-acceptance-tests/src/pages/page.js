@@ -20,6 +20,9 @@ class Page {
       if (url.includes('?')) {
         url = url.substr(0, url.indexOf('?'))
       }
+      if (url.includes('#')) {
+        url = url.substr(0, url.indexOf('#'))
+      }
       return url
     }
     let currentUrl = await getPageUrl()
