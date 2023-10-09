@@ -17,11 +17,11 @@ class Page {
 
     const getPageUrl = async () => {
       let url = await browser.getUrl()
-      if (url.includes('?')) {
-        url = url.substr(0, url.indexOf('?'))
-      }
-      if (url.includes('#')) {
-        url = url.substr(0, url.indexOf('#'))
+      const charactersToIgnore = ['?', '#']
+      for (const characterToIgnore of charactersToIgnore) {
+        if (url.includes(characterToIgnore)) {
+          url = url.substr(0, url.indexOf(characterToIgnore))
+        }
       }
       return url
     }
