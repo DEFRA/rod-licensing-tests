@@ -174,7 +174,7 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
     And I click mobile radio button and click continue
     Then I expect the contact details page to show the following errors
       | ErrorMessage |
-      | Enter a UK mobile phone number  |
+      | Enter a UK mobile number |
     And I enter email as "email@gmail.com" and number as ""
     And I am on the newsletter page and I click continue
     And I am on the contact summary page and I click continue
