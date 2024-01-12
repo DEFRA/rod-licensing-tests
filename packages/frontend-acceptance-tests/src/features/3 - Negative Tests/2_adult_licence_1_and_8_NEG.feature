@@ -162,7 +162,7 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
     When I am on the contact details page and I click continue
     Then I expect the contact details page to show the following errors
       | ErrorMessage  |
-      | Choose how we should contact the licence holder |
+      | Choose where we should send the fishing licence |
 
     # Scenario 9.2: Test Errors on Contact Details page -  Error messages - No email entered
     And I click email radio button and click continue

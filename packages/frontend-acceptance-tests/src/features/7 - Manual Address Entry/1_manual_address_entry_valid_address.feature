@@ -15,7 +15,7 @@ Feature: I want enter my address manually when buying a fishing licence
       And I am on the licence summary page and I click continue
       And I am on the find address page and I click the manual address entry link
       And I enter "<buildingNo>" "<street>" "<city>" "<postcode>" "<country>" as the address
-      And I do not have either of these
+      And I enter email as "<email>"
       And I do not want a newsletter
       And I am on the contact summary page and I click continue
       And I agree to the terms and conditions and click continue
@@ -23,8 +23,8 @@ Feature: I want enter my address manually when buying a fishing licence
       And I confirm payment details
       Then I am on the order confirmation page and exit the service
       Examples:
-        | buildingNo | street         | city   | postcode | country |
-        | 10         | Downing Street | London | SW1A 2AA | GB-ENG  |
+        | buildingNo | street         | city   | postcode | country | email
+        | 10         | Downing Street | London | SW1A 2AA | GB-ENG  | email@gmail.com
 
     Scenario Outline: Scenario 2 - International Address
       And I enter "International" "Manual Address" as the name
@@ -36,7 +36,7 @@ Feature: I want enter my address manually when buying a fishing licence
       And I am on the licence summary page and I click continue
       And I am on the find address page and I click the manual address entry link
       And I enter "<buildingNo>" "<street>" "<city>" "<postcode>" "<country>" as the address
-      And I do not have either of these
+      And I enter email as "<email>"
       And I do not want a newsletter
       And I am on the contact summary page and I click continue
       And I agree to the terms and conditions and click continue
@@ -44,6 +44,6 @@ Feature: I want enter my address manually when buying a fishing licence
       And I confirm payment details
       Then I am on the order confirmation page and exit the service
       Examples:
-        | buildingNo | street         | city   | postcode | country |
-        | 22         | Buntspechtweg  | Bonn   | 53123    | DE      |
+        | buildingNo | street         | city   | postcode | country | email
+        | 22         | Buntspechtweg  | Bonn   | 53123    | DE      | email@gmail.com
 
