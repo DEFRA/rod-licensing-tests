@@ -15,7 +15,7 @@ Feature: I want enter my address manually when buying a fishing licence
       And I am on the licence summary page and I click continue
       And I am on the find address page and I click the manual address entry link
       And I enter "<buildingNo>" "<street>" "<city>" "<postcode>" "<country>" as the address
-      And I enter email as "<email>"
+      And I enter email as "<email>" and number as ""
       And I do not want a newsletter
       And I am on the contact summary page and I click continue
       And I agree to the terms and conditions and click continue
@@ -36,7 +36,7 @@ Feature: I want enter my address manually when buying a fishing licence
       And I am on the licence summary page and I click continue
       And I am on the find address page and I click the manual address entry link
       And I enter "<buildingNo>" "<street>" "<city>" "<postcode>" "<country>" as the address
-      And I enter email as "<email>"
+      And I enter email as "<email>" and number as ""
       And I do not want a newsletter
       And I am on the contact summary page and I click continue
       And I agree to the terms and conditions and click continue
