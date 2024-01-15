@@ -23,8 +23,8 @@ Feature: I want enter my address manually when buying a fishing licence
       And I confirm payment details
       Then I am on the order confirmation page and exit the service
       Examples:
-        | buildingNo | street         | city   | postcode | country | email            |
-        | 10         | Downing Street | London | SW1A 2AA | GB-ENG  | email@gmail.com  |
+        | buildingNo | street         | city   | postcode | country | email           |
+        | 10         | Downing Street | London | SW1A 2AA | GB-ENG  | email@gmail.com |
 
     Scenario Outline: Scenario 2 - International Address
       And I enter "International" "Manual Address" as the name
@@ -44,6 +44,6 @@ Feature: I want enter my address manually when buying a fishing licence
       And I confirm payment details
       Then I am on the order confirmation page and exit the service
       Examples:
-        | buildingNo | street         | city   | postcode | country | email            |
-        | 22         | Buntspechtweg  | Bonn   | 53123    | DE      | email@gmail.com  |
+        | buildingNo | street         | city   | postcode | country | email           |
+        | 22         | Buntspechtweg  | Bonn   | 53123    | DE      | email@gmail.com |
 
