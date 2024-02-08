@@ -15,7 +15,7 @@ Feature: I want to buy an adult blue badge annual fishing
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select digital license
-    And I enter email as "email@gmail.com" and number as "" for confirmation method
+    And I enter email as "email@example.com" and number as "" for confirmation method
     And I am on the confirm contact details page and it asks me to confirm my email address and I click correct
     And I click email radio button and click continue
     And I do not want a newsletter
@@ -38,7 +38,7 @@ Feature: I want to buy an adult blue badge annual fishing
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select digital license
-    And I enter email as "email@gmail.com" and number as "" for confirmation method
+    And I enter email as "email@example.com" and number as "" for confirmation method
     And I am on the confirm contact details page and it asks me to confirm my email address and I click correct
     And I click email radio button and click continue
     And I do not want a newsletter
@@ -60,7 +60,7 @@ Feature: I want to buy an adult blue badge annual fishing
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select digital license
-    And I enter email as "email@gmail.com" and number as "" for confirmation method
+    And I enter email as "email@example.com" and number as "" for confirmation method
     And I am on the confirm contact details page and it asks me to confirm my email address and I click correct
     And I click email radio button and click continue
     And I do not want a newsletter
@@ -104,7 +104,7 @@ Feature: I want to buy an adult blue badge annual fishing
     And I select "100121002711" as an address
     And I select paper license
     And I select make a note of the license
-    And I enter email as "email@gmail.com" and number as ""
+    And I enter email as "email@example.com" and number as ""
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
@@ -169,7 +169,7 @@ Feature: I want to buy an adult blue badge annual fishing
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select digital license
-    And I enter email as "email@gmail.com" and number as "" for confirmation method
+    And I enter email as "email@example.com" and number as "" for confirmation method
     And I am on the confirm contact details page and it asks me to confirm my email address and I click correct
     And I click email radio button and click continue
     And I am on the contact summary page and I click continue
