@@ -17,7 +17,7 @@ Feature: I want to buy an adult annual fishing - NOTIFY
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select digital license
-    And I enter email as "email@gmail.com" and number as "" for confirmation method
+    And I enter email as "email@example.com" and number as "" for confirmation method
     And I am on the confirm contact details page and it asks me to confirm my email address and I click correct
     And I click email radio button and click continue
     And I do not want a newsletter
@@ -41,7 +41,7 @@ Feature: I want to buy an adult annual fishing - NOTIFY
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select digital license
-    And I enter email as "email@gmail.com" and number as "" for confirmation method
+    And I enter email as "email@example.com" and number as "" for confirmation method
     And I am on the confirm contact details page and it asks me to confirm my email address and I click correct
     And I click email radio button and click continue
     And I do not want a newsletter

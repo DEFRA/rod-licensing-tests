@@ -167,7 +167,7 @@ Scenario: Scenario 8 - Confirmation Method Errors - Digital license
     Then I expect the confirmation method page to show the following errors
       | ErrorMessage |
       | Enter a UK mobile number |
-    And I enter email as "email@gmail.com" and number as "" for confirmation method
+    And I enter email as "email@example.com" and number as "" for confirmation method
     And I am on the confirm contact details page and it asks me to confirm my email address and I click correct
 
 
