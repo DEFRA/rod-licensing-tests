@@ -31,7 +31,9 @@ class Page {
         async () => {
           currentUrl = await getPageUrl()
           logger.debug(`Waiting for ${currentUrl} to end with ${this.url}`)
-          return currentUrl.endsWith(this.url)
+          const onExpectedPage =  currentUrl.endsWith(this.url)
+          logger.debug(`Does it? ${onExpectedPage ? 'It sure does' : 'Nope, not yet'}`)
+          return onExpectedPage
         },
         {
           timeout: waitforTimeout,
