@@ -54,6 +54,7 @@ class Page {
 
   async continue (selector = '#continue') {
     await this.checkUrl()
+    logger.debug(`arrived on page, clicking ${selector} button`)
     await $(selector).click()
     logger.info(`Click continue and navigate to the next page`)
   }
