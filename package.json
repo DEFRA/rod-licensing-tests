@@ -59,5 +59,8 @@
     "*": [
       "prettier-standard --fix --lint --staged"
     ]
+  },
+  "dependencies": {
+    "webdriverio": "^8.32.3"
   }
 }
