@@ -8,10 +8,10 @@ class StartWhenPage extends Page {
     switch (startKind) {
       case 'Now':
         logger.info(`Now selected`)
-        return $('#licence-to-start').click()
+        return $('label[for="licence-to-start"]').click()
       case 'AnotherTime':
         logger.info(`Another time selected`)
-        return $('#licence-to-start-2').click()
+        return $('label[for="licence-to-start-2"]').click()
     }
   }
 

@@ -5,12 +5,12 @@ const Page = require('./page')
 
 class FulfilmentPage extends Page {
   async selectDigitalLicense () {
-    await $('#licence-option').click()
+    await $('label[for="licence-option"]').click()
     logger.info(`Digital license selected, no value added`)
   }
 
   async selectPaperLicense () {
-    await $('#licence-option-2').click()
+    await $('label[for="licence-option-2"]').click()
     logger.info(`Paper license selected, no value added`)
   }
 }
