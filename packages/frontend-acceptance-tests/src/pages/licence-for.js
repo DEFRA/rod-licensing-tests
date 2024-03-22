@@ -9,9 +9,9 @@ class LicenceFor extends Page {
   async setLicenceFor (licenceForInput) {
     logger.info(`Licence for: ${licenceForInput}`)
     if (licenceForInput === 'someone else') {
-      return $('#selector-someone-else').click()
+      return $('label[for="selector-someone-else"]').click()
     } else {
-      return $('#selector-you').click()
+      return $('label[for="selector-you"]').click()
     }
   }
 }

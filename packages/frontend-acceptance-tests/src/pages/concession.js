@@ -8,13 +8,13 @@ class ConcessionPage extends Page {
     switch (concession) {
       case 'Benefit':
         logger.info(`Receiving Benefits: ${concession}`)
-        return $('#disability-concession').click()
+        return $('label[for="disability-concession"]').click()
       case 'BlueBadge':
         logger.info(`Receiving Benefits: ${concession}`)
-        return $('#disability-concession-2').click()
+        return $('label[for="disability-concession-2"]').click()
       case 'No':
         logger.info(`Receiving Benefits: ${concession}`)
-        return $('#disability-concession-3').click()
+        return $('label[for="disability-concession-3"]').click()
     }
   }
 

@@ -10,7 +10,7 @@ class NewsletterPage extends Page {
     // const emailEnabled = !emailField.hasAttribute('hidden')
     logger.info(`newsletter email is enabled: ${emailInput}`)
 
-    await $('#newsletter').click()
+    await $('label[for="newsletter"]').click()
     //  $('#email').waitForDisplayed(10000)
     if (!emailInput) {
       logger.info(`email address already supplied`)
@@ -19,7 +19,7 @@ class NewsletterPage extends Page {
   }
 
   async setNewsletterNo () {
-    await $('#newsletter-2').click()
+    await $('label[for="newsletter-2"]').click()
   }
 }
 module.exports = new NewsletterPage('/buy/newsletter')

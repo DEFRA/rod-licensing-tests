@@ -8,11 +8,11 @@ class FishTypePage extends Page {
     logger.info(`Licence Type selected as: ${fishType}`)
     switch (fishType) {
       case 'coarse2':
-        return $('#selector-trout-and-coarse-2-rod').click()
+        return $('label[for="selector-trout-and-coarse-2-rod"]').click()
       case 'coarse3':
-        return $('#selector-trout-and-coarse-3-rod').click()
+        return $('label[for="selector-trout-and-coarse-3-rod"]').click()
       case 'salmon':
-        return $('#selector-salmon-and-sea-trout').click()
+        return $('label[for="selector-salmon-and-sea-trout"]').click()
     }
   }
 }
