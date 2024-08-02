@@ -50,7 +50,7 @@ packages/
 
 1. Install the package dependencies
 
-````
+   ```
    npm install
    ```
 
