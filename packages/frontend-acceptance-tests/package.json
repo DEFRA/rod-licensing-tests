@@ -22,7 +22,8 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1",
-    "axe": "./node_modules/.bin/wdio ./conf/local.conf.js --spec ./features/axe.feature"
+    "axe": "./node_modules/.bin/wdio ./conf/local.conf.js --spec ./features/axe.feature",
+    "local": "./node_modules/.bin/wdio ./conf/local.conf.js"
   },
   "dependencies": {
     "@wdio/cli": "^8.32.3",

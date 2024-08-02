@@ -46,6 +46,39 @@ packages/
 - [frontend-performance-tests](packages/frontend-performance-tests/README.md)
   > Performance tests for the Get a Fishing Licence frontend
 
+## Running Acceptance Tests Locally
+
+1. Install the package dependencies
+ ```
+    npm install
+    ```
+
+2.  Navigate to the `frontend-acceptance-tests` package
+
+    ```
+    cd packages/frontend-acceptance-tests
+    ```
+
+3.  Install the package dependencies
+
+    ```
+    npm install
+    ```
+
+    Note: The first `npm install` in the root does not install the dependencies inside each module.
+
+4.  Create a `.env` file in the `frontend-acceptance-tests` directory and copy the values from the gitlab repo fish/rod-catch-returns-env-vars (excluding proxy settings)
+
+    ```
+    touch .env
+    ```
+
+5.  Run the tests using:
+
+    ```
+    npm run local
+    ```
+
 ## Contributing to this project
 
 Please read our [contribution guidelines](CONTRIBUTING.md)
