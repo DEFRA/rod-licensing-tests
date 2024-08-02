@@ -49,35 +49,36 @@ packages/
 ## Running Acceptance Tests Locally
 
 1. Install the package dependencies
- ```
-    npm install
-    ```
+
+````
+   npm install
+   ```
 
 2.  Navigate to the `frontend-acceptance-tests` package
 
-    ```
-    cd packages/frontend-acceptance-tests
-    ```
+   ```
+   cd packages/frontend-acceptance-tests
+   ```
 
 3.  Install the package dependencies
 
-    ```
-    npm install
-    ```
+   ```
+   npm install
+   ```
 
-    Note: The first `npm install` in the root does not install the dependencies inside each module.
+   Note: The first `npm install` in the root does not install the dependencies inside each module.
 
 4.  Create a `.env` file in the `frontend-acceptance-tests` directory and copy the values from the gitlab repo fish/rod-catch-returns-env-vars (excluding proxy settings)
 
-    ```
-    touch .env
-    ```
+   ```
+   touch .env
+   ```
 
 5.  Run the tests using:
 
-    ```
-    npm run local
-    ```
+   ```
+   npm run local
+   ```
 
 ## Contributing to this project
 
@@ -98,3 +99,4 @@ The following attribution statement MUST be cited in your products and applicati
 The Open Government Licence (OGL) was developed by the Controller of Her Majesty's Stationery Office (HMSO) to enable information providers in the public sector to license the use and re-use of their information under a common open licence.
 
 It is designed to encourage use and re-use of information freely and flexibly, with only a few conditions.
+````
