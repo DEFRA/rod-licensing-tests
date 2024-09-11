@@ -1,14 +1,14 @@
 @browser
-Feature: I want to buy an adult annual fishing
+Feature: I want to buy an adult disabled annual fishing
 
-  Background: Buy an adult fishing licence
+  Background: Buy an adult disabled fishing licence
     Given  I am at the start of the purchase journey
 
-  Scenario: Scenario 1 - 12 Month Adult licence selecting 2 rod sea trout licence - Immediate start - Enter contact details
+  Scenario: Scenario 1 - 12 Month Adult Benefit licence selecting 2 rod sea trout licence - Immediate start - Enter contact details
     And I am buying a licence for myself
     And I enter "Adult" "Salmon" as the name
     And I am 7 days over my 17th birthday
-    And  I enter "No" concession
+    And I enter "Benefit" as the ni concession and I enter "NP382939C" as the concesssion id
     And  I select Now as a start time
     Given I select a "salmon" fishing licence
     And I select a 12MonthLicence licence
@@ -22,18 +22,19 @@ Feature: I want to buy an adult annual fishing
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
-    And I select single licence only and click continue
+    And I select recurring payment and click continue
+    And I agree to set up a recurring payment and click continue
     And I enter payment details
     And I confirm payment details
-    #    Then I expect to receive a confirmation via GOV.UK Notify
+      #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 2 - 12 Month Adult licence selecting salmon licence - Immediate start - Enter contact-Email
+  Scenario: Scenario 2 - 12 Month Adult Benefit licence selecting salmon licence - Immediate start - Enter contact-Email
     And I am buying a licence for myself
     And I enter "Adult" "CoarseTwo" as the name
     And I am 7 days over my 17th birthday
-    And I enter "No" concession
-    And I select Now as a start time
+    And I enter "Benefit" as the ni concession and I enter "NP382939C" as the concesssion id
+    And  I select Now as a start time
     Given I select a "coarse2" fishing licence
     And I select a 12MonthLicence licence
     Then I am on the licence summary page and I click continue
@@ -46,18 +47,19 @@ Feature: I want to buy an adult annual fishing
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
-    And I select single licence only and click continue
+    And I select recurring payment and click continue
+    And I agree to set up a recurring payment and click continue
     And I enter payment details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 3 - 12 Month Adult licence selecting salmon licence - Immediate start - By Post - NO contact
+  Scenario: Scenario 3 - 12 Month Adult Benefit licence selecting salmon licence - Immediate start - By Post - NO contact
     And I am buying a licence for myself
     And I enter "Adult" "CoarseThree" as the name
     And I am 7 days over my 17th birthday
-    And I enter "No" concession
-    And I select Now as a start time
+    And I enter "Benefit" as the ni concession and I enter "NP382939C" as the concesssion id
+    And  I select Now as a start time
     Given I select a "coarse3" fishing licence
     Then I am on the licence summary page and I click continue
     And I enter "3" and "SN153PG" as my house number and postcode
@@ -68,18 +70,19 @@ Feature: I want to buy an adult annual fishing
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
-    And I select single licence only and click continue
+    And I select recurring payment and click continue
+    And I agree to set up a recurring payment and click continue
     And I enter payment details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 4 - 12 Month Adult licence selecting salmon licence - Immediate start - By Post - Enter contact-Email
+  Scenario: Scenario 4 - 12 Month Adult Benefit licence selecting salmon licence - Immediate start - By Post - Enter contact -Email
     And I am buying a licence for myself
     And I enter "Adult" "CoarseThree" as the name
     And I am 7 days over my 17th birthday
-    And I enter "No" concession
-    And I select Now as a start time
+    And I enter "Benefit" as the ni concession and I enter "NP382939C" as the concesssion id
+    And  I select Now as a start time
     Given I select a "coarse3" fishing licence
     Then I am on the licence summary page and I click continue
     And I enter "3" and "SN153PG" as my house number and postcode
@@ -90,7 +93,8 @@ Feature: I want to buy an adult annual fishing
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
-    And I select single licence only and click continue
+    And I select recurring payment and click continue
+    And I agree to set up a recurring payment and click continue
     And I enter payment details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
@@ -100,8 +104,8 @@ Feature: I want to buy an adult annual fishing
     And I am buying a licence for myself
     And I enter "Adult" "Salmon" as the name
     And I am 7 days over my 17th birthday
-    And I enter "No" concession
-    And I select Now as a start time
+    And I enter "Benefit" as the ni concession and I enter "NP382939C" as the concesssion id
+    And  I select Now as a start time
     Given I select a "salmon" fishing licence
     And I select a 12MonthLicence licence
     Then I am on the licence summary page and I click continue
@@ -114,7 +118,8 @@ Feature: I want to buy an adult annual fishing
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
-    And I select single licence only and click continue
+    And I select recurring payment and click continue
+    And I agree to set up a recurring payment and click continue
     And I enter payment details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
@@ -124,11 +129,10 @@ Feature: I want to buy an adult annual fishing
     And I am buying a licence for myself
     And I enter "Adult" "CoarseThree" as the name
     And I am 7 days over my 17th birthday
-    And I enter "No" concession
-    And I select Now as a start time
+    And I enter "Benefit" as the ni concession and I enter "NP382939C" as the concesssion id
+    And  I select Now as a start time
     Given I select a "coarse3" fishing licence
     Then I am on the licence summary page and I click continue
-  # Contact Journey starts
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select paper license
@@ -137,17 +141,18 @@ Feature: I want to buy an adult annual fishing
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
-    And I select single licence only and click continue
+    And I select recurring payment and click continue
+    And I agree to set up a recurring payment and click continue
     And I enter payment details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 7 - 12 Month Adult for someone else licence selecting 2 rod sea trout licence - Immediate start - Enter contact details
+  Scenario: Scenario 1 - 12 Month Adult Benefit licence  - selecting 2 rod sea trout licence for someone else - Immediate start - Enter contact details
     And I am buying a licence for someone else
     And I enter "Adult" "Salmon" as the name
     And I am 7 days over my 17th birthday
-    And  I enter "No" concession
+    And I enter "Benefit" as the ni concession and I enter "NP382939C" as the concesssion id
     And  I select Now as a start time
     Given I select a "salmon" fishing licence
     And I select a 12MonthLicence licence
@@ -160,7 +165,9 @@ Feature: I want to buy an adult annual fishing
     And I click email radio button and click continue
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
-    And I select single licence only and click continue
+    And I select recurring payment and click continue
+    And I agree to set up a recurring payment and click continue
     And I enter payment and address details
     And I confirm payment details
+      #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
