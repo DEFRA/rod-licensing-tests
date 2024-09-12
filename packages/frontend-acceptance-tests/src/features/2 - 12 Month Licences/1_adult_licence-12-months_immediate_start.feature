@@ -160,7 +160,6 @@ Feature: I want to buy an adult annual fishing
     And I click email radio button and click continue
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
-    And I select single licence only and click continue
     And I enter payment and address details
     And I confirm payment details
     Then I am on the order confirmation page and exit the service

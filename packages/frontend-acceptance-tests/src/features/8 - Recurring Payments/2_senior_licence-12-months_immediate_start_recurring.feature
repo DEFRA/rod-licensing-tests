@@ -1,15 +1,15 @@
 @browser
-Feature: I want to buy an adult annual fishing
+Feature: I want to buy a recurring senior annual fishing
 
-  Background: Buy an adult fishing licence
+  Background: Buy an senior fishing licence
     Given  I am at the start of the purchase journey
 
-  Scenario: Scenario 1 - 12 Month Adult licence selecting 2 rod sea trout licence - Immediate start - Enter contact details
+  Scenario: Scenario 1 - 12 Month senior licence selecting 2 rod sea trout licence - Immediate start - Enter contact details
     And I am buying a licence for myself
-    And I enter "Adult" "Salmon" as the name
-    And I am 7 days over my 17th birthday
-    And  I enter "No" concession
-    And  I select Now as a start time
+    And I enter "Senior" "Salmon" as the name
+    And I am 7 days over my 66th birthday
+    And I enter "No" concession
+    And I select Now as a start time
     Given I select a "salmon" fishing licence
     And I select a 12MonthLicence licence
     Then I am on the licence summary page and I click continue
@@ -26,13 +26,13 @@ Feature: I want to buy an adult annual fishing
     And I agree to set up a recurring payment and click continue
     And I enter payment details
     And I confirm payment details
-    #    Then I expect to receive a confirmation via GOV.UK Notify
+  #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 2 - 12 Month Adult licence selecting salmon licence - Immediate start - Enter contact-Email
+  Scenario: Scenario 2 - 12 Month Senior licence selecting salmon licence - Immediate start - Enter contact-Email
     And I am buying a licence for myself
-    And I enter "Adult" "CoarseTwo" as the name
-    And I am 7 days over my 17th birthday
+    And I enter "Senior" "CoarseTwo" as the name
+    And I am 7 days over my 66th birthday
     And I enter "No" concession
     And I select Now as a start time
     Given I select a "coarse2" fishing licence
@@ -54,12 +54,12 @@ Feature: I want to buy an adult annual fishing
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 3 - 12 Month Adult licence selecting salmon licence - Immediate start - By Post - NO contact
+  Scenario: Scenario 3 - 12 Month Senior licence selecting salmon licence - Immediate start - By Post - NO contact
     And I am buying a licence for myself
-    And I enter "Adult" "CoarseThree" as the name
-    And I am 7 days over my 17th birthday
+    And I enter "Senior" "CoarseThree" as the name
+    And I am 7 days over my 66th birthday
     And I enter "No" concession
-    And I select Now as a start time
+    And  I select Now as a start time
     Given I select a "coarse3" fishing licence
     Then I am on the licence summary page and I click continue
     And I enter "3" and "SN153PG" as my house number and postcode
@@ -77,12 +77,12 @@ Feature: I want to buy an adult annual fishing
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 4 - 12 Month Adult licence selecting salmon licence - Immediate start - By Post - Enter contact-Email
+  Scenario: Scenario 4 - 12 Month Senior licence selecting salmon licence - Immediate start - By Post - Enter contact-Email
     And I am buying a licence for myself
-    And I enter "Adult" "CoarseThree" as the name
-    And I am 7 days over my 17th birthday
+    And I enter "Senior" "CoarseThree" as the name
+    And I am 7 days over my 66th birthday
     And I enter "No" concession
-    And I select Now as a start time
+    And  I select Now as a start time
     Given I select a "coarse3" fishing licence
     Then I am on the licence summary page and I click continue
     And I enter "3" and "SN153PG" as my house number and postcode
@@ -103,9 +103,9 @@ Feature: I want to buy an adult annual fishing
   Scenario: Scenario 5 - 12 Month Adult licence selecting 2 rod sea trout licence - Immediate start - Enter contact-Text
     And I am buying a licence for myself
     And I enter "Adult" "Salmon" as the name
-    And I am 7 days over my 17th birthday
+    And I am 7 days over my 66th birthday
     And I enter "No" concession
-    And I select Now as a start time
+    And  I select Now as a start time
     Given I select a "salmon" fishing licence
     And I select a 12MonthLicence licence
     Then I am on the licence summary page and I click continue
@@ -128,12 +128,11 @@ Feature: I want to buy an adult annual fishing
   Scenario: Scenario 6 - 12 Month Adult licence selecting salmon licence - Immediate start - By Post - Enter contact-Text
     And I am buying a licence for myself
     And I enter "Adult" "CoarseThree" as the name
-    And I am 7 days over my 17th birthday
+    And I am 7 days over my 66th birthday
     And I enter "No" concession
-    And I select Now as a start time
+    And  I select Now as a start time
     Given I select a "coarse3" fishing licence
     Then I am on the licence summary page and I click continue
-  # Contact Journey starts
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select paper license
@@ -147,27 +146,4 @@ Feature: I want to buy an adult annual fishing
     And I enter payment details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
-    Then I am on the order confirmation page and exit the service
-
-  Scenario: Scenario 7 - 12 Month Adult for someone else licence selecting 2 rod sea trout licence - Immediate start - Enter contact details
-    And I am buying a licence for someone else
-    And I enter "Adult" "Salmon" as the name
-    And I am 7 days over my 17th birthday
-    And  I enter "No" concession
-    And  I select Now as a start time
-    Given I select a "salmon" fishing licence
-    And I select a 12MonthLicence licence
-    Then I am on the licence summary page and I click continue
-    And I enter "3" and "SN153PG" as my house number and postcode
-    And I select "100121002711" as an address
-    And I select digital license
-    And I enter email as "email@example.com" and number as "" for confirmation method
-    And I am on the confirm contact details page and it asks me to confirm my email address and I click correct
-    And I click email radio button and click continue
-    And I am on the contact summary page and I click continue
-    And I agree to the terms and conditions and click continue
-    And I select recurring payment and click continue
-    And I agree to set up a recurring payment and click continue
-    And I enter payment and address details
-    And I confirm payment details
     Then I am on the order confirmation page and exit the service
