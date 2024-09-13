@@ -1,5 +1,5 @@
 @browser
-Feature: I want to buy an adult annual fishing
+Feature: I want to buy a recurring adult annual fishing
 
   Background: Buy an adult fishing licence
     Given  I am at the start of the purchase journey
