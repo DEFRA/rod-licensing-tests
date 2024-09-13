@@ -1,5 +1,5 @@
 @browser
-Feature: I want to buy an adult annual fishing - NOTIFY
+Feature: I want to buy an adult annual fishing - NOTIFY - recurring
 
   Background: Buy an adult fishing licence - NOTIFY
     Given  I am at the start of the purchase journey
@@ -23,7 +23,8 @@ Feature: I want to buy an adult annual fishing - NOTIFY
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
-    And I select single licence only and click continue
+    And I select recurring payment and click continue
+    And I agree to set up a recurring payment and click continue
     And I enter payment details
     And I confirm payment details
       #    Then I expect to receive a confirmation via GOV.UK Notify
@@ -48,7 +49,8 @@ Feature: I want to buy an adult annual fishing - NOTIFY
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
-    And I select single licence only and click continue
+    And I select recurring payment and click continue
+    And I agree to set up a recurring payment and click continue
     And I enter payment details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
@@ -71,7 +73,8 @@ Feature: I want to buy an adult annual fishing - NOTIFY
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
-    And I select single licence only and click continue
+    And I select recurring payment and click continue
+    And I agree to set up a recurring payment and click continue
     And I enter payment details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
@@ -96,7 +99,8 @@ Feature: I want to buy an adult annual fishing - NOTIFY
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
-    And I select single licence only and click continue
+    And I select recurring payment and click continue
+    And I agree to set up a recurring payment and click continue
     And I enter payment details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify

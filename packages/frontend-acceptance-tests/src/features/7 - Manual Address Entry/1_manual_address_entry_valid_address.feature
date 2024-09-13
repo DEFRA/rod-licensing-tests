@@ -19,6 +19,7 @@ Feature: I want enter my address manually when buying a fishing licence
       And I do not want a newsletter
       And I am on the contact summary page and I click continue
       And I agree to the terms and conditions and click continue
+      And I select single licence only and click continue
       And I enter payment details
       And I confirm payment details
       Then I am on the order confirmation page and exit the service
@@ -40,6 +41,53 @@ Feature: I want enter my address manually when buying a fishing licence
       And I do not want a newsletter
       And I am on the contact summary page and I click continue
       And I agree to the terms and conditions and click continue
+      And I select single licence only and click continue
+      And I enter payment details
+      And I confirm payment details
+      Then I am on the order confirmation page and exit the service
+      Examples:
+        | buildingNo | street         | city   | postcode | country | email           |
+        | 22         | Buntspechtweg  | Bonn   | 53123    | DE      | email@example.com |
+
+Scenario Outline: Scenario 3 - English Address - Recurring
+      And I enter "English" "Manual Address" as the name
+      *   I am 7 days over my 17th birthday
+      *   I enter "No" concession
+      And  I select Now as a start time
+      And I select a "coarse2" fishing licence
+      Then I select a 8dayLicence licence
+      And I am on the licence summary page and I click continue
+      And I am on the find address page and I click the manual address entry link
+      And I enter "<buildingNo>" "<street>" "<city>" "<postcode>" "<country>" as the address
+      And I enter email as "<email>" and number as ""
+      And I do not want a newsletter
+      And I am on the contact summary page and I click continue
+      And I agree to the terms and conditions and click continue
+      And I select recurring payment and click continue
+      And I agree to set up a recurring payment and click continue
+      And I enter payment details
+      And I confirm payment details
+      Then I am on the order confirmation page and exit the service
+      Examples:
+        | buildingNo | street         | city   | postcode | country | email           |
+        | 10         | Downing Street | London | SW1A 2AA | GB-ENG  | email@example.com |
+
+    Scenario Outline: Scenario 4 - International Address - Recurring
+      And I enter "International" "Manual Address" as the name
+      *   I am 7 days over my 17th birthday
+      *   I enter "No" concession
+      And  I select Now as a start time
+      And I select a "coarse2" fishing licence
+      Then I select a 8dayLicence licence
+      And I am on the licence summary page and I click continue
+      And I am on the find address page and I click the manual address entry link
+      And I enter "<buildingNo>" "<street>" "<city>" "<postcode>" "<country>" as the address
+      And I enter email as "<email>" and number as ""
+      And I do not want a newsletter
+      And I am on the contact summary page and I click continue
+      And I agree to the terms and conditions and click continue
+      And I select recurring payment and click continue
+      And I agree to set up a recurring payment and click continue
       And I enter payment details
       And I confirm payment details
       Then I am on the order confirmation page and exit the service

@@ -1,4 +1,4 @@
-Feature: Buy a Fishing Licence - Error messages - 12 month journey
+Feature: Buy a Fishing Licence - Error messages - 12 month journey - recurring
   As a User
   I want to see the correct error meesage appear on each page
   So that I understand the issue that ha occurred
@@ -189,7 +189,8 @@ Scenario: Scenario 10 - Licence Conditions Errors
       | ErrorMessage  |
       | You have not agreed to the licence conditions     |
     And I agree to the terms and conditions and click continue
-    And I select single licence only and click continue
+    And I select recurring payment and click continue
+    And I agree to set up a recurring payment and click continue
     And I enter payment details
     And I confirm payment details
     Then I am on the order confirmation page and exit the service
