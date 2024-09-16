@@ -22,7 +22,7 @@ Feature: I want to buy a junior annual fishing
   #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 3 - 12 Month Junior licence selecting coarse 2 rod licence - Immediate start - NO contact
+  Scenario: Scenario 3 - 12 Month Junior licence selecting coarse 2 rod sea trout licence - Immediate start - NO contact
     And I am buying a licence for myself
     And I enter "Junior" "CoarseTwo" as the name
     And I am 7 days under my 17th birthday
@@ -39,7 +39,7 @@ Feature: I want to buy a junior annual fishing
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 3 - 12 Month Junior licence selecting salmon licence - Immediate start - NO contact
+  Scenario: Scenario 3 - 12 Month Junior licence selecting 3 rod sea trout licence - Immediate start - NO contact
     And I am buying a licence for myself
     And I enter "Junior" "CoarseThree" as the name
     And I am 7 days under my 17th birthday

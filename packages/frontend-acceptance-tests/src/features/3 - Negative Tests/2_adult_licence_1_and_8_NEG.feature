@@ -126,7 +126,7 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
     #Given I am on the start time page and I click continue
     #Then I expect the start time page to show the following errors
      # | ErrorMessage                              |
-      #| Choose how long you want your licence for |
+     # | Choose how long you want your licence for |
     And I enter a start time of "midday"
     Then I am on the licence summary page and I click continue
 

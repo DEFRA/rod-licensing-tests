@@ -3,7 +3,7 @@ Feature: I want to buy an adult blue badge annual fishing
   Background: Buy an adult blue badge fishing licence
     Given  I am at the start of the purchase journey
 
-  Scenario: Scenario 1 - 12 Month Adult blue badge licence selecting 2 rod sea trout licence - Immediate start - Enter contact details
+  Scenario: Scenario 1 - 12 Month Adult blue badge licence selecting salmon licence - Immediate start - Enter contact details
     And I am buying a licence for myself
     And I enter "Adult" "Salmon" as the name
     And I am 7 days over my 17th birthday
@@ -27,7 +27,7 @@ Feature: I want to buy an adult blue badge annual fishing
       #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 2 - 12 Month Adult Blue Badge licence selecting salmon licence - Immediate start - Enter contact
+  Scenario: Scenario 2 - 12 Month Adult Blue Badge licence selecting 2 rod sea trout licence - Immediate start - Enter contact
     And I am buying a licence for myself
     And I enter "Adult" "CoarseTwo" as the name
     And I am 7 days over my 17th birthday
@@ -51,7 +51,7 @@ Feature: I want to buy an adult blue badge annual fishing
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 3 - 12 Month Adult Blue Badge licence selecting salmon licence - Immediate start - Enter contact-Email
+  Scenario: Scenario 3 - 12 Month Adult Blue Badge licence selecting 3 rod sea trout licence - Immediate start - Enter contact-Email
     And I am buying a licence for myself
     And I enter "Adult" "CoarseThree" as the name
     And I am 7 days over my 17th birthday
@@ -74,7 +74,7 @@ Feature: I want to buy an adult blue badge annual fishing
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 4 - 12 Month Adult Blue Badge licence selecting salmon licence - Immediate start - By Post - NO contact
+  Scenario: Scenario 4 - 12 Month Adult Blue Badge licence selecting 3 rod sea trout licence - Immediate start - By Post - NO contact
     And I am buying a licence for myself
     And I enter "Adult" "CoarseThree" as the name
     And I am 7 days over my 17th birthday
@@ -96,7 +96,7 @@ Feature: I want to buy an adult blue badge annual fishing
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 5 - 12 Month Adult Blue Badge licence selecting salmon licence - Immediate start - By Post - Enter contact- Email
+  Scenario: Scenario 5 - 12 Month Adult Blue Badge licence selecting 3 rod sea trout licence - Immediate start - By Post - Enter contact- Email
     And I am buying a licence for myself
     And I enter "Adult" "CoarseThree" as the name
     And I am 7 days over my 17th birthday
@@ -118,7 +118,7 @@ Feature: I want to buy an adult blue badge annual fishing
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 6 - 12 Month Adult licence selecting 2 rod sea trout licence - Immediate start - Enter contact-Text
+  Scenario: Scenario 6 - 12 Month Adult licence selecting salmon licence - Immediate start - Enter contact-Text
     And I am buying a licence for myself
     And I enter "Adult" "Salmon" as the name
     And I am 7 days over my 17th birthday
@@ -142,7 +142,7 @@ Feature: I want to buy an adult blue badge annual fishing
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 7 - 12 Month Adult licence selecting salmon licence - Immediate start - By Post - Enter contact-Text
+  Scenario: Scenario 7 - 12 Month Adult licence selecting 3 rod sea trout licence - Immediate start - By Post - Enter contact-Text
     And I am buying a licence for myself
     And I enter "Adult" "CoarseThree" as the name
     And I am 7 days over my 17th birthday
@@ -164,7 +164,7 @@ Feature: I want to buy an adult blue badge annual fishing
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 8 - 12 Month Adult - blue badge licence selecting 2 rod sea trout licence for someone else - Immediate start - Enter contact details
+  Scenario: Scenario 8 - 12 Month Adult - blue badge licence selecting salmon licence for someone else - Immediate start - Enter contact details
     And I am buying a licence for someone else
     And I enter "Adult" "Salmon" as the name
     And I am 7 days over my 17th birthday
