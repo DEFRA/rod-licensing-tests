@@ -2,9 +2,12 @@
 
 const { defineStep } = require('@cucumber/cucumber')
 const SetUpRecurringPayment = require('../../pages/set-up-payment')
+const recurringPayments = process.env.RECURRING_PAYMENTS === 'true'
 
 defineStep('I agree to set up a recurring payment and click continue', async () => {
-  await SetUpRecurringPayment.checkUrl()
-  await SetUpRecurringPayment.setUpPaymentCheckbox()
-  await SetUpRecurringPayment.continue()
+  if (recurringPayments) {
+    await SetUpRecurringPayment.checkUrl()
+    await SetUpRecurringPayment.setUpPaymentCheckbox()
+    await SetUpRecurringPayment.continue()
+  }
 })
