@@ -3,7 +3,6 @@
 const { defineStep } = require('@cucumber/cucumber')
 const ChoosePaymentPage = require('../../pages/choose-payment')
 const recurringPayments = process.env.SHOW_RECURRING_PAYMENTS === 'true'
-console.log('SHOW_RECURRING_PAYMENTS:', process.env.SHOW_RECURRING_PAYMENTS)
 
 defineStep('I select single licence only and click continue', async () => {
     if (recurringPayments) {
