@@ -46,4 +46,3 @@ Feature: I want enter my address manually when buying a fishing licence
       Examples:
         | buildingNo | street         | city   | postcode | country | email           |
         | 22         | Buntspechtweg  | Bonn   | 53123    | DE      | email@example.com |
-

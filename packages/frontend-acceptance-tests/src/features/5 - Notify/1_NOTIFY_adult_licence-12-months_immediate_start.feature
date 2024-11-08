@@ -6,7 +6,7 @@ Feature: I want to buy an adult annual fishing - NOTIFY
     And I am buying a licence for myself
 
 
-  Scenario: Scenario 1 - 12 Month Adult licence selecting 2 rod sea trout licence - Immediate start - Enter contact details
+  Scenario: Scenario 1 - 12 Month Adult licence selecting salmon licence - Immediate start - Enter contact details
     And I enter "Adult" "Salmon" as the name
     *   I am 7 days over my 17th birthday
     *   I enter "No" concession
@@ -23,12 +23,13 @@ Feature: I want to buy an adult annual fishing - NOTIFY
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
+    And I select single licence only and click continue
     And I enter payment details
     And I confirm payment details
       #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 2 - 12 Month Adult licence selecting salmon licence - Immediate start - Enter contact-Email
+  Scenario: Scenario 2 - 12 Month Adult licence selecting 2 rod sea trout licence - Immediate start - Enter contact-Email
 # Licence details journey starts
     And I enter "Adult" "CoarseTwo" as the name
     *   I am 7 days over my 17th birthday
@@ -47,12 +48,13 @@ Feature: I want to buy an adult annual fishing - NOTIFY
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
+    And I select single licence only and click continue
     And I enter payment details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 3 - 12 Month Adult licence selecting salmon licence - Immediate start - NO contact
+  Scenario: Scenario 3 - 12 Month Adult licence selecting 3 rod sea trout licence - Immediate start - NO contact
  # Licence details journey starts
     And I enter "Adult" "CoarseThree" as the name
     *   I am 7 days over my 17th birthday
@@ -69,12 +71,13 @@ Feature: I want to buy an adult annual fishing - NOTIFY
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
+    And I select single licence only and click continue
     And I enter payment details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 3 - 12 Month Adult licence selecting salmon licence - Immediate start - Enter contact-Text
+  Scenario: Scenario 3 - 12 Month Adult licence selecting 2 rod sea trout licence - Immediate start - Enter contact-Text
 # Licence details journey starts
     And I enter "Adult" "CoarseTwo" as the name
     *   I am 7 days over my 17th birthday
@@ -93,6 +96,7 @@ Feature: I want to buy an adult annual fishing - NOTIFY
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
+    And I select single licence only and click continue
     And I enter payment details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
