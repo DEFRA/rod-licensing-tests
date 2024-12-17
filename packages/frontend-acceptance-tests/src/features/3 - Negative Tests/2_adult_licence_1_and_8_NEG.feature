@@ -45,13 +45,13 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
     #   |/date-of-birth|
     Then I expect the dob page to show the following errors
       | ErrorMessage              |
-      | Enter the licence holder’s date of birth and include a day, month and year  |
+      | Enter a date of birth |
 
 #  Scenario 1.6: Test Errors on DOB page -  Error messages - Invalid date
     When I enter "2" "" "" as an invalid date of birth
     Then I expect the dob page to show the following errors
       | ErrorMessage                                               |
-      | Enter the licence holder’s date of birth and include a day, month and year |
+      | Date of birth must include a month and year |
 
 #  Scenario 1.7: Test Errors on DOB page -  Error messages - Date in future
     When I enter "2" "2" "2055" as an invalid date of birth
