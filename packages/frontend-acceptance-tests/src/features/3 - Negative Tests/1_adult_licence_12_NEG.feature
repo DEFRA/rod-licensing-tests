@@ -94,13 +94,13 @@ Scenario: Scenario 3 - Start Kind Errors
     And I am on the start kind page and I click continue
     Then I expect the start kind page to show the following errors
       | ErrorMessage                                                                                             |
-      | Enter the date the licence needs to start, include a day, month and year |
+      | Enter a licence start date |
 
 # Scenario 3.3: Test Errors on Start Date page -  Error messages - No date entered
     When I enter date two days in the past and click continue
     Then I expect the start kind page to show the following errors
       | ErrorMessage                                                                                             |
-      | Enter a date within the next 30 days      |
+      | Enter a date within the next 30 days |
     And I enter date two days from today and click continue
 
 
