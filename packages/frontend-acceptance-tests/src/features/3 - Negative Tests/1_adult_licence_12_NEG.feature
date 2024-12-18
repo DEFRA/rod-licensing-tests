@@ -45,13 +45,13 @@ Scenario: Scenario 1 - Licence For, Name and DOB Errors
     #   |/date-of-birth|
     Then I expect the dob page to show the following errors
       | ErrorMessage              |
-      | Enter the licence holder’s date of birth and include a day, month and year  |
+      | Enter a date of birth |
 
 #  Scenario 1.6: Test Errors on DOB page -  Error messages - Invalid date
     When I enter "2" "" "" as an invalid date of birth
     Then I expect the dob page to show the following errors
       | ErrorMessage                                               |
-      | Enter the licence holder’s date of birth and include a day, month and year |
+      | Date of birth must include a month and year |
 
 #  Scenario 1.7: Test Errors on DOB page -  Error messages - Date in future
     When I enter "2" "2" "2055" as an invalid date of birth
@@ -94,13 +94,13 @@ Scenario: Scenario 3 - Start Kind Errors
     And I am on the start kind page and I click continue
     Then I expect the start kind page to show the following errors
       | ErrorMessage                                                                                             |
-      | Enter the date the licence needs to start, include a day, month and year |
+      | Enter a licence start date |
 
 # Scenario 3.3: Test Errors on Start Date page -  Error messages - No date entered
     When I enter date two days in the past and click continue
     Then I expect the start kind page to show the following errors
       | ErrorMessage                                                                                             |
-      | Enter a date within the next 30 days      |
+      | Enter a date within the next 30 days |
     And I enter date two days from today and click continue
 
 
