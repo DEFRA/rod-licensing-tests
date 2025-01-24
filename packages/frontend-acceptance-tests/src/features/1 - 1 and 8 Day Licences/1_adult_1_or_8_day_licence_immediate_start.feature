@@ -23,10 +23,10 @@ Feature: I want to buy a 1 or 8 day licence adult fishing licence
     Then I am on the order confirmation page and exit the service
     Examples:
       | licenceLength  |concession| firstName | lastName |  houseNo | postCode | selectAddress | startTime | licenceType | email           | number      | newsEmail       |
-      | 8dayLicence    | No       | Adult     | Licence  | 3        | SN153PG  | 100121002711  | Now       | coarse2     | email@example.com |             |                 |
-      | 8dayLicence    | No       | Adult     | Licence  | 3        | SN153PG  | 100121002711  | Now       | salmon      |                 | 07000900900 | email@example.com |
-      | 1dayLicence    | No       | Adult     | Licence  | 3        | SN153PG  | 100121002711  | Now       | salmon      | email@example.com |             |                 |
-      | 1dayLicence    | No       | Adult     | Licence  | 3        | SN153PG  | 100121002711  | Now       | coarse2     | email@example.com |             |                 |
+      | 8dayLicence    | No       | Adult     | Licence  | 3        | SN15 3PG  | 100121002711  | Now       | coarse2     | email@example.com |             |                 |
+      | 8dayLicence    | No       | Adult     | Licence  | 3        | SN15 3PG  | 100121002711  | Now       | salmon      |                 | 07000900900 | email@example.com |
+      | 1dayLicence    | No       | Adult     | Licence  | 3        | SN15 3PG  | 100121002711  | Now       | salmon      | email@example.com |             |                 |
+      | 1dayLicence    | No       | Adult     | Licence  | 3        | SN15 3PG  | 100121002711  | Now       | coarse2     | email@example.com |             |                 |
 
   Scenario Outline: Scenario 1 - Purchase Fishing Adult Licence for someone else 1 and 8 days - Immediate start
     Given  I am at the start of the purchase journey
@@ -48,8 +48,8 @@ Feature: I want to buy a 1 or 8 day licence adult fishing licence
     Then I am on the order confirmation page and exit the service
     Examples:
       | licenceLength  |concession| firstName | lastName |  houseNo | postCode | selectAddress | startTime | licenceType | email           | number      |
-      | 8dayLicence    | No       | Adult     | Licence  | 3        | SN153PG  | 100121002711  | Now       | coarse2     | email@example.com |             |
-      | 1dayLicence    | No       | Adult     | Licence  | 3        | SN153PG  | 100121002711  | Now       | salmon      | email@example.com |             |
+      | 8dayLicence    | No       | Adult     | Licence  | 3        | SN15 3PG  | 100121002711  | Now       | coarse2     | email@example.com |             |
+      | 1dayLicence    | No       | Adult     | Licence  | 3        | SN15 3PG  | 100121002711  | Now       | salmon      | email@example.com |             |
 
   Scenario Outline: Scenario 2 - Purchase Fishing Adult Licence 1 and 8 days - Future start date
     Given  I am at the start of the purchase journey
@@ -74,6 +74,6 @@ Feature: I want to buy a 1 or 8 day licence adult fishing licence
     Then I am on the order confirmation page and exit the service
     Examples:
       | LicenceLength  | concession | firstName | lastName |  houseNo | postCode| selectAddress| startFrom       | startTime    |licenceType| email                  | number     | newsEmail     |
-      | 8dayLicence    | No           |Adult     | Licence  | 3       | SN153PG  | 100121002711 | AnotherTime     | midnight     | coarse2    |email@example.com        |            |             |
-      | 1dayLicence    | No           |Adult     | Licence  | 3       | SN153PG  | 100121002711 | AnotherTime     | midday       | salmon    |                        | 07000900900| email@example.com            |
-      | 1dayLicence    | No           |Adult     | Licence  | 3       | SN153PG  | 100121002711 | AnotherTime     | midday       | salmon     |email@example.com         |           |            |
+      | 8dayLicence    | No           |Adult     | Licence  | 3       | SN15 3PG  | 100121002711 | AnotherTime     | midnight     | coarse2    |email@example.com        |            |             |
+      | 1dayLicence    | No           |Adult     | Licence  | 3       | SN15 3PG  | 100121002711 | AnotherTime     | midday       | salmon    |                        | 07000900900| email@example.com            |
+      | 1dayLicence    | No           |Adult     | Licence  | 3       | SN15 3PG  | 100121002711 | AnotherTime     | midday       | salmon     |email@example.com         |           |            |

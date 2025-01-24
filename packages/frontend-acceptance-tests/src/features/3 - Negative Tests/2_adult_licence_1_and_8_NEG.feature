@@ -145,7 +145,7 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
       | ErrorMessage   |
       | Enter a building number or name                                                   |
       | Enter a UK postcode. If the address is outside the UK, enter the address manually. |
-    And I enter "3" and "SN153PG" as my house number and postcode
+    And I enter "3" and "SN15 3PG" as my house number and postcode
 
 
   Scenario: Scenario 8 - Select Address Errors

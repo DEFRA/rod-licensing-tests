@@ -12,7 +12,7 @@ Feature: I want to buy a recurring adult blue badge annual fishing
     Given I select a "salmon" fishing licence
     And I select a 12MonthLicence licence
     Then I am on the licence summary page and I click continue
-    And I enter "3" and "SN153PG" as my house number and postcode
+    And I enter "3" and "SN15 3PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select digital license
     And I enter email as "email@example.com" and number as "" for confirmation method
@@ -37,7 +37,7 @@ Feature: I want to buy a recurring adult blue badge annual fishing
     Given I select a "coarse2" fishing licence
     And I select a 12MonthLicence licence
     Then I am on the licence summary page and I click continue
-    And I enter "3" and "SN153PG" as my house number and postcode
+    And I enter "3" and "SN15 3PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select digital license
     And I enter email as "email@example.com" and number as "" for confirmation method
@@ -61,7 +61,7 @@ Feature: I want to buy a recurring adult blue badge annual fishing
     And  I select Now as a start time
     Given I select a "coarse3" fishing licence
     Then I am on the licence summary page and I click continue
-    And I enter "3" and "SN153PG" as my house number and postcode
+    And I enter "3" and "SN15 3PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select digital license
     And I enter email as "email@example.com" and number as "" for confirmation method
@@ -85,7 +85,7 @@ Feature: I want to buy a recurring adult blue badge annual fishing
     And  I select Now as a start time
     Given I select a "coarse3" fishing licence
     Then I am on the licence summary page and I click continue
-    And I enter "3" and "SN153PG" as my house number and postcode
+    And I enter "3" and "SN15 3PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select paper license
     And I select make a note of the license
@@ -108,7 +108,7 @@ Feature: I want to buy a recurring adult blue badge annual fishing
     And  I select Now as a start time
     Given I select a "coarse3" fishing licence
     Then I am on the licence summary page and I click continue
-    And I enter "3" and "SN153PG" as my house number and postcode
+    And I enter "3" and "SN15 3PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select paper license
     And I select make a note of the license
@@ -132,7 +132,7 @@ Feature: I want to buy a recurring adult blue badge annual fishing
     Given I select a "salmon" fishing licence
     And I select a 12MonthLicence licence
     Then I am on the licence summary page and I click continue
-    And I enter "3" and "SN153PG" as my house number and postcode
+    And I enter "3" and "SN15 3PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select digital license
     And I enter email as "" and number as "07428776543" for confirmation method
@@ -156,7 +156,7 @@ Feature: I want to buy a recurring adult blue badge annual fishing
     And  I select Now as a start time
     Given I select a "coarse3" fishing licence
     Then I am on the licence summary page and I click continue
-    And I enter "3" and "SN153PG" as my house number and postcode
+    And I enter "3" and "SN15 3PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select paper license
     And I select make a note of the license
