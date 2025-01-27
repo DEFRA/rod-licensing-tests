@@ -13,7 +13,7 @@ Feature: I want to buy a junior annual fishing
     And I select Now as a start time
     Given I select a "salmon" fishing licence
     Then I am on the licence summary page and I click continue
-    And I enter "3" and "SN153PG" as my house number and postcode
+    And I enter "3" and "SN15 3PG" as my house number and postcode
     And I select "100121002711" as an address
     And I enter email as "email@example.com" and number as ""
     And I do not want a newsletter
@@ -30,7 +30,7 @@ Feature: I want to buy a junior annual fishing
     And  I select Now as a start time
     Given I select a "coarse2" fishing licence
     Then I am on the licence summary page and I click continue
-    And I enter "3" and "SN153PG" as my house number and postcode
+    And I enter "3" and "SN15 3PG" as my house number and postcode
     And I select "100121002711" as an address
     And I enter email as "email@example.com" and number as ""
     And I do not want a newsletter
@@ -47,7 +47,7 @@ Feature: I want to buy a junior annual fishing
     And  I select Now as a start time
     Given I select a "coarse3" fishing licence
     Then I am on the licence summary page and I click continue
-    And I enter "3" and "SN153PG" as my house number and postcode
+    And I enter "3" and "SN15 3PG" as my house number and postcode
     And I select "100121002711" as an address
     And I enter email as "email@example.com" and number as ""
     And I do not want a newsletter
@@ -64,7 +64,7 @@ Feature: I want to buy a junior annual fishing
     And I select Now as a start time
     Given I select a "salmon" fishing licence
     Then I am on the licence summary page and I click continue
-    And I enter "3" and "SN153PG" as my house number and postcode
+    And I enter "3" and "SN15 3PG" as my house number and postcode
     And I select "100121002711" as an address
     And I enter email as "email@example.com" and number as ""
     And I am on the contact summary page and I click continue

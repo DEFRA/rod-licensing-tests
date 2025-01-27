@@ -136,7 +136,7 @@ Scenario: Scenario 6 - Find Address Errors
       | ErrorMessage   |
       | Enter a building number or name                                                   |
       | Enter a UK postcode. If the address is outside the UK, enter the address manually. |
-    And I enter "3" and "SN153PG" as my house number and postcode
+    And I enter "3" and "SN15 3PG" as my house number and postcode
 
 
 Scenario: Scenario 7 - Select Address Errors
