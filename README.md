@@ -68,7 +68,7 @@ packages/
 
    Note: The first `npm install` in the root does not install the dependencies inside each module.
 
-4.  Create a `.env` file in the `frontend-acceptance-tests` directory and copy the values from the gitlab repo fish/rod-catch-returns-env-vars (excluding proxy settings)
+4.  Create a `.env` file in the `frontend-acceptance-tests` directory and copy the values from Jenkins Test configuration (https://fsh-jenkins.aws-int.defra.cloud/)
 
    ```
    touch .env
