@@ -178,12 +178,23 @@ Scenario: Scenario 9 - Contact Details Errors
       | ErrorMessage  |
       | Choose how we should contact the licence holder  |
     And I click email radio button and click continue
-    And I am on the newsletter page and I click continue
+
+
+Scenario: Scenario 10 - Newsletter Errors
+# Scenario 10.1: Test Errors on Newsletter page -  Error messages - Nothing selected
+    When I am on the newsletter page and I click continue
+    Then I expect the newsletter page to show the following errors
+      | ErrorMessage  |
+      | Choose one of the options |
+    And I receive a newsletter and enter no email "<newsEmail>"
     And I am on the contact summary page and I click continue
+  Examples:
+      | newsEmail          |
+      | email@example.com  |
 
 
-Scenario: Scenario 10 - Licence Conditions Errors
-# Scenario 10.1: Test Errors on Terms and Conditions page -  Error messages - No date entered
+Scenario: Scenario 11 - Licence Conditions Errors
+# Scenario 11.1: Test Errors on Terms and Conditions page -  Error messages - No date entered
     When I dont agree to the terms and conditions and I click continue
     Then I expect the terms and conditions page to show the following errors
       | ErrorMessage  |

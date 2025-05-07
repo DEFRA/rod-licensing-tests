@@ -176,12 +176,23 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
       | ErrorMessage |
       | Enter a UK mobile number |
     And I enter email as "email@example.com" and number as ""
-    And I am on the newsletter page and I click continue
+
+
+Scenario: Scenario 10 - Newsletter Errors
+# Scenario 10.1: Test Errors on Newsletter page -  Error messages - Nothing selected
+    When I am on the newsletter page and I click continue
+    Then I expect the newsletter page to show the following errors
+      | ErrorMessage  |
+      | Choose one of the options |
+    And I receive a newsletter and enter no email "<newsEmail>"
     And I am on the contact summary page and I click continue
+  Examples:
+      | newsEmail          |
+      | email@example.com  |
 
 
-  Scenario: Scenario 10 - Licence Conditions Errors
-# Scenario 10.1: Test Errors on Terms and Conditions page -  Error messages - No date entered
+  Scenario: Scenario 11 - Licence Conditions Errors
+# Scenario 11.1: Test Errors on Terms and Conditions page -  Error messages - No date entered
     When I dont agree to the terms and conditions and I click continue
     Then I expect the terms and conditions page to show the following errors
       | ErrorMessage  |
