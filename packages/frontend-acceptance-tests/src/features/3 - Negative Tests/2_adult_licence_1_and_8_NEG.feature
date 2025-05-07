@@ -2,7 +2,7 @@
 Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
   As a User
   I want to see the correct error meesage appear on each page
-  So that I understand the issue that ha occurred
+  So that I understand the issue that has occurred
 
   # Start of Licence journey -------------------------------
 

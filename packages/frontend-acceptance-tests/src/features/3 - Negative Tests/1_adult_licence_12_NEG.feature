@@ -1,7 +1,7 @@
 Feature: Buy a Fishing Licence - Error messages - 12 month journey
   As a User
   I want to see the correct error meesage appear on each page
-  So that I understand the issue that ha occurred
+  So that I understand the issue that has occurred
   Background: Buy an adult fishing licence
 
 # Start of Licence journey -------------------------------
