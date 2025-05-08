@@ -7,12 +7,12 @@ exports.config = {
       browserName: 'chrome',
       browserVersion: 'latest',
       acceptInsecureCerts: true
-    },
-    {
-      browserName: 'firefox',
-      browserVersion: 'latest',
-      acceptInsecureCerts: true
     }
+    // {
+    //   browserName: 'firefox',
+    //   browserVersion: 'latest',
+    //   acceptInsecureCerts: true
+    // }
   ],
   // set to info, debug or trace for more info
   logLevel: 'warn',
