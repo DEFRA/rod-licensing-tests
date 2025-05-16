@@ -26,7 +26,7 @@
           </elementProp>
           <elementProp name="TargetHost" elementType="Argument">
             <stringProp name="Argument.name">TargetHost</stringProp>
-            <stringProp name="Argument.value">${__P(TargetHost,fsh-tst.aws.defra.cloud)}</stringProp>
+            <stringProp name="Argument.value">${__P(TargetHost,fsh-tst.aws-int.defra.cloud)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="TargetPort" elementType="Argument">
