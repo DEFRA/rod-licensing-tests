@@ -1,29 +1,32 @@
-FROM ubuntu:latest
+# FROM ubuntu:latest
+FROM ubuntu:24.04
 ENV TEST_CONFIG ./src/conf/docker.conf.js
 
 ENV DEBIAN_FRONTEND="noninteractive"
 ENV TZ=Europe/London
 
 # Install packages required by this script
-RUN set -ex; \
-	apt-get update; \
-	apt-get upgrade -y; \
-	apt-get install -y --no-install-recommends wget curl gnupg git default-jdk g++ build-essential xvfb
+RUN set -e; \
+    sed -i 's|http://archive.ubuntu.com|https://archive.ubuntu.com|g' /etc/apt/sources.list; \
+    printf 'Acquire::Retries "3";\nAcquire::http::Pipeline-Depth "0";\n' > /etc/apt/apt.conf.d/80-retries; \
+    apt-get update -qq; \
+    apt-get dist-upgrade -y; \
+    apt-get install -y --no-install-recommends wget curl ca-certificates gnupg git default-jdk g++ build-essential xvfb
 
 # Install google-chrome repo
-RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-RUN /bin/sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+RUN mkdir -p /usr/share/keyrings && wget -qO - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/google-linux.gpg
+RUN echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-linux.gpg] https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
 
 # Install Chrome
-RUN	apt-get update; \
+RUN apt-get update -qq; \
     apt-get install -y google-chrome-stable
 
 # Install Firefox using apt-get and configure to avoid incompatible Snap version
-RUN apt-get update; \
+RUN apt-get update -qq; \
     apt-get install -y software-properties-common
 RUN add-apt-repository ppa:mozillateam/ppa
 RUN printf 'Package: firefox\nPin: release o=LP-PPA-mozillateam\nPin-Priority: 1500\n' | tee /etc/apt/preferences.d/mozilla-firefox
-RUN apt-get install -y firefox
+RUN apt-get update -qq && apt-get install -y firefox
 
 # Cleanup after install
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -36,8 +39,8 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # Install nvm with node and npm
 RUN mkdir -p /usr/local/nvm \
-    && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash \
-    && source $NVM_DIR/nvm.sh \
+    && curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash \
+    && . $NVM_DIR/nvm.sh \
     && nvm install $NODE_VERSION \
     && nvm alias default $NODE_VERSION \
     && nvm use default
