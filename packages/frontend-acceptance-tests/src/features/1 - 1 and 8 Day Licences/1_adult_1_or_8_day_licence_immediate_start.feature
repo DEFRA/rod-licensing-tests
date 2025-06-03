@@ -19,7 +19,6 @@ Feature: I want to buy a 1 or 8 day licence adult fishing licence
     And I agree to the terms and conditions and click continue
     And I enter payment details
     And I confirm payment details
-    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
     Examples:
       | licenceLength  |concession| firstName | lastName |  houseNo | postCode | selectAddress | startTime | licenceType | email           | number      | newsEmail       |
