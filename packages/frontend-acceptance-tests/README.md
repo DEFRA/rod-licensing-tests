@@ -4,7 +4,7 @@ An acceptance test project initiator, keeping much of the WebDriver and Webdrive
 
 # **PREREQUISITES**
 
-You must use Node.js version 18.x or above. Visit Node.js and choose the version for your system.
+You must use Node.js version 20.x or above. Visit Node.js and choose the version for your system.
 
 You must have the Java Development Kit installed. Visit Oracle and choose the version for your system.
 
@@ -24,11 +24,11 @@ npm init
 
 git clone https://github.com/DEFRA/rod-licensing-tests.git
 
-Ensure Node version 18.17.1 is installed and running:
+Ensure Node version 20.19.2 is installed and running:
 
-nvm install v18.17.1
+nvm install v20.19.2
 
-nvm use v18.17.1
+nvm use v20.19.2
 
 node -v
 

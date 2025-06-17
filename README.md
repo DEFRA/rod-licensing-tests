@@ -12,7 +12,7 @@ Mono-repo for the rod licensing digital service quality assurance tests
 
 ## Prerequisites
 
-- Node v18+
+- Node v20+
 - Docker v18.06.0+
 
 ## Cloning
