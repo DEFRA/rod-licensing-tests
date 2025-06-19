@@ -18,11 +18,6 @@ class ConcessionPage extends Page {
     }
   }
 
-  async setBBNumber (setBBNum) {
-    await $('#blue-badge-number').setValue(setBBNum)
-    logger.info(`Blue Badge holder: ${setBBNum}`)
-  }
-
   async setNiNumber (setNiNum) {
     logger.info(`National Insurance number added: ${setNiNum}`)
     await $('#ni-number').setValue(setNiNum)

@@ -7,7 +7,7 @@ Feature: I want to buy a recurring adult blue badge annual fishing
     And I am buying a licence for myself
     And I enter "Adult" "Salmon" as the name
     And I am 7 days over my 17th birthday
-    And I enter "BlueBadge" as the bb concession and I enter "BlueBadge01" as the concesssion id
+    And I select "BlueBadge" as the concession
     And  I select Now as a start time
     Given I select a "salmon" fishing licence
     And I select a 12MonthLicence licence
@@ -32,7 +32,7 @@ Feature: I want to buy a recurring adult blue badge annual fishing
     And I am buying a licence for myself
     And I enter "Adult" "CoarseTwo" as the name
     And I am 7 days over my 17th birthday
-    And I enter "BlueBadge" as the bb concession and I enter "BlueBadge01" as the concesssion id
+    And I select "BlueBadge" as the concession
     And  I select Now as a start time
     Given I select a "coarse2" fishing licence
     And I select a 12MonthLicence licence
@@ -57,7 +57,7 @@ Feature: I want to buy a recurring adult blue badge annual fishing
     And I am buying a licence for myself
     And I enter "Adult" "CoarseThree" as the name
     And I am 7 days over my 17th birthday
-    And I enter "BlueBadge" as the bb concession and I enter "BlueBadge01" as the concesssion id
+    And I select "BlueBadge" as the concession
     And  I select Now as a start time
     Given I select a "coarse3" fishing licence
     Then I am on the licence summary page and I click continue
@@ -81,7 +81,7 @@ Feature: I want to buy a recurring adult blue badge annual fishing
     And I am buying a licence for myself
     And I enter "Adult" "CoarseThree" as the name
     And I am 7 days over my 17th birthday
-    And I enter "BlueBadge" as the bb concession and I enter "BlueBadge01" as the concesssion id
+    And I select "BlueBadge" as the concession
     And  I select Now as a start time
     Given I select a "coarse3" fishing licence
     Then I am on the licence summary page and I click continue
@@ -104,7 +104,7 @@ Feature: I want to buy a recurring adult blue badge annual fishing
     And I am buying a licence for myself
     And I enter "Adult" "CoarseThree" as the name
     And I am 7 days over my 17th birthday
-    And I enter "BlueBadge" as the bb concession and I enter "BlueBadge01" as the concesssion id
+    And I select "BlueBadge" as the concession
     And  I select Now as a start time
     Given I select a "coarse3" fishing licence
     Then I am on the licence summary page and I click continue
@@ -127,7 +127,7 @@ Feature: I want to buy a recurring adult blue badge annual fishing
     And I am buying a licence for myself
     And I enter "Adult" "Salmon" as the name
     And I am 7 days over my 17th birthday
-    And I enter "BlueBadge" as the bb concession and I enter "BlueBadge01" as the concesssion id
+    And I select "BlueBadge" as the concession
     And  I select Now as a start time
     Given I select a "salmon" fishing licence
     And I select a 12MonthLicence licence
@@ -152,7 +152,7 @@ Feature: I want to buy a recurring adult blue badge annual fishing
     And I am buying a licence for myself
     And I enter "Adult" "CoarseThree" as the name
     And I am 7 days over my 17th birthday
-    And I enter "BlueBadge" as the bb concession and I enter "BlueBadge01" as the concesssion id
+    And I select "BlueBadge" as the concession
     And  I select Now as a start time
     Given I select a "coarse3" fishing licence
     Then I am on the licence summary page and I click continue

@@ -3,9 +3,8 @@
 const { defineStep } = require('@cucumber/cucumber')
 const ConcessionPage = require('../../pages/concession')
 
-defineStep(/^I enter "(.*)" as the bb concession and I enter "(.*)" as the concesssion id$/, async (concession, setBBNum) => {
+defineStep(/^I select "(.*)" as the concession$/, async (concession) => {
   await ConcessionPage.checkUrl()
   await ConcessionPage.setConcession(concession)
-  await ConcessionPage.setBBNumber(setBBNum)
   await ConcessionPage.continue()
 })
