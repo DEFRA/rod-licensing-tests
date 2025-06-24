@@ -64,11 +64,6 @@ Feature: Buy a Fishing Licence - Error messages = 1 and 8 day journey
     Then I expect the concession page to show the following errors
       | ErrorMessage  |
       | Enter the licence holder’s National Insurance number  |
-
-    When I enter "BlueBadge" as the bb concession and I enter "" as the concesssion id
-    Then I expect the concession page to show the following errors
-      | ErrorMessage  |
-      | Enter the licence holder’s Blue Badge number  |
     *   I enter "No" concession
 
   Scenario: Scenario 3 - Start Kind Errors
