@@ -25,16 +25,17 @@
     "lerna:clean": "lerna clean --yes",
     "docker:build": "docker-compose -f docker/compose.yml build",
     "docker:run-acceptance-tests": "docker run --env-file docker/env/frontend_acceptance_tests.env rod_licensing/frontend_acceptance_tests:latest",
-    "prepare": "husky install",
+    "prepare": "husky",
     "pre-commit": "lint-staged"
   },
   "devDependencies": {
-    "@ksmithut/prettier-standard": "0.1.7",
-    "eslint-plugin-chai-friendly": "^0.7.2",
-    "husky": "^8.0.3",
-    "lerna": "^7.3.0",
+    "@ksmithut/prettier-standard": "0.2.0",
+    "eslint-plugin-chai-friendly": "^1.1.0",
+    "husky": "^9.1.7",
+    "lerna": "^8.2.2",
     "lerna-update-wizard": "^1.1.2",
-    "standard": "^17.1.0"
+    "npm-check-updates": "^18.0.1",
+    "standard": "^17.1.2"
   },
   "prettier": {
     "printWidth": 140
