@@ -42,6 +42,10 @@ RUN mkdir -p /usr/local/nvm \
     && nvm alias default $NODE_VERSION \
     && nvm use default
 
+# Add symlinks for node and npm
+RUN ln -s "$NVM_DIR/versions/node/v$NODE_VERSION/bin/node" /usr/bin/node \
+ && ln -s "$NVM_DIR/versions/node/v$NODE_VERSION/bin/npm"  /usr/bin/npm
+
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH      $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
