@@ -40,7 +40,10 @@ RUN mkdir -p /usr/local/nvm \
     && source $NVM_DIR/nvm.sh \
     && nvm install $NODE_VERSION \
     && nvm alias default $NODE_VERSION \
-    && nvm use default
+    && nvm use default \
+    && node -v \
+    && npm -v \
+    && npm install
 
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH      $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
