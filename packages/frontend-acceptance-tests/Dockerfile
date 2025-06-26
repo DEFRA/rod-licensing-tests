@@ -1,4 +1,5 @@
-FROM ubuntu:latest
+# FROM ubuntu:latest
+FROM node:20.19.2-alpine
 ENV TEST_CONFIG ./src/conf/docker.conf.js
 
 ENV DEBIAN_FRONTEND="noninteractive"
@@ -38,7 +39,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN mkdir -p /usr/local/nvm \
     && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash \
     && source $NVM_DIR/nvm.sh \
-    && nvm install $NODE_VERSION \
+    # && nvm install $NODE_VERSION \
     && nvm alias default $NODE_VERSION \
     && nvm use default
 
@@ -52,7 +53,7 @@ VOLUME /app/logs
 
 # Install packages
 COPY packages/frontend-acceptance-tests/package*.json /app/
-RUN . "$NVM_DIR/nvm.sh" && npm install
+# RUN . "$NVM_DIR/nvm.sh" && npm install
 
 # Copy resources
 COPY packages/frontend-acceptance-tests /app/
