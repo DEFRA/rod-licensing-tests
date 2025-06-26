@@ -4,7 +4,7 @@ An acceptance test project initiator, keeping much of the WebDriver and Webdrive
 
 # **PREREQUISITES**
 
-You must use Node.js version 18.x or above. Visit Node.js and choose the version for your system.
+You must use Node.js version 20.x or above. Visit Node.js and choose the version for your system.
 
 You must have the Java Development Kit installed. Visit Oracle and choose the version for your system.
 
