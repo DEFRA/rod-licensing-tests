@@ -55,7 +55,7 @@ VOLUME /app/logs
 
 # Install packages
 COPY packages/frontend-acceptance-tests/package*.json /app/
-RUN npm install
+RUN . "$NVM_DIR/nvm.sh" && npm install
 
 # Copy resources
 COPY packages/frontend-acceptance-tests /app/
