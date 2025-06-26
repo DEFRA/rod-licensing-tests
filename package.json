@@ -60,5 +60,12 @@
     "*": [
       "prettier-standard --fix --lint --staged"
     ]
+  },
+  "overrides": {
+    "@ksmithut/prettier-standard": {
+      "engines": {
+        "node": ">=20"
+      }
+    }
   }
 }
