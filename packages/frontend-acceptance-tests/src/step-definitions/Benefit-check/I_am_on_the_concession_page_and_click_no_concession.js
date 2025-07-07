@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const noBenefits = require('../../pages/concession')
+import { defineStep } from '@cucumber/cucumber'
+import noBenefits from '../../pages/concession'
 
 defineStep(/^I enter "(.*)" concession$/, async concession => {
   await noBenefits.checkUrl()

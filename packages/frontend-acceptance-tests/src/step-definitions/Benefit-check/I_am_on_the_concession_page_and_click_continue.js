@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const nothingSelected = require('../../pages/concession')
+import { defineStep } from '@cucumber/cucumber'
+import nothingSelected from '../../pages/concession'
 
 defineStep('I am on the concession page and I click continue', async () => {
   await nothingSelected.checkUrl()

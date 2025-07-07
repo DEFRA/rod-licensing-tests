@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const termsCon = require('../../pages/terms-and-conditions')
+import { defineStep } from '@cucumber/cucumber'
+import termsCon from '../../pages/terms-and-conditions'
 
 /**
  1. Step definition access the table defined in the NEG Feature file

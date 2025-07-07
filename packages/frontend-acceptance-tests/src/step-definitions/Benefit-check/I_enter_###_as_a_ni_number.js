@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const ConcessionPage = require('../../pages/concession')
+import { defineStep } from '@cucumber/cucumber'
+import ConcessionPage from '../../pages/concession'
 
 defineStep(/^I enter "(.*)" as the ni concession and I enter "(.*)" as the concesssion id$/, async (concession, setNiNum) => {
   await ConcessionPage.checkUrl()
