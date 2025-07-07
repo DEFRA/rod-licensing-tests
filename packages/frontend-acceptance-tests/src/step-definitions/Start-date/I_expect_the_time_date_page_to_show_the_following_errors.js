@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const startDate = require('../../pages/start-time')
+import { defineStep } from '@cucumber/cucumber'
+import startDate from '../../pages/start-time'
 
 /**
  1. Step definition access the table defined in the NEG Feature file

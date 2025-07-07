@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const licenceLength = require('../../pages/licence-length')
+import { defineStep } from '@cucumber/cucumber'
+import licenceLength from '../../pages/licence-length'
 
 /**
  1. Step definition access the table defined in the NEG Feature file

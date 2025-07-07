@@ -1,8 +1,8 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const GovPayPage = require('../../pages/gov-pay')
-const moment = require('moment')
+import { defineStep } from '@cucumber/cucumber'
+import GovPayPage from '../../pages/gov-pay'
+import moment from 'moment'
 
 defineStep('I enter payment details', async () => {
   const futureYear = moment()

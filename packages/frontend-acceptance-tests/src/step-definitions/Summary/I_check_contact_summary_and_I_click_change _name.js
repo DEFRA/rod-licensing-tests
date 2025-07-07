@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const SummaryPage = require('../../pages/contact-summary')
+import { defineStep } from '@cucumber/cucumber'
+import SummaryPage from '../../pages/contact-summary'
 
 defineStep('I am on the contact summary page and I click change name', async () => {
   await SummaryPage.nameChange()

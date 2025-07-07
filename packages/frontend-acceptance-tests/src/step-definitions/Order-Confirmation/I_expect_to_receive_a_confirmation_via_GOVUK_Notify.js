@@ -1,7 +1,8 @@
 'use strict'
-const { defineStep } = require('@cucumber/cucumber')
-const notificationCheck = require('../../lib/checkNotifications')
-const OrderConfirmPage = require('../../pages/order-complete')
+
+import { defineStep } from '@cucumber/cucumber'
+import notificationCheck from '../../lib/checkNotifications'
+import OrderConfirmPage from '../../pages/order-complete'
 
 defineStep(/^I expect to receive a confirmation via GOV.UK Notify$/, { timeout: 2000000 }, async () => {
   const permissionNumber = await OrderConfirmPage.getPermissionNumber()

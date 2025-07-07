@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const NamePage = require('../../pages/name')
+import { defineStep } from '@cucumber/cucumber'
+import NamePage from '../../pages/name'
 
 defineStep(/^I enter "(.*)" "(.*)" as the name$/, async (setFirstName, setSurName) => {
   await NamePage.checkUrl()

@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const addressEntry = require('../../pages/address-entry')
+import { defineStep } from '@cucumber/cucumber'
+import addressEntry from '../../pages/address-entry'
 
 defineStep('I expect the address entry page to show the following errors', async errorTable => {
   const rows = await errorTable.hashes()

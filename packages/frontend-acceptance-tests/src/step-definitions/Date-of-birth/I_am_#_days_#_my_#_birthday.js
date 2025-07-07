@@ -1,6 +1,8 @@
-const { defineStep } = require('@cucumber/cucumber')
-const DobPage = require('../../pages/set-dob')
-const moment = require('moment')
+'use strict'
+
+import { defineStep } from '@cucumber/cucumber'
+import DobPage from '../../pages/set-dob'
+import moment from 'moment'
 
 defineStep(/^I am (\d+) days? (under|over) my (\d+)[a-z]{2} birthday$/, async (adjustment, adjustmentType, age) => {
   const mod = adjustmentType === 'over' ? -1 : 1

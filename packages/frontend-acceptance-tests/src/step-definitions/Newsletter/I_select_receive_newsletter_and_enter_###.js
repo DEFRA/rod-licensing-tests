@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const NewsletterPage = require('../../pages/newsletter')
+import { defineStep } from '@cucumber/cucumber'
+import NewsletterPage from '../../pages/newsletter'
 
 defineStep(/^I receive a newsletter and enter "(.*)"$/, async setEmailAddress => {
   await NewsletterPage.checkUrl()

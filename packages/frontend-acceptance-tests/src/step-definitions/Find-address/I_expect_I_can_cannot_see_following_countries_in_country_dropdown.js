@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const addressEntry = require('../../pages/address-entry')
+import { defineStep } from '@cucumber/cucumber'
+import addressEntry from '../../pages/address-entry'
 
 defineStep(/^I expect that I (can|cannot) see the following countries in the country dropdown$/, async (canSee, countriesTable) => {
   const shouldExist = canSee === 'can'

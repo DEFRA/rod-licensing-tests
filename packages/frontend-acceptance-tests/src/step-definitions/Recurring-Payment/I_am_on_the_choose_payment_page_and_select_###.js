@@ -1,7 +1,8 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const ChoosePaymentPage = require('../../pages/choose-payment')
+import { defineStep } from '@cucumber/cucumber'
+import ChoosePaymentPage from '../../pages/choose-payment'
+
 const recurringPayments = process.env.SHOW_RECURRING_PAYMENTS === 'true'
 
 defineStep('I select single licence only and click continue', async () => {

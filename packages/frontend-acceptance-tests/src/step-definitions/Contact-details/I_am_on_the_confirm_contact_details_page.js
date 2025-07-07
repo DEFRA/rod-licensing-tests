@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const ConfirmContactDetails = require('../../pages/confirm-contact-details')
+import { defineStep } from '@cucumber/cucumber'
+import ConfirmContactDetails from '../../pages/confirm-contact-details'
 
 defineStep(
   /^I am on the confirm contact details page and it asks me to confirm my (email address|phone number) and I click correct$/,

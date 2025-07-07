@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const Fulfilment = require('../../pages/fulfilment')
+import { defineStep } from '@cucumber/cucumber'
+import Fulfilment from '../../pages/fulfilment'
 
 defineStep('I select digital license', async () => {
   await Fulfilment.checkUrl()

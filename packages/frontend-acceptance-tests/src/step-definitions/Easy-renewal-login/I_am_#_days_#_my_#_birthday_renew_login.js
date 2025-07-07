@@ -1,6 +1,8 @@
-const { defineStep } = require('@cucumber/cucumber')
-const moment = require('moment')
-const RenewalsPage = require('../../pages/renew-login')
+'use strict'
+
+import { defineStep } from '@cucumber/cucumber'
+import moment from 'moment'
+import RenewalsPage from '../../pages/renew-login'
 
 defineStep(/^I am (\d+) days? (under|over) my (\d+)[a-z]{2} birthday for renewal$/, async (adjustment, adjustmentType, age) => {
   const mod = adjustmentType === 'over' ? -1 : 1

@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const AddressResults = require('../../pages/address-results')
+import { defineStep } from '@cucumber/cucumber'
+import AddressResults from '../../pages/address-results'
 
 defineStep(/^I select "(.*)" as an address$/, async uprn => {
   await AddressResults.checkUrl()
