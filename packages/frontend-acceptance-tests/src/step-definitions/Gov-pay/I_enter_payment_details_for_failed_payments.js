@@ -1,7 +1,7 @@
 'use strict'
 
 import { defineStep } from '@cucumber/cucumber'
-import GovPayPage from '../../pages/gov-pay'
+import GovPayPage from '../../pages/gov-pay.js'
 import moment from 'moment'
 
 defineStep(/^I enter payment details as "(.*)"$/, async cardNo => {

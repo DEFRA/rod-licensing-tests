@@ -1,7 +1,7 @@
 'use strict'
 
 import { defineStep } from '@cucumber/cucumber'
-import DobPage from '../../pages/set-dob'
+import DobPage from '../../pages/set-dob.js'
 import moment from 'moment'
 
 defineStep(/^I am (\d+) days? (under|over) my (\d+)[a-z]{2} birthday$/, async (adjustment, adjustmentType, age) => {

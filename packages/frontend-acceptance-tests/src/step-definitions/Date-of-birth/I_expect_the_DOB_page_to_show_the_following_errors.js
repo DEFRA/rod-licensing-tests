@@ -1,7 +1,7 @@
 'use strict'
 
 import { defineStep } from '@cucumber/cucumber'
-import DOB from '../../pages/set-dob'
+import DOB from '../../pages/set-dob.js'
 
 /**
  1. Step definition access the table defined in the NEG Feature file

@@ -1,7 +1,7 @@
 'use strict'
 
 import { defineStep } from '@cucumber/cucumber'
-import startDate from '../../pages/start-time'
+import startDate from '../../pages/start-time.js'
 
 /**
  1. Step definition access the table defined in the NEG Feature file

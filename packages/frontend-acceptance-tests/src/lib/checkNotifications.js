@@ -1,7 +1,7 @@
 'use strict'
 
 import { logger } from 'defra-logging-facade'
-import dynamicsClient from '../lib/dynamics-client'
+import dynamicsClient from '../lib/dynamics-client.js'
 
 const MAX_ATTEMPTS = 10
 const DELAY = 5000

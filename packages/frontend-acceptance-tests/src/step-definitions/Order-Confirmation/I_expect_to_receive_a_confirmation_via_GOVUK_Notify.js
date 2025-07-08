@@ -1,8 +1,8 @@
 'use strict'
 
 import { defineStep } from '@cucumber/cucumber'
-import notificationCheck from '../../lib/checkNotifications'
-import OrderConfirmPage from '../../pages/order-complete'
+import notificationCheck from '../../lib/checkNotifications.js'
+import OrderConfirmPage from '../../pages/order-complete.js'
 
 defineStep(/^I expect to receive a confirmation via GOV.UK Notify$/, { timeout: 2000000 }, async () => {
   const permissionNumber = await OrderConfirmPage.getPermissionNumber()

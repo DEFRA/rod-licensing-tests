@@ -1,7 +1,7 @@
 'use strict'
 
 import { defineStep } from '@cucumber/cucumber'
-import licenceLength from '../../pages/licence-length'
+import licenceLength from '../../pages/licence-length.js'
 
 /**
  1. Step definition access the table defined in the NEG Feature file

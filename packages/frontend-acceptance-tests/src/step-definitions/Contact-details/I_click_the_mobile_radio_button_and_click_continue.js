@@ -1,7 +1,7 @@
 'use strict'
 
 import { defineStep } from '@cucumber/cucumber'
-import ContactPage from '../../pages/contact'
+import ContactPage from '../../pages/contact.js'
 
 defineStep('I click mobile radio button and click continue', async () => {
   await ContactPage.checkUrl()

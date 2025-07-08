@@ -1,7 +1,7 @@
 'use strict'
 
 import { defineStep } from '@cucumber/cucumber'
-import ConfirmationMethod from '../../pages/confirmation-method'
+import ConfirmationMethod from '../../pages/confirmation-method.js'
 
 /**
  1. Step definition access the table defined in the NEG Feature file

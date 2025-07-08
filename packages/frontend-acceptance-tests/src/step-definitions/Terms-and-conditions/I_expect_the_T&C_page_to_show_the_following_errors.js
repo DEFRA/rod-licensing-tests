@@ -1,7 +1,7 @@
 'use strict'
 
 import { defineStep } from '@cucumber/cucumber'
-import termsCon from '../../pages/terms-and-conditions'
+import termsCon from '../../pages/terms-and-conditions.js'
 
 /**
  1. Step definition access the table defined in the NEG Feature file

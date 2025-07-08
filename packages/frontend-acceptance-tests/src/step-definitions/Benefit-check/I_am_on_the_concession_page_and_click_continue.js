@@ -1,7 +1,7 @@
 'use strict'
 
 import { defineStep } from '@cucumber/cucumber'
-import nothingSelected from '../../pages/concession'
+import nothingSelected from '../../pages/concession.js'
 
 defineStep('I am on the concession page and I click continue', async () => {
   await nothingSelected.checkUrl()

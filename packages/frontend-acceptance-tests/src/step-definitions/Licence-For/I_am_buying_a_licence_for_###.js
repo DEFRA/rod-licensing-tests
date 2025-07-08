@@ -1,5 +1,5 @@
 import { defineStep } from '@cucumber/cucumber'
-import LicenceForPage from '../../pages/licence-for'
+import LicenceForPage from '../../pages/licence-for.js'
 
 defineStep(/^I am buying a licence for (myself|someone else)$/, async licenceForInput => {
   await LicenceForPage.checkUrl()

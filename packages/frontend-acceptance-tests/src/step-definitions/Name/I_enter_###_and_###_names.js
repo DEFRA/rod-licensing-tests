@@ -1,7 +1,7 @@
 'use strict'
 
 import { defineStep } from '@cucumber/cucumber'
-import NamePage from '../../pages/name'
+import NamePage from '../../pages/name.js'
 
 defineStep(/^I enter "(.*)" "(.*)" as the name$/, async (setFirstName, setSurName) => {
   await NamePage.checkUrl()

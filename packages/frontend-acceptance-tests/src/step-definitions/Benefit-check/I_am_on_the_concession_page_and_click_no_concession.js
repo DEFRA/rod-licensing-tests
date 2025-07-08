@@ -1,7 +1,7 @@
 'use strict'
 
 import { defineStep } from '@cucumber/cucumber'
-import noBenefits from '../../pages/concession'
+import noBenefits from '../../pages/concession.js'
 
 defineStep(/^I enter "(.*)" concession$/, async concession => {
   await noBenefits.checkUrl()

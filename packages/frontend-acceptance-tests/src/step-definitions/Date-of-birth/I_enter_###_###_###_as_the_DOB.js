@@ -1,7 +1,7 @@
 'use strict'
 
 import { defineStep } from '@cucumber/cucumber'
-import DobPage from '../../pages/set-dob'
+import DobPage from '../../pages/set-dob.js'
 
 defineStep(/^I enter "(.*)" "(.*)" "(.*)" as an invalid date of birth$/, async (setdobDay, setdobMonth, setdobYear) => {
   await DobPage.setDobDate(setdobDay, setdobMonth, setdobYear)

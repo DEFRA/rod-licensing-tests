@@ -1,7 +1,7 @@
 'use strict'
 
 import { defineStep } from '@cucumber/cucumber'
-import findAddress from '../../pages/address-lookup'
+import findAddress from '../../pages/address-lookup.js'
 
 /**
  1. Step definition access the table defined in the NEG Feature file

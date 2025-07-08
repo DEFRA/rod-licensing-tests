@@ -1,7 +1,7 @@
 'use strict'
 
 import { defineStep } from '@cucumber/cucumber'
-import newsletter from '../../pages/newsletter'
+import newsletter from '../../pages/newsletter.js'
 
 /**
  1. Step definition access the table defined in the NEG Feature file

@@ -1,7 +1,7 @@
 'use strict'
 
 import { defineStep } from '@cucumber/cucumber'
-import ConfirmContactDetails from '../../pages/confirm-contact-details'
+import ConfirmContactDetails from '../../pages/confirm-contact-details.js'
 
 defineStep(
   /^I am on the confirm contact details page and it asks me to confirm my (email address|phone number) and I click correct$/,

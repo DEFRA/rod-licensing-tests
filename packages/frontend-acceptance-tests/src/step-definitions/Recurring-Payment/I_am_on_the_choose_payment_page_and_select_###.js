@@ -1,7 +1,7 @@
 'use strict'
 
 import { defineStep } from '@cucumber/cucumber'
-import ChoosePaymentPage from '../../pages/choose-payment'
+import ChoosePaymentPage from '../../pages/choose-payment.js'
 
 const recurringPayments = process.env.SHOW_RECURRING_PAYMENTS === 'true'
 
