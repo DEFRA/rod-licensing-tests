@@ -1,5 +1,7 @@
-const dynamicsClient = require('./dynamics-client.js')
-const { mapFields } = require('./dynamics-utils.js')
+'use strict'
+
+import dynamicsClient from './dynamics-client.js'
+import { mapFields } from './dynamics-utils.js'
 
 const PERMIT = {
   COARSE_12M_2_ROD_FULL: 'Coarse 12 month 2 Rod Licence (Full)',
@@ -32,7 +34,7 @@ const getPermit = async fullPermitName => {
   return null
 }
 
-module.exports = {
+export default {
   getPermit,
   PERMIT
 }

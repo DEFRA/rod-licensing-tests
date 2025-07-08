@@ -1,7 +1,8 @@
-const { v4 } = require('uuid')
+'use strict'
 
-const dynamicsClient = require('./dynamics-client.js')
-const { mapFields } = require('./dynamics-utils.js')
+import { v4 } from 'uuid'
+import dynamicsClient from './dynamics-client.js'
+import { mapFields } from './dynamics-utils.js'
 
 const contactTransformSpec = {
   contactid: 'contactId',
@@ -106,6 +107,6 @@ const getOrCreateContact = async (dateOfBirth, firstName, lastName, postalFulfil
   }
 }
 
-module.exports = {
+export default {
   getOrCreateContact
 }

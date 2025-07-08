@@ -1,6 +1,10 @@
-const DynamicsWebApi = require('dynamics-web-api')
-const SimpleOAuth2 = require('simple-oauth2')
+'use strict'
+
+import DynamicsWebApi from 'dynamics-web-api'
+import SimpleOAuth2 from 'simple-oauth2'
+
 const PREEMPTIVE_TOKEN_EXPIRY_SECONDS = 60
+
 const oauthClient = new SimpleOAuth2.ClientCredentials({
   client: {
     id: process.env.OAUTH_CLIENT_ID,
@@ -16,8 +20,10 @@ const oauthClient = new SimpleOAuth2.ClientCredentials({
     bodyFormat: 'form'
   }
 })
+
 let accessToken = null
-module.exports = new DynamicsWebApi({
+
+const dynamicsClient = new DynamicsWebApi({
   webApiUrl: process.env.DYNAMICS_API_PATH,
   webApiVersion: process.env.DYNAMICS_API_VERSION,
   timeout: process.env.DYNAMICS_API_TIMEOUT || 90000,
@@ -28,3 +34,5 @@ module.exports = new DynamicsWebApi({
     dynamicsWebApiCallback(accessToken.token.access_token)
   }
 })
+
+export default dynamicsClient

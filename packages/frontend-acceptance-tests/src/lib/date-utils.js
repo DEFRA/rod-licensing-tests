@@ -1,4 +1,4 @@
-const moment = require('moment')
+import moment from 'moment'
 
 const adjustDate = (adjustmentString, adjustmentType, adjustment, subtract = 0) => {
   const mod = adjustmentType === adjustmentString ? -1 : 1
@@ -9,6 +9,6 @@ const adjustDate = (adjustmentString, adjustmentType, adjustment, subtract = 0) 
     .add(adjust, 'days')
 }
 
-module.exports = {
+export default {
   adjustDate
 }
