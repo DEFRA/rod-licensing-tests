@@ -9,7 +9,6 @@ const mapFields = (data, transformSpec) => {
   }
   return transformedData
 }
-
-module.exports = {
+export default {
   mapFields
 }
