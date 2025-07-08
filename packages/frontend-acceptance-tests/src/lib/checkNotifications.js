@@ -11,7 +11,7 @@ const DELAY = 5000
  * @param permissionNumber
  * @returns {Promise<boolean>}
  */
-export async function checkNotificationSentForPermission(permissionNumber) {
+export default async function checkNotificationSentForPermission(permissionNumber) {
   let notified = false
   let i = 0
   while (i++ < MAX_ATTEMPTS && !notified) {
