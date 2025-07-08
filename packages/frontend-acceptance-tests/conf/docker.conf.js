@@ -1,4 +1,4 @@
-exports.config = {
+export const config = {
   runner: 'local',
   specs: ['../src/features/**/*.feature'],
   maxInstances: 1,
