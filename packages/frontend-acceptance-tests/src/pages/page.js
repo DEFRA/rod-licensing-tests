@@ -1,7 +1,7 @@
 'use strict'
 
 import { logger } from 'defra-logging-facade'
-import expect from 'chai'
+import { expect } from 'chai'
 
 class Page {
   constructor (url) {

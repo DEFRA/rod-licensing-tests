@@ -1,7 +1,7 @@
 'use strict'
 
 import { logger } from 'defra-logging-facade'
-import Page from './page'
+import Page from './page.js'
 
 class JuniorUpgradePage extends Page {
   checkJuniorUpgrade () {

@@ -1,6 +1,6 @@
 'use strict'
 
-import Page from './page'
+import Page from './page.js'
 import { expect } from 'chai'
 
 class ConfirmContactDetails extends Page {

@@ -1,9 +1,8 @@
-const { v4 } = require('uuid')
-
-const dynamicsClient = require('./dynamics-client.js')
-const { PERMIT, getPermit } = require('./permit-service.js')
-const contactService = require('./contact-service.js')
-const { mapFields } = require('./dynamics-utils.js')
+import { v4 } from 'uuid'
+import dynamicsClient from './dynamics-client.js'
+import { PERMIT, getPermit } from './permit-service.js'
+import contactService from './contact-service.js'
+import { mapFields } from './dynamics-utils.js'
 
 const dictionaries = [
   'ABCDEFGHJKLMNPQRSTUVWXYZ1234567890',
@@ -105,6 +104,6 @@ const createPermission = async (
   }
 }
 
-module.exports = {
+export default {
   createPermission
 }

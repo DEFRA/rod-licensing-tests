@@ -1,7 +1,7 @@
 'use strict'
 
 import { logger } from 'defra-logging-facade'
-import Page from './page'
+import Page from './page.js'
 
 class LicenceLengthPage extends Page {
   // Set the value of the radio button to 'yes' or 'no' depending on the data file value

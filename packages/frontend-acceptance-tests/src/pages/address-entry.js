@@ -1,6 +1,6 @@
 'use strict'
 
-import Page from './page'
+import Page from './page.js'
 import { logger } from 'defra-logging-facade'
 import { expect } from 'chai'
 
