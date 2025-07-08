@@ -1,7 +1,7 @@
 'use strict'
 
-const Page = require('./page')
-const { logger } = require('defra-logging-facade')
+import Page from './page'
+import { logger } from 'defra-logging-facade'
 
 class SummmaryPage extends Page {
   async typeChange () {
@@ -32,4 +32,5 @@ class SummmaryPage extends Page {
     logger.info(`On the Number of Rods page`)
   }
 }
-module.exports = new SummmaryPage('/buy/licence-summary')
+
+export default new SummmaryPage('/buy/licence-summary')

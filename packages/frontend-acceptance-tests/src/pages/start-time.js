@@ -1,6 +1,7 @@
 'use strict'
-const Page = require('./page')
-const { logger } = require('defra-logging-facade')
+
+import Page from './page'
+import { logger } from 'defra-logging-facade'
 
 class StartTimePage extends Page {
   async startTimePicker (time) {
@@ -57,4 +58,5 @@ class StartTimePage extends Page {
     }
   }
 }
-module.exports = new StartTimePage('/buy/start-time')
+
+export default new StartTimePage('/buy/start-time')

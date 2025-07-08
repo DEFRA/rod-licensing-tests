@@ -1,11 +1,12 @@
 'use strict'
 
-const { logger } = require('defra-logging-facade')
-const Page = require('./page')
+import { logger } from 'defra-logging-facade'
+import Page from './page'
 
 class JuniorUpgradePage extends Page {
   checkJuniorUpgrade () {
     logger.info('Junior licence page displayed')
   }
 }
-module.exports = new JuniorUpgradePage('/buy/junior-licence')
+
+export default new JuniorUpgradePage('/buy/junior-licence')

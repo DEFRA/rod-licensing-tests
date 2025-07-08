@@ -1,7 +1,7 @@
 'use strict'
 
-const { logger } = require('defra-logging-facade')
-const Page = require('./page')
+import { logger } from 'defra-logging-facade'
+import Page from './page'
 
 class ConfirmationMethodPage extends Page {
   async setConfirmationMethod (setEmailAddress, setMobileNumber) {
@@ -36,4 +36,5 @@ class ConfirmationMethodPage extends Page {
     logger.info(`Make a note, no value added`)
   }
 }
-module.exports = new ConfirmationMethodPage('/buy/confirmation-method')
+
+export default new ConfirmationMethodPage('/buy/confirmation-method')

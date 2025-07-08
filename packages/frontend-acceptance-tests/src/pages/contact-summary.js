@@ -1,7 +1,7 @@
 'use strict'
 
-const Page = require('./page')
-const { logger } = require('defra-logging-facade')
+import Page from './page'
+import { logger } from 'defra-logging-facade'
 
 class ContactSummmaryPage extends Page {
   async nameChange () {
@@ -44,4 +44,5 @@ class ContactSummmaryPage extends Page {
     logger.info(`On the Address page`)
   }
 }
-module.exports = new ContactSummmaryPage('/buy/contact-summary')
+
+export default new ContactSummmaryPage('/buy/contact-summary')

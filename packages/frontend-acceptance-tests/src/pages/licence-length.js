@@ -1,8 +1,7 @@
 'use strict'
 
-const { logger } = require('defra-logging-facade')
-
-const Page = require('./page')
+import { logger } from 'defra-logging-facade'
+import Page from './page'
 
 class LicenceLengthPage extends Page {
   // Set the value of the radio button to 'yes' or 'no' depending on the data file value
@@ -19,4 +18,4 @@ class LicenceLengthPage extends Page {
   }
 }
 
-module.exports = new LicenceLengthPage('/buy/licence-length')
+export default new LicenceLengthPage('/buy/licence-length')

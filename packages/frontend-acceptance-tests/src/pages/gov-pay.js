@@ -1,7 +1,7 @@
 'use strict'
 
-const { logger } = require('defra-logging-facade')
-const Page = require('./page')
+import { logger } from 'defra-logging-facade'
+import Page from './page'
 
 class GovPayPage extends Page {
   async setCardHolderName (setCardHolderName) {
@@ -56,4 +56,5 @@ class GovPayPage extends Page {
     await $('#submit-card-details').click()
   }
 }
-module.exports = new GovPayPage()
+
+export default new GovPayPage()

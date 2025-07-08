@@ -1,6 +1,7 @@
 'use strict'
-const { logger } = require('defra-logging-facade')
-const expect = require('chai').expect
+
+import { logger } from 'defra-logging-facade'
+import expect from 'chai'
 
 class Page {
   constructor (url) {
@@ -57,4 +58,4 @@ class Page {
   }
 }
 
-module.exports = Page
+export default Page

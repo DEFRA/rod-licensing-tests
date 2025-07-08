@@ -1,7 +1,7 @@
 'use strict'
 
-const { logger } = require('defra-logging-facade')
-const Page = require('./page')
+import { logger } from 'defra-logging-facade'
+import Page from './page'
 
 class NewsletterPage extends Page {
   async setNewsletterYes (setEmailAddress) {
@@ -22,4 +22,5 @@ class NewsletterPage extends Page {
     await $('label[for="newsletter-2"]').click()
   }
 }
-module.exports = new NewsletterPage('/buy/newsletter')
+
+export default new NewsletterPage('/buy/newsletter')

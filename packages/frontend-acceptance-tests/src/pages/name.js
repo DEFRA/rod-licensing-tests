@@ -1,7 +1,7 @@
 'use strict'
 
-const Page = require('./page')
-const { logger } = require('defra-logging-facade')
+import Page from './page'
+import { logger } from 'defra-logging-facade'
 
 class NamePage extends Page {
   // Set the value in first name and surname fields
@@ -12,4 +12,4 @@ class NamePage extends Page {
   }
 }
 
-module.exports = new NamePage('/buy/name')
+export default new NamePage('/buy/name')
