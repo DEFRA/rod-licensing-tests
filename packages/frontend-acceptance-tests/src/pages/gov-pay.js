@@ -1,6 +1,6 @@
 'use strict'
 
-import { logger } from 'defra-logging-facade.js'
+import { logger } from 'defra-logging-facade'
 import Page from './page.js'
 
 class GovPayPage extends Page {

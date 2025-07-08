@@ -1,7 +1,7 @@
 'use strict'
 
 import Page from './page.js'
-import { logger } from 'defra-logging-facade.js'
+import { logger } from 'defra-logging-facade'
 import moment from 'moment'
 
 class StartWhenPage extends Page {

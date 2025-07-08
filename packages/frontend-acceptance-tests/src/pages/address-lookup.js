@@ -1,7 +1,7 @@
 'use strict'
 
 import Page from './page.js'
-import { logger } from 'defra-logging-facade.js'
+import { logger } from 'defra-logging-facade'
 
 class AddressPage extends Page {
   // Input data to house number and postcode depending on the data file value
