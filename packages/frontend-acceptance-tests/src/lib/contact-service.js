@@ -17,7 +17,7 @@ const contactTransformSpec = {
   defra_postalfulfilment: 'postalFulfilment'
 }
 
-const createContact = (dateOfBirth, firstName, lastName, postalFulfilment) => {
+async function createContact(dateOfBirth, firstName, lastName, postalFulfilment) {
   return dynamicsClient.createRequest({
     collection: 'contacts',
     contentId: v4(),
@@ -42,7 +42,7 @@ const createContact = (dateOfBirth, firstName, lastName, postalFulfilment) => {
   })
 }
 
-const getContact = async (dateOfBirth, firstName, lastName) => {
+async function getContact(dateOfBirth, firstName, lastName) {
   return dynamicsClient.retrieveRequest({
     collection: 'contacts',
     filter: `statecode eq 0 and firstname eq '${firstName}' and lastname eq '${lastName}' and birthdate eq ${dateOfBirth} and defra_premises eq '742' and defra_postcode eq 'SN15 3PG'`,
@@ -65,7 +65,7 @@ const getContact = async (dateOfBirth, firstName, lastName) => {
   })
 }
 
-const updateContact = async (key, postalFulfilment) => {
+async function updateContact(key, postalFulfilment) {
   return dynamicsClient.updateRequest({
     key,
     collection: 'contacts',
@@ -92,7 +92,7 @@ const updateContact = async (key, postalFulfilment) => {
   })
 }
 
-const getOrCreateContact = async (dateOfBirth, firstName, lastName, postalFulfilment) => {
+export async function getOrCreateContact(dateOfBirth, firstName, lastName, postalFulfilment) {
   const formatDate = dateOfBirth.format('YYYY-MM-DD')
   const { value: records } = await getContact(formatDate, firstName, lastName)
 
@@ -105,8 +105,4 @@ const getOrCreateContact = async (dateOfBirth, firstName, lastName, postalFulfil
     const mappedContact = mapFields(createdContact, contactTransformSpec)
     return mappedContact
   }
-}
-
-export default {
-  getOrCreateContact
 }

@@ -3,7 +3,7 @@
 import dynamicsClient from './dynamics-client.js'
 import { mapFields } from './dynamics-utils.js'
 
-const PERMIT = {
+export const PERMIT = {
   COARSE_12M_2_ROD_FULL: 'Coarse 12 month 2 Rod Licence (Full)',
   COARSE_8D_2_ROD_FULL: 'Coarse 8 day 2 Rod Licence (Full)',
   COARSE_8D_2_ROD_SENIOR: 'Coarse 8 day 2 Rod Licence (Senior)',
@@ -21,7 +21,7 @@ const permitTransformSpec = {
   defra_name: 'description'
 }
 
-const getPermit = async fullPermitName => {
+export async function getPermit(fullPermitName) {
   const { value: records } = await dynamicsClient.retrieveRequest({
     collection: 'defra_permits',
     filter: `statecode eq 0 and defra_name eq '${fullPermitName}'`,
@@ -32,9 +32,4 @@ const getPermit = async fullPermitName => {
     return permit
   }
   return null
-}
-
-export default {
-  getPermit,
-  PERMIT
 }

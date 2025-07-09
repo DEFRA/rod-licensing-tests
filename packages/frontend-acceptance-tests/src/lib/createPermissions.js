@@ -22,7 +22,7 @@ const permissionTransformSpec = {
   defra_datasource: 'dataSource'
 }
 
-const calculateLuhn = value => {
+function calculateLuhn(value) {
   let factor = 2
   let sum = 0
   for (let i = value.length - 1; i >= 0; i--) {
@@ -33,7 +33,7 @@ const calculateLuhn = value => {
   return (10 - (sum % 10)) % 10
 }
 
-const generateSequenceNumber = () => {
+function generateSequenceNumber() {
   let sequence = ''
   for (let x = 0; x < 5; x++) {
     const dict = dictionaries[x]
@@ -42,7 +42,7 @@ const generateSequenceNumber = () => {
   return sequence
 }
 
-const generateReferenceNumber = endDate => {
+function generateReferenceNumber(endDate) {
   const block1 =
     endDate
       .getUTCHours()
@@ -60,7 +60,7 @@ const generateReferenceNumber = endDate => {
   return `${block1}-${block2}-${block3}${cs}`
 }
 
-const createPermissionWithContactId = async (contactId, permitId, endDate, startDate, issueDate) => {
+async function createPermissionWithContactId(contactId, permitId, endDate, startDate, issueDate) {
   const returnedPermission = await dynamicsClient.createRequest({
     collection: 'defra_permissions',
     contentId: v4(),
@@ -81,14 +81,14 @@ const createPermissionWithContactId = async (contactId, permitId, endDate, start
   return mapFields(returnedPermission, permissionTransformSpec)
 }
 
-const createPermission = async (
+export async function createPermission(
   expiryDateInput,
   permitInput = PERMIT.COARSE_12M_2_ROD_FULL,
   dateOfBirth,
   firstName,
   lastName,
   postalFulfilment
-) => {
+) {
   const endDate = new Date(expiryDateInput)
   const startDate = new Date(expiryDateInput)
   startDate.setFullYear(startDate.getFullYear() - 1)
@@ -102,8 +102,4 @@ const createPermission = async (
     permit,
     licence: permission
   }
-}
-
-export default {
-  createPermission
 }

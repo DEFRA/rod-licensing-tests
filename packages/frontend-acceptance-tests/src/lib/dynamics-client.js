@@ -23,7 +23,7 @@ const oauthClient = new SimpleOAuth2.ClientCredentials({
 
 let accessToken = null
 
-const dynamicsClient = new DynamicsWebApi({
+export const dynamicsClient = new DynamicsWebApi({
   webApiUrl: process.env.DYNAMICS_API_PATH,
   webApiVersion: process.env.DYNAMICS_API_VERSION,
   timeout: process.env.DYNAMICS_API_TIMEOUT || 90000,
@@ -34,5 +34,3 @@ const dynamicsClient = new DynamicsWebApi({
     dynamicsWebApiCallback(accessToken.token.access_token)
   }
 })
-
-export default dynamicsClient
