@@ -1,6 +1,6 @@
 'use strict'
 
-import dynamicsClient from './dynamics-client.js'
+import { dynamicsClient } from './dynamics-client.js'
 import { mapFields } from './dynamics-utils.js'
 
 export const PERMIT = {
