@@ -1,7 +1,7 @@
 import { v4 } from 'uuid'
 import { dynamicsClient } from './dynamics-client.js'
 import { PERMIT, getPermit } from './permit-service.js'
-import { contactService } from './contact-service.js'
+import { getOrCreateContact } from './contact-service.js'
 import { mapFields } from './dynamics-utils.js'
 
 const dictionaries = [
