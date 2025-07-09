@@ -1,7 +1,7 @@
 'use strict'
 
 import { v4 } from 'uuid'
-import dynamicsClient from './dynamics-client.js'
+import { dynamicsClient } from './dynamics-client.js'
 import { mapFields } from './dynamics-utils.js'
 
 const contactTransformSpec = {
