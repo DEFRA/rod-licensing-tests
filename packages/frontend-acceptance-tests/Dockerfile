@@ -1,5 +1,5 @@
 FROM ubuntu:latest
-ENV TEST_CONFIG ./src/conf/docker.conf.js
+ENV TEST_CONFIG ./src/conf/docker.conf.mjs
 
 ENV DEBIAN_FRONTEND="noninteractive"
 ENV TZ=Europe/London
@@ -62,5 +62,5 @@ RUN npm install
 # Copy resources
 COPY packages/frontend-acceptance-tests /app/
 
-ENTRYPOINT [ "node_modules/.bin/wdio", "conf/docker.conf.js"]
+ENTRYPOINT [ "node_modules/.bin/wdio", "conf/docker.conf.mjs"]
 CMD [ "" ]
