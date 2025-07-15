@@ -44,23 +44,31 @@ export const config = {
   // before running any tests.
   framework: 'cucumber',
 
-  reporters: [
-    'spec',
-    [
-      'junit',
-      {
-        outputDir: './logs/junit',
-        errorOptions: {
-          error: 'message',
-          failure: 'message',
-          stacktrace: 'stack'
-        },
-        outputFileFormat: function (options) {
-          return `wdio.${options.capabilities.browserName.toLowerCase()}-${options.cid}.xml`
-        }
+reporters: [
+  'spec',
+  [
+    'junit',
+    {
+      outputDir: './logs/junit',
+      errorOptions: {
+        error: 'message',
+        failure: 'message',
+        stacktrace: 'stack'
+      },
+      outputFileFormat: function (options) {
+        return `wdio.${options.capabilities.browserName.toLowerCase()}-${options.cid}.xml`
       }
-    ]
+    }
   ],
+  [
+    'allure',
+    {
+      outputDir: 'allure-results',
+      disableWebdriverStepsReporting: true,
+      disableWebdriverScreenshotsReporting: false,
+    }
+  ]
+],
   //
   // If you are using Cucumber you need to specify the location of your step definitions.
   cucumberOpts: {
