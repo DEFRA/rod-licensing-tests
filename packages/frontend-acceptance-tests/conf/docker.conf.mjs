@@ -97,7 +97,7 @@ reporters: [
     // <number> timeout for step definitions
     timeout: 60000,
     // <boolean> Enable this config to treat undefined definitions as warnings.
-    ignoreUndefinedDefinitions: true
+    ignoreUndefinedDefinitions: false
   }
 
   //
