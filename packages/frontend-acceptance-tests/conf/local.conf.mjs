@@ -41,28 +41,28 @@ export const config = {
 
 reporters: [
   'spec',
-  [
-    'junit',
-    {
-      outputDir: './logs/junit',
-      errorOptions: {
-        error: 'message',
-        failure: 'message',
-        stacktrace: 'stack'
-      },
-      outputFileFormat: function (options) {
-        return `wdio.${options.capabilities.browserName.toLowerCase()}-${options.cid}.xml`
-      }
-    }
-  ],
-  [
-    'allure',
-    {
-      outputDir: 'allure-results',
-      disableWebdriverStepsReporting: true,
-      disableWebdriverScreenshotsReporting: false,
-    }
-  ]
+  // [
+  //   'junit',
+  //   {
+  //     outputDir: './logs/junit',
+  //     errorOptions: {
+  //       error: 'message',
+  //       failure: 'message',
+  //       stacktrace: 'stack'
+  //     },
+  //     outputFileFormat: function (options) {
+  //       return `wdio.${options.capabilities.browserName.toLowerCase()}-${options.cid}.xml`
+  //     }
+  //   }
+  // ],
+  // [
+  //   'allure',
+  //   {
+  //     outputDir: 'allure-results',
+  //     disableWebdriverStepsReporting: true,
+  //     disableWebdriverScreenshotsReporting: false,
+  //   }
+  // ]
 ],
 
   //
