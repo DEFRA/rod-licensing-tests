@@ -34,15 +34,7 @@ ENV NODE_VERSION 20
 # Replace shell with bash so we can source files
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-# # Install nvm with node and npm
-# RUN mkdir -p /usr/local/nvm \
-#     && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash \
-#     && source $NVM_DIR/nvm.sh \
-#     && nvm install $NODE_VERSION \
-#     && nvm alias default $NODE_VERSION \
-#     && nvm use default
-
-# Install Node 20 (with npm) via NodeSource
+# Install node 20 with npm (via nodesource)
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs \
     && node -v && npm -v
