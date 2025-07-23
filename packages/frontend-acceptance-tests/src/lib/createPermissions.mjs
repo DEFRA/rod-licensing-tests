@@ -1,7 +1,7 @@
 import { v4 } from 'uuid'
 import { dynamicsClient } from './dynamics-client.mjs'
 import { PERMIT, getPermit } from './permit-service.mjs'
-import contactService from './contact-service.mjs'
+import { getOrCreateContact } from './contact-service.mjs'
 import { mapFields } from './dynamics-utils.mjs'
 
 const dictionaries = [
@@ -93,7 +93,7 @@ export async function createPermission(
   const startDate = new Date(expiryDateInput)
   startDate.setFullYear(startDate.getFullYear() - 1)
 
-  const contact = await contactService.getOrCreateContact(dateOfBirth, firstName, lastName, postalFulfilment)
+  const contact = await getOrCreateContact(dateOfBirth, firstName, lastName, postalFulfilment)
   const permit = await getPermit(permitInput)
   const permission = await createPermissionWithContactId(contact.contactId, permit.permitId, endDate, startDate, startDate)
 
