@@ -1,7 +1,7 @@
 'use strict'
 
-import { dynamicsClient } from './dynamics-client.js'
-import { mapFields } from './dynamics-utils.js'
+import { dynamicsClient } from './dynamics-client.mjs'
+import { mapFields } from './dynamics-utils.mjs'
 
 export const PERMIT = {
   COARSE_12M_2_ROD_FULL: 'Coarse 12 month 2 Rod Licence (Full)',

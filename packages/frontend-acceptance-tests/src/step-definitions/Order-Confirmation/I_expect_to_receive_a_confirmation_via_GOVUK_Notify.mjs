@@ -1,7 +1,7 @@
 'use strict'
 
 import { defineStep } from '@cucumber/cucumber'
-import notificationCheck from '../../lib/checkNotifications.js'
+import notificationCheck from '../../lib/checkNotifications.mjs'
 import OrderConfirmPage from '../../pages/order-complete.js'
 
 defineStep(/^I expect to receive a confirmation via GOV.UK Notify$/, { timeout: 2000000 }, async () => {

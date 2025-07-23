@@ -1,8 +1,8 @@
 import { v4 } from 'uuid'
-import { dynamicsClient } from './dynamics-client.js'
-import { PERMIT, getPermit } from './permit-service.js'
-import contactService from './contact-service.js'
-import { mapFields } from './dynamics-utils.js'
+import { dynamicsClient } from './dynamics-client.mjs'
+import { PERMIT, getPermit } from './permit-service.mjs'
+import contactService from './contact-service.mjs'
+import { mapFields } from './dynamics-utils.mjs'
 
 const dictionaries = [
   'ABCDEFGHJKLMNPQRSTUVWXYZ1234567890',
