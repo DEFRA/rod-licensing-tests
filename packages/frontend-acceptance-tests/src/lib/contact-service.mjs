@@ -106,3 +106,5 @@ export async function getOrCreateContact(dateOfBirth, firstName, lastName, posta
     return mappedContact
   }
 }
+
+export default { getOrCreateContact }
