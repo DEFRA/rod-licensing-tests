@@ -1,10 +1,8 @@
-'use strict'
-
 import Page from './page.js'
 import { logger } from 'defra-logging-facade'
 
 class FishTypePage extends Page {
-  async setFishType (fishType) {
+  setFishType = async (fishType) => {
     logger.info(`Licence Type selected as: ${fishType}`)
     switch (fishType) {
       case 'coarse2':

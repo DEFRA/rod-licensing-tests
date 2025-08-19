@@ -1,5 +1,3 @@
-'use strict'
-
 import { defineStep } from '@cucumber/cucumber'
 import FishTypePage from '../../pages/licence-type.js'
 
