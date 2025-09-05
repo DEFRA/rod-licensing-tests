@@ -105,7 +105,7 @@ Scenario: Scenario 5 - Licence Length Errors
     Given I am on the licence length page and I click continue
     Then I expect the licence length page to show the following errors
       | ErrorMessage  |
-      | Choose when the licence should start  |
+      | Choose the length of this licence  |
     And I select a 12MonthLicence licence
     Then I am on the licence summary page and I click continue
 
