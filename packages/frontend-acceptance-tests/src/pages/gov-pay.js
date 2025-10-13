@@ -52,6 +52,12 @@ class GovPayPage extends Page {
     logger.info(`Set Address Postcode as: ${setAddressPostcode}`)
   }
 
+  async setEmail (setEmail) {
+    await $('#email').waitForDisplayed(1000)
+    await $('#email').setValue(setEmail)
+    logger.info(`Set Email as: ${setEmail}`)
+  }
+
   async continue () {
     await $('#submit-card-details').click()
   }
