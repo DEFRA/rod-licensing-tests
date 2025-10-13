@@ -1,7 +1,7 @@
 'use strict'
 
-import { dynamicsClient } from './dynamics-client.mjs'
-import { mapFields } from './dynamics-utils.mjs'
+import { dynamicsClient } from './dynamics-client.js'
+import { mapFields } from './dynamics-utils.js'
 
 export const PERMIT = {
   COARSE_12M_2_ROD_FULL: 'Coarse 12 month 2 Rod Licence (Full)',
@@ -21,7 +21,7 @@ const permitTransformSpec = {
   defra_name: 'description'
 }
 
-export async function getPermit(fullPermitName) {
+export const getPermit = async (fullPermitName) => {
   const { value: records } = await dynamicsClient.retrieveRequest({
     collection: 'defra_permits',
     filter: `statecode eq 0 and defra_name eq '${fullPermitName}'`,

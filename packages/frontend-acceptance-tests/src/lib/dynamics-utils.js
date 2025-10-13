@@ -1,6 +1,6 @@
 'use strict'
 
-export function mapFields(data, transformSpec) {
+export const mapFields = (data, transformSpec) => {
   const transformedData = {}
   for (const key in data) {
     if (transformSpec[key]) {

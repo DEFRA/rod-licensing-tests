@@ -1,8 +1,8 @@
 import { v4 } from 'uuid'
-import { dynamicsClient } from './dynamics-client.mjs'
-import { PERMIT, getPermit } from './permit-service.mjs'
-import contactService from './contact-service.mjs'
-import { mapFields } from './dynamics-utils.mjs'
+import { dynamicsClient } from './dynamics-client.js'
+import { PERMIT, getPermit } from './permit-service.js'
+import contactService from './contact-service.js'
+import { mapFields } from './dynamics-utils.js'
 
 const dictionaries = [
   'ABCDEFGHJKLMNPQRSTUVWXYZ1234567890',
@@ -22,7 +22,7 @@ const permissionTransformSpec = {
   defra_datasource: 'dataSource'
 }
 
-function calculateLuhn(value) {
+const calculateLuhn = (value) => {
   let factor = 2
   let sum = 0
   for (let i = value.length - 1; i >= 0; i--) {
@@ -33,7 +33,7 @@ function calculateLuhn(value) {
   return (10 - (sum % 10)) % 10
 }
 
-function generateSequenceNumber() {
+const generateSequenceNumber = () => {
   let sequence = ''
   for (let x = 0; x < 5; x++) {
     const dict = dictionaries[x]
@@ -42,7 +42,7 @@ function generateSequenceNumber() {
   return sequence
 }
 
-function generateReferenceNumber(endDate) {
+const generateReferenceNumber = (endDate) => {
   const block1 =
     endDate
       .getUTCHours()
@@ -60,7 +60,7 @@ function generateReferenceNumber(endDate) {
   return `${block1}-${block2}-${block3}${cs}`
 }
 
-async function createPermissionWithContactId(contactId, permitId, endDate, startDate, issueDate) {
+const createPermissionWithContactId = async (contactId, permitId, endDate, startDate, issueDate) => {
   const returnedPermission = await dynamicsClient.createRequest({
     collection: 'defra_permissions',
     contentId: v4(),
@@ -81,14 +81,14 @@ async function createPermissionWithContactId(contactId, permitId, endDate, start
   return mapFields(returnedPermission, permissionTransformSpec)
 }
 
-export async function createPermission(
+export const createPermission = async (
   expiryDateInput,
   permitInput = PERMIT.COARSE_12M_2_ROD_FULL,
   dateOfBirth,
   firstName,
   lastName,
   postalFulfilment
-) {
+) => {
   const endDate = new Date(expiryDateInput)
   const startDate = new Date(expiryDateInput)
   startDate.setFullYear(startDate.getFullYear() - 1)

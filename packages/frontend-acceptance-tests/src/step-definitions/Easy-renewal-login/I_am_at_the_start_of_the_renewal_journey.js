@@ -1,8 +1,8 @@
 'use strict'
 
 import { defineStep } from '@cucumber/cucumber'
-import { createPermission } from '../../lib/createPermissions.mjs'
-import { adjustDate } from '../../lib/date-utils.mjs'
+import { createPermission } from '../../lib/createPermissions.js'
+import { adjustDate } from '../../lib/date-utils.js'
 import RenewalsPage from '../../pages/renew-login.js'
 
 const renew = async (

@@ -1,8 +1,8 @@
 'use strict'
 
 import { v4 } from 'uuid'
-import { dynamicsClient } from './dynamics-client.mjs'
-import { mapFields } from './dynamics-utils.mjs'
+import { dynamicsClient } from './dynamics-client.js'
+import { mapFields } from './dynamics-utils.js'
 
 const contactTransformSpec = {
   contactid: 'contactId',
@@ -17,7 +17,7 @@ const contactTransformSpec = {
   defra_postalfulfilment: 'postalFulfilment'
 }
 
-async function createContact(dateOfBirth, firstName, lastName, postalFulfilment) {
+const createContact = async (dateOfBirth, firstName, lastName, postalFulfilment) => {
   return dynamicsClient.createRequest({
     collection: 'contacts',
     contentId: v4(),
@@ -42,7 +42,7 @@ async function createContact(dateOfBirth, firstName, lastName, postalFulfilment)
   })
 }
 
-async function getContact(dateOfBirth, firstName, lastName) {
+const getContact = async (dateOfBirth, firstName, lastName) => {
   return dynamicsClient.retrieveRequest({
     collection: 'contacts',
     filter: `statecode eq 0 and firstname eq '${firstName}' and lastname eq '${lastName}' and birthdate eq ${dateOfBirth} and defra_premises eq '742' and defra_postcode eq 'SN15 3PG'`,
@@ -65,7 +65,7 @@ async function getContact(dateOfBirth, firstName, lastName) {
   })
 }
 
-async function updateContact(key, postalFulfilment) {
+const updateContact = async (key, postalFulfilment) => {
   return dynamicsClient.updateRequest({
     key,
     collection: 'contacts',
@@ -92,7 +92,7 @@ async function updateContact(key, postalFulfilment) {
   })
 }
 
-export async function getOrCreateContact(dateOfBirth, firstName, lastName, postalFulfilment) {
+const getOrCreateContact = async (dateOfBirth, firstName, lastName, postalFulfilment) => {
   const formatDate = dateOfBirth.format('YYYY-MM-DD')
   const { value: records } = await getContact(formatDate, firstName, lastName)
 

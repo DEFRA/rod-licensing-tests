@@ -25,8 +25,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1",
     "report:generate": "allure generate allure-results --clean -o allure-report",
     "report:open": "allure open allure-report",
-    "axe": "./node_modules/.bin/wdio ./conf/local.conf.mjs --spec ./features/axe.feature",
-    "local": "./node_modules/.bin/wdio ./conf/local.conf.mjs"
+    "axe": "./node_modules/.bin/wdio ./conf/local.conf.js --spec ./features/axe.feature",
+    "local": "./node_modules/.bin/wdio ./conf/local.conf.js"
   },
   "dependencies": {
     "@wdio/allure-reporter": "9.18.0",
