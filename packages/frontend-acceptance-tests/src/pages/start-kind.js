@@ -25,7 +25,7 @@ class StartWhenPage extends Page {
     await $('#licence-start-date-day').setValue(day)
     await $('#licence-start-date-month').setValue(month)
     await $('#licence-start-date-year').setValue(year)
-    logger.info(`Date of Birth set as: ${day}/${month}/${year}`)
+    logger.info(`Licence Start Date set as: ${day}/${month}/${year}`)
   }
 
   async subtractTwoDaysFromToday () {
@@ -37,7 +37,7 @@ class StartWhenPage extends Page {
     await $('#licence-start-date-day').setValue(day)
     await $('#licence-start-date-month').setValue(month)
     await $('#licence-start-date-year').setValue(year)
-    logger.info(`Date of Birth set as: ${day}/${month}/${year}`)
+    logger.info(`Licence Start Date set as: ${day}/${month}/${year}`)
   }
 }
 
