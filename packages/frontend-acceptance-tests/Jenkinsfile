@@ -29,7 +29,7 @@ pipeline {
                             echo "Testing connectivity"
                             curl -sSf "${SERVICE_URL}" || exit 1
                             mkdir -p ${WORKSPACE}/logs
-                            docker run ${envString} -v /dev/shm:/dev/shm --mount type=bind,source=${WORKSPACE}/logs,target=/app/logs rod_licensing/frontend_acceptance_tests:latest --logLevel ${WDIO_LOG_LEVEL} --spec 2_adult_licence_1_and_8_NEG.feature
+                            docker run ${envString} -v /dev/shm:/dev/shm --mount type=bind,source=${WORKSPACE}/logs,target=/app/logs rod_licensing/frontend_acceptance_tests:latest --logLevel ${WDIO_LOG_LEVEL}
                         """
                     }
                 }
