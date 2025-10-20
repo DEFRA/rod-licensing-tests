@@ -1,7 +1,7 @@
 'use strict'
 
-const { logger } = require('defra-logging-facade')
-const Page = require('./page')
+import { logger } from 'defra-logging-facade'
+import Page from './page.js'
 
 class PaymentCancelled extends Page {
   async exitService () {
@@ -15,4 +15,4 @@ class PaymentCancelled extends Page {
   }
 }
 
-module.exports = new PaymentCancelled('/govpay/failure')
+export default new PaymentCancelled('/govpay/failure')

@@ -1,7 +1,7 @@
 'use strict'
 
-const { logger } = require('defra-logging-facade')
-const Page = require('./page')
+import { logger } from 'defra-logging-facade'
+import Page from './page.js'
 
 class ContactPage extends Page {
   async setContact (setEmailAddress, setMobileNumber) {
@@ -36,4 +36,5 @@ class ContactPage extends Page {
     logger.info(`No contact details available`)
   }
 }
-module.exports = new ContactPage('/buy/contact')
+
+export default new ContactPage('/buy/contact')

@@ -1,7 +1,8 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const SetUpRecurringPayment = require('../../pages/set-up-payment')
+import { defineStep } from '@cucumber/cucumber'
+import SetUpRecurringPayment from '../../pages/set-up-payment.js'
+
 const recurringPayments = process.env.SHOW_RECURRING_PAYMENTS === 'true'
 
 defineStep('I agree to set up a recurring payment and click continue', async () => {

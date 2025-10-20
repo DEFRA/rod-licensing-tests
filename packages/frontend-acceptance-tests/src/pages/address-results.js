@@ -1,7 +1,7 @@
 'use strict'
 
-const Page = require('./page')
-const { logger } = require('defra-logging-facade')
+import Page from './page.js'
+import { logger } from 'defra-logging-facade'
 
 class AddressResults extends Page {
   // Set the radio button depending on data file value, and click continue
@@ -11,4 +11,4 @@ class AddressResults extends Page {
   }
 }
 
-module.exports = new AddressResults('/buy/select-address')
+export default new AddressResults('/buy/select-address')

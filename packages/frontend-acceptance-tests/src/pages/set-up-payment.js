@@ -1,7 +1,7 @@
 'use strict'
 
-const Page = require('./page')
-const { logger } = require('defra-logging-facade')
+import Page from './page.js'
+import { logger } from 'defra-logging-facade'
 
 class SetUpPaymentPage extends Page {
   async setUpPaymentCheckbox () {
@@ -10,4 +10,5 @@ class SetUpPaymentPage extends Page {
     logger.info('Recurring payment checkbox selected')
   }
 }
-module.exports = new SetUpPaymentPage('/buy/set-up-recurring-card-payment')
+
+export default new SetUpPaymentPage('/buy/set-up-recurring-card-payment')

@@ -1,9 +1,9 @@
 'use strict'
-const { defineStep } = require('@cucumber/cucumber')
 
-const { createPermission } = require('../../lib/createPermissions')
-const { adjustDate } = require('../../lib/date-utils')
-const RenewalsPage = require('../../pages/renew-login')
+import { defineStep } from '@cucumber/cucumber'
+import { createPermission } from '../../lib/createPermissions.js'
+import { adjustDate } from '../../lib/date-utils.js'
+import RenewalsPage from '../../pages/renew-login.js'
 
 const renew = async (
   licenceTypeInput,

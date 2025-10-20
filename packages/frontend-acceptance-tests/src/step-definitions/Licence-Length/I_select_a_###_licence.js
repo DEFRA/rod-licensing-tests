@@ -1,6 +1,7 @@
 'use strict'
-const { defineStep } = require('@cucumber/cucumber')
-const licenceLength = require('../../pages/licence-length')
+
+import { defineStep } from '@cucumber/cucumber'
+import licenceLength from '../../pages/licence-length.js'
 
 defineStep(/^I select a (12MonthLicence|8dayLicence|1dayLicence) licence$/, async licenceDuration => {
   await licenceLength.checkUrl()

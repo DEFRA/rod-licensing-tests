@@ -3,8 +3,9 @@
   "version": "0.0.1",
   "description": "QA testing for the rod-licensing digital services",
   "private": true,
+  "type": "module",
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "keywords": [
     "rod",

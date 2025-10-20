@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const startKind = require('../../pages/start-kind')
+import { defineStep } from '@cucumber/cucumber'
+import startKind from '../../pages/start-kind.js'
 
 defineStep('I am on the start kind page and I click continue', async () => {
   await startKind.checkUrl()

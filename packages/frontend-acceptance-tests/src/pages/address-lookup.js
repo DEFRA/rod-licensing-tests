@@ -1,6 +1,7 @@
 'use strict'
-const Page = require('./page')
-const { logger } = require('defra-logging-facade')
+
+import Page from './page.js'
+import { logger } from 'defra-logging-facade'
 
 class AddressPage extends Page {
   // Input data to house number and postcode depending on the data file value
@@ -15,4 +16,5 @@ class AddressPage extends Page {
     await $('[href="/buy/address"]').click()
   }
 }
-module.exports = new AddressPage('/buy/find-address')
+
+export default new AddressPage('/buy/find-address')

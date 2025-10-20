@@ -1,7 +1,8 @@
-const { v4 } = require('uuid')
+'use strict'
 
-const dynamicsClient = require('./dynamics-client.js')
-const { mapFields } = require('./dynamics-utils.js')
+import { v4 } from 'uuid'
+import { dynamicsClient } from './dynamics-client.js'
+import { mapFields } from './dynamics-utils.js'
 
 const contactTransformSpec = {
   contactid: 'contactId',
@@ -16,7 +17,7 @@ const contactTransformSpec = {
   defra_postalfulfilment: 'postalFulfilment'
 }
 
-const createContact = (dateOfBirth, firstName, lastName, postalFulfilment) => {
+const createContact = async (dateOfBirth, firstName, lastName, postalFulfilment) => {
   return dynamicsClient.createRequest({
     collection: 'contacts',
     contentId: v4(),
@@ -106,6 +107,4 @@ const getOrCreateContact = async (dateOfBirth, firstName, lastName, postalFulfil
   }
 }
 
-module.exports = {
-  getOrCreateContact
-}
+export default { getOrCreateContact }

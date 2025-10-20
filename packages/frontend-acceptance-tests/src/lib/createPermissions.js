@@ -1,9 +1,8 @@
-const { v4 } = require('uuid')
-
-const dynamicsClient = require('./dynamics-client.js')
-const { PERMIT, getPermit } = require('./permit-service.js')
-const contactService = require('./contact-service.js')
-const { mapFields } = require('./dynamics-utils.js')
+import { v4 } from 'uuid'
+import { dynamicsClient } from './dynamics-client.js'
+import { PERMIT, getPermit } from './permit-service.js'
+import contactService from './contact-service.js'
+import { mapFields } from './dynamics-utils.js'
 
 const dictionaries = [
   'ABCDEFGHJKLMNPQRSTUVWXYZ1234567890',
@@ -23,7 +22,7 @@ const permissionTransformSpec = {
   defra_datasource: 'dataSource'
 }
 
-const calculateLuhn = value => {
+const calculateLuhn = (value) => {
   let factor = 2
   let sum = 0
   for (let i = value.length - 1; i >= 0; i--) {
@@ -43,7 +42,7 @@ const generateSequenceNumber = () => {
   return sequence
 }
 
-const generateReferenceNumber = endDate => {
+const generateReferenceNumber = (endDate) => {
   const block1 =
     endDate
       .getUTCHours()
@@ -82,7 +81,7 @@ const createPermissionWithContactId = async (contactId, permitId, endDate, start
   return mapFields(returnedPermission, permissionTransformSpec)
 }
 
-const createPermission = async (
+export const createPermission = async (
   expiryDateInput,
   permitInput = PERMIT.COARSE_12M_2_ROD_FULL,
   dateOfBirth,
@@ -103,8 +102,4 @@ const createPermission = async (
     permit,
     licence: permission
   }
-}
-
-module.exports = {
-  createPermission
 }

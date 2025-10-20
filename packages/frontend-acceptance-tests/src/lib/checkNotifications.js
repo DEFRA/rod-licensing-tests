@@ -1,5 +1,8 @@
-const { logger } = require('defra-logging-facade')
-const dynamicsClient = require('../lib/dynamics-client')
+'use strict'
+
+import { logger } from 'defra-logging-facade'
+import { dynamicsClient } from './dynamics-client.js'
+
 const MAX_ATTEMPTS = 10
 const DELAY = 5000
 
@@ -8,7 +11,7 @@ const DELAY = 5000
  * @param permissionNumber
  * @returns {Promise<boolean>}
  */
-module.exports.checkNotificationSentForPermission = async permissionNumber => {
+export default async (permissionNumber) => {
   let notified = false
   let i = 0
   while (i++ < MAX_ATTEMPTS && !notified) {

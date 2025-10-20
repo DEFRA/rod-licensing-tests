@@ -1,8 +1,8 @@
 'use strict'
 
-const Page = require('./page')
-const { logger } = require('defra-logging-facade')
-const { expect } = require('chai')
+import Page from './page.js'
+import { logger } from 'defra-logging-facade'
+import { expect } from 'chai'
 
 class AddressEntry extends Page {
   // Input address data
@@ -31,4 +31,4 @@ class AddressEntry extends Page {
   }
 }
 
-module.exports = new AddressEntry('/buy/address')
+export default new AddressEntry('/buy/address')

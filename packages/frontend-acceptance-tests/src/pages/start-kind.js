@@ -1,7 +1,8 @@
 'use strict'
-const Page = require('./page')
-const { logger } = require('defra-logging-facade')
-const moment = require('moment')
+
+import Page from './page.js'
+import { logger } from 'defra-logging-facade'
+import moment from 'moment'
 
 class StartWhenPage extends Page {
   async setStartKind (startKind) {
@@ -24,7 +25,7 @@ class StartWhenPage extends Page {
     await $('#licence-start-date-day').setValue(day)
     await $('#licence-start-date-month').setValue(month)
     await $('#licence-start-date-year').setValue(year)
-    logger.info(`Date of Birth set as: ${day}/${month}/${year}`)
+    logger.info(`Licence Start Date set as: ${day}/${month}/${year}`)
   }
 
   async subtractTwoDaysFromToday () {
@@ -36,7 +37,8 @@ class StartWhenPage extends Page {
     await $('#licence-start-date-day').setValue(day)
     await $('#licence-start-date-month').setValue(month)
     await $('#licence-start-date-year').setValue(year)
-    logger.info(`Date of Birth set as: ${day}/${month}/${year}`)
+    logger.info(`Licence Start Date set as: ${day}/${month}/${year}`)
   }
 }
-module.exports = new StartWhenPage('/buy/start-kind')
+
+export default new StartWhenPage('/buy/start-kind')

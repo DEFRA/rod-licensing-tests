@@ -1,7 +1,7 @@
 'use strict'
 
-const { logger } = require('defra-logging-facade')
-const Page = require('./page')
+import { logger } from 'defra-logging-facade'
+import Page from './page.js'
 
 class FulfilmentPage extends Page {
   async selectDigitalLicense () {
@@ -14,4 +14,5 @@ class FulfilmentPage extends Page {
     logger.info(`Paper license selected, no value added`)
   }
 }
-module.exports = new FulfilmentPage('/buy/fulfilment')
+
+export default new FulfilmentPage('/buy/fulfilment')

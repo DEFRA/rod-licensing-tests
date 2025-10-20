@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const startKind = require('../../pages/start-kind')
+import { defineStep } from '@cucumber/cucumber'
+import startKind from '../../pages/start-kind.js'
 
 /**
  1. Step definition access the table defined in the NEG Feature file

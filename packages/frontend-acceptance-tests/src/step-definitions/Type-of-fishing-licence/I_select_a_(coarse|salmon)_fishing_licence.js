@@ -1,7 +1,5 @@
-'use strict'
-
-const { defineStep } = require('@cucumber/cucumber')
-const FishTypePage = require('../../pages/licence-type')
+import { defineStep } from '@cucumber/cucumber'
+import FishTypePage from '../../pages/licence-type.js'
 
 defineStep(/^I select a "(.*)" fishing licence$/, async fishType => {
   await FishTypePage.checkUrl()

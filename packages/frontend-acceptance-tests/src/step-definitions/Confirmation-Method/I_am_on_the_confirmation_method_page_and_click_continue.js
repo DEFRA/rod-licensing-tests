@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const ConfirmationMethod = require('../../pages/confirmation-method')
+import { defineStep } from '@cucumber/cucumber'
+import ConfirmationMethod from '../../pages/confirmation-method.js'
 
 defineStep('I am on the confirmation method page and I click continue', async () => {
   await ConfirmationMethod.continue()

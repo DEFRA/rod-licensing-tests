@@ -72,7 +72,7 @@ Feature: I want to buy a recurring adult annual fishing
     And I agree to the terms and conditions and click continue
     And I select recurring payment and click continue
     And I agree to set up a recurring payment and click continue
-    And I enter payment details
+    And I enter payment details and email
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
@@ -120,7 +120,7 @@ Feature: I want to buy a recurring adult annual fishing
     And I agree to the terms and conditions and click continue
     And I select recurring payment and click continue
     And I agree to set up a recurring payment and click continue
-    And I enter payment details
+    And I enter payment details and email
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
@@ -144,7 +144,7 @@ Feature: I want to buy a recurring adult annual fishing
     And I agree to the terms and conditions and click continue
     And I select recurring payment and click continue
     And I agree to set up a recurring payment and click continue
-    And I enter payment details
+    And I enter payment details and email
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service

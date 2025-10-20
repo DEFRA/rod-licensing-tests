@@ -1,5 +1,5 @@
-const { defineStep } = require('@cucumber/cucumber')
-const LicenceForPage = require('../../pages/licence-for')
+import { defineStep } from '@cucumber/cucumber'
+import LicenceForPage from '../../pages/licence-for.js'
 
 defineStep(/^I am buying a licence for (myself|someone else)$/, async licenceForInput => {
   await LicenceForPage.checkUrl()

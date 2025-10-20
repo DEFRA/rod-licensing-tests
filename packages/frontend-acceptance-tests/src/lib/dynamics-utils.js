@@ -1,4 +1,6 @@
-const mapFields = (data, transformSpec) => {
+'use strict'
+
+export const mapFields = (data, transformSpec) => {
   const transformedData = {}
   for (const key in data) {
     if (transformSpec[key]) {
@@ -8,8 +10,4 @@ const mapFields = (data, transformSpec) => {
     }
   }
   return transformedData
-}
-
-module.exports = {
-  mapFields
 }

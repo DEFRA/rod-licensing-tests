@@ -1,7 +1,7 @@
 'use strict'
 
-const { logger } = require('defra-logging-facade')
-const Page = require('./page')
+import { logger } from 'defra-logging-facade'
+import Page from './page.js'
 
 class OrderConfirmPage extends Page {
   async checkOrderConfirmationPage () {
@@ -15,4 +15,5 @@ class OrderConfirmPage extends Page {
     return $('div.govuk-panel--confirmation > div > strong').getText()
   }
 }
-module.exports = new OrderConfirmPage('/buy/order-complete')
+
+export default new OrderConfirmPage('/buy/order-complete')

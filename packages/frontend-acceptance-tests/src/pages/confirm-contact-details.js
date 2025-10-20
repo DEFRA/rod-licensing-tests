@@ -1,7 +1,7 @@
 'use strict'
 
-const Page = require('./page')
-const { expect } = require('chai')
+import Page from './page.js'
+import { expect } from 'chai'
 
 class ConfirmContactDetails extends Page {
   async confirmTitle (contactMethod) {
@@ -13,4 +13,5 @@ class ConfirmContactDetails extends Page {
     await $(`*=It’s correct`).click()
   }
 }
-module.exports = new ConfirmContactDetails('/buy/check-confirmation-contact')
+
+export default new ConfirmContactDetails('/buy/check-confirmation-contact')

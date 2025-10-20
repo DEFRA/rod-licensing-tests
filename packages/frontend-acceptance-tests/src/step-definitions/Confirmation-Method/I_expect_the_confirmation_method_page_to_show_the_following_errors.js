@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const ConfirmationMethod = require('../../pages/confirmation-method')
+import { defineStep } from '@cucumber/cucumber'
+import ConfirmationMethod from '../../pages/confirmation-method.js'
 
 /**
  1. Step definition access the table defined in the NEG Feature file

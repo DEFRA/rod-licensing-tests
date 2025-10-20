@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const NewsletterNoPage = require('../../pages/newsletter')
+import { defineStep } from '@cucumber/cucumber'
+import NewsletterNoPage from '../../pages/newsletter.js'
 
 defineStep('I do not want a newsletter', async () => {
   await NewsletterNoPage.checkUrl()

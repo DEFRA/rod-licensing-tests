@@ -1,6 +1,7 @@
 'use strict'
-const { defineStep } = require('@cucumber/cucumber')
-const TermsAndConditionsPage = require('../../pages/terms-and-conditions')
+
+import { defineStep } from '@cucumber/cucumber'
+import TermsAndConditionsPage from '../../pages/terms-and-conditions.js'
 
 defineStep('I agree to the terms and conditions and click continue', async () => {
   await TermsAndConditionsPage.checkUrl()

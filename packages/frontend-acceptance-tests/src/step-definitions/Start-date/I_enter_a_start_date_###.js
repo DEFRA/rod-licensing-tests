@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const StartDatePage = require('../../pages/start-kind')
+import { defineStep } from '@cucumber/cucumber'
+import StartDatePage from '../../pages/start-kind.js'
 
 defineStep('I enter date two days from today and click continue', async () => {
   await StartDatePage.checkUrl()

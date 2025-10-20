@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const licenceForPage = require('../../pages/licence-for')
+import { defineStep } from '@cucumber/cucumber'
+import licenceForPage from '../../pages/licence-for.js'
 
 defineStep('I expect the licence for page to show the following errors', async errorTable => {
   const rows = await errorTable.hashes()

@@ -1,7 +1,7 @@
 'use strict'
 
-const Page = require('./page')
-const { logger } = require('defra-logging-facade')
+import Page from './page.js'
+import { logger } from 'defra-logging-facade'
 
 class ConcessionPage extends Page {
   async setConcession (concession) {
@@ -23,4 +23,5 @@ class ConcessionPage extends Page {
     await $('#ni-number').setValue(setNiNum)
   }
 }
-module.exports = new ConcessionPage('/buy/disability-concession')
+
+export default new ConcessionPage('/buy/disability-concession')

@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const addressEntry = require('../../pages/address-entry')
+import { defineStep } from '@cucumber/cucumber'
+import addressEntry from '../../pages/address-entry.js'
 
 defineStep(/^I enter "(.*)" "(.*)" "(.*)" "(.*)" "(.*)" as the address$/, async (buildingNo, street, city, postcode, country) => {
   await addressEntry.checkUrl()

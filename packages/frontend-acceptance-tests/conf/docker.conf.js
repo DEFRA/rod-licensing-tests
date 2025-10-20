@@ -1,4 +1,4 @@
-exports.config = {
+export const config = {
   runner: 'local',
   specs: ['../src/features/**/*.feature'],
   maxInstances: 1,
@@ -58,6 +58,14 @@ exports.config = {
         outputFileFormat: function (options) {
           return `wdio.${options.capabilities.browserName.toLowerCase()}-${options.cid}.xml`
         }
+      }
+    ],
+    [
+      'allure',
+      {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: false,
       }
     ]
   ],

@@ -1,7 +1,7 @@
 'use strict'
 
-const { defineStep } = require('@cucumber/cucumber')
-const ConcessionPage = require('../../pages/concession')
+import { defineStep } from '@cucumber/cucumber'
+import ConcessionPage from '../../pages/concession.js'
 
 defineStep(/^I select "(.*)" as the concession$/, async (concession) => {
   await ConcessionPage.checkUrl()
