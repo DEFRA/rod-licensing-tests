@@ -38,7 +38,7 @@
     "allure-commandline": "2.34.1",
     "axe-core": "4.8.1",
     "chai": "4.3.8",
-    "defra-logging-facade": "git+https://github.com/DEFRA/defra-logging-facade.git#b11d97e",
+    "debug": "4.4.3",
     "dynamics-web-api": "1.7.3",
     "json-to-csv": "1.0.0",
     "moment": "2.29.0",

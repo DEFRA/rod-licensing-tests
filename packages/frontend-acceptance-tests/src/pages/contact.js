@@ -1,7 +1,7 @@
 'use strict'
 
-import { logger } from 'defra-logging-facade'
 import Page from './page.js'
+import logger from '../utils/logger.js'
 
 class ContactPage extends Page {
   async setContact (setEmailAddress, setMobileNumber) {

@@ -1,7 +1,7 @@
 'use strict'
 
 import Page from './page.js'
-import { logger } from 'defra-logging-facade'
+import logger from '../utils/logger.js'
 import { expect } from 'chai'
 
 class AddressEntry extends Page {
