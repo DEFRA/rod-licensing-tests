@@ -8,10 +8,10 @@ class StartWhenPage extends Page {
   async setStartKind (startKind) {
     switch (startKind) {
       case 'Now':
-        info(`Now selected`)
+        logger.info(`Now selected`)
         return $('label[for="licence-to-start"]').click()
       case 'AnotherTime':
-        info(`Another time selected`)
+        logger.info(`Another time selected`)
         return $('label[for="licence-to-start-2"]').click()
     }
   }
@@ -25,7 +25,7 @@ class StartWhenPage extends Page {
     await $('#licence-start-date-day').setValue(day)
     await $('#licence-start-date-month').setValue(month)
     await $('#licence-start-date-year').setValue(year)
-    info(`Licence Start Date set as: ${day}/${month}/${year}`)
+    logger.info(`Licence Start Date set as: ${day}/${month}/${year}`)
   }
 
   async subtractTwoDaysFromToday () {
@@ -37,7 +37,7 @@ class StartWhenPage extends Page {
     await $('#licence-start-date-day').setValue(day)
     await $('#licence-start-date-month').setValue(month)
     await $('#licence-start-date-year').setValue(year)
-    info(`Licence Start Date set as: ${day}/${month}/${year}`)
+    logger.info(`Licence Start Date set as: ${day}/${month}/${year}`)
   }
 }
 

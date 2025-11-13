@@ -9,7 +9,7 @@ class DobPage extends Page {
     await $('#date-of-birth-day').setValue(setdobDay)
     await $('#date-of-birth-month').setValue(setdobMonth)
     await $('#date-of-birth-year').setValue(setdobYear)
-    info(`Date of Birth set as: ${setdobDay}/${setdobMonth}/${setdobYear}`)
+    logger.info(`Date of Birth set as: ${setdobDay}/${setdobMonth}/${setdobYear}`)
   }
 }
 

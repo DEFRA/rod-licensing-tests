@@ -6,12 +6,12 @@ const logger = require('../lib/logger-utils.js')
 class PaymentCancelled extends Page {
   async exitService () {
     await $('=Buy another licence').click()
-    info(`Exit Service`)
+    logger.info(`Exit Service`)
   }
 
   async retryPayment () {
     await $('.button').click()
-    info(`Retrying payment`)
+    logger.info(`Retrying payment`)
   }
 }
 

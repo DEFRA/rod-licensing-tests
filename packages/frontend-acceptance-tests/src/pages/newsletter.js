@@ -8,14 +8,14 @@ class NewsletterPage extends Page {
     const emailInput = await $('#email').isExisting()
 
     // const emailEnabled = !emailField.hasAttribute('hidden')
-    info(`newsletter email is enabled: ${emailInput}`)
+    logger.info(`newsletter email is enabled: ${emailInput}`)
 
     await $('label[for="newsletter"]').click()
     //  $('#email').waitForDisplayed(10000)
     if (!emailInput) {
-      info(`email address already supplied`)
+      logger.info(`email address already supplied`)
     } else await $('#email').setValue(setEmailAddress)
-    info(`set newsletter email to: ${setEmailAddress}`)
+    logger.info(`set newsletter email to: ${setEmailAddress}`)
   }
 
   async setNewsletterNo () {

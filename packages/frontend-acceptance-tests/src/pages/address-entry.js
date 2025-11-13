@@ -8,20 +8,20 @@ class AddressEntry extends Page {
   // Input address data
   async setAddressFields (buildingNo, street, city, postcode, country) {
     await $('#premises').setValue(buildingNo)
-    info(`Building Number set as: ${buildingNo}`)
+    logger.info(`Building Number set as: ${buildingNo}`)
 
     await $('#street').setValue(street)
-    info(`Address line 1 set as: ${street}`)
+    logger.info(`Address line 1 set as: ${street}`)
 
     await $('#town').setValue(city)
-    info(`City set as: ${city}`)
+    logger.info(`City set as: ${city}`)
 
     await $('#postcode').setValue(postcode)
-    info(`Postcode set as: ${postcode}`)
+    logger.info(`Postcode set as: ${postcode}`)
 
     await $('#country-code').click()
     await $(`option[value="${country}"]`).click()
-    info(`Country set as: ${country}`)
+    logger.info(`Country set as: ${country}`)
   }
 
   async checkCountryInDropDown (country, shouldExist) {

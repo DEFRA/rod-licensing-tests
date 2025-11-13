@@ -7,9 +7,9 @@ class ContactSummmaryPage extends Page {
   async nameChange () {
     const nameChanges = $('#change-name')
     await nameChanges.waitForDisplayed(1000)
-    info(`On the contact summary page`)
+    logger.info(`On the contact summary page`)
     await nameChanges.click()
-    info(`On the Name page`)
+    logger.info(`On the Name page`)
   }
 
   async emailChange () {
@@ -17,31 +17,31 @@ class ContactSummmaryPage extends Page {
     if (!changeEmailContact) {
       const emailChanges = $('#change-how-contacted')
       await emailChanges.waitForDisplayed(1000)
-      info(`On the contact summary page`)
+      logger.info(`On the contact summary page`)
       await emailChanges.click()
-      info(`On the Contact page`)
+      logger.info(`On the Contact page`)
     } else {
       await changeEmailContact.waitForDisplayed(1000)
-      info(`On the contact summary page`)
+      logger.info(`On the contact summary page`)
       await changeEmailContact.click()
-      info(`On the Contact page`)
+      logger.info(`On the Contact page`)
     }
   }
 
   async addressChange () {
     const addressChanges = $('#change-address')
     await addressChanges.waitForDisplayed(1000)
-    info(`On the contact summary page`)
+    logger.info(`On the contact summary page`)
     await addressChanges.click()
-    info(`On the Address page`)
+    logger.info(`On the Address page`)
   }
 
   async newsletterChange () {
     const newsChanges = $('#change-newsletter')
     await newsChanges.waitForDisplayed(1000)
-    info(`On the contact summary page`)
+    logger.info(`On the contact summary page`)
     await newsChanges.click()
-    info(`On the Address page`)
+    logger.info(`On the Address page`)
   }
 }
 

@@ -7,7 +7,7 @@ class SetUpPaymentPage extends Page {
   async setUpPaymentCheckbox () {
     await $("label[for='agree']").waitForDisplayed(1000)
     await $("label[for='agree']").click()
-    info('Recurring payment checkbox selected')
+    logger.info('Recurring payment checkbox selected')
   }
 }
 

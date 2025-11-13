@@ -5,7 +5,7 @@ const logger = require('../lib/logger-utils.js')
 
 class StartTimePage extends Page {
   async startTimePicker (time) {
-    info(`Time is set: ${time}`)
+    logger.info(`Time is set: ${time}`)
     switch (time) {
       case 'midnight':
         return $('label[for="licence-start-time-am"]').click()

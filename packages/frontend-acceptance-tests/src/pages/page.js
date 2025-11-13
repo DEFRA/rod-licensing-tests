@@ -31,7 +31,7 @@ class Page {
       await browser.waitUntil(
         async () => {
           currentUrl = await getPageUrl()
-          debug(`Waiting for ${currentUrl} to end with ${this.url}`)
+          logger.debug(`Waiting for ${currentUrl} to end with ${this.url}`)
           return currentUrl.endsWith(this.url)
         },
         {
@@ -54,7 +54,7 @@ class Page {
   async continue (selector = '#continue') {
     await this.checkUrl()
     await $(selector).click()
-    info(`Click continue and navigate to the next page`)
+    logger.info(`Click continue and navigate to the next page`)
   }
 }
 

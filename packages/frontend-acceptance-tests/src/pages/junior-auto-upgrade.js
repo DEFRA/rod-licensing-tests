@@ -5,7 +5,7 @@ const logger = require('../lib/logger-utils.js')
 
 class JuniorUpgradePage extends Page {
   checkJuniorUpgrade () {
-    info('Junior licence page displayed')
+    logger.info('Junior licence page displayed')
   }
 }
 

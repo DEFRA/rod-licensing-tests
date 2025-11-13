@@ -7,7 +7,7 @@ class TermsAndConditionsPage extends Page {
   async setAgreeCheckbox () {
     await $("label[for='agree']").waitForDisplayed(1000)
     await $("label[for='agree']").click()
-    info('Terms and Conditions checkbox selected')
+    logger.info('Terms and Conditions checkbox selected')
   }
 }
 

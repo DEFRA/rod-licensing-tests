@@ -6,7 +6,7 @@ const logger = require('../lib/logger-utils.js')
 class LicenceFor extends Page {
   // Set the value of the radio button to 'yes' or 'no' depending on the data file value
   async setLicenceFor (licenceForInput) {
-    info(`Licence for: ${licenceForInput}`)
+    logger.info(`Licence for: ${licenceForInput}`)
     if (licenceForInput === 'someone else') {
       return $('label[for="selector-someone-else"]').click()
     } else {

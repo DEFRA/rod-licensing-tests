@@ -7,7 +7,7 @@ class GovPayConfirmPage extends Page {
   async continue () {
     await $('#confirm').waitForDisplayed(1000)
     await $('#confirm').click()
-    info(`On the Payment Confirmation page - Confirm clicked.......`)
+    logger.info(`On the Payment Confirmation page - Confirm clicked.......`)
   }
 }
 

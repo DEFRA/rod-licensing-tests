@@ -9,31 +9,31 @@ class ContactPage extends Page {
     if (setEmailAddress && emailInput) {
       await $('label[for="how-contacted"]').click()
       await $('#email').setValue(setEmailAddress)
-      info(`set contact details to: ${setEmailAddress}`)
+      logger.info(`set contact details to: ${setEmailAddress}`)
     } else if (setEmailAddress && !emailInput) {
       await $('#change-email').click()
       await $('#email').setValue(setEmailAddress)
-      info(`change contact details to: ${setEmailAddress}`)
+      logger.info(`change contact details to: ${setEmailAddress}`)
     } else {
       await $('label[for="how-contacted-2"]').click()
       await $('#text').setValue(setMobileNumber)
-      info(`set contact details to: ${setMobileNumber}`)
+      logger.info(`set contact details to: ${setMobileNumber}`)
     }
   }
 
   async selectContactEmail () {
     await $('label[for="how-contacted"]').click()
-    info(`Email selected, no value added`)
+    logger.info(`Email selected, no value added`)
   }
 
   async selectContactMobile () {
     await $('label[for="how-contacted-2"]').click()
-    info(`Mobile selected, no value added`)
+    logger.info(`Mobile selected, no value added`)
   }
 
   async setNoContact () {
     await $('label[for="how-contacted-3"]').click()
-    info(`No contact details available`)
+    logger.info(`No contact details available`)
   }
 }
 

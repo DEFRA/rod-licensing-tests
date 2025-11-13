@@ -8,7 +8,7 @@ class NamePage extends Page {
   async setName (setFirstName, setSurName) {
     await $('#first-name').setValue(setFirstName)
     await $('#last-name').setValue(setSurName)
-    info(`Name entered as:  ${setFirstName} ${setSurName}`)
+    logger.info(`Name entered as:  ${setFirstName} ${setSurName}`)
   }
 }
 

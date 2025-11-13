@@ -3,7 +3,7 @@ const logger = require('../lib/logger-utils.js')
 
 class FishTypePage extends Page {
   setFishType = async (fishType) => {
-    info(`Licence Type selected as: ${fishType}`)
+    logger.info(`Licence Type selected as: ${fishType}`)
     switch (fishType) {
       case 'coarse2':
         return $('label[for="selector-trout-and-coarse-2-rod"]').click()

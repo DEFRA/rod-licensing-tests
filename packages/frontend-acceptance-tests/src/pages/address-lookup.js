@@ -7,9 +7,9 @@ class AddressPage extends Page {
   // Input data to house number and postcode depending on the data file value
   async setHouseNumberAndPostcode (setHouseNumber, setPostcode) {
     await $('#premises').setValue(setHouseNumber)
-    info(`House Number set as: ${setHouseNumber}`)
+    logger.info(`House Number set as: ${setHouseNumber}`)
     await $('#postcode').setValue(setPostcode)
-    info(`Postcode set as: ${setPostcode}`)
+    logger.info(`Postcode set as: ${setPostcode}`)
   }
 
   async manuallyInputAddressLink () {

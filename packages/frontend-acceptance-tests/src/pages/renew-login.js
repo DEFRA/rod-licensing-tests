@@ -9,12 +9,12 @@ class RenewLoginPage extends Page {
     await $('#date-of-birth-day').setValue(setDobDay)
     await $('#date-of-birth-month').setValue(setDobMonth)
     await $('#date-of-birth-year').setValue(setDobYear)
-    info(`Date of Birth set as: ${setDobDay}/${setDobMonth}/${setDobYear}`)
+    logger.info(`Date of Birth set as: ${setDobDay}/${setDobMonth}/${setDobYear}`)
   }
 
   async setRenewalPostcode (setPostcode) {
     await $('#postcode').setValue(setPostcode)
-    info(`Postcode set as: ${setPostcode}`)
+    logger.info(`Postcode set as: ${setPostcode}`)
   }
 }
 

@@ -7,7 +7,7 @@ class AddressResults extends Page {
   // Set the radio button depending on data file value, and click continue
   async selectAddress () {
     await $('label[for="address"]').click()
-    info(`Address selected successfully`)
+    logger.info(`Address selected successfully`)
   }
 }
 

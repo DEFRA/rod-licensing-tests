@@ -7,7 +7,7 @@ class OrderConfirmPage extends Page {
   async checkOrderConfirmationPage () {
     // TODO: Howard - talk to Graham and get him to add an ID with the permission number
     await $('#permissionNumber').waitForDisplayed(1000)
-    info(`On the Permission Confirmation page - Order Complete`)
+    logger.info(`On the Permission Confirmation page - Order Complete`)
   }
 
   async getPermissionNumber () {
