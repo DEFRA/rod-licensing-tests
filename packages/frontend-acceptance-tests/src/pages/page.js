@@ -1,7 +1,8 @@
 'use strict'
 
+import logger from'../lib/logger-utils.js'
+
 const { expect } = require('chai')
-const logger = require('../lib/logger-utils.js')
 
 class Page {
   constructor (url) {

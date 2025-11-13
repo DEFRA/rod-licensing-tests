@@ -1,7 +1,7 @@
 'use strict'
 
 import Page from './page.js'
-const logger = require('../lib/logger-utils.js')
+import logger from'../lib/logger-utils.js'
 
 class AddressResults extends Page {
   // Set the radio button depending on data file value, and click continue

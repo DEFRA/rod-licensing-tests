@@ -1,7 +1,7 @@
 'use strict'
 
 import Page from './page.js'
-const logger = require('../lib/logger-utils.js')
+import logger from'../lib/logger-utils.js'
 import moment from 'moment'
 
 class StartWhenPage extends Page {

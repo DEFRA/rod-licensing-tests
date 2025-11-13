@@ -1,7 +1,7 @@
 'use strict'
 
 import Page from './page.js'
-const logger = require('../lib/logger-utils.js')
+import logger from'../lib/logger-utils.js'
 
 class NamePage extends Page {
   // Set the value in first name and surname fields
