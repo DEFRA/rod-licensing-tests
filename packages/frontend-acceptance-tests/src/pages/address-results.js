@@ -1,7 +1,7 @@
 'use strict'
 
 import Page from './page.js'
-import logger from '../utils/logger.js'
+import logger from '../lib/logger-utils.js'
 
 class AddressResults extends Page {
   // Set the radio button depending on data file value, and click continue

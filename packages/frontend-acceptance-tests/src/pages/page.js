@@ -1,7 +1,7 @@
 'use strict'
 
 import { expect } from 'chai'
-import logger from '../utils/logger.js'
+import logger from '../lib/logger-utils.js'
 
 class Page {
   constructor (url) {

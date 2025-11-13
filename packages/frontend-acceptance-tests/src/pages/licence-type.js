@@ -1,5 +1,5 @@
 import Page from './page.js'
-import logger from '../utils/logger.js'
+import logger from '../lib/logger-utils.js'
 
 class FishTypePage extends Page {
   setFishType = async (fishType) => {
