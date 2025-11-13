@@ -14,12 +14,11 @@ createDebug.inspectOpts.colors = true
 const info = createDebug('rod-licensing-tests:info')
 info.color = COLORS.GREEN
 
-
 const error = createDebug('rod-licensing-tests:error')
 error.color = COLORS.RED
 
-// Make debug reference the same instance as error
-const debug = error
+const debug = createDebug('rod-licensing-tests:debug')
+debug.color = COLORS.BLUE
 
 module.exports = {
   info,
