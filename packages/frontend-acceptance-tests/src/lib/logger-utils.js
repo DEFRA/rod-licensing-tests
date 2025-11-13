@@ -10,16 +10,15 @@ const COLORS = {
 if (!process.env.DEBUG) {
   createDebug.enable('rod-licensing-tests:error,rod-licensing-tests:info')
 }
+createDebug.inspectOpts.colors = true
 
 const info = createDebug('rod-licensing-tests:info')
-info.log = console.log.bind(console)
 info.color = COLORS.GREEN
 
 const error = createDebug('rod-licensing-tests:error')
 error.color = COLORS.RED
 
 const debug = createDebug('rod-licensing-tests:debug')
-debug.log = console.log.bind(console)
 debug.color = COLORS.BLUE
 
 function logRequest (request, h) {
