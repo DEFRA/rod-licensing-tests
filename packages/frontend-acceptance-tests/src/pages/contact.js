@@ -1,7 +1,7 @@
 'use strict'
 
 import Page from './page.js'
-import logger from '../lib/logger-utils.js'
+import { info } from '../lib/logger-utils.js'
 
 class ContactPage extends Page {
   async setContact (setEmailAddress, setMobileNumber) {
@@ -9,31 +9,31 @@ class ContactPage extends Page {
     if (setEmailAddress && emailInput) {
       await $('label[for="how-contacted"]').click()
       await $('#email').setValue(setEmailAddress)
-      logger.info(`set contact details to: ${setEmailAddress}`)
+      info(`set contact details to: ${setEmailAddress}`)
     } else if (setEmailAddress && !emailInput) {
       await $('#change-email').click()
       await $('#email').setValue(setEmailAddress)
-      logger.info(`change contact details to: ${setEmailAddress}`)
+      info(`change contact details to: ${setEmailAddress}`)
     } else {
       await $('label[for="how-contacted-2"]').click()
       await $('#text').setValue(setMobileNumber)
-      logger.info(`set contact details to: ${setMobileNumber}`)
+      info(`set contact details to: ${setMobileNumber}`)
     }
   }
 
   async selectContactEmail () {
     await $('label[for="how-contacted"]').click()
-    logger.info(`Email selected, no value added`)
+    info(`Email selected, no value added`)
   }
 
   async selectContactMobile () {
     await $('label[for="how-contacted-2"]').click()
-    logger.info(`Mobile selected, no value added`)
+    info(`Mobile selected, no value added`)
   }
 
   async setNoContact () {
     await $('label[for="how-contacted-3"]').click()
-    logger.info(`No contact details available`)
+    info(`No contact details available`)
   }
 }
 

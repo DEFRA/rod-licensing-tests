@@ -1,13 +1,13 @@
 'use strict'
 
 import Page from './page.js'
-import logger from '../lib/logger-utils.js'
+import { info } from '../lib/logger-utils.js'
 
 class SetUpPaymentPage extends Page {
   async setUpPaymentCheckbox () {
     await $("label[for='agree']").waitForDisplayed(1000)
     await $("label[for='agree']").click()
-    logger.info('Recurring payment checkbox selected')
+    info('Recurring payment checkbox selected')
   }
 }
 

@@ -1,11 +1,11 @@
 'use strict'
 
 import Page from './page.js'
-import logger from '../lib/logger-utils.js'
+import { info } from '../lib/logger-utils.js'
 
 class StartTimePage extends Page {
   async startTimePicker (time) {
-    logger.info(`Time is set: ${time}`)
+    info(`Time is set: ${time}`)
     switch (time) {
       case 'midnight':
         return $('label[for="licence-start-time-am"]').click()

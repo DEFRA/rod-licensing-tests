@@ -1,7 +1,7 @@
 'use strict'
 
 import { expect } from 'chai'
-import logger from '../lib/logger-utils.js'
+import { debug, error, info } from '../lib/logger-utils.js'
 
 class Page {
   constructor (url) {
@@ -31,7 +31,7 @@ class Page {
       await browser.waitUntil(
         async () => {
           currentUrl = await getPageUrl()
-          logger.debug(`Waiting for ${currentUrl} to end with ${this.url}`)
+          debug(`Waiting for ${currentUrl} to end with ${this.url}`)
           return currentUrl.endsWith(this.url)
         },
         {
@@ -40,7 +40,7 @@ class Page {
         }
       )
     } catch (error) {
-      logger.error(error)
+      error(error)
       throw error
     }
   }
@@ -54,7 +54,7 @@ class Page {
   async continue (selector = '#continue') {
     await this.checkUrl()
     await $(selector).click()
-    logger.info(`Click continue and navigate to the next page`)
+    info(`Click continue and navigate to the next page`)
   }
 }
 

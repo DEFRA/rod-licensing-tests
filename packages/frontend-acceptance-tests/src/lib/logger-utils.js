@@ -1,6 +1,5 @@
 const createDebug = require('debug')
 
-const IGNORE_PATHS = ['/public/', '/robots.txt']
 const COLORS = {
   GREEN: 2,
   RED: 1,
@@ -21,27 +20,8 @@ error.color = COLORS.RED
 const debug = createDebug('rod-licensing-tests:debug')
 debug.color = COLORS.BLUE
 
-function logRequest (request, h) {
-  if (IGNORE_PATHS.some(ignorePath => request.path.includes(ignorePath))) {
-    return h.continue
-  }
-  const { method, path, payload } = request
-  const body = payload ? ` - ${JSON.stringify(payload)}` : ''
-  info(`${method.toUpperCase()} ${path}${body}`)
-  return h.continue
-}
-function logResponse (request, h) {
-  if (IGNORE_PATHS.some(ignorePath => request.path.includes(ignorePath))) {
-    return h.continue
-  }
-  const { method, path, response } = request
-  info(`${method.toUpperCase()} ${path} -> ${response?.statusCode}`)
-    return h.continue
-}
 module.exports = {
   info,
   error,
-  debug,
-  logRequest,
-  logResponse
+  debug
 }

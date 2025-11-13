@@ -1,21 +1,21 @@
 'use strict'
 
 import Page from './page.js'
-import logger from '../lib/logger-utils.js'
+import { info } from '../lib/logger-utils.js'
 
 class NewsletterPage extends Page {
   async setNewsletterYes (setEmailAddress) {
     const emailInput = await $('#email').isExisting()
 
     // const emailEnabled = !emailField.hasAttribute('hidden')
-    logger.info(`newsletter email is enabled: ${emailInput}`)
+    info(`newsletter email is enabled: ${emailInput}`)
 
     await $('label[for="newsletter"]').click()
     //  $('#email').waitForDisplayed(10000)
     if (!emailInput) {
-      logger.info(`email address already supplied`)
+      info(`email address already supplied`)
     } else await $('#email').setValue(setEmailAddress)
-    logger.info(`set newsletter email to: ${setEmailAddress}`)
+    info(`set newsletter email to: ${setEmailAddress}`)
   }
 
   async setNewsletterNo () {

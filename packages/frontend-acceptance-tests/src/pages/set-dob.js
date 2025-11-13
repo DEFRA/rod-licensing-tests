@@ -1,7 +1,7 @@
 'use strict'
 
 import Page from './page.js'
-import logger from '../lib/logger-utils.js'
+import { info } from '../lib/logger-utils.js'
 
 class DobPage extends Page {
   // Set the value of the radio button to 'yes' or 'no' depending on the data file value
@@ -9,7 +9,7 @@ class DobPage extends Page {
     await $('#date-of-birth-day').setValue(setdobDay)
     await $('#date-of-birth-month').setValue(setdobMonth)
     await $('#date-of-birth-year').setValue(setdobYear)
-    logger.info(`Date of Birth set as: ${setdobDay}/${setdobMonth}/${setdobYear}`)
+    info(`Date of Birth set as: ${setdobDay}/${setdobMonth}/${setdobYear}`)
   }
 }
 

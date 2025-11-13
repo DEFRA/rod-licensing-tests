@@ -1,27 +1,27 @@
 'use strict'
 
 import Page from './page.js'
-import logger from '../lib/logger-utils.js'
+import { info } from '../lib/logger-utils.js'
 import { expect } from 'chai'
 
 class AddressEntry extends Page {
   // Input address data
   async setAddressFields (buildingNo, street, city, postcode, country) {
     await $('#premises').setValue(buildingNo)
-    logger.info(`Building Number set as: ${buildingNo}`)
+    info(`Building Number set as: ${buildingNo}`)
 
     await $('#street').setValue(street)
-    logger.info(`Address line 1 set as: ${street}`)
+    info(`Address line 1 set as: ${street}`)
 
     await $('#town').setValue(city)
-    logger.info(`City set as: ${city}`)
+    info(`City set as: ${city}`)
 
     await $('#postcode').setValue(postcode)
-    logger.info(`Postcode set as: ${postcode}`)
+    info(`Postcode set as: ${postcode}`)
 
     await $('#country-code').click()
     await $(`option[value="${country}"]`).click()
-    logger.info(`Country set as: ${country}`)
+    info(`Country set as: ${country}`)
   }
 
   async checkCountryInDropDown (country, shouldExist) {

@@ -1,17 +1,17 @@
 'use strict'
 
 import Page from './page.js'
-import logger from '../lib/logger-utils.js'
+import { info } from '../lib/logger-utils.js'
 
 class FulfilmentPage extends Page {
   async selectDigitalLicense () {
     await $('label[for="licence-option"]').click()
-    logger.info(`Digital license selected, no value added`)
+    info(`Digital license selected, no value added`)
   }
 
   async selectPaperLicense () {
     await $('label[for="licence-option-2"]').click()
-    logger.info(`Paper license selected, no value added`)
+    info(`Paper license selected, no value added`)
   }
 }
 

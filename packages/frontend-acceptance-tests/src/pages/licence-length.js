@@ -1,12 +1,12 @@
 'use strict'
 
 import Page from './page.js'
-import logger from '../lib/logger-utils.js'
+import { info } from '../lib/logger-utils.js'
 
 class LicenceLengthPage extends Page {
   // Set the value of the radio button to 'yes' or 'no' depending on the data file value
   async setLicenceDuration (licenceDuration) {
-    logger.info(`Licence requested: ${licenceDuration}`)
+   info(`Licence requested: ${licenceDuration}`)
     switch (licenceDuration) {
       case '1dayLicence':
         return $('label[for="selector-1D"]').click()

@@ -1,17 +1,17 @@
 'use strict'
 
 import Page from './page.js'
-import logger from '../lib/logger-utils.js'
+import { info } from '../lib/logger-utils.js'
 import moment from 'moment'
 
 class StartWhenPage extends Page {
   async setStartKind (startKind) {
     switch (startKind) {
       case 'Now':
-        logger.info(`Now selected`)
+        info(`Now selected`)
         return $('label[for="licence-to-start"]').click()
       case 'AnotherTime':
-        logger.info(`Another time selected`)
+        info(`Another time selected`)
         return $('label[for="licence-to-start-2"]').click()
     }
   }
@@ -25,7 +25,7 @@ class StartWhenPage extends Page {
     await $('#licence-start-date-day').setValue(day)
     await $('#licence-start-date-month').setValue(month)
     await $('#licence-start-date-year').setValue(year)
-    logger.info(`Licence Start Date set as: ${day}/${month}/${year}`)
+    info(`Licence Start Date set as: ${day}/${month}/${year}`)
   }
 
   async subtractTwoDaysFromToday () {
@@ -37,7 +37,7 @@ class StartWhenPage extends Page {
     await $('#licence-start-date-day').setValue(day)
     await $('#licence-start-date-month').setValue(month)
     await $('#licence-start-date-year').setValue(year)
-    logger.info(`Licence Start Date set as: ${day}/${month}/${year}`)
+    info(`Licence Start Date set as: ${day}/${month}/${year}`)
   }
 }
 

@@ -1,9 +1,9 @@
 import Page from './page.js'
-import logger from '../lib/logger-utils.js'
+import { info } from '../lib/logger-utils.js'
 
 class FishTypePage extends Page {
   setFishType = async (fishType) => {
-    logger.info(`Licence Type selected as: ${fishType}`)
+    info(`Licence Type selected as: ${fishType}`)
     switch (fishType) {
       case 'coarse2':
         return $('label[for="selector-trout-and-coarse-2-rod"]').click()
