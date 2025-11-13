@@ -1,7 +1,7 @@
 'use strict'
 
 import Page from './page.js'
-import { info } from '../lib/logger-utils.js'
+const logger = require('../lib/logger-utils.js')
 
 class JuniorUpgradePage extends Page {
   checkJuniorUpgrade () {

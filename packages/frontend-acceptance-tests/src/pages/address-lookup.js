@@ -1,7 +1,7 @@
 'use strict'
 
 import Page from './page.js'
-import { info } from '../lib/logger-utils.js'
+const logger = require('../lib/logger-utils.js')
 
 class AddressPage extends Page {
   // Input data to house number and postcode depending on the data file value

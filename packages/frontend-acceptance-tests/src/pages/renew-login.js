@@ -1,7 +1,7 @@
 'use strict'
 
 import Page from './page.js'
-import { info } from '../lib/logger-utils.js'
+const logger = require('../lib/logger-utils.js')
 
 class RenewLoginPage extends Page {
   // Set the value of the radio button to 'yes' or 'no' depending on the data file value

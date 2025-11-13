@@ -1,7 +1,7 @@
 'use strict'
 
-import { expect } from 'chai'
-import { debug, error, info } from '../lib/logger-utils.js'
+const { expect } = require('chai')
+const logger = require('../lib/logger-utils.js')
 
 class Page {
   constructor (url) {
@@ -39,9 +39,9 @@ class Page {
           timeoutMsg: `Expected Url ${currentUrl} to end with ${this.url}`
         }
       )
-    } catch (error) {
-      error(error)
-      throw error
+    } catch (err) {
+      logger.error(err)
+      throw err
     }
   }
 

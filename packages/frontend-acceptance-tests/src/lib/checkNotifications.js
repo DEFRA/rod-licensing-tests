@@ -1,7 +1,7 @@
 'use strict'
 
 import { dynamicsClient } from './dynamics-client.js'
-import { info } from './logger-utils.js'
+const logger = require('./logger-utils.js')
 
 const MAX_ATTEMPTS = 10
 const DELAY = 5000
