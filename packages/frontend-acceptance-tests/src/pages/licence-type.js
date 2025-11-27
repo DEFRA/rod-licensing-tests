@@ -1,5 +1,5 @@
 import Page from './page.js'
-import { logger } from 'defra-logging-facade'
+import logger from'../lib/logger-utils.js'
 
 class FishTypePage extends Page {
   setFishType = async (fishType) => {
