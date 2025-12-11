@@ -23,7 +23,7 @@ Feature: I want to buy an senior annual fishing
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
     And I select single licence only and click continue
-    And I enter payment details
+    And I enter payment and address details
     And I confirm payment details
   #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
@@ -47,7 +47,7 @@ Feature: I want to buy an senior annual fishing
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
     And I select single licence only and click continue
-    And I enter payment details
+    And I enter payment and address details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
@@ -69,7 +69,7 @@ Feature: I want to buy an senior annual fishing
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
     And I select single licence only and click continue
-    And I enter payment details
+    And I enter payment and address details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
@@ -91,7 +91,7 @@ Feature: I want to buy an senior annual fishing
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
     And I select single licence only and click continue
-    And I enter payment details
+    And I enter payment and address details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
@@ -115,7 +115,7 @@ Feature: I want to buy an senior annual fishing
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
     And I select single licence only and click continue
-    And I enter payment details
+    And I enter payment and address details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
@@ -137,7 +137,7 @@ Feature: I want to buy an senior annual fishing
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
     And I select single licence only and click continue
-    And I enter payment details
+    And I enter payment and address details
     And I confirm payment details
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
