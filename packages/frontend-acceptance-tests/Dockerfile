@@ -19,11 +19,11 @@ RUN	apt-get update; \
     apt-get install -y google-chrome-stable
 
 # Install Firefox using apt-get and configure to avoid incompatible Snap version
-RUN apt-get update; \
-    apt-get install -y software-properties-common
-RUN add-apt-repository ppa:mozillateam/ppa
-RUN printf 'Package: firefox\nPin: release o=LP-PPA-mozillateam\nPin-Priority: 1500\n' | tee /etc/apt/preferences.d/mozilla-firefox
-RUN apt-get install -y firefox
+# RUN apt-get update; \
+#     apt-get install -y software-properties-common ca-certificates
+# RUN add-apt-repository ppa:mozillateam/ppa
+# RUN printf 'Package: firefox\nPin: release o=LP-PPA-mozillateam\nPin-Priority: 1500\n' | tee /etc/apt/preferences.d/mozilla-firefox
+# RUN apt-get install -y firefox
 
 # Cleanup after install
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*

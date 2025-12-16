@@ -25,7 +25,7 @@
     "format": "prettier-standard",
     "lerna:clean": "lerna clean --yes",
     "docker:build": "docker-compose -f docker/compose.yml build",
-    "docker:run-acceptance-tests": "docker run --env-file docker/env/frontend_acceptance_tests.env rod_licensing/frontend_acceptance_tests:latest",
+    "docker:run-acceptance-tests": "docker-compose -f docker/compose.yml run frontend_acceptance_tests",
     "prepare": "husky install",
     "pre-commit": "lint-staged"
   },

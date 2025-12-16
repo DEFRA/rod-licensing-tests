@@ -44,6 +44,7 @@ node_modules/
 # dotenv environment variables file
 .env
 .env.test
+docker/env/*.env
 
 # IntelliJ Prefs
 .idea/
