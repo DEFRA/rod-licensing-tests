@@ -14,4 +14,23 @@ defineStep('I enter payment details', async () => {
   await GovPayPage.setCardExpiryYear(futureYear)
   await GovPayPage.setCvc('555')
   await GovPayPage.continue()
+
+  try {
+    if (await $('#cardholder-name').isExisting()) {
+      await GovPayPage.setCardHolderName('Cardholder Name')
+    }
+    if (await $('#address-line-1').isExisting()) {
+      await GovPayPage.setAddressLine1('Horizon House')
+    }
+    if (await $('#address-city').isExisting()) {
+      await GovPayPage.setAddressCity('Bristol')
+    }
+    if (await $('#address-postcode').isExisting()) {
+      await GovPayPage.setAddressPostcode('BS1 5AH')
+    }
+    if (await $('#email').isExisting()) {
+      await GovPayPage.setEmail('test@example.com')
+    }
+  } catch (e) {
+  }
 })
