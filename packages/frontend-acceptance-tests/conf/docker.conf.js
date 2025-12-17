@@ -1,10 +1,7 @@
 export const config = {
   runner: 'local',
-  specs: [
-    '../src/features/6 - Easy Renewals/**/*.feature',
-    '../src/features/7 - Manual Address Entry/**/*.feature'
-  ],
-  maxInstances: 2,
+  specs: ['../src/features/**/*.feature'],
+  maxInstances: 1,
   capabilities: [
     {
       browserName: 'chrome',
@@ -13,14 +10,6 @@ export const config = {
         args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage']
       }
     }
-    // ---- FIREFOX DISABLED TEMPORARILY ----
-    // {
-    //   browserName: 'firefox',
-    //   browserVersion: 'latest',
-    //   'moz:firefoxOptions': {
-    //     args: ['-headless']
-    //   }
-    // }
   ],
   // set to info, debug or trace for more info
   logLevel: 'warn',
