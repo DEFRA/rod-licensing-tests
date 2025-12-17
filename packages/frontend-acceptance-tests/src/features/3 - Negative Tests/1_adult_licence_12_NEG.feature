@@ -19,8 +19,8 @@ Scenario: Scenario 1 - Licence For, Name and DOB Errors
     When I am on the name page and I click continue
     Then I expect the name page to show the following errors
       | ErrorMessage  |
-      | Enter the licence holder’s first name  |
-      | Enter the licence holder’s last name  |
+      | Enter the first name  |
+      | Enter the last name  |
 
 #  Scenario 1.3: Test Errors on Contact Name page -  Error messages - 1 character entered
     When I enter "H" "D" as an invalid name
