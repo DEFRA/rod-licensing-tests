@@ -54,13 +54,13 @@ packages/
    npm install
    ```
 
-2.  Navigate to the `frontend-acceptance-tests` package
+2. Navigate to the `frontend-acceptance-tests` package
 
    ```
    cd packages/frontend-acceptance-tests
    ```
 
-3.  Install the package dependencies
+3. Install the package dependencies
 
    ```
    npm install
@@ -68,17 +68,25 @@ packages/
 
    Note: The first `npm install` in the root does not install the dependencies inside each module.
 
-4.  Create a `.env` file in the `frontend-acceptance-tests` directory and copy the values from Jenkins Test configuration (https://fsh-jenkins.aws-int.defra.cloud/)
+4. Set environment variables
+
+   - Set `SERVICE_URL` in `docker/env/frontend_acceptance_tests.env` to the environment you want to test
+   - Locate the environment in Jenkins (dev/test/pre-prod etc.)
+   - Copy over the env vars to `docker/env/frontend_acceptance_tests.env`, **except the http proxy vars!**
+
+5. Build the container:
 
    ```
-   touch .env
+   npm run docker:build
    ```
 
-5.  Run the tests using:
+6. Run the tests using:
 
    ```
-   npm run local
+   npm run docker:run-acceptance-tests
    ```
+
+The tests only pass if SHOW_RECURRING_PAYMENTS=true
 
 ## Contributing to this project
 
