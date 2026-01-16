@@ -41,7 +41,7 @@
     "debug": "4.4.3",
     "dynamics-web-api": "1.7.3",
     "json-to-csv": "1.0.0",
-    "moment": "2.29.0",
+    "moment": "2.30.0",
     "simple-oauth2": "4.1.0",
     "webdriverio": "9.18.1"
   }
