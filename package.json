@@ -21,6 +21,9 @@
     "type": "git",
     "url": "git://github.com/DEFRA/rod-licensing-tests.git"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "format": "prettier-standard",
     "lerna:clean": "lerna clean --yes",
@@ -32,8 +35,8 @@
   "devDependencies": {
     "@ksmithut/prettier-standard": "0.1.7",
     "eslint-plugin-chai-friendly": "0.7.2",
-    "husky": "8.0.3",
-    "lerna": "7.3.0",
+    "husky": "9.1.7",
+    "lerna": "9.0.3",
     "lerna-update-wizard": "1.1.2",
     "standard": "17.1.0"
   },
