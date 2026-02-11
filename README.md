@@ -82,8 +82,6 @@ packages/
    npm run docker:run-acceptance-tests
    ```
 
-The tests only pass if SHOW_RECURRING_PAYMENTS=true
-
 ## Contributing to this project
 
 Please read our [contribution guidelines](CONTRIBUTING.md)
