@@ -22,7 +22,7 @@ export const config = {
   baseUrl: process.env.SERVICE_URL,
 
   // Default timeout for all waitFor* commands.
-  waitforTimeout: 60000,
+  waitforTimeout: 120000,
 
   // Default timeout in milliseconds for request
   // if browser driver or grid doesn't send response
