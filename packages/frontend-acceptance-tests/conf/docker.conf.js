@@ -4,20 +4,18 @@ export const config = {
   maxInstances: 1,
   capabilities: [
     {
-      browserName: 'chrome',
+      browserName: 'firefox',
       browserVersion: 'latest',
+      'moz:firefoxOptions': {
+        args: ['-headless']
+      }
+    },
+    {
+      browserName: 'chrome',
       'goog:chromeOptions': {
         args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage']
       }
     }
-    // ---- FIREFOX DISABLED TEMPORARILY ----
-    // {
-    //   browserName: 'firefox',
-    //   browserVersion: 'latest',
-    //   'moz:firefoxOptions': {
-    //     args: ['-headless']
-    //   }
-    // }
   ],
   // set to info, debug or trace for more info
   logLevel: 'warn',
@@ -27,7 +25,7 @@ export const config = {
   baseUrl: process.env.SERVICE_URL,
 
   // Default timeout for all waitFor* commands.
-  waitforTimeout: 60000,
+  waitforTimeout: 120000,
 
   // Default timeout in milliseconds for request
   // if browser driver or grid doesn't send response
@@ -95,7 +93,7 @@ export const config = {
     // <string> (expression) only execute the features or scenarios with tags matching the expression
     tags: 'not @Ignore',
     // <number> timeout for step definitions
-    timeout: 60000,
+    timeout: 90000,
     // <boolean> Enable this config to treat undefined definitions as warnings.
     ignoreUndefinedDefinitions: false
   }

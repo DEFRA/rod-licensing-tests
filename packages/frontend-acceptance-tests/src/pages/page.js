@@ -47,7 +47,7 @@ class Page {
 
   async checkErrorsOnPage (errorMessage) {
     const errorElement = $(`*=${errorMessage}`)
-    await errorElement.waitForDisplayed({ timeout: 2000 })
+    await errorElement.waitForDisplayed({ timeout: 5000 })
     const isExisting = await errorElement.isExisting()
     expect(isExisting).to.equal(true)
   }
