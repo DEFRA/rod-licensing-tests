@@ -53,7 +53,7 @@ const generateReferenceNumber = (endDate) => {
       .toString()
       .padStart(2, '0') +
     (endDate.getMonth() + 1).toString().padStart(2, '0') +
-    endDate.getYear().toString()
+    (endDate.getFullYear() % 100).toString().padStart(2, '0')
   const block2 = '2WT3FHS' // to remain accurate, this depends on the permission details (number of rods, licence type, licensee name, etc) staying the same
   const block3 = generateSequenceNumber()
   const cs = calculateLuhn(`${block1}${block2}${block3}`)
