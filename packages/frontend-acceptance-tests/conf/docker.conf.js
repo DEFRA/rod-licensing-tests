@@ -1,4 +1,5 @@
 export const config = {
+  xvfb: false,
   runner: 'local',
   specs: ['../src/features/**/*.feature'],
   maxInstances: 1,
