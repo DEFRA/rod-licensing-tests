@@ -9,11 +9,9 @@ RUN set -ex; \
 	apt-get update; \
 	apt-get upgrade -y; \
 	apt-get install -y --no-install-recommends wget curl gnupg git default-jdk g++ build-essential
-#	apt-get install -y --no-install-recommends wget curl gnupg git default-jdk g++ build-essential xvfb
 
 # Install google-chrome repo
 RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/google-linux-signing-keyring.gpg
-# RUN wget -q https://dl.google.com/linux/linux_signing_key.pub -O /usr/share/keyrings/google-linux-signing-keyring.gpg
 RUN /bin/sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/google-linux-signing-keyring.gpg] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
 
 # Install Chrome
