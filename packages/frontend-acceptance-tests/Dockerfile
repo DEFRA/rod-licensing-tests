@@ -8,7 +8,8 @@ ENV TZ=Europe/London
 RUN set -ex; \
 	apt-get update; \
 	apt-get upgrade -y; \
-	apt-get install -y --no-install-recommends wget curl gnupg git default-jdk g++ build-essential xvfb
+	apt-get install -y --no-install-recommends wget curl gnupg git default-jdk g++ build-essential
+#	apt-get install -y --no-install-recommends wget curl gnupg git default-jdk g++ build-essential xvfb
 
 # Install google-chrome repo
 RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | gpg --dearmor -o /usr/share/keyrings/google-linux-signing-keyring.gpg
