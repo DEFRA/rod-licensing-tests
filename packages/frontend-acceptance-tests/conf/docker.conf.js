@@ -1,4 +1,5 @@
 export const config = {
+  xvfb: false,
   runner: 'local',
   specs: ['../src/features/**/*.feature'],
   maxInstances: 1,
@@ -13,7 +14,7 @@ export const config = {
     {
       browserName: 'chrome',
       'goog:chromeOptions': {
-        args: ['--headless', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage']
+        args: ['--headless=new', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage']
       }
     }
   ],
