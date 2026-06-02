@@ -54,7 +54,6 @@ Feature: I want to renew my fishing licence
     And I am on the licence summary page and I click continue
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
-    And I select single licence only and click continue
     Then I am on the order confirmation page and exit the service
 
   Scenario: Scenario 6 - Renew my late stage junior licence that expires in 2 days
@@ -63,7 +62,6 @@ Feature: I want to renew my fishing licence
     And I am on the licence summary page and I click continue
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
-    And I select single licence only and click continue
     Then I am on the order confirmation page and exit the service
 
   Scenario: Scenario 7 - Renew my junior licence that expires in 2 days, but I now need an adult licence
@@ -77,7 +75,7 @@ Feature: I want to renew my fishing licence
     And I confirm payment details
     Then I am on the order confirmation page and exit the service
 
-  Scenario: Scenario 7 - Renew my junior licence that expires in 2 days, but I now need an adult licence (slightly older)
+  Scenario: Scenario 8 - Renew my junior licence that expires in 2 days, but I now need an adult licence (slightly older)
     Given I am at the start of the renewal journey with a "Coarse 12 month 2 Rod Licence (Junior)" licence, that expires in 2 days and I am 1 days over my 17th birthday and my name is "Bart" "SimpsonRenewal"
     And I enter "SN153PG" as the postcode and click continue
     And I am on the licence summary page and I click continue
