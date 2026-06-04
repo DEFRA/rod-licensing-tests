@@ -65,7 +65,7 @@ Feature: I want to renew my fishing licence
     Then I am on the order confirmation page and exit the service
 
   Scenario: Scenario 7 - Renew my junior licence that expires in 2 days as a 16 year old the day before my 17th birthday
-    Given I am at the start of the renewal journey with a "Coarse 12 month 2 Rod Licence (Junior)" licence, that expires in 2 days and I am 1 days under my 17th birthday and my name is "Bart" "SimpsonRenewal"
+    Given I am at the start of the renewal journey with a "Coarse 12 month 2 Rod Licence (Junior)" licence, that expires in 0 days and I am 1 days under my 17th birthday and my name is "Bart" "SimpsonRenewal"
     And I enter "SN153PG" as the postcode and click continue
     And I am on the licence summary page and I click continue
     And I am on the contact summary page and I click continue
