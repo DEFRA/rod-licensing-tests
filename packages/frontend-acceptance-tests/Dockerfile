@@ -30,6 +30,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 # Install node 20 with npm (via nodesource)
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs \
+    && npm install -g npm@11.19.0 \
     && node -v && npm -v
 
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
@@ -40,9 +41,9 @@ RUN mkdir -p /app/logs
 WORKDIR /app
 VOLUME /app/logs
 
-# Install packages
-COPY packages/frontend-acceptance-tests/package*.json /app/
-RUN npm install
+# Install packages (--ignore-scripts=false overrides .npmrc to allow only the packages approved in allowScripts)
+COPY packages/frontend-acceptance-tests/package*.json packages/frontend-acceptance-tests/.npmrc /app/
+RUN npm install --ignore-scripts=false
 
 # Copy resources
 COPY packages/frontend-acceptance-tests /app/

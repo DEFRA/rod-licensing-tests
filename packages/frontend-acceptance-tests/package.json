@@ -4,7 +4,7 @@
   "description": "Acceptance tests for the Get a Fishing Licence frontend",
   "type": "module",
   "engines": {
-    "node": ">=20"
+    "node": ">=20.17.0"
   },
   "keywords": [
     "rod",
@@ -44,5 +44,11 @@
     "moment": "2.30.0",
     "simple-oauth2": "4.1.0",
     "webdriverio": "9.24.0"
+  },
+  "allowScripts": {
+    "edgedriver@6.3.0": true,
+    "esbuild@0.25.10": true,
+    "fsevents@2.3.3": true,
+    "geckodriver@6.1.1": true
   }
 }
