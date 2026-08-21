@@ -7,7 +7,7 @@ Feature: I want to buy a recurring adult disabled annual fishing
   Scenario: Scenario 1 - 12 Month Adult Benefit licence selecting salmon licence - Immediate start - Enter contact details
     And I am buying a licence for myself
     And I enter "Adult" "Salmon" as the name
-    And I am 7 days over my 17th birthday
+    And I am 7 days over my 18th birthday
     And I enter "Benefit" as the ni concession and I enter "NP382939C" as the concesssion id
     And  I select Now as a start time
     Given I select a "salmon" fishing licence
@@ -32,7 +32,7 @@ Feature: I want to buy a recurring adult disabled annual fishing
   Scenario: Scenario 2 - 12 Month Adult Benefit licence selecting 2 rod sea trout licence - Immediate start - Enter contact-Email
     And I am buying a licence for myself
     And I enter "Adult" "CoarseTwo" as the name
-    And I am 7 days over my 17th birthday
+    And I am 7 days over my 18th birthday
     And I enter "Benefit" as the ni concession and I enter "NP382939C" as the concesssion id
     And  I select Now as a start time
     Given I select a "coarse2" fishing licence
@@ -57,7 +57,7 @@ Feature: I want to buy a recurring adult disabled annual fishing
   Scenario: Scenario 3 - 12 Month Adult Benefit licence selecting 3 rod sea trout licence - Immediate start - By Post - NO contact
     And I am buying a licence for myself
     And I enter "Adult" "CoarseThree" as the name
-    And I am 7 days over my 17th birthday
+    And I am 7 days over my 18th birthday
     And I enter "Benefit" as the ni concession and I enter "NP382939C" as the concesssion id
     And  I select Now as a start time
     Given I select a "coarse3" fishing licence
@@ -80,7 +80,7 @@ Feature: I want to buy a recurring adult disabled annual fishing
   Scenario: Scenario 4 - 12 Month Adult Benefit licence selecting 3 rod sea trout licence - Immediate start - By Post - Enter contact -Email
     And I am buying a licence for myself
     And I enter "Adult" "CoarseThree" as the name
-    And I am 7 days over my 17th birthday
+    And I am 7 days over my 18th birthday
     And I enter "Benefit" as the ni concession and I enter "NP382939C" as the concesssion id
     And  I select Now as a start time
     Given I select a "coarse3" fishing licence
@@ -103,7 +103,7 @@ Feature: I want to buy a recurring adult disabled annual fishing
   Scenario: Scenario 5 - 12 Month Adult licence selecting salmon licence - Immediate start - Enter contact-Text
     And I am buying a licence for myself
     And I enter "Adult" "Salmon" as the name
-    And I am 7 days over my 17th birthday
+    And I am 7 days over my 18th birthday
     And I enter "Benefit" as the ni concession and I enter "NP382939C" as the concesssion id
     And  I select Now as a start time
     Given I select a "salmon" fishing licence
@@ -128,7 +128,7 @@ Feature: I want to buy a recurring adult disabled annual fishing
   Scenario: Scenario 6 - 12 Month Adult licence selecting 3 rod sea trout licence - Immediate start - By Post - Enter contact-Text
     And I am buying a licence for myself
     And I enter "Adult" "CoarseThree" as the name
-    And I am 7 days over my 17th birthday
+    And I am 7 days over my 18th birthday
     And I enter "Benefit" as the ni concession and I enter "NP382939C" as the concesssion id
     And  I select Now as a start time
     Given I select a "coarse3" fishing licence

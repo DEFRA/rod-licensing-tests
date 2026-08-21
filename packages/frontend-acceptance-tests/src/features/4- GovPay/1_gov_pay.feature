@@ -5,7 +5,7 @@ Feature: I want to buy a 1 or 8 day licence adult fishing licence
     Given  I am at the start of the purchase journey
     And I am buying a licence for myself
     And I enter "<firstName>" "<lastName>" as the name
-    *   I am 1 day over my 17th birthday
+    *   I am 1 day over my 18th birthday
     *   I enter "<concession>" concession
     And  I select <startFrom> as a start time
     And I select a "<licenceType>" fishing licence
