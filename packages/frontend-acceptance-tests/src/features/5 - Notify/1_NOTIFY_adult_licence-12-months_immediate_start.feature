@@ -8,7 +8,7 @@ Feature: I want to buy an adult annual fishing - NOTIFY
 
   Scenario: Scenario 1 - 12 Month Adult licence selecting salmon licence - Immediate start - Enter contact details
     And I enter "Adult" "Salmon" as the name
-    *   I am 7 days over my 17th birthday
+    *   I am 7 days over my 18th birthday
     *   I enter "No" concession
     And  I select Now as a start time
     Given I select a "salmon" fishing licence
@@ -32,7 +32,7 @@ Feature: I want to buy an adult annual fishing - NOTIFY
   Scenario: Scenario 2 - 12 Month Adult licence selecting 2 rod sea trout licence - Immediate start - Enter contact-Email
 # Licence details journey starts
     And I enter "Adult" "CoarseTwo" as the name
-    *   I am 7 days over my 17th birthday
+    *   I am 7 days over my 18th birthday
     *   I enter "No" concession
     And  I select Now as a start time
     Given I select a "coarse2" fishing licence
@@ -57,7 +57,7 @@ Feature: I want to buy an adult annual fishing - NOTIFY
   Scenario: Scenario 3 - 12 Month Adult licence selecting 3 rod sea trout licence - Immediate start - NO contact
  # Licence details journey starts
     And I enter "Adult" "CoarseThree" as the name
-    *   I am 7 days over my 17th birthday
+    *   I am 7 days over my 18th birthday
     *   I enter "No" concession
     And  I select Now as a start time
     Given I select a "coarse3" fishing licence
@@ -66,7 +66,7 @@ Feature: I want to buy an adult annual fishing - NOTIFY
     And I enter "3" and "SN153PG" as my house number and postcode
     And I select "100121002711" as an address
     And I select paper license
-    And I select make a note of the license 
+    And I select make a note of the license
     And I do not have either of these
     And I do not want a newsletter
     And I am on the contact summary page and I click continue
@@ -80,7 +80,7 @@ Feature: I want to buy an adult annual fishing - NOTIFY
   Scenario: Scenario 3 - 12 Month Adult licence selecting 2 rod sea trout licence - Immediate start - Enter contact-Text
 # Licence details journey starts
     And I enter "Adult" "CoarseTwo" as the name
-    *   I am 7 days over my 17th birthday
+    *   I am 7 days over my 18th birthday
     *   I enter "No" concession
     And  I select Now as a start time
     Given I select a "coarse2" fishing licence

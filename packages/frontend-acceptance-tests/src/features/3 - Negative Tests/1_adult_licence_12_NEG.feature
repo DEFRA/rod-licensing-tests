@@ -58,7 +58,7 @@ Scenario: Scenario 1 - Licence For, Name and DOB Errors
     Then I expect the dob page to show the following errors
       | ErrorMessage  |
       | The date of birth must be in the past  |
-    *   I am 7 days over my 17th birthday
+    *   I am 7 days over my 18th birthday
 
 
 Scenario: Scenario 2 - Concession Errors
