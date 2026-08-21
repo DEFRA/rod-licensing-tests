@@ -1,7 +1,7 @@
 @browser
-Feature: I want to buy an adult annual fishing
+Feature: I want to buy an adult annual fishing licence as a 17 year old
 
-  Background: Buy an adult fishing licence
+  Background: Buy an adult fishing licence as a 17 year old
     Given  I am at the start of the purchase journey
 
   Scenario: Scenario 1 - 12 Month Adult 17-year-old licence selecting salmon licence - Immediate start - Enter contact details
