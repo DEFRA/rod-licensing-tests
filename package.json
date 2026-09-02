@@ -63,14 +63,5 @@
     "*": [
       "prettier-standard --fix --lint --staged"
     ]
-  },
-  "allowScripts": {
-    "edgedriver@6.3.0": true,
-    "esbuild@0.27.2": true,
-    "geckodriver@6.1.0": true,
-    "nx@22.3.3": true
-  },
-  "dependencies": {
-    "npm": "11.19.0"
   }
 }

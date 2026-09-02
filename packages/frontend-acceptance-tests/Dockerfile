@@ -41,9 +41,9 @@ RUN mkdir -p /app/logs
 WORKDIR /app
 VOLUME /app/logs
 
-# Install packages (--ignore-scripts=false overrides .npmrc to allow only the packages approved in allowScripts)
+# Install packages
 COPY packages/frontend-acceptance-tests/package*.json packages/frontend-acceptance-tests/.npmrc /app/
-RUN npm install --ignore-scripts=false
+RUN npm install
 
 # Copy resources
 COPY packages/frontend-acceptance-tests /app/
