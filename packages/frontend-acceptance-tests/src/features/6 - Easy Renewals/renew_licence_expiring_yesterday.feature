@@ -88,6 +88,26 @@ Feature: I want to renew my fishing licence
     And I am on the licence summary page and I click continue
     And I am on the contact summary page and I click continue
     And I agree to the terms and conditions and click continue
+    And I enter payment details
+    And I confirm payment details
+    Then I am on the order confirmation page and exit the service
+
+  Scenario: Scenario 10 - Renew my adult licence that expires in two days as a 17 year old on the day before my 18th birthday
+    Given I am at the start of the renewal journey with a "Coarse 12 month 2 Rod Licence (Full)" licence, that expires in 2 days and I am 1 days under my 18th birthday and my name is "Lisa" "SimpsonRenewal"
+    And I enter "SN153PG" as the postcode and click continue
+    And I am on the licence summary page and I click continue
+    And I am on the contact summary page and I click continue
+    And I agree to the terms and conditions and click continue
+    And I enter payment details
+    And I confirm payment details
+    Then I am on the order confirmation page and exit the service
+
+  Scenario: Scenario 11 - Renew my adult licence that expires today as an 18 year old on my birthday
+    Given I am at the start of the renewal journey with a "Coarse 12 month 2 Rod Licence (Full)" licence, that expires in 0 days and I am 0 days over my 18th birthday and my name is "Lisa" "SimpsonRenewal"
+    And I enter "SN153PG" as the postcode and click continue
+    And I am on the licence summary page and I click continue
+    And I am on the contact summary page and I click continue
+    And I agree to the terms and conditions and click continue
     And I select single licence only and click continue
     And I enter payment details
     And I confirm payment details
