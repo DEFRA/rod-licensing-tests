@@ -18,29 +18,53 @@ mkdir [project-name] && cd [project-name]
 
 #**Initialise a Node.js project in that folder:**
 
+```
 npm init
+```
 
 #**Clone project to local directory:**
 
+```
 git clone https://github.com/DEFRA/rod-licensing-tests.git
+```
 
 Ensure Node v20.17+ is installed and running:
 
-nvm install v20.17
+```
+nvm install 20.17.0
+```
 
-nvm use v20.17
+```
+nvm use 20.17.0
+```
 
+```
 node -v
+```
+
+Ensure npm v11.19.0+ is installed and running:
+
+```
+npm install -g npm@11.19.0
+```
+
+```
+npm -v
+```
 
 #**Running all the tests:**
 
+```
 npm start local
+```
 
 **Isolating Tests:**
 
 To run isolated tests you can suffix the above command with:
 
+```
 npm start local --spec 01_my_isolated_test.feature
+```
 
 #**Writing Tests:**
 
@@ -70,4 +94,6 @@ BROWSERSTACK_USER=[your BrowserStack username]
 
 Then run tests using:
 
+```
 npm start browserstack
+```
