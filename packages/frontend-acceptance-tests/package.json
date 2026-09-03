@@ -4,7 +4,8 @@
   "description": "Acceptance tests for the Get a Fishing Licence frontend",
   "type": "module",
   "engines": {
-    "node": ">=20.17.0"
+    "node": ">=20.17.0",
+    "npm": ">=11.19.0"
   },
   "keywords": [
     "rod",
