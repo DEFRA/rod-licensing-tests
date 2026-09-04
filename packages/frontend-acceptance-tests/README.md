@@ -42,7 +42,7 @@ nvm use 20.17.0
 node -v
 ```
 
-Ensure npm v11.19.0+ is installed and running:
+Ensure npm v11.19.0 is installed and running:
 
 ```
 npm install -g npm@11.19.0
