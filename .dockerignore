@@ -17,5 +17,6 @@ pids
 **/node_modules/
 
 **/.*
+!packages/frontend-acceptance-tests/.npmrc
 
 **/Dockerfile*
