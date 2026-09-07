@@ -6,7 +6,7 @@
   "type": "module",
   "engines": {
     "node": ">=20.17.0",
-    "npm": ">=11.19.0"
+    "npm": ">=11.19.0 <12.0.0"
   },
   "keywords": [
     "rod",
