@@ -29,7 +29,7 @@ Feature: I want to buy a texted recurring salmon adult annual fishing
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
     Examples:
-        | buildingNo | street         | city   | postcode | country | number                       |
+        | buildingNo | street         | city   | postcode | country | number      |
         | 10         | Downing Street | London | SW1A 2AA | GB-ENG  | 07834000009 |
 
   Scenario: Scenario 2 - Text Salmon Full Senior
@@ -57,7 +57,7 @@ Feature: I want to buy a texted recurring salmon adult annual fishing
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
     Examples:
-        | buildingNo | street         | city   | postcode | country | number                       |
+        | buildingNo | street         | city   | postcode | country | number      |
         | 10         | Downing Street | London | SW1A 2AA | GB-ENG  | 07834000010 |
 
   Scenario: Scenario 3 - Text Salmon Disabled Adult
@@ -85,7 +85,7 @@ Feature: I want to buy a texted recurring salmon adult annual fishing
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
     Examples:
-        | buildingNo | street         | city   | postcode | country | number                       |
+        | buildingNo | street         | city   | postcode | country | number      |
         | 10         | Downing Street | London | SW1A 2AA | GB-ENG  | 07834000011 |
 
   Scenario: Scenario 4 - Text Salmon Disabled Senior
@@ -113,5 +113,5 @@ Feature: I want to buy a texted recurring salmon adult annual fishing
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
     Examples:
-        | buildingNo | street         | city   | postcode | country | number                       |
+        | buildingNo | street         | city   | postcode | country | number      |
         | 10         | Downing Street | London | SW1A 2AA | GB-ENG  | 07834000012 |
