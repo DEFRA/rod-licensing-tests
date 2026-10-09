@@ -10,6 +10,12 @@ export const config = {
       'moz:firefoxOptions': {
         args: ['-headless']
       }
+    },
+    {
+      browserName: 'chrome',
+      'goog:chromeOptions': {
+        args: ['--headless=new', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage']
+      }
     }
   ],
   // set to info, debug or trace for more info

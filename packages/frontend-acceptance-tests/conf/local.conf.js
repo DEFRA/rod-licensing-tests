@@ -3,11 +3,11 @@ export const config = {
   specs: ['../src/features/**/*.feature'],
   maxInstances: 1,
   capabilities: [
-    // {
-    //   browserName: 'chrome',
-    //   browserVersion: 'latest',
-    //   acceptInsecureCerts: true
-    // },
+    {
+      browserName: 'chrome',
+      browserVersion: 'latest',
+      acceptInsecureCerts: true
+    },
     {
       browserName: 'firefox',
       browserVersion: 'latest',
