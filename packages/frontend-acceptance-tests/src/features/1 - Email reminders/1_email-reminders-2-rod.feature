@@ -1,12 +1,12 @@
 @browser
-Feature: I want to buy a recurring adult annual fishing
+Feature: I want to buy an emailed recurring 2-rod adult annual fishing
 
   Background: Buy an adult fishing licence
     Given  I am at the start of the purchase journey
 
   Scenario: Scenario 1 - Email Two Trout Full Adult
     And I am buying a licence for myself
-    And I enter "Email Two Trout Full Adult" "Banana" as the name
+    And I enter "Email Two Trout Full Adult" "Remindertest" as the name
     And I am 7 days over my 65th birthday
     And I enter "No" concession
     And I select Now as a start time
@@ -34,7 +34,7 @@ Feature: I want to buy a recurring adult annual fishing
 
   Scenario: Scenario 2 - Email Two Trout Full Senior
     And I am buying a licence for myself
-    And I enter "Email Two Trout Full Senior" "Banana" as the name
+    And I enter "Email Two Trout Full Senior" "Remindertest" as the name
     And I am 7 days over my 65th birthday
     And I enter "No" concession
     And I select Now as a start time
@@ -58,11 +58,11 @@ Feature: I want to buy a recurring adult annual fishing
     Then I am on the order confirmation page and exit the service
     Examples:
         | buildingNo | street         | city   | postcode | country | email                       |
-        | 10         | Downing Street | London | SW1A 2AA | GB-ENG  | 2-trout-full-65@example.com |
+        | 10         | Downing Street | London | SW1A 2AA | GB-ENG  | 2-trout-full-66@example.com |
 
   Scenario: Scenario 3 - Email Two Trout Disabled Adult
     And I am buying a licence for myself
-    And I enter "Email Two Trout Disabled Adult" "Banana" as the name
+    And I enter "Email Two Trout Disabled Adult" "Remindertest" as the name
     And I am 7 days over my 65th birthday
     And I select "BlueBadge" as the concession
     And I select Now as a start time
@@ -85,12 +85,12 @@ Feature: I want to buy a recurring adult annual fishing
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
     Examples:
-        | buildingNo | street         | city   | postcode | country | email                       |
-        | 10         | Downing Street | London | SW1A 2AA | GB-ENG  | 2-trout-full-65@example.com |
+        | buildingNo | street         | city   | postcode | country | email                           |
+        | 10         | Downing Street | London | SW1A 2AA | GB-ENG  | 2-trout-disabled-65@example.com |
 
   Scenario: Scenario 4 - Email Two Trout Disabled Senior
     And I am buying a licence for myself
-    And I enter "Email Two Trout Disabled Senior" "Banana" as the name
+    And I enter "Email Two Trout Disabled Senior" "Remindertest" as the name
     And I am 7 days over my 65th birthday
     And I select "BlueBadge" as the concession
     And I select Now as a start time
@@ -113,5 +113,5 @@ Feature: I want to buy a recurring adult annual fishing
     #    Then I expect to receive a confirmation via GOV.UK Notify
     Then I am on the order confirmation page and exit the service
     Examples:
-        | buildingNo | street         | city   | postcode | country | email                       |
-        | 10         | Downing Street | London | SW1A 2AA | GB-ENG  | 2-trout-full-65@example.com |
+        | buildingNo | street         | city   | postcode | country | email                           |
+        | 10         | Downing Street | London | SW1A 2AA | GB-ENG  | 2-trout-disabled-66@example.com |
