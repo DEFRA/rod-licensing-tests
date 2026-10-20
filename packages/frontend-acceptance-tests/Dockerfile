@@ -43,7 +43,7 @@ VOLUME /app/logs
 
 # Install packages
 COPY packages/frontend-acceptance-tests/package*.json packages/frontend-acceptance-tests/.npmrc /app/
-RUN npm ci
+RUN npm install
 
 # Copy resources
 COPY packages/frontend-acceptance-tests /app/
