@@ -56,7 +56,7 @@ Feature: I want to buy a posted recurring 2-rod adult annual fishing
     Then I am on the order confirmation page and exit the service
     Examples:
         | buildingNo | street  | city      | postcode | country |
-        | 2 Trout    | Full 65 | Testville | TE1 1ST  | GB-ENG  |
+        | 2 Trout    | Full 66 | Testville | TE1 1ST  | GB-ENG  |
 
   Scenario: Scenario 3 - Letter Two Trout Disabled Adult
     And I am buying a licence for myself
